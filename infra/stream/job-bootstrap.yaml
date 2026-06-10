@@ -1,0 +1,47 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: bootstrap
+  namespace: radio
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: radio-data
+        - name: origin
+          hostPath:
+            path: /home/sib/radio.git
+            type: Directory
+      containers:
+        - name: bootstrap
+          image: localhost/radio-brain:v1
+          imagePullPolicy: Never
+          resources:
+            limits: { cpu: "2", memory: 1Gi }
+          volumeMounts:
+            - { name: data, mountPath: /data }
+            - { name: origin, mountPath: /origin }
+          command:
+            - /bin/sh
+            - -c
+            - |
+              set -eux
+              git config --global --add safe.directory '*'
+              [ -d /data/repo/.git ] || git clone /origin /data/repo
+              mkdir -p /data/video /data/music/active /data/music/raw /data/hls /data/www /data/home
+              ffmpeg -y -f lavfi \
+                -i "gradients=s=1920x1080:c0=0x1a1a2e:c1=0x0f3460:d=60:speed=0.01" \
+                -r 30 -c:v libx264 -preset medium -b:v 4M -maxrate 4M \
+                -bufsize 8M -g 60 -keyint_min 60 -pix_fmt yuv420p \
+                /data/video/loop.mp4
+              for i in 1 2 3; do
+                ffmpeg -y -f lavfi -i "anoisesrc=color=brown:d=180" \
+                  -af "lowpass=f=500,volume=0.4" -ar 44100 -ac 2 -b:a 160k \
+                  "/data/music/active/placeholder-$i.mp3"
+              done
+              for f in /data/music/active/*.mp3; do echo "file '$f'"; done > /data/playlist.txt
+              /data/repo/agent/bin/publish-www.sh
