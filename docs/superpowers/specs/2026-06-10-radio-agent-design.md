@@ -28,7 +28,10 @@ Jour 0, fait par l'humain :
 
 1. Compte Google/YouTube dédié (vérifié téléphone, live activé : délai 24 h).
 2. Compte Twitch dédié.
-3. Compte Suno Pro (10 $/mois, droits commerciaux inclus).
+3. Compte de génération musicale avec API officielle et droits commerciaux :
+   ElevenLabs Music par défaut (~11-22 €/mois), Stable Audio en alternative
+   (paiement à la génération). Suno est écarté : pas d'API officielle en 2026,
+   les wrappers tiers violent ses ToS, ce que la constitution interdit.
 4. Compte Anthropic Console dédié à l'entreprise, crédits prépayés (~40 €).
    À 0 crédit le cerveau s'arrête : l'agent ne peut pas s'endetter.
 5. Carte virtuelle (Revolut ou équivalent) plafonnée au solde de la caisse.
@@ -65,12 +68,13 @@ Compte API dédié, crédits prépayés. Trois rythmes :
 
 - **ops** (toutes les 6 h, réveil court) : santé du stream, modération des
   commentaires, relevé des métriques, redémarrage si besoin.
-- **création** (1×/jour) : génération Suno par lots, tri sévère (rejet de la
+- **création** (1×/jour) : génération musicale par lots via l'API, tri sévère (rejet de la
   majorité des morceaux), mastering léger, mise à jour de la playlist,
   1-2 clips Shorts/TikTok, posts sociaux, entrée du journal public.
 - **conseil d'administration** (1×/semaine) : analytics, décisions
   stratégiques (thèmes, plateformes, budget, lancer/tuer une chaîne),
-  mise à jour du livre de comptes, rapport hebdo envoyé à l'humain par mail.
+  mise à jour du livre de comptes, rapport hebdo écrit dans le journal et
+  publié sur le site (envoi mail : option future).
 
 ### La mémoire : ce repo git
 
@@ -121,7 +125,7 @@ aussi ce qui rend l'expérience intéressante à documenter.
 | Poste | Montant |
 |---|---|
 | Crédits API Anthropic (prépayés) | ~40 € |
-| Suno Pro (~10 €/mois × 3 mois) | ~30 € |
+| Génération musicale, API officielle (~10 €/mois × 3 mois) | ~30 € |
 | Hébergement (k3s existant) | 0 € |
 | Réserve libre (promo, domaine, outils — alloué par l'agent) | ~30 € |
 
