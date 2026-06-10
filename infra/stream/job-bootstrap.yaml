@@ -8,6 +8,10 @@ spec:
   template:
     spec:
       restartPolicy: Never
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       volumes:
         - name: data
           persistentVolumeClaim:
@@ -25,14 +29,16 @@ spec:
           volumeMounts:
             - { name: data, mountPath: /data }
             - { name: origin, mountPath: /origin }
+          env:
+            - {name: HOME, value: /data/home}
           command:
             - /bin/sh
             - -c
             - |
               set -eux
+              mkdir -p /data/video /data/music/active /data/music/raw /data/hls /data/www /data/home
               git config --global --add safe.directory '*'
               [ -d /data/repo/.git ] || git clone /origin /data/repo
-              mkdir -p /data/video /data/music/active /data/music/raw /data/hls /data/www /data/home
               ffmpeg -y -f lavfi \
                 -i "gradients=s=1920x1080:c0=0x1a1a2e:c1=0x0f3460:d=60:speed=0.01" \
                 -r 30 -c:v libx264 -preset medium -b:v 4M -maxrate 4M \

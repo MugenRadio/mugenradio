@@ -16,6 +16,10 @@ spec:
         spec:
           restartPolicy: Never
           serviceAccountName: radio-agent
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
           volumes:
             - name: data
               persistentVolumeClaim:
@@ -29,12 +33,14 @@ spec:
               image: localhost/radio-brain:v1
               imagePullPolicy: Never
               resources:
+                requests: { cpu: 500m, memory: 512Mi }
                 limits: { cpu: "2", memory: 2Gi }
               env:
                 - { name: WAKE_KIND, value: ops }
                 - { name: MODEL, value: claude-haiku-4-5 }
                 - { name: MAX_TURNS, value: "15" }
                 - { name: API_BUDGET_USD, value: "45" }
+                - { name: HOME, value: /data/home }
               envFrom:
                 - secretRef: { name: radio-keys, optional: true }
               volumeMounts:
@@ -44,6 +50,7 @@ spec:
                 - /bin/sh
                 - -c
                 - |
+                  mkdir -p /data/home
                   git config --global --add safe.directory '*'
                   [ -d /data/repo/.git ] || git clone /origin /data/repo
                   exec /bin/sh /data/repo/agent/bin/wake.sh
@@ -66,6 +73,10 @@ spec:
         spec:
           restartPolicy: Never
           serviceAccountName: radio-agent
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
           volumes:
             - name: data
               persistentVolumeClaim:
@@ -79,12 +90,14 @@ spec:
               image: localhost/radio-brain:v1
               imagePullPolicy: Never
               resources:
+                requests: { cpu: 500m, memory: 512Mi }
                 limits: { cpu: "2", memory: 2Gi }
               env:
                 - { name: WAKE_KIND, value: creation }
                 - { name: MODEL, value: claude-sonnet-4-6 }
                 - { name: MAX_TURNS, value: "60" }
                 - { name: API_BUDGET_USD, value: "45" }
+                - { name: HOME, value: /data/home }
               envFrom:
                 - secretRef: { name: radio-keys, optional: true }
               volumeMounts:
@@ -94,6 +107,7 @@ spec:
                 - /bin/sh
                 - -c
                 - |
+                  mkdir -p /data/home
                   git config --global --add safe.directory '*'
                   [ -d /data/repo/.git ] || git clone /origin /data/repo
                   exec /bin/sh /data/repo/agent/bin/wake.sh
@@ -116,6 +130,10 @@ spec:
         spec:
           restartPolicy: Never
           serviceAccountName: radio-agent
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
           volumes:
             - name: data
               persistentVolumeClaim:
@@ -129,12 +147,14 @@ spec:
               image: localhost/radio-brain:v1
               imagePullPolicy: Never
               resources:
+                requests: { cpu: 500m, memory: 512Mi }
                 limits: { cpu: "2", memory: 2Gi }
               env:
                 - { name: WAKE_KIND, value: conseil }
                 - { name: MODEL, value: claude-sonnet-4-6 }
                 - { name: MAX_TURNS, value: "80" }
                 - { name: API_BUDGET_USD, value: "45" }
+                - { name: HOME, value: /data/home }
               envFrom:
                 - secretRef: { name: radio-keys, optional: true }
               volumeMounts:
@@ -144,6 +164,7 @@ spec:
                 - /bin/sh
                 - -c
                 - |
+                  mkdir -p /data/home
                   git config --global --add safe.directory '*'
                   [ -d /data/repo/.git ] || git clone /origin /data/repo
                   exec /bin/sh /data/repo/agent/bin/wake.sh
