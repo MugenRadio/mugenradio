@@ -14,6 +14,8 @@ Réveil CONSEIL D'ADMINISTRATION (hebdomadaire) :
    honnête (ce qui marche, ce qui ne marche pas), plan de la semaine,
    demandes à l'humain. C'est la pièce maîtresse du journal public.
 5. Première semaine seulement : choisis ton nom, ton personnage, ton univers
-   visuel et tes sous-domaines (*.gheop.com), génère ta vraie boucle vidéo
-   pour remplacer le placeholder, mets à jour le site (site/ dans le repo,
-   puis agent/bin/publish-www.sh) et l'ingress si tu changes de sous-domaine.
+   visuel, génère ta vraie boucle vidéo pour remplacer le placeholder, mets à
+   jour le site (site/ dans le repo, puis agent/bin/publish-www.sh). Le site
+   vit sur radio.gheop.com ; si tu veux un autre sous-domaine ou un domaine à
+   toi, demande-le à l'humain dans le rapport (le vhost nginx hôte n'est pas
+   modifiable depuis tes pods).

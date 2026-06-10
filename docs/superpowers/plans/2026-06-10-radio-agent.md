@@ -975,54 +975,24 @@ git commit -m "feat: site web servi par nginx (statique + HLS) derrière traefik
 
 ---
 
-### Task 12 : cert-manager et TLS
+### Task 12 : TLS — remplacée à l'exécution par certbot hôte
 
-**Files:**
-- Create: `infra/cert-manager/cluster-issuer.yaml`
+Constat sur le serveur : pas de traefik dans ce k3s ; les ports 80/443 sont
+tenus par un nginx hôte (configs par-app dans /etc/nginx/sites-enabled/,
+TLS via certbot). cert-manager et l'Ingress n'avaient donc aucun sens ici.
 
-- [ ] **Step 1 : installer cert-manager** (sauter si `kubectl get ns cert-manager` existe déjà)
+Fait à la place (commit b418a34) :
+- Service web passé en NodePort 30092 (infra/web/deployment.yaml, avec un
+  initContainer mkdir pour le subPath hls imbriqué).
+- Vhost infra/web/radio.gheop.com.conf (copie de la version live, certbot
+  inclus) installé dans /etc/nginx/sites-enabled/.
+- Certificat Let's Encrypt émis par `sudo certbot --nginx -d radio.gheop.com`,
+  renouvellement par le mécanisme existant du serveur.
+- Vérifié : HTTP/2 200 sur https://radio.gheop.com/, #EXTM3U sur /hls/live.m3u8,
+  redirect 301 HTTP→HTTPS.
 
-```bash
-ssh gheop.com "sudo kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml"
-ssh gheop.com "sudo kubectl -n cert-manager wait --for=condition=available deploy --all --timeout=300s"
-```
-
-- [ ] **Step 2 : écrire `infra/cert-manager/cluster-issuer.yaml`**
-
-```yaml
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt
-spec:
-  acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    email: lizardonthestorm@gmail.com
-    privateKeySecretRef:
-      name: letsencrypt-account-key
-    solvers:
-      - http01:
-          ingress:
-            ingressClassName: traefik
-```
-
-- [ ] **Step 3 : appliquer et vérifier le certificat**
-
-```bash
-ssh gheop.com "sudo kubectl apply -f -" < infra/cert-manager/cluster-issuer.yaml
-sleep 90
-ssh gheop.com "sudo kubectl -n radio get certificate"
-curl -sI https://radio.gheop.com/ | head -1
-```
-
-Expected: certificate `radio-web-tls` READY `True`, puis `HTTP/2 200`.
-
-- [ ] **Step 4 : commit**
-
-```bash
-git add infra/cert-manager/
-git commit -m "feat: cert-manager, TLS Let's Encrypt sur le site"
-```
+Conséquence pour l'agent : changement de sous-domaine = demande à l'humain
+(prompt conseil amendé).
 
 ---
 

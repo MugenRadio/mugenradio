@@ -84,11 +84,17 @@ Compte API dédié, crédits prépayés. Trois rythmes :
 - `constitution.md` : les règles dures (voir plus bas).
 - Le cerveau commit après chaque réveil. Tout est auditable à tout moment.
 
-### Le site web (Deployment + Ingress)
+### Le site web (Deployment + NodePort + nginx hôte)
 
-Deux faces, sur des sous-domaines `*.gheop.com` choisis par l'agent :
+Le k3s de gheop.com n'a pas d'ingress controller : le pattern du serveur est
+NodePort + vhost nginx hôte + certbot, et la radio le suit (NodePort 30092,
+`/etc/nginx/sites-enabled/radio.gheop.com.conf`). Conséquence : l'agent ne
+peut pas changer de sous-domaine seul, il le demande via le rapport hebdo.
+
+Deux faces, servies sur `radio.gheop.com` :
 
 - **La radio** : lecteur HLS, identité visuelle, liens plateformes, merch plus tard.
+  (Le contenu du site reste entièrement aux mains de l'agent via `site/` + publication.)
 - **Le journal public** : l'expérience documentée ("une IA tente de survivre
   avec 100 €") — journal de bord, livre de comptes en clair, décisions.
   C'est à la fois la transparence exigée par les plateformes et le principal
