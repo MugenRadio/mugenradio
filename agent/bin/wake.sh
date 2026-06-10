@@ -1,0 +1,38 @@
+#!/bin/sh
+# Réveil du cerveau : pull mémoire, garde-fou budget, Claude, comptes, publication.
+set -eu
+REPO=/data/repo
+PROMPT="$REPO/agent/prompts/${WAKE_KIND:?WAKE_KIND requis (ops|creation|conseil)}.md"
+export HOME=/data/home
+mkdir -p "$HOME"
+git config --global user.name radio-agent
+git config --global user.email agent@radio.invalid
+git config --global --add safe.directory '*'
+git -C "$REPO" pull --rebase || true
+
+# Garde-fou : caisse API vide -> le cerveau ne pense plus, il le note et sort.
+SPENT=$(awk -F, 'NR>1 {s+=$3} END {printf "%.2f", s}' "$REPO/comptes/api_usage.csv")
+LIMIT="${API_BUDGET_USD:-45}"
+if awk "BEGIN{exit !($SPENT >= $LIMIT)}"; then
+  echo "$(date -Iseconds) caisse API vide ($SPENT/$LIMIT USD), réveil $WAKE_KIND annulé" \
+    >> "$REPO/journal/incidents.log"
+  git -C "$REPO" add -A
+  git -C "$REPO" commit -m "ops: cerveau à sec ($SPENT USD dépensés)" || true
+  git -C "$REPO" push || true
+  exit 0
+fi
+
+cd "$REPO"
+OUT=/tmp/wake.json
+claude -p "$(cat "$PROMPT")" \
+  --model "${MODEL:-claude-sonnet-4-6}" \
+  --max-turns "${MAX_TURNS:-40}" \
+  --dangerously-skip-permissions \
+  --output-format json > "$OUT" || true
+COST=$(jq -r '.total_cost_usd // 0' "$OUT" 2>/dev/null || echo 0)
+echo "$(date -Iseconds),$WAKE_KIND,$COST" >> comptes/api_usage.csv
+
+"$REPO/agent/bin/publish-www.sh"
+git add -A
+git commit -m "réveil $WAKE_KIND" || true
+git push || true
