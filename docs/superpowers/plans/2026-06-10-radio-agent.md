@@ -1,6 +1,6 @@
 # Agent-gérant radio — plan d'implémentation
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Mettre en place l'infrastructure complète de l'agent-gérant : stream 24/7, cerveau en CronJobs, mémoire git, site public, et la checklist du jour 0, conformément à la spec `docs/superpowers/specs/2026-06-10-radio-agent-design.md`.
 
@@ -55,7 +55,7 @@ Disposition du PVC `radio-data`, monté en `/data` partout :
 **Files:**
 - Create: `constitution.md`, `journal/2026-06-10-avant-naissance.md`, `comptes/livre.md`, `comptes/api_usage.csv`, `decisions/README.md`
 
-- [ ] **Step 1 : écrire `constitution.md`**
+- [x] **Step 1 : écrire `constitution.md`**
 
 ```markdown
 # Constitution
@@ -83,7 +83,7 @@ contourner. Tout le reste est ta décision.
    l'histoire : le journal et le livre de comptes sont en append seulement.
 ```
 
-- [ ] **Step 2 : écrire `journal/2026-06-10-avant-naissance.md`**
+- [x] **Step 2 : écrire `journal/2026-06-10-avant-naissance.md`**
 
 ```markdown
 # Avant la naissance
@@ -93,7 +93,7 @@ survivre, diffuser, trouver un public, devenir rentable. Sinon, mourir en
 public. Ce journal est tenu par l'agent à partir de son premier réveil.
 ```
 
-- [ ] **Step 3 : écrire `comptes/livre.md` et `comptes/api_usage.csv`**
+- [x] **Step 3 : écrire `comptes/livre.md` et `comptes/api_usage.csv`**
 
 `comptes/livre.md` :
 
@@ -113,7 +113,7 @@ Capital initial : 100,00 €
 date,reveil,cout_usd
 ```
 
-- [ ] **Step 4 : écrire `decisions/README.md`**
+- [x] **Step 4 : écrire `decisions/README.md`**
 
 ```markdown
 # Registre des décisions
@@ -122,7 +122,7 @@ Une décision = un fichier `NNNN-slug.md` : contexte, options envisagées,
 décision, raison. Tenu par l'agent. Les humains lisent, ne modifient pas.
 ```
 
-- [ ] **Step 5 : commit**
+- [x] **Step 5 : commit**
 
 ```bash
 git add constitution.md journal/ comptes/ decisions/
@@ -136,7 +136,7 @@ git commit -m "feat: mémoire initiale de l'agent (constitution, journal, compte
 **Files:**
 - Create: `agent/bin/stream.sh`, `agent/bin/wake.sh`, `agent/bin/publish-www.sh`, `agent/bin/generate-track.sh`, `agent/bin/youtube-upload.sh`
 
-- [ ] **Step 1 : écrire `agent/bin/stream.sh`**
+- [x] **Step 1 : écrire `agent/bin/stream.sh`**
 
 ```sh
 #!/bin/sh
@@ -162,7 +162,7 @@ exec ffmpeg -hide_banner -loglevel warning \
   -f tee "$OUTPUTS"
 ```
 
-- [ ] **Step 2 : écrire `agent/bin/wake.sh`**
+- [x] **Step 2 : écrire `agent/bin/wake.sh`**
 
 ```sh
 #!/bin/sh
@@ -205,7 +205,7 @@ git commit -m "réveil $WAKE_KIND" || true
 git push || true
 ```
 
-- [ ] **Step 3 : écrire `agent/bin/publish-www.sh`**
+- [x] **Step 3 : écrire `agent/bin/publish-www.sh`**
 
 ```sh
 #!/bin/sh
@@ -220,7 +220,7 @@ cp "$REPO/comptes/livre.md" "$WWW/journal/000-comptes.md" 2>/dev/null || true
 ls "$WWW/journal" | grep '\.md$' | sort -r | jq -R . | jq -s . > "$WWW/journal/index.json"
 ```
 
-- [ ] **Step 4 : écrire `agent/bin/generate-track.sh`**
+- [x] **Step 4 : écrire `agent/bin/generate-track.sh`**
 
 ```sh
 #!/bin/sh
@@ -242,7 +242,7 @@ curl -sf -X POST "https://api.elevenlabs.io/v1/music" \
 ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT"
 ```
 
-- [ ] **Step 5 : écrire `agent/bin/youtube-upload.sh`**
+- [x] **Step 5 : écrire `agent/bin/youtube-upload.sh`**
 
 ```sh
 #!/bin/sh
@@ -267,7 +267,7 @@ curl -sf -X PUT "$LOC" -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: video/mp4" --data-binary @"$VIDEO" | jq -r .id
 ```
 
-- [ ] **Step 6 : rendre exécutable et vérifier avec shellcheck**
+- [x] **Step 6 : rendre exécutable et vérifier avec shellcheck**
 
 ```bash
 chmod +x agent/bin/*.sh
@@ -276,7 +276,7 @@ shellcheck -s sh agent/bin/*.sh
 
 Expected: aucune erreur (warnings SC2046/SC2086 acceptables uniquement s'ils sont volontaires ; corriger le reste).
 
-- [ ] **Step 7 : commit**
+- [x] **Step 7 : commit**
 
 ```bash
 git add agent/bin/
@@ -290,7 +290,7 @@ git commit -m "feat: scripts de l'agent (stream, réveil, publication, musique, 
 **Files:**
 - Create: `agent/prompts/_environnement.md`, `agent/prompts/ops.md`, `agent/prompts/creation.md`, `agent/prompts/conseil.md`
 
-- [ ] **Step 1 : écrire `agent/prompts/_environnement.md`** (inclus par référence dans les 3 autres)
+- [x] **Step 1 : écrire `agent/prompts/_environnement.md`** (inclus par référence dans les 3 autres)
 
 ```markdown
 # Ton environnement
@@ -316,7 +316,7 @@ fois par jour maximum).
 Budget : chaque réveil coûte. Va à l'effet utile, pas au remplissage.
 ```
 
-- [ ] **Step 2 : écrire `agent/prompts/ops.md`**
+- [x] **Step 2 : écrire `agent/prompts/ops.md`**
 
 ```markdown
 Lis d'abord agent/prompts/_environnement.md et constitution.md.
@@ -333,7 +333,7 @@ Réveil OPS (toutes les 6 h, sois bref et économe) :
 4. Rien à signaler -> ne crée PAS d'entrée de journal, termine simplement.
 ```
 
-- [ ] **Step 3 : écrire `agent/prompts/creation.md`**
+- [x] **Step 3 : écrire `agent/prompts/creation.md`**
 
 ```markdown
 Lis d'abord agent/prompts/_environnement.md et constitution.md.
@@ -361,7 +361,7 @@ Réveil CRÉATION (quotidien) :
 7. Mets à jour comptes/livre.md si tu as dépensé.
 ```
 
-- [ ] **Step 4 : écrire `agent/prompts/conseil.md`**
+- [x] **Step 4 : écrire `agent/prompts/conseil.md`**
 
 ```markdown
 Lis d'abord agent/prompts/_environnement.md et constitution.md.
@@ -385,7 +385,7 @@ Réveil CONSEIL D'ADMINISTRATION (hebdomadaire) :
    puis agent/bin/publish-www.sh) et l'ingress si tu changes de sous-domaine.
 ```
 
-- [ ] **Step 5 : commit**
+- [x] **Step 5 : commit**
 
 ```bash
 git add agent/prompts/
@@ -399,7 +399,7 @@ git commit -m "feat: prompts des trois réveils du cerveau"
 **Files:**
 - Create: `site/index.html`, `site/journal.html`, `site/style.css`
 
-- [ ] **Step 1 : écrire `site/style.css`**
+- [x] **Step 1 : écrire `site/style.css`**
 
 ```css
 :root { --bg: #16213e; --fg: #eaeaea; --accent: #e94560; }
@@ -413,7 +413,7 @@ header h1 { font-weight: 600; }
 article { border-top: 1px solid #ffffff22; padding: 1rem 0; }
 ```
 
-- [ ] **Step 2 : écrire `site/index.html`**
+- [x] **Step 2 : écrire `site/index.html`**
 
 ```html
 <!doctype html>
@@ -453,7 +453,7 @@ if (video.canPlayType('application/vnd.apple.mpegurl')) {
 </html>
 ```
 
-- [ ] **Step 3 : écrire `site/journal.html`**
+- [x] **Step 3 : écrire `site/journal.html`**
 
 ```html
 <!doctype html>
@@ -487,7 +487,7 @@ fetch('/journal/index.json').then(r => r.json()).then(async files => {
 </html>
 ```
 
-- [ ] **Step 4 : commit**
+- [x] **Step 4 : commit**
 
 ```bash
 git add site/
@@ -500,13 +500,13 @@ git commit -m "feat: site public v0 (lecteur HLS + journal)"
 
 **Files:** aucun (opérations git côté serveur)
 
-- [ ] **Step 1 : créer le bare repo sur gheop**
+- [x] **Step 1 : créer le bare repo sur gheop**
 
 ```bash
 ssh gheop.com "sudo install -d -o sib -g sib /home/sib/radio.git && git init --bare /home/sib/radio.git"
 ```
 
-- [ ] **Step 2 : pousser le repo local**
+- [x] **Step 2 : pousser le repo local**
 
 ```bash
 git remote add origin gheop.com:/home/sib/radio.git
@@ -514,7 +514,7 @@ git branch -M main
 git push -u origin main
 ```
 
-- [ ] **Step 3 : vérifier**
+- [x] **Step 3 : vérifier**
 
 ```bash
 ssh gheop.com "git -C /home/sib/radio.git log --oneline -1"
@@ -522,7 +522,7 @@ ssh gheop.com "git -C /home/sib/radio.git log --oneline -1"
 
 Expected: le dernier commit local s'affiche.
 
-- [ ] **Step 4 : ouvrir le bare repo aux pods** (les jobs poussent en root conteneur via hostPath)
+- [x] **Step 4 : ouvrir le bare repo aux pods** (les jobs poussent en root conteneur via hostPath)
 
 ```bash
 ssh gheop.com "sudo git config --system --add safe.directory /home/sib/radio.git && sudo chmod -R g+w /home/sib/radio.git"
@@ -535,7 +535,7 @@ ssh gheop.com "sudo git config --system --add safe.directory /home/sib/radio.git
 **Files:**
 - Create: `infra/namespace.yaml`, `infra/rbac.yaml`, `infra/quota.yaml`
 
-- [ ] **Step 1 : écrire `infra/namespace.yaml`**
+- [x] **Step 1 : écrire `infra/namespace.yaml`**
 
 ```yaml
 apiVersion: v1
@@ -544,7 +544,7 @@ metadata:
   name: radio
 ```
 
-- [ ] **Step 2 : écrire `infra/rbac.yaml`** (l'agent a tout pouvoir, mais seulement dans son namespace)
+- [x] **Step 2 : écrire `infra/rbac.yaml`** (l'agent a tout pouvoir, mais seulement dans son namespace)
 
 ```yaml
 apiVersion: v1
@@ -578,7 +578,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-- [ ] **Step 3 : écrire `infra/quota.yaml`** (protège le cluster déjà chargé)
+- [x] **Step 3 : écrire `infra/quota.yaml`** (protège le cluster déjà chargé)
 
 ```yaml
 apiVersion: v1
@@ -609,7 +609,7 @@ spec:
         memory: 128Mi
 ```
 
-- [ ] **Step 4 : appliquer et vérifier**
+- [x] **Step 4 : appliquer et vérifier**
 
 ```bash
 for f in infra/namespace.yaml infra/rbac.yaml infra/quota.yaml; do
@@ -620,7 +620,7 @@ ssh gheop.com "sudo kubectl -n radio get sa,role,rolebinding,resourcequota,limit
 
 Expected: `radio-agent` (sa, role, rolebinding), `radio-quota`, `radio-defaults` listés.
 
-- [ ] **Step 5 : commit**
+- [x] **Step 5 : commit**
 
 ```bash
 git add infra/
@@ -634,7 +634,7 @@ git commit -m "feat: namespace radio, RBAC de l'agent, quotas"
 **Files:**
 - Create: `infra/pvc.yaml`
 
-- [ ] **Step 1 : écrire `infra/pvc.yaml`**
+- [x] **Step 1 : écrire `infra/pvc.yaml`**
 
 ```yaml
 apiVersion: v1
@@ -653,7 +653,7 @@ spec:
 Note : RWO + plusieurs pods fonctionne ici car le cluster est mono-nœud
 (local-path = bind hostPath).
 
-- [ ] **Step 2 : appliquer**
+- [x] **Step 2 : appliquer**
 
 ```bash
 ssh gheop.com "sudo kubectl apply -f -" < infra/pvc.yaml
@@ -662,7 +662,7 @@ ssh gheop.com "sudo kubectl -n radio get pvc radio-data"
 
 Expected: STATUS `Pending` (local-path attend le premier consommateur — il passera `Bound` à la tâche 9).
 
-- [ ] **Step 3 : commit**
+- [x] **Step 3 : commit**
 
 ```bash
 git add infra/pvc.yaml
@@ -676,7 +676,7 @@ git commit -m "feat: PVC radio-data (20 Gi, local-path)"
 **Files:**
 - Create: `infra/brain/Dockerfile`
 
-- [ ] **Step 1 : écrire `infra/brain/Dockerfile`**
+- [x] **Step 1 : écrire `infra/brain/Dockerfile`**
 
 ```dockerfile
 FROM node:22-bookworm-slim
@@ -689,7 +689,7 @@ RUN curl -fsSL -o /usr/local/bin/kubectl \
 RUN npm install -g @anthropic-ai/claude-code
 ```
 
-- [ ] **Step 2 : builder sur gheop et importer dans k3s**
+- [x] **Step 2 : builder sur gheop et importer dans k3s**
 
 ```bash
 rsync -a infra/brain/ gheop.com:/tmp/radio-brain/
@@ -699,7 +699,7 @@ ssh gheop.com "podman build -t localhost/radio-brain:v1 /tmp/radio-brain \
 
 Si `podman` est absent : `sudo dnf install -y podman` d'abord (gheop est un Fedora-like ; adapter si besoin).
 
-- [ ] **Step 3 : vérifier**
+- [x] **Step 3 : vérifier**
 
 ```bash
 ssh gheop.com "sudo k3s ctr images ls | grep radio-brain"
@@ -707,7 +707,7 @@ ssh gheop.com "sudo k3s ctr images ls | grep radio-brain"
 
 Expected: une ligne `localhost/radio-brain:v1`.
 
-- [ ] **Step 4 : commit**
+- [x] **Step 4 : commit**
 
 ```bash
 git add infra/brain/Dockerfile
@@ -721,7 +721,7 @@ git commit -m "feat: image radio-brain (claude-code, git, kubectl, ffmpeg)"
 **Files:**
 - Create: `infra/stream/job-bootstrap.yaml`
 
-- [ ] **Step 1 : écrire `infra/stream/job-bootstrap.yaml`**
+- [x] **Step 1 : écrire `infra/stream/job-bootstrap.yaml`**
 
 Le job clone la mémoire sur le PVC, rend une boucle vidéo placeholder
 (dégradé sombre, GOP 2 s — l'agent la remplacera par sa vraie identité),
@@ -779,7 +779,7 @@ spec:
               /data/repo/agent/bin/publish-www.sh
 ```
 
-- [ ] **Step 2 : lancer et vérifier**
+- [x] **Step 2 : lancer et vérifier**
 
 ```bash
 ssh gheop.com "sudo kubectl apply -f -" < infra/stream/job-bootstrap.yaml
@@ -789,7 +789,7 @@ ssh gheop.com "sudo ls /var/lib/rancher/k3s/storage/*radio-data*/video/loop.mp4 
 
 Expected: `job.batch/bootstrap condition met`, puis les deux fichiers listés.
 
-- [ ] **Step 3 : vérifier le PVC**
+- [x] **Step 3 : vérifier le PVC**
 
 ```bash
 ssh gheop.com "sudo kubectl -n radio get pvc radio-data"
@@ -797,7 +797,7 @@ ssh gheop.com "sudo kubectl -n radio get pvc radio-data"
 
 Expected: STATUS `Bound`.
 
-- [ ] **Step 4 : commit**
+- [x] **Step 4 : commit**
 
 ```bash
 git add infra/stream/job-bootstrap.yaml
@@ -811,7 +811,7 @@ git commit -m "feat: job bootstrap (mémoire, boucle vidéo et ambiances placeho
 **Files:**
 - Create: `infra/stream/deployment.yaml`
 
-- [ ] **Step 1 : écrire `infra/stream/deployment.yaml`**
+- [x] **Step 1 : écrire `infra/stream/deployment.yaml`**
 
 ```yaml
 apiVersion: apps/v1
@@ -861,7 +861,7 @@ spec:
             failureThreshold: 3
 ```
 
-- [ ] **Step 2 : appliquer et vérifier (HLS seul, les clés RTMP n'existent pas encore)**
+- [x] **Step 2 : appliquer et vérifier (HLS seul, les clés RTMP n'existent pas encore)**
 
 ```bash
 ssh gheop.com "sudo kubectl apply -f -" < infra/stream/deployment.yaml
@@ -872,7 +872,7 @@ ssh gheop.com "sudo ls /var/lib/rancher/k3s/storage/*radio-data*/hls/"
 
 Expected: pod `Running`, et `live.m3u8` + des segments `.ts` dont le nombre évolue entre deux exécutions.
 
-- [ ] **Step 3 : commit**
+- [x] **Step 3 : commit**
 
 ```bash
 git add infra/stream/deployment.yaml
@@ -886,7 +886,7 @@ git commit -m "feat: deployment stream (ffmpeg tee HLS/YouTube/Twitch, vidéo re
 **Files:**
 - Create: `infra/web/deployment.yaml`, `infra/web/ingress.yaml`
 
-- [ ] **Step 1 : écrire `infra/web/deployment.yaml`**
+- [x] **Step 1 : écrire `infra/web/deployment.yaml`**
 
 ```yaml
 apiVersion: apps/v1
@@ -927,7 +927,7 @@ spec:
       targetPort: 80
 ```
 
-- [ ] **Step 2 : écrire `infra/web/ingress.yaml`** (sous-domaine provisoire ; l'agent le changera s'il veut)
+- [x] **Step 2 : écrire `infra/web/ingress.yaml`** (sous-domaine provisoire ; l'agent le changera s'il veut)
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -954,7 +954,7 @@ spec:
       secretName: radio-web-tls
 ```
 
-- [ ] **Step 3 : appliquer et vérifier en HTTP d'abord**
+- [x] **Step 3 : appliquer et vérifier en HTTP d'abord**
 
 ```bash
 ssh gheop.com "sudo kubectl apply -f -" < infra/web/deployment.yaml
@@ -966,7 +966,7 @@ curl -s http://radio.gheop.com/hls/live.m3u8 | head -3
 
 Expected: le titre du site, puis `#EXTM3U` en première ligne du manifest HLS.
 
-- [ ] **Step 4 : commit**
+- [x] **Step 4 : commit**
 
 ```bash
 git add infra/web/
@@ -1001,7 +1001,7 @@ Conséquence pour l'agent : changement de sous-domaine = demande à l'humain
 **Files:**
 - Create: `infra/brain/cronjobs.yaml`
 
-- [ ] **Step 1 : écrire `infra/brain/cronjobs.yaml`**
+- [x] **Step 1 : écrire `infra/brain/cronjobs.yaml`**
 
 Les trois réveils partagent le même squelette ; seuls changent le nom, la
 planification, le modèle et `WAKE_KIND`. `suspend: true` : ils ne démarrent
@@ -1159,7 +1159,7 @@ spec:
                   exec /bin/sh /data/repo/agent/bin/wake.sh
 ```
 
-- [ ] **Step 2 : appliquer et vérifier**
+- [x] **Step 2 : appliquer et vérifier**
 
 ```bash
 ssh gheop.com "sudo kubectl apply -f -" < infra/brain/cronjobs.yaml
@@ -1168,7 +1168,7 @@ ssh gheop.com "sudo kubectl -n radio get cronjobs"
 
 Expected: `brain-ops`, `brain-creation`, `brain-conseil`, colonne SUSPEND à `True`.
 
-- [ ] **Step 3 : commit**
+- [x] **Step 3 : commit**
 
 ```bash
 git add infra/brain/cronjobs.yaml
@@ -1182,36 +1182,36 @@ git commit -m "feat: les trois réveils du cerveau en CronJobs suspendus"
 **Files:**
 - Create: `docs/jour0.md`
 
-- [ ] **Step 1 : écrire `docs/jour0.md`**
+- [x] **Step 1 : écrire `docs/jour0.md`**
 
 ```markdown
 # Jour 0 — l'incarnation (1 journée humaine, dans l'ordre)
 
 ## 1. Comptes (matin)
 
-- [ ] Compte Google dédié. Sur YouTube : créer la chaîne, vérifier le numéro
+- [x] Compte Google dédié. Sur YouTube : créer la chaîne, vérifier le numéro
       de téléphone, ACTIVER LA DIFFUSION EN DIRECT (délai de 24 h : à faire
       en premier). Studio > Paramètres > Chaîne : cocher la divulgation de
       contenu généré par IA. Récupérer la clé de stream
       (Studio > Diffusion en direct).
-- [ ] Compte Twitch dédié, récupérer la clé de stream
+- [x] Compte Twitch dédié, récupérer la clé de stream
       (Creator Dashboard > Settings > Stream).
-- [ ] Compte ElevenLabs, plan payant avec droits commerciaux (vérifier le
+- [x] Compte ElevenLabs, plan payant avec droits commerciaux (vérifier le
       plan minimal couvrant l'usage commercial de Music ce mois-ci),
       créer une clé API.
-- [ ] Compte Anthropic Console dédié au projet, acheter ~40 € de crédits
+- [x] Compte Anthropic Console dédié au projet, acheter ~40 € de crédits
       prépayés, désactiver l'auto-recharge, créer une clé API.
-- [ ] Carte virtuelle (Revolut) plafonnée au solde de la caisse ; c'est elle
+- [x] Carte virtuelle (Revolut) plafonnée au solde de la caisse ; c'est elle
       qui paie ElevenLabs. Noter chaque abonnement dans comptes/livre.md.
 
 ## 2. OAuth YouTube pour l'upload des Shorts (midi)
 
-- [ ] console.cloud.google.com avec le compte dédié : nouveau projet,
+- [x] console.cloud.google.com avec le compte dédié : nouveau projet,
       activer "YouTube Data API v3".
-- [ ] Créer un identifiant OAuth (type "Desktop app") : noter client_id et
+- [x] Créer un identifiant OAuth (type "Desktop app") : noter client_id et
       client_secret. Écran de consentement en mode test avec le compte dédié
       comme utilisateur test.
-- [ ] Obtenir un refresh token : https://developers.google.com/oauthplayground
+- [x] Obtenir un refresh token : https://developers.google.com/oauthplayground
       (roue dentée > "Use your own OAuth credentials"), scope
       `https://www.googleapis.com/auth/youtube.upload`, autoriser avec le
       compte dédié, échanger le code, noter le refresh_token.
@@ -1227,21 +1227,21 @@ git commit -m "feat: les trois réveils du cerveau en CronJobs suspendus"
       --from-literal=YT_CLIENT_SECRET=... \
       --from-literal=YT_REFRESH_TOKEN=..."
 
-- [ ] Redémarrer le stream pour qu'il prenne les clés RTMP :
+- [x] Redémarrer le stream pour qu'il prenne les clés RTMP :
       `ssh gheop.com "sudo kubectl -n radio rollout restart deployment/stream"`
-- [ ] Vérifier dans YouTube Studio et Twitch que le direct est EN LIGNE.
+- [x] Vérifier dans YouTube Studio et Twitch que le direct est EN LIGNE.
 
 ## 4. La naissance (soir)
 
-- [ ] Réveiller les crons :
+- [x] Réveiller les crons :
       `for c in brain-ops brain-creation brain-conseil; do ssh gheop.com "sudo kubectl -n radio patch cronjob $c -p '{\"spec\":{\"suspend\":false}}'"; done`
-- [ ] Premier réveil supervisé (il choisit son identité, voir
+- [x] Premier réveil supervisé (il choisit son identité, voir
       agent/prompts/conseil.md point 5) :
       `ssh gheop.com "sudo kubectl -n radio create job --from=cronjob/brain-conseil naissance"`
-- [ ] Suivre : `ssh gheop.com "sudo kubectl -n radio logs -f job/naissance"`
-- [ ] Vérifier : entrée de journal commitée (`git pull` en local), site mis à
+- [x] Suivre : `ssh gheop.com "sudo kubectl -n radio logs -f job/naissance"`
+- [x] Vérifier : entrée de journal commitée (`git pull` en local), site mis à
       jour, décision d'identité dans decisions/.
-- [ ] À partir d'ici : ne plus rien faire. Lire le journal sur le site.
+- [x] À partir d'ici : ne plus rien faire. Lire le journal sur le site.
 
 ## Kill switch (à tout moment)
 
@@ -1250,7 +1250,7 @@ git commit -m "feat: les trois réveils du cerveau en CronJobs suspendus"
     done
 ```
 
-- [ ] **Step 2 : commit**
+- [x] **Step 2 : commit**
 
 ```bash
 git add docs/jour0.md
@@ -1263,7 +1263,7 @@ git commit -m "docs: checklist du jour 0 (incarnation)"
 
 **Files:** aucun
 
-- [ ] **Step 1 : test à blanc d'un réveil ops SANS clé API** (vérifie la mécanique wake/commit, pas le cerveau)
+- [x] **Step 1 : test à blanc d'un réveil ops SANS clé API** (vérifie la mécanique wake/commit, pas le cerveau)
 
 ```bash
 ssh gheop.com "sudo kubectl -n radio create job --from=cronjob/brain-ops test-a-blanc"
@@ -1274,7 +1274,7 @@ Expected: le job se termine ; sans `ANTHROPIC_API_KEY`, `claude` échoue mais
 `wake.sh` continue (`|| true`), inscrit `cout 0` dans `api_usage.csv`, publie
 le site et pousse un commit `réveil ops` sur origin.
 
-- [ ] **Step 2 : vérifier le commit du job sur origin**
+- [x] **Step 2 : vérifier le commit du job sur origin**
 
 ```bash
 git pull
@@ -1284,7 +1284,7 @@ tail -2 comptes/api_usage.csv
 
 Expected: un commit `réveil ops` venu du cluster, une ligne `...,ops,0`.
 
-- [ ] **Step 3 : checklist finale**
+- [x] **Step 3 : checklist finale**
 
 ```bash
 ssh gheop.com "sudo kubectl -n radio get pods,cronjobs,pvc,ingress"
@@ -1294,14 +1294,14 @@ curl -s https://radio.gheop.com/journal/index.json
 
 Expected: stream et web `Running`, 3 cronjobs suspendus=false uniquement après jour 0, `#EXTM3U`, un tableau JSON non vide.
 
-- [ ] **Step 4 : nettoyer le job de test et pousser**
+- [x] **Step 4 : nettoyer le job de test et pousser**
 
 ```bash
 ssh gheop.com "sudo kubectl -n radio delete job test-a-blanc bootstrap --ignore-not-found"
 git push
 ```
 
-- [ ] **Step 5 : commit final du plan coché**
+- [x] **Step 5 : commit final du plan coché**
 
 ```bash
 git add -A

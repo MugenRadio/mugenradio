@@ -30,6 +30,7 @@ claude -p "$(cat "$PROMPT")" \
   --dangerously-skip-permissions \
   --output-format json > "$OUT" || true
 COST=$(jq -r '.total_cost_usd // 0' "$OUT" 2>/dev/null || echo 0)
+[ -z "$COST" ] && COST=0
 echo "$(date -Iseconds),$WAKE_KIND,$COST" >> "$REPO/comptes/api_usage.csv"
 
 "$REPO/agent/bin/publish-www.sh"
