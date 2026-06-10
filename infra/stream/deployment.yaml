@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stream
+  namespace: radio
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels: { app: stream }
+  template:
+    metadata:
+      labels: { app: stream }
+    spec:
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: radio-data
+      containers:
+        - name: ffmpeg
+          image: localhost/radio-brain:v1
+          imagePullPolicy: Never
+          command: ["/bin/sh", "/data/repo/agent/bin/stream.sh"]
+          resources:
+            requests: { cpu: 100m, memory: 256Mi }
+            limits: { cpu: "1", memory: 1Gi }
+          env:
+            - name: YOUTUBE_STREAM_KEY
+              valueFrom:
+                secretKeyRef: { name: radio-keys, key: YOUTUBE_STREAM_KEY, optional: true }
+            - name: TWITCH_STREAM_KEY
+              valueFrom:
+                secretKeyRef: { name: radio-keys, key: TWITCH_STREAM_KEY, optional: true }
+          volumeMounts:
+            - { name: data, mountPath: /data }
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - test $(( $(date +%s) - $(stat -c %Y /data/.stream-progress) )) -lt 60
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            failureThreshold: 3
