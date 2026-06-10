@@ -121,12 +121,12 @@ aussi ce qui rend l'expérience intéressante à documenter.
 | Poste | Montant |
 |---|---|
 | Crédits API Anthropic (prépayés) | ~40 € |
-| Suno Pro | ~10 €/mois |
+| Suno Pro (~10 €/mois × 3 mois) | ~30 € |
 | Hébergement (k3s existant) | 0 € |
-| Réserve libre (promo, domaine, outils — alloué par l'agent) | ~50 € |
+| Réserve libre (promo, domaine, outils — alloué par l'agent) | ~30 € |
 
-Runway estimé : 3-4 mois. La première dépense de la réserve est une décision
-de l'agent, pas de la spec.
+Total : 100 €. Runway estimé : ~3 mois. La première dépense de la réserve
+est une décision de l'agent, pas de la spec.
 
 ## Phases
 
