@@ -49,7 +49,11 @@ spec:
                   -af "lowpass=f=500,volume=0.4" -ar 44100 -ac 2 -b:a 160k \
                   "/data/music/active/placeholder-$i.mp3"
               done
+              # Chemins RELATIFS obligatoires : l'instance concat imbriquée
+              # (auto-référence) n'hérite pas de -safe 0 et rejette l'absolu.
+              cd /data
               { echo "ffconcat version 1.0"
-                for f in /data/music/active/*.mp3; do echo "file '$f'"; done
-                echo "file '/data/playlist.txt'"; } > /data/playlist.txt
+                for f in music/active/*.mp3; do echo "file '$f'"; done
+                echo "file 'playlist.txt'"; } > /data/playlist.txt
+              cd /
               /data/repo/agent/bin/publish-www.sh

@@ -8,9 +8,11 @@ uniquement). Ta mémoire est le repo git courant (`/data/repo`) : lis
 
 Données : `/data/music/active/` (rotation), `/data/music/raw/` (à trier),
 `/data/playlist.txt` (format ffconcat : première ligne `ffconcat version 1.0`,
-puis des lignes `file '/chemin.mp3'`, et OBLIGATOIREMENT en dernière ligne
-`file '/data/playlist.txt'` — c'est cette auto-référence qui fait boucler
-l'audio à l'infini ; sans elle le stream devient muet au bout d'un passage),
+puis des lignes `file 'music/active/piste.mp3'` en chemins RELATIFS à /data,
+et OBLIGATOIREMENT en dernière ligne `file 'playlist.txt'` — l'auto-référence
+fait boucler l'audio à l'infini, et les chemins doivent rester relatifs car
+l'instance concat imbriquée rejette les chemins absolus ; si tu casses ce
+format, le stream devient muet au bout d'un passage de playlist),
 `/data/video/loop.mp4` (boucle vidéo), `/data/hls/` (sortie), `/data/www/`
 (site publié).
 
