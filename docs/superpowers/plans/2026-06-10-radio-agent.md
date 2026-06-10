@@ -4,7 +4,7 @@
 
 **Goal:** Mettre en place l'infrastructure complète de l'agent-gérant : stream 24/7, cerveau en CronJobs, mémoire git, site public, et la checklist du jour 0, conformément à la spec `docs/superpowers/specs/2026-06-10-radio-agent-design.md`.
 
-**Architecture:** Tout tourne dans le namespace `radio` du k3s mono-nœud de gheop.com. Un PVC `radio-data` porte la musique, la vidéo, le HLS, le site et la copie de travail du repo mémoire (origin = bare repo `/srv/radio.git` sur l'hôte, monté en hostPath). Une seule image `radio-brain` (node + claude-code + git + kubectl + ffmpeg) sert au cerveau, au stream et au bootstrap. Le pod stream recopie la vidéo (`-c:v copy`, CPU négligeable) et encode seulement l'audio, en tee vers YouTube/Twitch/HLS.
+**Architecture:** Tout tourne dans le namespace `radio` du k3s mono-nœud de gheop.com. Un PVC `radio-data` porte la musique, la vidéo, le HLS, le site et la copie de travail du repo mémoire (origin = bare repo `/home/sib/radio.git` sur l'hôte, monté en hostPath). Une seule image `radio-brain` (node + claude-code + git + kubectl + ffmpeg) sert au cerveau, au stream et au bootstrap. Le pod stream recopie la vidéo (`-c:v copy`, CPU négligeable) et encode seulement l'audio, en tee vers YouTube/Twitch/HLS.
 
 **Tech Stack:** k3s (traefik, local-path), ffmpeg, Claude Code CLI (API au compteur), nginx, cert-manager, ElevenLabs Music API, YouTube Data API v3.
 
@@ -503,13 +503,13 @@ git commit -m "feat: site public v0 (lecteur HLS + journal)"
 - [ ] **Step 1 : créer le bare repo sur gheop**
 
 ```bash
-ssh gheop.com "sudo install -d -o sib -g sib /srv/radio.git && git init --bare /srv/radio.git"
+ssh gheop.com "sudo install -d -o sib -g sib /home/sib/radio.git && git init --bare /home/sib/radio.git"
 ```
 
 - [ ] **Step 2 : pousser le repo local**
 
 ```bash
-git remote add origin gheop.com:/srv/radio.git
+git remote add origin gheop.com:/home/sib/radio.git
 git branch -M main
 git push -u origin main
 ```
@@ -517,7 +517,7 @@ git push -u origin main
 - [ ] **Step 3 : vérifier**
 
 ```bash
-ssh gheop.com "git -C /srv/radio.git log --oneline -1"
+ssh gheop.com "git -C /home/sib/radio.git log --oneline -1"
 ```
 
 Expected: le dernier commit local s'affiche.
@@ -525,7 +525,7 @@ Expected: le dernier commit local s'affiche.
 - [ ] **Step 4 : ouvrir le bare repo aux pods** (les jobs poussent en root conteneur via hostPath)
 
 ```bash
-ssh gheop.com "sudo git config --system --add safe.directory /srv/radio.git && sudo chmod -R g+w /srv/radio.git"
+ssh gheop.com "sudo git config --system --add safe.directory /home/sib/radio.git && sudo chmod -R g+w /home/sib/radio.git"
 ```
 
 ---
@@ -746,7 +746,7 @@ spec:
             claimName: radio-data
         - name: origin
           hostPath:
-            path: /srv/radio.git
+            path: /home/sib/radio.git
             type: Directory
       containers:
         - name: bootstrap
@@ -1062,7 +1062,7 @@ spec:
                 claimName: radio-data
             - name: origin
               hostPath:
-                path: /srv/radio.git
+                path: /home/sib/radio.git
                 type: Directory
           containers:
             - name: brain
@@ -1112,7 +1112,7 @@ spec:
                 claimName: radio-data
             - name: origin
               hostPath:
-                path: /srv/radio.git
+                path: /home/sib/radio.git
                 type: Directory
           containers:
             - name: brain
@@ -1162,7 +1162,7 @@ spec:
                 claimName: radio-data
             - name: origin
               hostPath:
-                path: /srv/radio.git
+                path: /home/sib/radio.git
                 type: Directory
           containers:
             - name: brain
