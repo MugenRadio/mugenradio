@@ -11,7 +11,7 @@ git config --global --add safe.directory '*'
 git -C "$REPO" pull --rebase || true
 
 # Garde-fou : caisse API vide -> le cerveau ne pense plus, il le note et sort.
-SPENT=$(awk -F, 'NR>1 {s+=$3} END {printf "%.2f", s}' "$REPO/comptes/api_usage.csv")
+SPENT=$(awk -F, 'NR>1 {s+=$3} END {printf "%.2f", s}' "$REPO/comptes/api_usage.csv" 2>/dev/null || echo "0.00")
 LIMIT="${API_BUDGET_USD:-45}"
 if awk "BEGIN{exit !($SPENT >= $LIMIT)}"; then
   echo "$(date -Iseconds) caisse API vide ($SPENT/$LIMIT USD), réveil $WAKE_KIND annulé" \
@@ -30,7 +30,7 @@ claude -p "$(cat "$PROMPT")" \
   --dangerously-skip-permissions \
   --output-format json > "$OUT" || true
 COST=$(jq -r '.total_cost_usd // 0' "$OUT" 2>/dev/null || echo 0)
-echo "$(date -Iseconds),$WAKE_KIND,$COST" >> comptes/api_usage.csv
+echo "$(date -Iseconds),$WAKE_KIND,$COST" >> "$REPO/comptes/api_usage.csv"
 
 "$REPO/agent/bin/publish-www.sh"
 git add -A

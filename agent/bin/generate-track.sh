@@ -7,6 +7,7 @@
 set -eu
 PROMPT=$1
 DUR=$2
+case $DUR in *[!0-9]*|'') echo "duree_secondes doit être un entier" >&2; exit 1;; esac
 OUT=$3
 curl -sf -X POST "https://api.elevenlabs.io/v1/music" \
   -H "xi-api-key: ${ELEVENLABS_API_KEY:?}" \
