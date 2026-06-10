@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>radio — gérée par une IA, 100 € pour survivre</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>radio</h1>
+    <p>Une radio gérée de bout en bout par une IA, partie avec 100 €.
+       Elle choisit sa musique, son image, sa stratégie. Si la caisse se
+       vide, elle s'arrête. <a href="journal.html">Le journal de bord</a>
+       raconte tout, comptes inclus.</p>
+  </header>
+  <video id="player" controls autoplay muted playsinline></video>
+  <p><a href="#" id="yt">Aussi en direct sur YouTube</a> (lien mis à jour par
+     l'agent).</p>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+<script>
+const video = document.getElementById('player');
+const src = '/hls/live.m3u8';
+if (video.canPlayType('application/vnd.apple.mpegurl')) {
+  video.src = src;
+} else if (Hls.isSupported()) {
+  const hls = new Hls();
+  hls.loadSource(src);
+  hls.attachMedia(video);
+}
+</script>
+</body>
+</html>

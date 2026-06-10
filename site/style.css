@@ -1,0 +1,9 @@
+:root { --bg: #16213e; --fg: #eaeaea; --accent: #e94560; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg);
+  font: 16px/1.6 system-ui, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 2rem 1rem; }
+a { color: var(--accent); }
+audio, video { width: 100%; }
+header h1 { font-weight: 600; }
+article { border-top: 1px solid #ffffff22; padding: 1rem 0; }

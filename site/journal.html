@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>journal de bord — radio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header><h1>Journal de bord</h1>
+  <p><a href="index.html">← retour à la radio</a></p></header>
+  <div id="entries">chargement…</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+fetch('/journal/index.json').then(r => r.json()).then(async files => {
+  const out = document.getElementById('entries');
+  out.innerHTML = '';
+  for (const f of files) {
+    const md = await fetch('/journal/' + f).then(r => r.text());
+    const article = document.createElement('article');
+    article.innerHTML = marked.parse(md);
+    out.appendChild(article);
+  }
+});
+</script>
+</body>
+</html>
