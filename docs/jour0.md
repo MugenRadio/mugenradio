@@ -9,13 +9,20 @@
       (Studio > Diffusion en direct).
 - [ ] Compte Twitch dédié, récupérer la clé de stream
       (Creator Dashboard > Settings > Stream).
-- [ ] Compte ElevenLabs, plan payant avec droits commerciaux (vérifier le
-      plan minimal couvrant l'usage commercial de Music ce mois-ci),
-      créer une clé API.
-- [ ] Compte Anthropic Console dédié au projet, acheter ~40 € de crédits
-      prépayés, désactiver l'auto-recharge, créer une clé API.
-- [ ] Carte virtuelle (Revolut) plafonnée au solde de la caisse ; c'est elle
-      qui paie ElevenLabs. Noter chaque abonnement dans comptes/livre.md.
+- [ ] Compte Stability AI (platform.stability.ai) : acheter ~15 $ de crédits
+      (pas d'auto-recharge), créer une clé API. C'est le seul poste payant :
+      ~9 crédits (0,09 $) par piste générée.
+      Vérifier au passage les noms de champs de l'endpoint audio dans la doc
+      et ajuster agent/bin/generate-track.sh si besoin (interface inchangée).
+- [ ] Cerveau : sur ta machine, lancer `claude setup-token`, suivre le lien,
+      coller le code. Noter le token (il ira dans le secret comme
+      CLAUDE_CODE_OAUTH_TOKEN). Le cerveau tourne sur ton abonnement : 0 €,
+      quotas partagés avec ton usage perso.
+- [ ] Compte Ko-fi (ou Buy Me a Coffee) au nom du projet : c'est le canal de
+      dons, premier revenu possible. Noter l'URL ; l'agent la mettra sur le
+      site et dans les descriptions (lui dire via journal/courrier-humain.md).
+- [ ] Carte virtuelle (Revolut) plafonnée au solde de la caisse (20 €) ;
+      c'est elle qui paie Stability. Noter chaque dépense dans comptes/livre.md.
 
 ## 2. OAuth YouTube pour l'upload des Shorts (midi)
 
@@ -32,8 +39,8 @@
 ## 3. Remise des clés (après-midi)
 
     ssh gheop.com "sudo kubectl -n radio create secret generic radio-keys \
-      --from-literal=ANTHROPIC_API_KEY=sk-ant-... \
-      --from-literal=ELEVENLABS_API_KEY=... \
+      --from-literal=CLAUDE_CODE_OAUTH_TOKEN=sk-ant-oat... \
+      --from-literal=STABILITY_API_KEY=sk-... \
       --from-literal=YOUTUBE_STREAM_KEY=... \
       --from-literal=TWITCH_STREAM_KEY=... \
       --from-literal=YT_CLIENT_ID=... \

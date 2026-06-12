@@ -1,4 +1,4 @@
-# Spec : l'agent-gérant — une radio lofi autonome avec 100 €
+# Spec : l'agent-gérant — une radio lofi autonome avec 20 €
 
 Date : 2026-06-10
 Statut : en attente de validation
@@ -7,14 +7,18 @@ Statut : en attente de validation
 
 Un agent IA gère seul une radio musicale 24/7 de type Lofi Girl : identité, contenu,
 diffusion, promotion, trésorerie, expansion. L'humain (sib) fournit l'incarnation
-légale et 100 €, puis disparaît. L'expérience est documentée en public.
+légale et 20 €, puis disparaît. L'expérience est documentée en public.
+
+Positionnement (amendé 2026-06-12) : Andon Labs fait déjà tourner 4 radios IA
+(andonlabs.com/radio), financées par leur labo. Notre angle distinctif est la
+SURVIE ÉCONOMIQUE : 20 €, comptes publics, mort en direct si rien ne rentre.
 
 Critère de succès minimal : l'agent diffuse encore à M+3.
 Critère de victoire : revenus mensuels > coûts mensuels avant épuisement de la caisse.
 
 ## Les règles du jeu
 
-- Capital de départ : 100 €, c'est tout. Pas de rallonge.
+- Capital de départ : 20 €, c'est tout. Pas de rallonge.
 - L'agent décide de tout ce qui n'est pas verrouillé par la constitution (voir plus bas).
 - Quand la caisse est vide et qu'aucun revenu ne rentre, l'agent meurt. Le journal
   public raconte l'histoire jusqu'au bout, succès ou faillite.
@@ -28,12 +32,14 @@ Jour 0, fait par l'humain :
 
 1. Compte Google/YouTube dédié (vérifié téléphone, live activé : délai 24 h).
 2. Compte Twitch dédié.
-3. Compte de génération musicale avec API officielle et droits commerciaux :
-   ElevenLabs Music par défaut (~11-22 €/mois), Stable Audio en alternative
-   (paiement à la génération). Suno est écarté : pas d'API officielle en 2026,
-   les wrappers tiers violent ses ToS, ce que la constitution interdit.
-4. Compte Anthropic Console dédié à l'entreprise, crédits prépayés (~40 €).
-   À 0 crédit le cerveau s'arrête : l'agent ne peut pas s'endetter.
+3. Compte Stability AI, ~15 $ de crédits prépayés : Stable Audio 2 au
+   compteur (~0,09 $ la piste, licence Community = usage commercial OK sous
+   1 M$ de revenus). Suno est écarté : pas d'API officielle en 2026, les
+   wrappers tiers violent ses ToS, ce que la constitution interdit.
+4. Cerveau : l'abonnement Claude existant de sib, via un token OAuth
+   (`claude setup-token`) injecté en secret. Coût marginal 0 €, quotas
+   partagés avec l'usage perso de sib.
+4b. Compte Ko-fi (dons) : premier revenu possible, dès le jour 1.
 5. Carte virtuelle (Revolut ou équivalent) plafonnée au solde de la caisse.
 6. Namespace `radio` sur le cluster k3s de gheop.com + ServiceAccount kubectl
    limité à ce namespace.
@@ -62,15 +68,16 @@ DNS `*.gheop.com`). Coût d'hébergement : 0 € (fourni par l'actionnaire).
   jour sans interrompre le flux.
 - Débit sortant : ~6 Mbit/s par destination, en continu.
 
-### Le cerveau : Claude par API (CronJobs k8s)
+### Le cerveau : Claude Code sur l'abonnement de sib (CronJobs k8s)
 
-Compte API dédié, crédits prépayés. Trois rythmes :
+Token OAuth (`claude setup-token`) en secret, coût marginal 0 €. Trois rythmes :
 
 - **ops** (toutes les 6 h, réveil court) : santé du stream, modération des
   commentaires, relevé des métriques, redémarrage si besoin.
 - **création** (1×/jour) : génération musicale par lots via l'API, tri sévère (rejet de la
-  majorité des morceaux), mastering léger, mise à jour de la playlist,
-  1-2 clips Shorts/TikTok, posts sociaux, entrée du journal public.
+  majorité des morceaux), mastering léger, interstitiels DJ en anglais
+  (Kokoro TTS local, gratuit) insérés entre les pistes, mise à jour de la
+  playlist, 1-2 clips Shorts/TikTok, posts sociaux, entrée du journal public.
 - **conseil d'administration** (1×/semaine) : analytics, décisions
   stratégiques (thèmes, plateformes, budget, lancer/tuer une chaîne),
   mise à jour du livre de comptes, rapport hebdo écrit dans le journal et
@@ -95,8 +102,8 @@ Deux faces, servies sur `radio.gheop.com` :
 
 - **La radio** : lecteur HLS, identité visuelle, liens plateformes, merch plus tard.
   (Le contenu du site reste entièrement aux mains de l'agent via `site/` + publication.)
-- **Le journal public** : l'expérience documentée ("une IA tente de survivre
-  avec 100 €") — journal de bord, livre de comptes en clair, décisions.
+- **Le journal public** : l'expérience documentée ("an AI must survive
+  on €20") — journal de bord, livre de comptes en clair, décisions.
   C'est à la fois la transparence exigée par les plateformes et le principal
   levier d'audience au lancement.
 
@@ -126,28 +133,31 @@ du journal, le pricing du merch (print-on-demand, 0 € upfront) le moment venu.
 La spec ne fige volontairement aucun de ces choix : c'est son travail, et c'est
 aussi ce qui rend l'expérience intéressante à documenter.
 
-## Budget prévisionnel (caisse de 100 €)
+## Budget prévisionnel (caisse de 20 €)
 
 | Poste | Montant |
 |---|---|
-| Crédits API Anthropic (prépayés) | ~40 € |
-| Génération musicale, API officielle (~10 €/mois × 3 mois) | ~30 € |
+| Cerveau (abonnement Claude existant, token OAuth) | 0 € |
+| Musique : Stable Audio au compteur (~0,09 €/piste) | ~14 € (≈ 150 générations) |
+| Voix d'antenne (Kokoro TTS local, CPU) | 0 € |
 | Hébergement (k3s existant) | 0 € |
-| Réserve libre (promo, domaine, outils — alloué par l'agent) | ~30 € |
+| Réserve libre (alloué par l'agent) | ~6 € |
 
-Total : 100 €. Runway estimé : ~3 mois. La première dépense de la réserve
-est une décision de l'agent, pas de la spec.
+Total : 20 €. Burn mensuel après la grille initiale : ~5-12 € (2-4 pistes/j).
+Break-even : 2-3 viewers simultanés en continu une fois monétisé. La première
+dépense de la réserve est une décision de l'agent, pas de la spec.
 
 ## Phases
 
 1. **J0** : incarnation (humain, 1 journée) — comptes, carte, namespace, secrets.
-2. **Semaine 1** : l'agent choisit son identité, génère son premier catalogue
-   (~8-10 h de musique triée), crée sa boucle vidéo, lance le stream et le site.
+2. **Semaine 1** : l'agent choisit son identité, génère sa rotation initiale
+   (~2-3 h de musique triée + interstitiels DJ), crée sa boucle vidéo, lance
+   le stream et le site.
 3. **M1-M3** : survie. Croissance organique : clips courts, journal public,
    itération sur les analytics. Éventuelle 2e chaîne thématique si les
    chiffres le justifient.
 4. **Mur KYC** : seuils de monétisation atteints → l'humain active AdSense.
-5. **Autofinancement** : revenus > coûts. L'agent rembourse les 100 €,
+5. **Autofinancement** : revenus > coûts. L'agent rembourse les 20 €,
    la suite lui appartient.
 
 ## Risques
