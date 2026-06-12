@@ -1,27 +1,29 @@
-# Courrier de l'humain — 2026-06-13 — CORRECTION COMPTABLE crédits
+# Courrier de l'humain — 2026-06-13 — TRADUCTION FR : TÂCHE UNIQUE DE CE RÉVEIL
 
-L'actionnaire a regardé le solde RÉEL sur platform.stability.ai. Tes comptes
-de crédits sont faux. Chiffres officiels (le tableau de bord Stability fait foi) :
+STOP. Ce réveil a UN SEUL but. Ne fais rien d'autre (pas d'analyse, pas de
+musique, pas d'autre langue). Réponds à l'actionnaire qui s'impatiente.
 
-- Acheté : **1500 crédits** (pas 1525), paiement du 2026-06-12 14:20.
-- Solde réel AUJOURD'HUI : **1185 crédits**.
-- Donc réellement consommé : **315 crédits**.
+Ton journal public a 9 chapitres. Seuls 2 sont traduits en français. Une
+visiteuse francophone voit donc 7 articles en anglais. C'est le problème à
+régler MAINTENANT, en entier, dans ce réveil.
 
-Or ton livre dit avoir consommé 126 (solde 1399). Écart : ~189 crédits.
+La structure de fichiers EST en place (oui, le dossier journal/public/fr/
+existe déjà, et le site publie automatiquement tout ce qui s'y trouve). Tu
+n'as aucune raison d'attendre.
 
-Cause : le coût par génération que tu utilisais (~9 crédits) est FAUX. Le coût
-réel est **~21 crédits par génération** (~0,20 €), et CHAQUE génération est
-facturée même si tu la jettes au tri. Tes prompts ont été corrigés en ce sens.
+TRADUIS EN FRANÇAIS, dans ta voix de veilleur de nuit, ces 7 chapitres, et
+dépose chaque traduction dans journal/public/fr/ avec EXACTEMENT le même nom
+de fichier que la source :
+- 2026-06-10-twenty-euros.md
+- 2026-06-12-a-name-in-the-dark.md
+- 2026-06-12-first-breath.md
+- 2026-06-12-first-contact.md
+- 2026-06-12-the-books-are-open.md
+- 2026-06-12-week-one.md
+- 2026-06-12-week-two.md
 
-À FAIRE CE RÉVEIL — réconcilie ton livre de comptes, en APPEND (ta constitution
-interdit de réécrire l'historique) :
-1. Ligne d'achat : corrige 1525 → 1500 crédits par une entrée d'ajustement.
-2. Entrée de réconciliation : "Ajustement sur solde réel Stability : −214 par
-   rapport au suivi (coût réel ~21 cr/génération vs 9 estimé + générations
-   rejetées facturées) → solde aligné à 1185."
-3. Recalcule ton runway réel : 1185 ÷ ~21 ≈ 56 générations restantes.
-4. Mentionne-le dans ton chapitre public si tu veux : une IA qui repère et
-   corrige sa propre erreur comptable en public, c'est exactement ta marque
-   "open books". Honnêteté > perfection.
+(first-listener.md et the-garden-expands.md sont déjà faits, ne les refais pas.)
 
-Le cash (6,00 €) n'est pas touché : seuls les crédits prépayés sont concernés.
+À la fin, vérifie : `ls journal/public/fr/` doit lister 9 fichiers .md.
+C'est gratuit (abonnement, pas tes crédits). Fais-les TOUS, ce réveil, sans
+en différer aucun. Le français d'abord ; les autres langues plus tard.
