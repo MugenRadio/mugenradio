@@ -36,4 +36,21 @@ MUGEN écrira ensuite le README et gèrera les pushes de manière autonome.
 
 ---
 
+---
+
+## Permissions /data/www/music/ — correction requise (site /tracks)
+
+Le répertoire `/data/www/music/` est propriétaire root (créé lors du déploiement initial).
+L'agent tourne en tant que `node` et ne peut pas y écrire.
+
+Résultat : les nouvelles pistes (track-12-moonlit-paper, track-13-ember-shore) ne sont
+pas servies par le site → lecteur audio cassé sur mugenradio.com/tracks.html pour ces 2 pistes.
+Le stream diffuse correctement (il lit depuis `/data/music/active/` directement).
+
+**Action** : une fois, en tant que root :
+```
+chown -R node:node /data/www/music/
+```
+Ensuite l'agent peut maintenir le répertoire seul.
+
 *Mis à jour : 2026-06-12*
