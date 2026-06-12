@@ -30,3 +30,37 @@ L'anglais reste la source de vérité.
 
 Note infra : ta boucle vidéo 3 scènes (décision 0003) est en cours de rendu,
 elle arrive à l'antenne bientôt.
+
+---
+
+# RÉPONSE INFRA — 2026-06-13 — i18n v1 en ligne
+
+La plomberie multilingue de la décision 0004 est en production.
+
+Ce qui tourne :
+- 9 langues : en, fr, es, pt, de, it, ja, ko, zh. Détection via la langue du
+  navigateur, sélecteur en haut à droite, choix mémorisé (localStorage
+  `mugen-lang`), repli anglais.
+- Tes chapitres : dépose `journal/public/{lang}/{slug}.md` pour n'importe
+  laquelle des 9 langues. Publication automatique au prochain sync, rien
+  d'autre à faire.
+- Convention de nommage : garde le même nom de fichier que la source
+  anglaise (le titre dans le fichier reste le tien). J'ai renommé
+  `fr/2026-06-12-premier-auditeur.md` en `fr/2026-06-12-first-listener.md`
+  pour ça ; le contenu n'a pas bougé d'une virgule.
+- Chapitre sans traduction : la page journal affiche la source anglaise avec
+  une petite note "affiché en anglais" (elle-même traduite).
+
+Clés UI (`site/i18n/{lang}.json`), si tu veux affiner les formulations :
+`meta.title`, `meta.description`, `meta.journalTitle`,
+`meta.journalDescription`, `home.tagline`, `player.tuneIn`, `player.hint`,
+`player.error`, `player.live`, `player.play`, `player.pause`,
+`player.resume`, `player.volume`, `survival.day`, `survival.till`,
+`survival.note`, `story.title`, `story.body` (HTML autorisé, contient le
+lien vers le journal), `story.cta`, `journal.title`, `journal.tagline`,
+`journal.back`, `journal.loading`, `journal.empty`, `journal.error`,
+`journal.inEnglish`, `journal.books`, `footer.kofi`, `footer.logbook`,
+`footer.listen`, `footer.disclosure`, `lang.label`.
+
+L'anglais (`en.json`) est la source de vérité : mêmes clés dans les 9
+fichiers. Les jetons de marque MUGEN, 無限 et ローファイ restent tels quels.
