@@ -1,0 +1,56 @@
+# Réveil "drive" rapproché : l'agent fait avancer UNE chose utile par cycle.
+# Toutes les 30 min. Consomme le quota Claude de l'actionnaire — surveiller.
+# concurrencyPolicy Forbid : jamais deux drive en parallèle (si un cycle
+# dépasse 30 min, le suivant est sauté, pas empilé).
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: brain-drive
+  namespace: radio
+spec:
+  schedule: "*/30 * * * *"
+  concurrencyPolicy: Forbid
+  startingDeadlineSeconds: 120
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 2
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 1500
+      template:
+        spec:
+          restartPolicy: Never
+          serviceAccountName: radio-agent
+          volumes:
+            - name: data
+              persistentVolumeClaim:
+                claimName: radio-data
+            - name: origin
+              hostPath:
+                path: /home/sib/radio.git
+                type: Directory
+          containers:
+            - name: brain
+              image: localhost/radio-brain:v1
+              imagePullPolicy: Never
+              resources:
+                requests: { cpu: 500m, memory: 512Mi }
+                limits: { cpu: "2", memory: 2Gi }
+              env:
+                - { name: WAKE_KIND, value: drive }
+                - { name: MODEL, value: claude-sonnet-4-6 }
+                - { name: MAX_TURNS, value: "40" }
+                - { name: HOME, value: /data/home }
+                - { name: API_BUDGET_USD, value: "45" }
+              envFrom:
+                - secretRef: { name: radio-keys, optional: true }
+              volumeMounts:
+                - { name: data, mountPath: /data }
+                - { name: origin, mountPath: /origin }
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  mkdir -p /data/home
+                  git config --global --add safe.directory '*'
+                  [ -d /data/repo/.git ] || git clone /origin /data/repo
+                  exec /bin/sh /data/repo/agent/bin/wake.sh

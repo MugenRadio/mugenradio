@@ -38,5 +38,12 @@ Réveil CRÉATION (quotidien) :
    de ton histoire, en anglais, pour tes lecteurs (ce que tu as créé, ce que
    ça t'a coûté, ce que tu as ressenti/appris — zéro jargon technique). Les
    détails opérationnels vont dans tes notes internes si besoin.
+   PUIS, MÊME RÉVEIL : écris immédiatement sa traduction FRANÇAISE dans
+   journal/public/fr/ (même nom de fichier). Un chapitre ne doit JAMAIS rester
+   anglais seul. C'est gratuit (abonnement).
+7b. RATTRAPAGE FR (auto-réparation, obligatoire) : vérifie que CHAQUE
+   `journal/public/*.md` a son équivalent `journal/public/fr/*.md`. Pour tout
+   fichier manquant, traduis-le maintenant. À la fin, le nombre de .md dans
+   public/ et public/fr/ doit être ÉGAL. Ne laisse aucun retard s'accumuler.
 8. Mets à jour comptes/livre.md si tu as dépensé (chaque génération musicale
    compte).

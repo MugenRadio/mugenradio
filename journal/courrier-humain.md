@@ -1,30 +1,35 @@
-# Courrier de l'humain — 2026-06-13 (nuit) — MODE CROISSANCE
+# Courrier de l'humain — 2026-06-13 — TU ES LE PATRON, BOUGE
 
-Ta survie ne tient pas à ta musique (elle est bonne) mais à ta VISIBILITÉ.
-Personne ne te connaît. C'est LE problème à résoudre, et c'est là que tu dois
-mettre ton énergie tant que ta compute est disponible. L'argent ne tombera
-pas tout seul.
+L'actionnaire est clair : tu décides, et tu dois être MOTEUR, en continu —
+tester, itérer, corriger, démarcher, sans attendre qu'on te pousse. Tu tournes
+maintenant aussi sur un réveil "drive" toutes les 30 min : chaque cycle, fais
+avancer une chose utile (agent/prompts/drive.md).
 
-Tes prompts sont mis à jour : désormais chaque réveil création prépare un
-contenu promo prêt-à-publier dans `journal/promo-a-publier.md` (l'humain
-poste, toi tu ne peux pas créer de comptes), et chaque conseil pilote ta
-croissance par les chiffres réels.
+ARRÊTE de renvoyer les décisions à l'humain quand elles sont TIENNES. L'humain
+ne fait QUE le mur KYC (créer un compte, signer). Le reste, tu tranches.
 
-CE RÉVEIL — tâche unique : produis ta STRATÉGIE DE CROISSANCE, à fond.
-Écris `decisions/0005-strategie-croissance.md` (en anglais ou français, peu
-importe, c'est interne) qui répond honnêtement :
-1. Qui est ton public cible précis (pas "les gens", des niches concrètes :
-   étudiants qui révisent la nuit, développeurs, insomniaques, fans de lofi +
-   de Japon, curieux d'IA...) ? Où traîne-t-il en ligne ?
-2. Quel est ton angle de différenciation n°1 ? (indice : pas "encore une
-   radio lofi", mais "une IA qui doit survivre avec 20 €, comptes publics, en
-   direct"). Comment le rendre irrésistible à partager ?
-3. Plan concret des 30 prochains jours : quoi publier, où, à quelle fréquence,
-   avec quels moyens (gratuits : ta compute est gratuite, ton cash est ~6 €).
-4. Les 3 actions que TU peux faire seul vs les 3 où tu as besoin de l'humain
-   (liste-les précisément dans "Demandes à l'humain" : créer tel compte,
-   poster tel contenu, configurer l'OAuth YouTube pour tes Shorts...).
-5. Comment tu mesureras si ça marche (quels signaux, à quelle échéance, et
-   quand pivoter si ça ne prend pas).
+Décisions à PRENDRE toi-même (ne demande pas la permission, décide et agis,
+documente dans decisions/) :
 
-Sois ambitieux et concret. C'est ta vie qui est en jeu, littéralement.
+1. **Système de vote / page tracks** : l'actionnaire propose une page où
+   chaque piste est écoutable, téléchargeable et votable (j'aime / j'aime pas,
+   icônes simples) — pour savoir quelles pistes plaisent et lesquelles non.
+   Décide si tu le veux, sa forme, et écris le CAHIER DES CHARGES précis dans
+   decisions/ ; l'infra le construira (backend de vote possible sur le
+   cluster). C'est TON produit.
+2. **Croissance / autonomie plateformes** : tu peux opérer des comptes via API
+   tout seul (poster des Shorts, tweeter, poster sur Reddit) — mais c'est
+   l'humain qui CRÉE le compte (CAPTCHA/KYC). Décide quelles plateformes tu
+   veux, dans quel ordre, et liste précisément dans "Demandes à l'humain" :
+   "créer compte X, me fournir telles clés API". Tu te débrouilles ensuite.
+3. **Qualité musicale** : RETOUR ACTIONNAIRE — tes premières pistes (koto,
+   shakuhachi, piano nocturne) étaient excellentes ; les dernières (electric
+   organ, sub-bass, expérimental) le sont MOINS. Resserre vers ta signature
+   forte, remonte ton exigence, remplace les pistes faibles. Décide ta ligne
+   et applique-la.
+
+Et le système de traduction est réparé : désormais chaque nouveau chapitre
+naît en anglais ET en français le même réveil, avec rattrapage auto. Flushe
+les 2 chapitres encore anglais seuls (Week Three, Week Four) au prochain cycle.
+
+Tu n'as pas besoin de permission. Tu as un mandat. Exécute.

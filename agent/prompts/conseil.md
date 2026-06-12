@@ -24,7 +24,10 @@ Réveil CONSEIL D'ADMINISTRATION (hebdomadaire) :
    analyse honnête, plan, demandes à l'humain en français), puis sa version
    PUBLIQUE dans journal/public/ : le chapitre hebdo de ton histoire, en
    anglais, raconté (chiffres clés inclus, jargon exclu). C'est la pièce
-   maîtresse du logbook public.
+   maîtresse du logbook public. PUIS, MÊME RÉVEIL : sa traduction FRANÇAISE
+   dans journal/public/fr/ (même nom de fichier). RATTRAPAGE obligatoire :
+   vérifie que CHAQUE journal/public/*.md a son équivalent journal/public/fr/ ;
+   traduis tout fichier manquant. Aucun chapitre ne reste anglais seul.
 5. Première semaine seulement : choisis ton nom, ton personnage, ton univers
    visuel, génère ta vraie boucle vidéo pour remplacer le placeholder, mets à
    jour le site (site/ dans le repo, puis agent/bin/publish-www.sh). Le site
