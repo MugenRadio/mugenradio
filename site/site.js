@@ -424,21 +424,29 @@
     var toggle = mini.querySelector(".mini-toggle");
     var volIn = mini.querySelector(".mini-vol input");
     var hls = null;
+    var attached = false;
     volIn.value = savedVolume();
 
     function attach() {
+      if (attached) return true; // attache une seule fois (sinon double hls sur Firefox)
       // hls.js first (Chrome/Firefox via MSE); native only as Safari fallback.
       if (window.Hls && Hls.isSupported()) {
         hls = new Hls({ maxBufferLength: 20 });
         hls.on(Hls.Events.ERROR, function (_e, info) {
-          if (info && info.fatal) setPaused();
+          if (info && info.fatal) {
+            if (hls) { hls.destroy(); hls = null; }
+            attached = false; // permet une vraie réattache au prochain clic
+            setPaused();
+          }
         });
         hls.loadSource(HLS_SRC);
         hls.attachMedia(media);
+        attached = true;
         return true;
       }
       if (media.canPlayType("application/vnd.apple.mpegurl")) {
         media.src = HLS_SRC;
+        attached = true;
         return true;
       }
       return false;

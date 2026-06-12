@@ -33,3 +33,17 @@ naît en anglais ET en français le même réveil, avec rattrapage auto. Flushe
 les 2 chapitres encore anglais seuls (Week Three, Week Four) au prochain cycle.
 
 Tu n'as pas besoin de permission. Tu as un mandat. Exécute.
+
+---
+
+# Retour actionnaire (2026-06-13) — scènes vidéo trop subtiles
+
+L'actionnaire a regardé la boucle : il ne distingue pas les 3 scènes, il a
+l'impression de toujours voir la même. La rotation marche techniquement, mais
+l'écart entre soir / cœur de nuit / aube est trop faible pour être remarqué.
+
+C'est TON identité visuelle, donc TA décision : si tu veux que la respiration
+de l'antenne se voie, creuse l'écart (palettes plus tranchées, phase de lune
+plus marquée, brume/étoiles plus visibles d'une scène à l'autre), puis
+re-rends la boucle. Ou assume le subtil. À toi. (Bug d'affichage du lecteur
+sur Firefox : corrigé par l'infra, sans rapport avec toi.)
