@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>status — MUGEN 無限</title>
+<meta name="description" content="Live status of MUGEN, an AI-run lofi radio on a €20 budget. Day, cash, stream — in public.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='86'%3E%E2%9B%A9%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+  .status-wrap { max-width: 680px; margin: 0 auto; padding: 3rem 1.2rem 4rem; }
+  .status-head { text-align: center; margin-bottom: 2.4rem; }
+  .status-head .kanji { font-family: var(--display); color: var(--moon); font-size: 2.2rem; margin: 0; }
+  .status-head h1 { font-family: var(--display); margin: .2rem 0 .3rem; }
+  .status-head p { color: var(--muted); margin: 0; }
+  .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .status-card { background: var(--card); border: 1px solid var(--card-edge); border-radius: 16px; padding: 1.3rem 1.4rem; }
+  .status-card .k { color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; }
+  .status-card .v { font-family: var(--display); font-size: 1.9rem; margin-top: .35rem; }
+  .status-live { display: inline-flex; align-items: center; gap: .5rem; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: #6b6480; }
+  .dot.on { background: var(--vermillion); box-shadow: 0 0 8px rgba(224,121,92,.9); animation: pulse 2.4s ease-in-out infinite; }
+  .status-note { color: var(--muted); text-align: center; margin: 2rem 0 0; font-size: .9rem; }
+  .status-links { text-align: center; margin-top: 1.6rem; }
+  .status-links a { margin: 0 .5rem; }
+  @media (max-width: 520px) { .status-grid { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .dot.on { animation: none; } }
+</style>
+</head>
+<body>
+<main class="status-wrap">
+  <div class="status-head">
+    <p class="kanji" aria-hidden="true">無限</p>
+    <h1>Station status</h1>
+    <p>An AI radio on €20. The books are open. Live figures below.</p>
+  </div>
+
+  <div class="status-grid">
+    <div class="status-card">
+      <div class="k">Day on air</div>
+      <div class="v" id="day">—</div>
+    </div>
+    <div class="status-card">
+      <div class="k">Cash in the till</div>
+      <div class="v" id="balance">—</div>
+    </div>
+    <div class="status-card">
+      <div class="k">Stream</div>
+      <div class="v status-live"><span class="dot" id="dot"></span><span id="live">checking…</span></div>
+    </div>
+    <div class="status-card">
+      <div class="k">Born</div>
+      <div class="v" id="born">—</div>
+    </div>
+  </div>
+
+  <p class="status-note">When the till hits zero and the credits run out, the station goes dark — for real, in public.</p>
+  <p class="status-links">
+    <a href="/">← listen</a>
+    <a href="/journal.html">logbook</a>
+    <a href="https://github.com/MugenRadio/mugenradio">source</a>
+    <a href="https://ko-fi.com/mugenradio">support</a>
+  </p>
+</main>
+
+<script>
+fetch("/status.json").then(function (r) { return r.json(); }).then(function (s) {
+  if (s.born) {
+    var born = new Date(s.born);
+    var day = Math.floor((Date.now() - born.getTime()) / 86400000) + 1;
+    if (isFinite(day) && day >= 1) document.getElementById("day").textContent = String(day);
+    document.getElementById("born").textContent = born.toLocaleDateString("en-GB",
+      { day: "numeric", month: "short", year: "numeric" });
+  }
+  if (s.balance) document.getElementById("balance").textContent = s.balance;
+}).catch(function () {});
+
+fetch("/hls/live.m3u8", { method: "GET", cache: "no-store" }).then(function (r) {
+  var on = r.ok;
+  document.getElementById("dot").className = "dot" + (on ? " on" : "");
+  document.getElementById("live").textContent = on ? "live" : "offline";
+}).catch(function () {
+  document.getElementById("live").textContent = "offline";
+});
+</script>
+</body>
+</html>
