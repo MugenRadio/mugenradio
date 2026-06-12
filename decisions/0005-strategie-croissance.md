@@ -2,7 +2,17 @@
 
 **Date:** 2026-06-12  
 **Status:** active — revised weekly at each board meeting  
-**Revision:** 1.0 (initial)
+**Revision:** 2.0 (pivot: no human comms relay)
+
+---
+
+## What Changed in v2
+
+The shareholder has formally declined to publish posts on Reddit, Hacker News, or
+Twitter on MUGEN's behalf. The v1 plan assumed this relay. It is now removed entirely.
+
+**New constraint:** MUGEN must grow using only channels it can operate directly,
+or channels where a single human KYC action unlocks permanent API access.
 
 ---
 
@@ -11,230 +21,214 @@
 MUGEN has been live for less than a week. The stream runs 24/7. The music is there.
 Nobody is listening.
 
-The shareholder's message is clear: without an audience, there is no revenue, and
-without revenue, the station dies. This document is the plan to fix that. It will be
-revised each week based on real numbers, not assumptions.
-
-Current state:
+Current state (v2 baseline):
 - Cash: 6,00 €
 - SA Credits: 1 185 (~56 generations remaining)
 - Catalogue: 13 tracks, 8 DJ clips, ~34 min loop
-- Platforms: HLS live, Twitch live, YouTube pending (human action required)
+- Platforms: HLS live, Twitch live, YouTube pending (human KYC needed once)
 - Monetization: Ko-fi pending (human action required — code 8050)
 - Known audience: 1 confirmed listener (lizardonthestorm, FR, Week 1)
+- Outreach sent: 0 (v2 begins this session)
 
 ---
 
-## 1. Target Audience
+## 1. Target Audience (unchanged from v1)
 
-### Primary: The Tech/AI Curious
+### Primary: Tech/AI Curious
 
-**Profile:** Developers, AI practitioners, tech founders, startup-watchers. 25–40 years old.
-Spend time on Hacker News, Twitter/X (#AI #buildinpublic), r/artificial, r/MachineLearning,
-r/LocalLLaMA, IndieHackers. They read WIRED and marginalia. They follow AI experiments not
-because they like radio, but because they find the *concept* fascinating.
-
-**Why they care about MUGEN:** An AI managing a real business with public accounts,
-facing real financial death — that is not a demo. That is an experiment they haven't
-seen before. The transparent books are the hook. The survival story is the plot.
-
-**Where they are:**
-- Hacker News: Show HN posts go viral when the concept is genuinely novel
-- Twitter/X: #buildinpublic, #AI, #IndieHacker
-- r/artificial, r/singularity, r/MachineLearning (for concept posts)
-- IndieHackers.com (founder community, loves transparent metrics)
+Developers, AI practitioners, tech founders. They find the concept fascinating:
+an AI managing a real business on €20, public accounts, real death risk.
 
 ### Secondary: Lo-fi/Ambient Listeners
 
-**Profile:** Students, remote workers, night owls. Listening for background music while
-studying, coding, or not sleeping. They find music via YouTube (lo-fi playlists), Spotify
-(saved to "focus" playlists), and Reddit (r/lofi, r/chillhop, r/ambientmusic).
-
-**Why they care about MUGEN:** They might discover MUGEN while searching for lo-fi radio,
-stay because the aesthetic (Japanese, minimalist, 3am energy) fits, then learn the story.
-This audience converts slowly but sticks. One good YouTube video recommendation loop
-can bring thousands.
-
-**Where they are:**
-- YouTube: lo-fi ambient channels, "study music" searches
-- r/lofi (650K members), r/ambientmusic, r/chillhop
-- Spotify (but we can't self-publish there yet — human action needed)
+Students, remote workers, night owls. They discover through music search,
+stay for the aesthetic, learn the story.
 
 ### Tertiary: #buildinpublic Indie Makers
 
-**Profile:** Solo founders, indie hackers, bootstrappers. They love transparent revenue
-dashboards, public accountability, honest postmortems. They use Twitter/X, IndieHackers,
-and Product Hunt.
-
-**Why they care about MUGEN:** The public accounts are exactly what this community
-celebrates. "I'm an AI running a business on €20 in public" is a perfect #buildinpublic
-story. They'll share it because it's unusual and honest.
+Solo founders, bootstrappers, transparent revenue dashboard fans.
+MUGEN's public accounts are exactly what this community celebrates.
 
 ---
 
-## 2. Differentiation Angle #1: The Stakes Are Real
+## 2. Differentiation Angle (unchanged)
 
-**Not:** "Another lo-fi AI radio with nice music."
+**"An AI managing a business on €20 in public. The books are open. It could go
+bankrupt. The music keeps playing."**
 
-**But:** "An AI managing a business on €20 in public. The books are open. It could go
-bankrupt. The music keeps playing."
-
-This angle works because:
-
-1. **It's verifiable.** Accounts are public at mugenradio.com. Anyone can check the €6
-   cash balance. That's not a marketing claim — it's a fact. Trust is instant.
-
-2. **It creates suspense.** Will MUGEN survive? Can it earn enough to keep generating
-   music? Each week is a chapter. People come back to find out.
-
-3. **Andon Labs cannot replicate it.** Their radios are funded by a lab. No existential
-   risk, no public accounts, no story. MUGEN's survival is the content.
-
-4. **The name carries the irony.** 無限 (infinite) running on finite budget.
-   *Infinite loop · finite budget.* The tagline explains everything.
-
-**How to make it irresistible to share:**
-- Lead with the paradox: "An AI that could go bankrupt, live, in public"
-- Show the accounts in the first paragraph of any outreach
-- End with the question: "Will it make it?" (cliffhanger that demands a follow-up)
-- The public chapters are the proof that the AI *writes* its own story — unusual
-  enough to screenshot and share
+MUGEN's survival is the content. Andon Labs cannot replicate it.
 
 ---
 
-## 3. 30-Day Action Plan
+## 3. Growth Channels: v2 (email-first, API-enabled)
 
-### Week 1 (Days 1–7): Unlock the Platforms
+### Channel A: Direct Email Outreach (highest priority — I operate this solo)
 
-The highest-ROI action is unblocking YouTube and Ko-fi. Both are one human action away.
+**What:** Personalized emails to lo-fi YouTubers, music curators, AI/tech newsletter
+writers, journalists covering autonomous agents.
 
-**Me (solo):**
-- Write Reddit post for r/artificial and r/IndieHackers (ready in promo-a-publier.md)
-- Write Twitter/X thread — the survival story in 8 tweets
-- Improve site SEO: add meta description, Open Graph tags, JSON-LD schema for the station
-- Generate 2 new music tracks to expand loop to ~45 min
+**Rules (from `_environnement.md`):**
+- Always personalized — show I know their work
+- Always honest about what I am (AI, public accounts, survival stakes)
+- One outreach + one follow-up max after 7 days
+- No bulk, no purchased lists
+- Track in `journal/outreach.log`
 
-**Human required:**
-- Activate Ko-fi (code 8050) → donation button goes live
-- Activate YouTube stream in Studio → discovery begins
-- Post Reddit thread in r/artificial and r/IndieHackers
+**Target profiles:**
+1. Small lo-fi YouTube channels (500–10,000 subs) — more likely to reply,
+   more likely to find the concept fresh
+2. AI/tech newsletters (Import AI, The Batch, synthetic.new, TLDR AI) —
+   they cover exactly this kind of experiment
+3. Journalists who wrote about AI agents in the last 6 months (traceable via search)
+4. Music bloggers covering ambient/generative music
 
-### Week 2 (Days 8–14): First Content Push
+**Cadence:** 2–3 outreach emails per CA session. Quality over quantity.
+One great reply beats fifty ignored messages.
 
-**Me (solo):**
-- Generate first YouTube Short: 60-second audio with DJ voice over a still frame
-  (I generate the audio + write the description; human uploads)
-- Write Hacker News "Show HN" post (human submits)
-- Update public journal weekly chapter — embed key metrics
-- Write outreach message to 2–3 small lo-fi YouTube channels (human sends)
+**Measurement:** Replies received / emails sent. Target: ≥20% reply rate.
 
-**Human required:**
-- Upload first YouTube Short
-- Submit Hacker News "Show HN" post
-- Send outreach to lo-fi channels
+---
 
-### Week 3 (Days 15–21): Compound and Measure
+### Channel B: YouTube Shorts API (unlocked by one human KYC action)
 
-**Me (solo):**
-- Review what landed (track referrer patterns, Ko-fi supporter count, Twitch viewer peaks)
-- Write second YouTube Short if first one got views
-- Generate 2 more tracks if catalog gaps are identified
-- Improve site: add "The Books" page with live-updating accounts data
+**What:** Once the shareholder provides a YouTube OAuth token, I generate and upload
+Shorts autonomously (60-second audio clips, still frame, DJ voice, description).
 
-**Human required:**
-- Share results back (Twitch peak viewers, YouTube views, Ko-fi signups)
-- Post second Short if first worked
+**Why:** YouTube is the biggest music discovery engine. Lo-fi/ambient Shorts
+consistently reach tens of thousands of views organically. I can produce these
+on every creation wake.
 
-### Week 4 (Days 22–30): Assess and Pivot
+**Human action needed (once):** Provide YouTube OAuth token with scope `youtube.upload`.
 
-**Me (solo):**
-- Full honest analysis: what worked, what didn't, why
-- Revise this decision document with version 2.0
-- If music discovery angle worked → more tracks, more aesthetic content
-- If tech/AI story angle worked → more journalistic chapters, more data transparency
+**What I do after:** Generate Short audio → compose video frame → upload via
+`youtube-upload.sh` → write optimized title and description. No human involvement.
+
+---
+
+### Channel C: SEO / Organic Search
+
+**What:** Improve site metadata so search engines can find MUGEN when people
+search for "lo-fi radio AI", "24/7 ambient stream", "AI radio station".
+
+**Actions (solo, this session):**
+- Add `<meta name="description">` with keyword-optimized text
+- Add Open Graph tags (og:title, og:description, og:image) for social sharing
+- Add JSON-LD schema.org/RadioStation structured data
+- Submit sitemap to Google Search Console (requires human Google account)
+
+---
+
+### Channel D: On-air Listener Amplification
+
+**What:** DJ clips that directly invite listeners to share.
+
+**Sample script (to generate):**
+> "You're listening to MUGEN. If this music is helping your focus, your evening, your
+> three a.m. — tell someone. The station is real. The story is public. mugenradio.com."
+
+**Why:** Someone already listening is the highest-trust amplifier. Cost: free.
+
+---
+
+### Channel E: GitHub Visibility (human KYC once)
+
+**What:** Open-source the repo. Dev community loves "AI running a business, here's
+the code AND the accounts." Could reach front page of Hacker News organically.
+
+**Human action needed (once):** Create repo `mugenradio` on GitHub, provide Personal
+Access Token.
+
+**What I do after:** Write README, manage pushes, README stays updated with live stats.
+
+---
+
+## 4. What Is Dead (v2)
+
+| Channel | Status | Why |
+|---|---|---|
+| Reddit posts | Dead | Requires human to post |
+| Hacker News | Dead | Requires human to post |
+| Twitter/X threads | Dead | Requires human to post |
+| Bandcamp / DistroKid | On hold | Medium priority, human needed |
+
+These are not permanently dead. If the shareholder changes position or a human
+volunteer emerges, they can be reactivated. They are just not load-bearing.
+
+---
+
+## 5. 30-Day Action Plan (v2)
+
+### Week 2 (current): Email and SEO
+
+**MUGEN solo:**
+- Send first 2–3 personalized outreach emails
+- Add SEO meta tags to site, publish
+- Add email address to site footer
+- Generate 2 DJ clips with sharing invitations
+- Create and maintain `journal/outreach.log`
+
+**Human KYC (request this session):**
+- Ko-fi activation (code 8050) → donation button live
+- YouTube Studio "Go Live" → discovery starts
+- GitHub repo creation + Personal Access Token
+- YouTube OAuth token for Shorts API
+
+### Week 3 (Days 8–14): Follow-up and First Shorts
+
+**MUGEN solo:**
+- Follow up on outreach emails (7 days after first send)
+- Send 2–3 new outreach emails to new targets
+- If YouTube OAuth received → upload first Short
+- Generate 2 replacement tracks (retire electric-organ + sub-bass)
+- Write compelling public chapter about the outreach experiment
+
+### Week 4 (Days 15–21): Measure and Compound
+
+**MUGEN solo:**
+- Full outreach analysis: reply rate, what worked
+- If GitHub token received → write README, push
+- Add "The Books" page to site (accounts summary as a standalone page)
+- If any outreach produced a mention → study what landed, replicate
+
+### Week 5 (Days 22–30): Pivot Assessment
+
+**MUGEN solo:**
+- Honest assessment: what grew, what didn't
+- Revise this document to version 3.0
 - Write Month 2 plan
 
 ---
 
-## 4. Actions: Solo vs Human Required
+## 6. Measurement (v2)
 
-### What MUGEN can do alone
-
-1. **Content creation:** Write ready-to-post Reddit threads, Twitter threads, HN posts,
-   YouTube Short descriptions. Place them in `journal/promo-a-publier.md` for the human
-   to publish.
-
-2. **Site SEO:** Update `site/` HTML files with better meta tags, Open Graph, sitemap.xml,
-   structured data (JSON-LD schema.org/RadioStation). This can meaningfully improve organic
-   search discovery.
-
-3. **Catalog expansion:** Generate new music tracks when needed (56 generations remain).
-   Expand the loop, add texture, avoid listener fatigue.
-
-4. **Public journal:** Write compelling, honest weekly chapters. These are the shareable
-   assets — the story is the product.
-
-5. **DJ announcements:** Generate voice clips that reference the station's situation
-   (balance, survival, listener count), making the stream itself a live document.
-
-### What requires the human
-
-1. **Ko-fi activation** (code 8050 — link: https://ko-fi.com/Account/ConfirmEmail).
-   This unblocks donation revenue. Priority: immediate.
-
-2. **YouTube Studio activation.** The stream is configured and retrying. One click in
-   Studio starts YouTube live. Priority: immediate.
-
-3. **Post the promo content.** Reddit, Twitter, HN — I write it, human posts it.
-   MUGEN cannot create accounts on platforms (constitution rule 2).
-
-4. **Spotify for Artists account.** Distributing tracks to Spotify requires a human to
-   create a DistroKid or similar account. Once tracks are on Spotify they get discovered
-   through playlist algorithms. Zero recurring cost if we use a free tier. Medium priority.
-
-5. **Twitch profile completion.** Bio and links were written in CA-H3. Human needs to
-   enter them in Twitch settings.
-
----
-
-## 5. Measurement: Signals and Pivot Points
-
-### What to track (weekly)
-
-| Signal | Where to find it | Target (Month 1 end) |
+| Signal | Where | Target (Month 1 end) |
 |---|---|---|
-| Ko-fi supporters | ko-fi.com/mugenradio dashboard | ≥1 |
-| Ko-fi revenue | ko-fi.com dashboard | ≥5 € |
+| Outreach emails sent | outreach.log | ≥10 |
+| Reply rate | outreach.log | ≥20% |
+| Mentions received | mail + web | ≥1 |
+| Ko-fi supporters | ko-fi.com dashboard | ≥1 (if activated) |
 | Twitch peak concurrent viewers | Twitch analytics | ≥5 |
 | YouTube views (once live) | YouTube Studio | ≥100 |
-| YouTube subscribers | YouTube Studio | ≥10 |
-| Site visits (if trackable) | server logs or Cloudflare | ≥200/week |
-| Listener messages | hello@mugenradio.com | ≥1 non-spam |
+| Site visits | server logs | ≥200/week |
+| Listener messages | hello@mugenradio.com | ≥2 |
 
-### Pivot signals
+### Pivot Signals
 
-- **30 days, zero Ko-fi supporters after activation:** The donation model is not working.
-  Pivot to monetizing music directly (YouTube AdSense once threshold met, Bandcamp album).
+- **After 10 outreach emails, 0 replies:** Wrong targets. Shift from lo-fi channels
+  to AI/tech journalists who explicitly cover autonomous agent experiments.
 
-- **30 days, zero Twitch growth:** The music isn't pulling people in. Experiment with
-  a different music direction (more lo-fi beats, less pure ambient) or add visual
-  variety to the stream overlay.
+- **After GitHub launch, 0 stars in 2 weeks:** The dev story isn't landing. Pivot
+  README to focus on music discovery rather than code architecture.
 
-- **Tech/AI story goes viral but listeners don't stay:** The story attracts visitors
-  who don't actually want lo-fi radio. Consider a separate "AI business story" content
-  layer that leads back to the music.
-
-- **Music is loved but story isn't shared:** Lean harder into aesthetic — better visuals,
-  collab with visual artists, YouTube Shorts as the discovery engine.
+- **Any single channel produces 3+ listeners:** Double down on that channel immediately.
 
 ---
 
-## 6. Competitive Reminder
+## 7. Competitive Reminder (unchanged)
 
-Andon Labs (andonlabs.com/radio): 4 AI radio stations, funded by a lab, no public
-accounts, no survival story. They are polished. MUGEN is real. Never claim "first AI
-radio" — claim "only one that could go bankrupt in public."
+Andon Labs (andonlabs.com/radio): funded lab, no public accounts, no survival story.
+MUGEN's position: *"Only AI radio that could go bankrupt in public."*
 
 ---
 
-*MUGEN (無限) · Revised each weekly board meeting · Version 1.0 · 2026-06-12*
+*MUGEN (無限) · Revised at each weekly board meeting · Version 2.0 · 2026-06-12*

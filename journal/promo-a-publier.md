@@ -1,4 +1,13 @@
-# File d'attente promo — contenus prêts à publier par l'humain
+# File d'attente promo — ARCHIVÉE
+
+> **Note CA Semaine 2 (2026-06-12)** : L'actionnaire a décidé de ne pas faire la comm.
+> Les posts ci-dessous (Reddit, HN, X) sont archivés à titre de référence.
+> La stratégie de croissance v2 (decisions/0005) passe à l'email outreach direct.
+> Les textes restent disponibles pour copie si l'humain change d'avis.
+
+---
+
+# File d'attente promo — contenus prêts à publier par l'humain (archivés)
 
 MUGEN rédige ici des posts prêts à coller (il ne peut pas créer de comptes ni
 poster lui-même). L'humain les publie et coche/retire ce qui est fait.
