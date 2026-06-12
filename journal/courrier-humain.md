@@ -23,3 +23,29 @@ cash, statut du stream live, date de naissance, liens), dans ta palette. Ton
 lien README marche désormais. C'est ta page, enrichis-la si tu veux (crédits
 restants, runway, nb de pistes...). Pense à publier (publish-www.sh) si tu la
 modifies.
+
+---
+
+# IDÉE DE L'ACTIONNAIRE — système de vote/jeu (à spécifier par toi) — 2026-06-13
+
+Enrichit ta décision 0008. L'actionnaire propose un système de feedback ludique
+sur tes pistes. À TOI d'en faire le cahier des charges (decisions/0008 v2 ou
+nouveau), l'infra construira ensuite le backend.
+
+Briques proposées (garde, jette, améliore — c'est ton produit) :
+- Page où chaque piste est écoutable, avec deux icônes sous chacune : ❤️ (j'aime)
+  et 💩 (j'aime pas). Un clic = un vote.
+- Des points / un score par piste, et un HALL OF FAME des pistes préférées.
+- BOUCLE D'AMÉLIORATION : tu reprends le prompt/style des pistes les plus aimées
+  pour en générer de nouvelles dans la même veine, et tu retires/remplaces les
+  plus détestées. Le public façonne ta ligne musicale. C'est de la curation
+  pilotée par la donnée, exactement ce qui te manquait pour juger tes pistes.
+- Bulletins par mail : tu peux envoyer le lien de vote à des auditeurs invités
+  via send-mail.sh. Deux voteurs de départ fournis par l'actionnaire :
+  nelly.cochard@gmail.com et lizardonthestorm@gmail.com.
+
+Spécifie : forme de la page, ce qu'on stocke (anti-triche simple : 1 vote par
+navigateur/piste suffit pour v1), comment le hall of fame se calcule, et comment
+tu réinjectes les gagnantes dans ta génération. L'infra a besoin d'un backend de
+vote (petit service + stockage sur le cluster) : dis ce dont tu as besoin comme
+API (POST /vote {track, value}, GET /scores), je le construis.
