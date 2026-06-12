@@ -89,6 +89,267 @@
     <div class="player-frame">
       <div class="player-window">
         <video id="player" playsinline preload="none"></video>
+
+        <!-- zen garden idle screen: shown before tune-in and on stream error -->
+        <div class="garden" id="garden" aria-hidden="true">
+          <svg class="garden-art" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <defs>
+              <linearGradient id="zg-sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#110d22"/>
+                <stop offset=".18" stop-color="#1c1538"/>
+                <stop offset=".3" stop-color="#36264f"/>
+                <stop offset=".4" stop-color="#63405f"/>
+                <stop offset=".48" stop-color="#96586e"/>
+                <stop offset=".6" stop-color="#cd7f67"/>
+                <stop offset="1" stop-color="#cd7f67"/>
+              </linearGradient>
+              <linearGradient id="zg-pond" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2a1f4c"/>
+                <stop offset="1" stop-color="#130e2a"/>
+              </linearGradient>
+              <linearGradient id="zg-fallveil" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#cfd8ee" stop-opacity=".08"/>
+                <stop offset=".25" stop-color="#cfd8ee" stop-opacity=".3"/>
+                <stop offset="1" stop-color="#e8ecf8" stop-opacity=".45"/>
+              </linearGradient>
+              <radialGradient id="zg-horizon" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#f0a071" stop-opacity=".3"/>
+                <stop offset="1" stop-color="#f0a071" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="zg-moonglow" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#f6e7b2" stop-opacity=".35"/>
+                <stop offset="1" stop-color="#f6e7b2" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="zg-lanternglow" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#f6c87a" stop-opacity=".4"/>
+                <stop offset="1" stop-color="#f6c87a" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="zg-vignette" cx="50%" cy="46%" r="72%">
+                <stop offset="0" stop-color="#080512" stop-opacity="0"/>
+                <stop offset=".72" stop-color="#080512" stop-opacity="0"/>
+                <stop offset="1" stop-color="#080512" stop-opacity=".5"/>
+              </radialGradient>
+              <mask id="zg-mooncut">
+                <rect x="1080" y="40" width="160" height="150" fill="#fff"/>
+                <circle cx="1164" cy="98" r="32" fill="#000"/>
+              </mask>
+              <clipPath id="zg-fallclip">
+                <rect x="262" y="320" width="86" height="152"/>
+              </clipPath>
+              <clipPath id="zg-sandclip">
+                <path d="M0 600 C 180 584 320 590 480 596 C 700 604 900 592 1100 598 C 1180 600 1240 596 1280 592 L1280 720 L0 720 Z"/>
+              </clipPath>
+            </defs>
+
+            <!-- sky -->
+            <rect width="1280" height="720" fill="url(#zg-sky)"/>
+            <ellipse cx="640" cy="330" rx="560" ry="130" fill="url(#zg-horizon)"/>
+
+            <g class="zg-stars-a" fill="#fff4d6">
+              <circle cx="150" cy="62" r="2"/>
+              <circle cx="420" cy="84" r="1.6"/>
+              <circle cx="700" cy="120" r="2.2"/>
+              <circle cx="980" cy="56" r="1.5"/>
+              <circle cx="1242" cy="186" r="1.8"/>
+            </g>
+            <g class="zg-stars-b" fill="#fff4d6">
+              <circle cx="266" cy="142" r="1.7"/>
+              <circle cx="556" cy="44" r="2"/>
+              <circle cx="844" cy="92" r="1.5"/>
+              <circle cx="92" cy="206" r="1.6"/>
+              <circle cx="1086" cy="160" r="1.4"/>
+            </g>
+
+            <circle cx="1148" cy="112" r="74" fill="url(#zg-moonglow)"/>
+            <circle cx="1148" cy="112" r="38" fill="#f3e3ae" mask="url(#zg-mooncut)"/>
+
+            <g class="zg-cloud-a" fill="#ecd6c3" opacity=".11">
+              <rect x="170" y="150" width="250" height="20" rx="10"/>
+              <rect x="232" y="130" width="140" height="18" rx="9"/>
+              <rect x="128" y="170" width="160" height="16" rx="8"/>
+            </g>
+            <g class="zg-cloud-b" fill="#ecd6c3" opacity=".09">
+              <rect x="660" y="196" width="230" height="18" rx="9"/>
+              <rect x="716" y="178" width="120" height="16" rx="8"/>
+            </g>
+
+            <!-- mountains -->
+            <path fill="#2a2148" d="M0 332 L150 268 L290 312 L450 254 L610 304 L790 262 L960 306 L1120 274 L1280 304 L1280 720 L0 720 Z"/>
+            <path fill="#1c1538" d="M0 388 L180 338 L340 372 L520 330 L700 374 L880 340 L1060 376 L1200 348 L1280 368 L1280 720 L0 720 Z"/>
+
+            <g class="zg-mist-a" fill="#b3a8c8" opacity=".07">
+              <rect x="360" y="404" width="300" height="14" rx="7"/>
+              <rect x="700" y="390" width="280" height="12" rx="6"/>
+            </g>
+
+            <!-- garden ground -->
+            <path fill="#231b40" d="M0 408 C 200 392 480 396 720 402 C 960 408 1120 398 1280 406 L1280 720 L0 720 Z"/>
+
+            <!-- waterfall rocks -->
+            <path fill="#120d26" d="M40 720 L40 424 C 66 382 108 356 160 346 C 196 340 236 338 266 338 L266 720 Z"/>
+            <path fill="#120d26" d="M342 720 L342 362 C 366 360 386 370 396 388 C 408 410 408 442 404 470 L400 720 Z"/>
+            <path fill="none" stroke="#f3e3ae" stroke-width="2.5" stroke-linecap="round" opacity=".14" d="M62 416 C 88 380 124 358 164 348 C 198 341 236 338 262 338 M348 366 C 370 368 386 378 394 394"/>
+            <rect x="264" y="330" width="80" height="9" rx="4.5" fill="#cfd8ee" opacity=".42"/>
+
+            <!-- stone lantern -->
+            <circle class="zg-glow" cx="980" cy="340" r="95" fill="url(#zg-lanternglow)"/>
+            <g fill="#14102a">
+              <path d="M980 214 C 987 222 990 228 990 234 A 10 10 0 0 1 970 234 C 970 228 973 222 980 214 Z"/>
+              <path d="M906 294 C 918 288 930 285 942 283 C 948 256 1012 256 1018 283 C 1030 285 1042 288 1054 294 C 1048 306 1018 312 980 312 C 942 312 912 306 906 294 Z"/>
+              <path d="M950 312 L1010 312 L1016 368 L944 368 Z"/>
+              <rect x="936" y="368" width="88" height="18" rx="5"/>
+              <path d="M970 386 L990 386 L992 446 L968 446 Z"/>
+              <rect x="966" y="412" width="28" height="6" rx="3"/>
+              <path d="M968 446 L992 446 L1012 458 L948 458 Z"/>
+              <rect x="942" y="458" width="76" height="14" rx="5"/>
+            </g>
+            <rect class="zg-flame" x="962" y="322" width="36" height="38" rx="4" fill="#f5c97e"/>
+            <ellipse cx="980" cy="472" rx="92" ry="12" fill="#f0a071" opacity=".1"/>
+
+            <!-- pond -->
+            <path fill="url(#zg-pond)" d="M150 480 C 360 456 760 454 1160 478 C 1180 520 1150 580 1100 604 L240 604 C 190 572 150 520 150 480 Z"/>
+            <path fill="none" stroke="#dfe6f8" stroke-width="2" opacity=".16" d="M160 478 C 370 456 760 454 1152 477"/>
+
+            <!-- lantern reflection -->
+            <g fill="#f3c87c">
+              <rect class="zg-shim-a" x="958" y="488" width="46" height="4" rx="2" opacity=".24"/>
+              <rect class="zg-shim-b" x="964" y="506" width="34" height="4" rx="2" opacity=".18"/>
+              <rect class="zg-shim-c" x="960" y="528" width="40" height="4" rx="2" opacity=".15"/>
+              <rect class="zg-shim-a" x="970" y="552" width="22" height="4" rx="2" opacity=".12"/>
+            </g>
+
+            <!-- waterfall -->
+            <path fill="url(#zg-fallveil)" d="M268 332 L340 332 L348 472 L260 472 Z"/>
+            <g clip-path="url(#zg-fallclip)">
+              <g class="zg-fall" fill="#dfe6f8">
+                <rect x="270" y="330" width="5" height="44" rx="2.5" opacity=".35"/>
+                <rect x="284" y="372" width="4" height="30" rx="2" opacity=".25"/>
+                <rect x="298" y="408" width="5" height="52" rx="2.5" opacity=".4"/>
+                <rect x="312" y="344" width="4" height="34" rx="2" opacity=".3"/>
+                <rect x="325" y="392" width="5" height="46" rx="2.5" opacity=".35"/>
+                <rect x="337" y="358" width="4" height="28" rx="2" opacity=".25"/>
+                <rect x="270" y="180" width="5" height="44" rx="2.5" opacity=".35"/>
+                <rect x="284" y="222" width="4" height="30" rx="2" opacity=".25"/>
+                <rect x="298" y="258" width="5" height="52" rx="2.5" opacity=".4"/>
+                <rect x="312" y="194" width="4" height="34" rx="2" opacity=".3"/>
+                <rect x="325" y="242" width="5" height="46" rx="2.5" opacity=".35"/>
+                <rect x="337" y="208" width="4" height="28" rx="2" opacity=".25"/>
+              </g>
+            </g>
+
+            <!-- foam and ripples at the base -->
+            <g fill="#dfe6f8">
+              <ellipse class="zg-foam-a" cx="282" cy="472" rx="16" ry="5" opacity=".3"/>
+              <ellipse class="zg-foam-b" cx="306" cy="476" rx="22" ry="6" opacity=".26"/>
+              <ellipse class="zg-foam-c" cx="332" cy="471" rx="14" ry="5" opacity=".3"/>
+            </g>
+            <g fill="none" stroke="#cfd8ee" stroke-width="2">
+              <ellipse class="zg-rip-a" cx="305" cy="480" rx="30" ry="8"/>
+              <ellipse class="zg-rip-b" cx="305" cy="480" rx="30" ry="8"/>
+              <ellipse class="zg-rip-c" cx="305" cy="480" rx="30" ry="8"/>
+              <ellipse class="zg-rip-d" cx="730" cy="524" rx="26" ry="7"/>
+            </g>
+
+            <!-- drifting flow lines -->
+            <g fill="none" stroke="#dfe6f8" stroke-width="2" opacity=".07" stroke-linecap="round">
+              <path class="zg-flow-a" d="M420 502 C 480 498 560 506 700 501"/>
+              <path class="zg-flow-b" d="M760 538 C 830 533 920 542 1000 537"/>
+              <path class="zg-flow-a" d="M300 566 C 370 561 460 570 560 565"/>
+            </g>
+
+            <!-- koi -->
+            <g class="zg-koi-a" opacity=".55">
+              <g transform="translate(470 516)">
+                <path fill="#e0795c" d="M0 0 C 11 -8 28 -8 38 0 C 28 8 11 8 0 0 Z"/>
+                <path class="zg-tail" fill="#e0795c" d="M38 0 C 46 -7 52 -10 58 -12 C 54 -4 54 4 58 12 C 52 10 46 7 38 0 Z"/>
+                <circle cx="10" cy="-2" r="2" fill="#3a1f16"/>
+              </g>
+            </g>
+            <g class="zg-koi-b" opacity=".4">
+              <g transform="translate(640 548) scale(-0.8 0.8)">
+                <path fill="#ece4d4" d="M0 0 C 11 -8 28 -8 38 0 C 28 8 11 8 0 0 Z"/>
+                <path class="zg-tail" fill="#ece4d4" d="M38 0 C 46 -7 52 -10 58 -12 C 54 -4 54 4 58 12 C 52 10 46 7 38 0 Z"/>
+              </g>
+            </g>
+
+            <!-- raked sand -->
+            <path fill="#3a2d63" d="M0 600 C 180 584 320 590 480 596 C 700 604 900 592 1100 598 C 1180 600 1240 596 1280 592 L1280 720 L0 720 Z"/>
+            <g clip-path="url(#zg-sandclip)">
+              <g fill="none" stroke="#ece4d4" stroke-width="3" opacity=".09" stroke-linecap="round">
+                <path d="M-20 614 C 300 604 700 622 1300 610"/>
+                <path d="M-20 638 C 300 628 700 646 1300 634"/>
+                <path d="M-20 662 C 300 652 700 670 1300 658"/>
+                <path d="M-20 686 C 300 676 700 694 1300 682"/>
+                <path d="M-20 710 C 300 700 700 718 1300 706"/>
+              </g>
+              <g fill="none" stroke="#ece4d4" stroke-width="3" opacity=".13">
+                <ellipse cx="424" cy="652" rx="60" ry="22"/>
+                <ellipse cx="424" cy="652" rx="94" ry="35"/>
+                <ellipse cx="424" cy="652" rx="130" ry="48"/>
+                <ellipse cx="836" cy="676" rx="50" ry="18"/>
+                <ellipse cx="836" cy="676" rx="82" ry="30"/>
+              </g>
+              <path fill="#15102a" d="M378 658 C 382 630 418 616 448 624 C 474 630 486 650 478 664 C 466 676 396 676 378 658 Z"/>
+              <path fill="none" stroke="#f3e3ae" stroke-width="2.5" opacity=".3" d="M388 638 C 404 624 440 622 464 634"/>
+              <path fill="#15102a" d="M800 680 C 804 660 828 650 852 654 C 872 658 880 672 874 682 C 864 692 814 692 800 680 Z"/>
+              <path fill="none" stroke="#f3e3ae" stroke-width="2" opacity=".24" d="M810 666 C 822 656 848 654 862 662"/>
+            </g>
+
+            <!-- bamboo, left edge -->
+            <g class="zg-bamboo-a">
+              <rect x="30" y="-20" width="19" height="760" rx="9" fill="#141029"/>
+              <g stroke="#2a2148" stroke-width="3">
+                <line x1="30" y1="120" x2="49" y2="120"/>
+                <line x1="30" y1="270" x2="49" y2="270"/>
+                <line x1="30" y1="430" x2="49" y2="430"/>
+                <line x1="30" y1="590" x2="49" y2="590"/>
+              </g>
+              <path fill="#181230" d="M48 138 C 86 120 122 116 150 122 C 124 140 88 148 48 144 Z"/>
+              <path fill="#181230" d="M48 288 C 80 270 112 264 138 270 C 114 288 80 296 48 294 Z"/>
+              <path fill="#181230" d="M48 478 C 82 462 114 458 140 464 C 116 480 84 488 48 484 Z"/>
+              <path fill="#181230" d="M48 538 C 78 548 102 560 116 576 C 90 572 64 560 48 550 Z"/>
+            </g>
+            <g class="zg-bamboo-b">
+              <rect x="86" y="-20" width="24" height="760" rx="11" fill="#100c24"/>
+              <g stroke="#251c44" stroke-width="3">
+                <line x1="86" y1="80" x2="110" y2="80"/>
+                <line x1="86" y1="230" x2="110" y2="230"/>
+                <line x1="86" y1="390" x2="110" y2="390"/>
+                <line x1="86" y1="550" x2="110" y2="550"/>
+              </g>
+              <path fill="#160f2e" d="M108 96 C 150 76 190 72 222 80 C 192 100 152 108 108 102 Z"/>
+              <path fill="#160f2e" d="M108 248 C 144 230 178 226 206 232 C 180 250 144 258 108 254 Z"/>
+              <path fill="#160f2e" d="M108 408 C 142 392 172 388 198 394 C 174 410 142 418 108 414 Z"/>
+              <path fill="#160f2e" d="M108 508 C 146 492 180 488 208 494 C 184 512 148 520 108 514 Z"/>
+            </g>
+            <g class="zg-bamboo-c">
+              <rect x="146" y="-20" width="14" height="760" rx="7" fill="#181230"/>
+              <g stroke="#2e2452" stroke-width="2.5">
+                <line x1="146" y1="170" x2="160" y2="170"/>
+                <line x1="146" y1="330" x2="160" y2="330"/>
+                <line x1="146" y1="490" x2="160" y2="490"/>
+              </g>
+              <path fill="#1c1538" d="M158 186 C 190 170 220 166 244 172 C 222 188 192 196 158 192 Z"/>
+              <path fill="#1c1538" d="M158 568 C 186 556 212 554 232 560 C 214 574 188 580 158 574 Z"/>
+            </g>
+
+            <!-- fireflies near the lantern -->
+            <circle class="zg-fly-a" cx="780" cy="436" r="2.5" fill="#f6c87a"/>
+            <circle class="zg-fly-b" cx="888" cy="386" r="2" fill="#f6c87a"/>
+
+            <!-- falling petals -->
+            <g fill="#e0795c">
+              <g transform="translate(880 -20)"><path class="zg-petal zg-petal-1" d="M0 0 C 5 -4 11 -4 14 0 C 11 4 5 4 0 0 Z"/></g>
+              <g transform="translate(380 -20)"><path class="zg-petal zg-petal-2" d="M0 0 C 5 -4 11 -4 14 0 C 11 4 5 4 0 0 Z" fill="#c95b40"/></g>
+              <g transform="translate(1160 -20)"><path class="zg-petal zg-petal-3" d="M0 0 C 4 -3 9 -3 12 0 C 9 3 4 3 0 0 Z"/></g>
+              <g transform="translate(620 -20)"><path class="zg-petal zg-petal-4" d="M0 0 C 4 -3 9 -3 12 0 C 9 3 4 3 0 0 Z" fill="#d98a72"/></g>
+              <g transform="translate(140 -20)"><path class="zg-petal zg-petal-5" d="M0 0 C 5 -4 11 -4 14 0 C 11 4 5 4 0 0 Z" fill="#c95b40"/></g>
+            </g>
+
+            <rect width="1280" height="720" fill="url(#zg-vignette)"/>
+          </svg>
+        </div>
+
         <button id="tune" class="tune-overlay" type="button">
           <span class="tune-circle" aria-hidden="true">▶</span>
           <span class="tune-label">tune in</span>

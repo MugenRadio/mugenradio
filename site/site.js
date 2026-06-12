@@ -28,6 +28,7 @@
     if (!video || !overlay) return;
 
     var bar = document.getElementById("player-bar");
+    var garden = document.getElementById("garden");
     var hint = document.getElementById("tune-hint");
     var pauseBtn = document.getElementById("pause");
     var vol = document.getElementById("vol");
@@ -45,6 +46,7 @@
     function showError() {
       detach();
       bar.hidden = true;
+      if (garden) garden.hidden = false;
       overlay.hidden = false;
       overlay.classList.add("is-error");
       hint.textContent = "the stream hiccuped, tap to retry";
@@ -78,6 +80,7 @@
       video.volume = parseFloat(vol.value);
       video.play().then(function () {
         overlay.hidden = true;
+        if (garden) garden.hidden = true;
         bar.hidden = false;
         bar.classList.remove("is-paused");
         pauseBtn.textContent = "⏸";
