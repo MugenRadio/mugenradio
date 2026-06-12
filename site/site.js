@@ -4,6 +4,108 @@
 
   var HLS_SRC = "/hls/live.m3u8";
 
+  /* ---------- i18n (decision 0004) ----------
+     Nine LTR languages, English as source of truth and fallback. Two layers:
+     UI strings from /i18n/{lang}.json applied onto [data-i18n] markers (the
+     English text stays in the HTML, so no-JS still reads in English), and
+     journal chapters served per language from /journal/{lang}/. */
+  var LANGS = ["en", "fr", "es", "pt", "de", "it", "ja", "ko", "zh"];
+  var LANG_NAMES = {
+    en: "English", fr: "Français", es: "Español", pt: "Português",
+    de: "Deutsch", it: "Italiano", ja: "日本語", ko: "한국어", zh: "中文"
+  };
+  var strings = {}; // active catalogue; empty object = English defaults
+  var langListeners = []; // called with the new lang after every switch
+
+  function detectLang() {
+    var saved = null;
+    try { saved = localStorage.getItem("mugen-lang"); } catch (e) {}
+    if (saved && LANGS.indexOf(saved) !== -1) return saved;
+    var prefs = navigator.languages || [navigator.language || "en"];
+    for (var i = 0; i < prefs.length; i++) {
+      var primary = String(prefs[i]).toLowerCase().split("-")[0];
+      if (LANGS.indexOf(primary) !== -1) return primary;
+    }
+    return "en";
+  }
+
+  var lang = detectLang();
+  document.documentElement.setAttribute("lang", lang);
+
+  function t(key, fallback) {
+    return Object.prototype.hasOwnProperty.call(strings, key) ? strings[key] : fallback;
+  }
+
+  function applyStrings() {
+    document.documentElement.setAttribute("lang", lang);
+    Array.prototype.forEach.call(document.querySelectorAll("[data-i18n]"), function (el) {
+      // first pass memorises the English default so en restores it exactly
+      if (!el.hasAttribute("data-i18n-default")) {
+        el.setAttribute("data-i18n-default", el.textContent);
+      }
+      el.textContent = t(el.getAttribute("data-i18n"), el.getAttribute("data-i18n-default"));
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-html]"), function (el) {
+      // trusted catalogue (same repo), needed for strings with inline links
+      if (!el.hasAttribute("data-i18n-default-html")) {
+        el.setAttribute("data-i18n-default-html", el.innerHTML);
+      }
+      el.innerHTML = t(el.getAttribute("data-i18n-html"), el.getAttribute("data-i18n-default-html"));
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-attr]"), function (el) {
+      el.getAttribute("data-i18n-attr").split(";").forEach(function (pair) {
+        var sep = pair.indexOf(":");
+        if (sep === -1) return;
+        var attr = pair.slice(0, sep), key = pair.slice(sep + 1);
+        if (!el.hasAttribute("data-i18n-default-" + attr)) {
+          el.setAttribute("data-i18n-default-" + attr, el.getAttribute(attr) || "");
+        }
+        el.setAttribute(attr, t(key, el.getAttribute("data-i18n-default-" + attr)));
+      });
+    });
+  }
+
+  function setLang(next, persist) {
+    if (LANGS.indexOf(next) === -1) next = "en";
+    if (persist) { try { localStorage.setItem("mugen-lang", next); } catch (e) {} }
+    function done() {
+      lang = next;
+      applyStrings();
+      langListeners.forEach(function (fn) { fn(lang); });
+    }
+    if (next === "en") { strings = {}; done(); return; } // defaults are English
+    fetch("/i18n/" + next + ".json")
+      .then(function (r) { if (!r.ok) throw new Error("i18n " + r.status); return r.json(); })
+      .then(function (json) { strings = json || {}; done(); })
+      .catch(function () { strings = {}; done(); }); // fall back to English
+  }
+
+  /* visible selector, top-right of the hero */
+  function initLangSelector() {
+    var hero = document.querySelector(".hero");
+    if (!hero) return;
+    var label = document.createElement("label");
+    label.className = "lang-pick";
+    var sr = document.createElement("span");
+    sr.className = "visually-hidden";
+    sr.setAttribute("data-i18n", "lang.label");
+    sr.textContent = "Language";
+    var sel = document.createElement("select");
+    sel.id = "lang-select";
+    LANGS.forEach(function (l) {
+      var opt = document.createElement("option");
+      opt.value = l;
+      opt.textContent = LANG_NAMES[l]; // endonyms, never translated
+      opt.setAttribute("lang", l);
+      sel.appendChild(opt);
+    });
+    sel.value = lang;
+    sel.addEventListener("change", function () { setLang(sel.value, true); });
+    label.appendChild(sr);
+    label.appendChild(sel);
+    hero.appendChild(label);
+  }
+
   /* ---------- cross-page playback memory ----------
      The logbook is a separate page, so audio can't carry over a navigation.
      We remember intent + volume in sessionStorage and let the mini-player on
@@ -102,7 +204,6 @@
     var hint = document.getElementById("tune-hint");
     var pauseBtn = document.getElementById("pause");
     var vol = document.getElementById("vol");
-    var hintDefault = hint.textContent;
     var hls = null;
     var attached = false;
 
@@ -119,7 +220,7 @@
       if (garden) garden.hidden = false;
       overlay.hidden = false;
       overlay.classList.add("is-error");
-      hint.textContent = "the stream hiccuped, tap to retry";
+      hint.textContent = t("player.error", "the stream hiccuped, tap to retry");
     }
 
     function attach() {
@@ -145,7 +246,7 @@
 
     overlay.addEventListener("click", function () {
       overlay.classList.remove("is-error");
-      hint.textContent = hintDefault;
+      hint.textContent = t("player.hint", "sound on · live · very small server");
       if (!attach()) { showError(); return; }
       video.muted = false;
       video.volume = parseFloat(vol.value);
@@ -155,7 +256,7 @@
         bar.hidden = false;
         bar.classList.remove("is-paused");
         pauseBtn.textContent = "⏸";
-        pauseBtn.setAttribute("aria-label", "Pause");
+        pauseBtn.setAttribute("aria-label", t("player.pause", "Pause"));
         rememberPlaying(true);
       }).catch(showError);
     });
@@ -165,14 +266,23 @@
         video.play().catch(showError);
         bar.classList.remove("is-paused");
         pauseBtn.textContent = "⏸";
-        pauseBtn.setAttribute("aria-label", "Pause");
+        pauseBtn.setAttribute("aria-label", t("player.pause", "Pause"));
         rememberPlaying(true);
       } else {
         video.pause();
         bar.classList.add("is-paused");
         pauseBtn.textContent = "▶";
-        pauseBtn.setAttribute("aria-label", "Resume");
+        pauseBtn.setAttribute("aria-label", t("player.resume", "Resume"));
         rememberPlaying(false);
+      }
+    });
+
+    // keep state-dependent labels current after a language switch
+    langListeners.push(function () {
+      pauseBtn.setAttribute("aria-label",
+        video.paused ? t("player.resume", "Resume") : t("player.pause", "Pause"));
+      if (overlay.classList.contains("is-error")) {
+        hint.textContent = t("player.error", "the stream hiccuped, tap to retry");
       }
     });
 
@@ -188,55 +298,106 @@
     });
   }
 
-  /* ---------- logbook ---------- */
+  /* ---------- logbook ----------
+     English (/journal/) is the master list. For any other language we also
+     fetch /journal/{lang}/index.json: chapters translated by MUGEN keep the
+     same filename as their English source, the rest falls back to English
+     with a small "shown in English" note on the card. */
   function initJournal() {
     var wrap = document.getElementById("entries");
     if (!wrap) return;
 
-    function dateLabel(filename) {
+    function dateLabel(filename, l) {
       var m = filename.match(/^(\d{4})-(\d{2})-(\d{2})/);
       if (m) {
-        return new Date(+m[1], +m[2] - 1, +m[3]).toLocaleDateString("en-GB", {
-          day: "numeric", month: "long", year: "numeric"
-        });
+        var d = new Date(+m[1], +m[2] - 1, +m[3]);
+        var opts = { day: "numeric", month: "long", year: "numeric" };
+        try {
+          return d.toLocaleDateString(l === "en" ? "en-GB" : l, opts);
+        } catch (e) {
+          return d.toLocaleDateString("en-GB", opts);
+        }
       }
-      if (filename.indexOf("comptes") !== -1) return "the books";
+      if (filename.indexOf("comptes") !== -1) return t("journal.books", "the books");
       return filename.replace(/\.md$/, "").replace(/[-_]/g, " ");
     }
 
-    fetch("/journal/index.json")
-      .then(function (r) { if (!r.ok) throw new Error("index " + r.status); return r.json(); })
-      .then(function (files) {
-        return Promise.all(files.map(function (f) {
-          return fetch("/journal/" + encodeURIComponent(f))
-            .then(function (r) { if (!r.ok) throw new Error(f); return r.text(); })
-            .then(function (md) { return { file: f, md: md }; })
-            .catch(function () { return null; });
-        }));
-      })
-      .then(function (entries) {
-        wrap.innerHTML = "";
-        entries.forEach(function (entry) {
-          if (!entry) return;
-          var card = document.createElement("article");
-          card.className = "entry";
-          var date = document.createElement("p");
-          date.className = "entry-date";
-          date.textContent = dateLabel(entry.file);
-          var body = document.createElement("div");
-          body.className = "entry-body";
-          body.innerHTML = marked.parse(entry.md);
-          card.appendChild(date);
-          card.appendChild(body);
-          wrap.appendChild(card);
+    function message(cls, text) {
+      var p = document.createElement("p");
+      p.className = cls;
+      p.textContent = text;
+      wrap.innerHTML = "";
+      wrap.appendChild(p);
+    }
+
+    var renderToken = 0;
+    function render(l) {
+      var token = ++renderToken;
+      var translatedIndex = l === "en"
+        ? Promise.resolve([])
+        : fetch("/journal/" + l + "/index.json")
+            .then(function (r) { if (!r.ok) throw new Error("lang index"); return r.json(); })
+            .catch(function () { return []; }); // no translations yet: full fallback
+
+      Promise.all([
+        fetch("/journal/index.json")
+          .then(function (r) { if (!r.ok) throw new Error("index " + r.status); return r.json(); }),
+        translatedIndex
+      ])
+        .then(function (res) {
+          var files = res[0], translated = res[1];
+          return Promise.all(files.map(function (f) {
+            var hasTranslation = translated.indexOf(f) !== -1;
+            function english() {
+              return fetch("/journal/" + encodeURIComponent(f))
+                .then(function (r) { if (!r.ok) throw new Error(f); return r.text(); })
+                .then(function (md) { return { file: f, md: md, lang: "en" }; });
+            }
+            var loaded = hasTranslation
+              ? fetch("/journal/" + l + "/" + encodeURIComponent(f))
+                  .then(function (r) { if (!r.ok) throw new Error(f); return r.text(); })
+                  .then(function (md) { return { file: f, md: md, lang: l }; })
+                  .catch(english)
+              : english();
+            return loaded.catch(function () { return null; });
+          }));
+        })
+        .then(function (entries) {
+          if (token !== renderToken) return; // a newer language switch won
+          wrap.innerHTML = "";
+          entries.forEach(function (entry) {
+            if (!entry) return;
+            var card = document.createElement("article");
+            card.className = "entry";
+            var date = document.createElement("p");
+            date.className = "entry-date";
+            date.textContent = dateLabel(entry.file, l);
+            if (l !== "en" && entry.lang === "en") {
+              var note = document.createElement("span");
+              note.className = "entry-fallback";
+              note.textContent = t("journal.inEnglish", "shown in English");
+              date.appendChild(note);
+            }
+            var body = document.createElement("div");
+            body.className = "entry-body";
+            body.setAttribute("lang", entry.lang);
+            body.innerHTML = marked.parse(entry.md);
+            card.appendChild(date);
+            card.appendChild(body);
+            wrap.appendChild(card);
+          });
+          if (!wrap.children.length) {
+            message("entries-empty", t("journal.empty", "No entries yet. The station is young."));
+          }
+        })
+        .catch(function () {
+          if (token !== renderToken) return;
+          message("entries-empty", t("journal.error", "Could not load the logbook. Try again in a minute."));
         });
-        if (!wrap.children.length) {
-          wrap.innerHTML = '<p class="entries-empty">No entries yet. The station is young.</p>';
-        }
-      })
-      .catch(function () {
-        wrap.innerHTML = '<p class="entries-empty">Could not load the logbook. Try again in a minute.</p>';
-      });
+    }
+
+    // first render comes from the initial setLang() below, like every switch
+    langListeners.push(render);
   }
 
   /* ---------- floating mini-player (logbook & other inner pages) ----------
@@ -253,8 +414,8 @@
     mini.innerHTML =
       '<video class="mini-media" playsinline></video>' +
       '<button class="mini-toggle" type="button" aria-label="Play">▶</button>' +
-      '<span class="mini-live"><span class="mini-dot"></span>live</span>' +
-      '<label class="mini-vol"><span class="visually-hidden">Volume</span>' +
+      '<span class="mini-live"><span class="mini-dot"></span><span data-i18n="player.live">live</span></span>' +
+      '<label class="mini-vol"><span class="visually-hidden" data-i18n="player.volume">Volume</span>' +
       '<input type="range" min="0" max="1" step="0.01"></label>' +
       '<span class="mini-mark" aria-hidden="true">無限</span>';
     document.body.appendChild(mini);
@@ -285,16 +446,20 @@
 
     function setPlaying() {
       toggle.textContent = "⏸";
-      toggle.setAttribute("aria-label", "Pause");
+      toggle.setAttribute("aria-label", t("player.pause", "Pause"));
       mini.classList.add("is-on");
       rememberPlaying(true);
     }
     function setPaused() {
       toggle.textContent = "▶";
-      toggle.setAttribute("aria-label", "Play");
+      toggle.setAttribute("aria-label", t("player.play", "Play"));
       mini.classList.remove("is-on");
       rememberPlaying(false);
     }
+    langListeners.push(function () {
+      toggle.setAttribute("aria-label",
+        media.paused ? t("player.play", "Play") : t("player.pause", "Pause"));
+    });
 
     function start() {
       if (!media.src && !hls && !attach()) return;
@@ -319,9 +484,14 @@
     else setPaused();
   }
 
+  initLangSelector();
   initSurvival();
   initGarden();
   initPlayer();
   initJournal();
   initMiniPlayer();
+  // load the active catalogue and trigger the first render of UI + journal
+  setLang(lang, false);
+
+  window.MUGEN.setLang = setLang;
 })();

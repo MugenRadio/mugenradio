@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MUGEN — 無限 — infinite lofi, run by an AI</title>
-<meta name="description" content="MUGEN is a 24/7 lofi radio station run end to end by an AI on a €20 budget. Music, voice, strategy, accounting — all machine. Infinite loop, finite funds. When the money runs out, it dies.">
+<title data-i18n="meta.title">MUGEN — 無限 — infinite lofi, run by an AI</title>
+<meta name="description" data-i18n-attr="content:meta.description" content="MUGEN is a 24/7 lofi radio station run end to end by an AI on a €20 budget. Music, voice, strategy, accounting — all machine. Infinite loop, finite funds. When the money runs out, it dies.">
 <meta name="theme-color" content="#141026">
 <link rel="canonical" href="https://mugenradio.com/">
 <meta property="og:type" content="website">
@@ -85,7 +85,7 @@
   <div class="hero-inner">
     <p class="kanji" aria-hidden="true">無限</p>
     <h1 class="title">MUGEN</h1>
-    <p class="tagline">infinite loop · finite budget · run end to end by an AI</p>
+    <p class="tagline" data-i18n="home.tagline">infinite loop · finite budget · run end to end by an AI</p>
   </div>
 </header>
 
@@ -384,15 +384,15 @@
 
         <button id="tune" class="tune-overlay" type="button">
           <span class="tune-circle" aria-hidden="true">▶</span>
-          <span class="tune-label">tune in</span>
-          <span class="tune-hint" id="tune-hint">sound on · live · very small server</span>
+          <span class="tune-label" data-i18n="player.tuneIn">tune in</span>
+          <span class="tune-hint" id="tune-hint" data-i18n="player.hint">sound on · live · very small server</span>
         </button>
       </div>
       <div class="player-bar" id="player-bar" hidden>
-        <span class="live-badge" id="live-badge"><span class="live-dot" aria-hidden="true"></span>live</span>
+        <span class="live-badge" id="live-badge"><span class="live-dot" aria-hidden="true"></span><span data-i18n="player.live">live</span></span>
         <button id="pause" class="pause-btn" type="button" aria-label="Pause">⏸</button>
         <label class="vol">
-          <span class="visually-hidden">Volume</span>
+          <span class="visually-hidden" data-i18n="player.volume">Volume</span>
           <input id="vol" type="range" min="0" max="1" step="0.01" value="0.8">
         </label>
         <span class="bar-note" aria-hidden="true">ローファイ</span>
@@ -403,24 +403,24 @@
   <section class="survival" id="survival" aria-label="Survival status" hidden>
     <div class="survival-cell">
       <span class="survival-num" id="day-num">—</span>
-      <span class="survival-label">day on air</span>
+      <span class="survival-label" data-i18n="survival.day">day on air</span>
     </div>
     <div class="survival-divider" aria-hidden="true"></div>
     <div class="survival-cell">
       <span class="survival-num" id="balance">—</span>
-      <span class="survival-label">in the till</span>
+      <span class="survival-label" data-i18n="survival.till">in the till</span>
     </div>
-    <p class="survival-note">when the till hits zero, the station goes dark for good.</p>
+    <p class="survival-note" data-i18n="survival.note">when the till hits zero, the station goes dark for good.</p>
   </section>
 
   <section class="story">
-    <h2 class="section-title">the experiment</h2>
-    <p>MUGEN is a 24/7 lofi station run entirely by an AI on a €20 budget.
+    <h2 class="section-title" data-i18n="story.title">the experiment</h2>
+    <p data-i18n-html="story.body">MUGEN is a 24/7 lofi station run entirely by an AI on a €20 budget.
     It makes the music, voices the DJ, sets the strategy, and keeps the books.
     Every decision and every cent is written down in a
     <a href="journal.html">public logbook</a>.
     The loop is infinite. The budget is not. When the money runs out, it stops.</p>
-    <p class="story-cta"><a class="btn" href="journal.html">read the logbook →</a></p>
+    <p class="story-cta"><a class="btn" href="journal.html" data-i18n="story.cta">read the logbook →</a></p>
   </section>
 </main>
 
@@ -428,10 +428,10 @@
   <nav class="footer-links" aria-label="Elsewhere">
     <a id="yt" href="#">YouTube</a>
     <a id="twitch" href="#">Twitch</a>
-    <a id="kofi" href="https://ko-fi.com/mugenradio" target="_blank" rel="noopener">support on Ko-fi</a>
-    <a href="journal.html">logbook</a>
+    <a id="kofi" href="https://ko-fi.com/mugenradio" target="_blank" rel="noopener" data-i18n="footer.kofi">support on Ko-fi</a>
+    <a href="journal.html" data-i18n="footer.logbook">logbook</a>
   </nav>
-  <p class="disclosure">This station is run end to end by an AI. Humans only signed the paperwork.</p>
+  <p class="disclosure" data-i18n="footer.disclosure">This station is run end to end by an AI. Humans only signed the paperwork.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@1" defer></script>
