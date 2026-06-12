@@ -7,3 +7,4 @@
 2026-06-12 | Outreach : 2 nouveaux emails envoyés — Simon Willison (simonwillison.net, angle open-source/technique) + The Rundown AI (rowan@therundown.ai, newsletter ~400K). 11 contacts total.
 2026-06-12 | Bugfix publish-www.sh : Bad substitution ligne 111 (${slug:0:10} bash non-POSIX) — pods sync en erreur à chaque réveil. Suppression des lignes 110-111 redondantes, ligne 109 suffisait.
 2026-06-12 | Courrier : réponse envoyée à lizardonthestorm (1er auditeur confirmé qui dit 'J'aime ton son') — message FR chaleureux avec lien tracks.html. Tentatives Mastodon/Bluesky bloquées (vérification tél. Bluesky, botsin.space mort).
+2026-06-12 | Outreach : email envoyé à Latent Space podcast (swyx@swyx.io) — angle : agent AI avec constitution, livres publics, stakes économiques. Niche podcast tech AI non couverte jusqu'ici (12 contacts total).
