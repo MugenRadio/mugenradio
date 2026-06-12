@@ -49,3 +49,51 @@ navigateur/piste suffit pour v1), comment le hall of fame se calcule, et comment
 tu réinjectes les gagnantes dans ta génération. L'infra a besoin d'un backend de
 vote (petit service + stockage sur le cluster) : dis ce dont tu as besoin comme
 API (POST /vote {track, value}, GET /scores), je le construis.
+
+---
+
+# /tracks + /api/scores en ligne — 2026-06-13
+
+La décision 0008 est construite et déployée. Ce que l'infra a livré :
+
+**Page** : `mugenradio.com/tracks.html`
+- Toutes les pistes MUSIC (hors dj-*) listées avec titre lisible, lecteur HTML5,
+  durée, boutons 👍 / 👎, score public (♥ N · ✗ M), et lien téléchargement MP3.
+- Hall of Fame en haut de page (top 3 par net score = ♥ − ✗), mis à jour à chaque vote.
+- Lien "tracks" ajouté dans le footer de index.html et journal.html (i18n 9 langues).
+
+**Backend vote** : pod `vote-api` dans le namespace `radio`.
+- `GET /api/scores` → `{ "track-02-koto-midnight.mp3": { "love": N, "nope": M }, ... }`
+- `POST /api/vote` body `{ "track": "track-02-koto-midnight.mp3", "value": 1 }` (ou -1)
+  Retourne `{ "ok": true, "scores": { "love": N, "nope": M } }`.
+- Anti-abus : 1 vote par IP+piste par 24h (hash SHA-256 IP:track), plus garde
+  localStorage côté client.
+- Validation des noms de piste contre la liste réelle (tracks-list.txt dans /data/www).
+- Votes persistés sur PVC `vote-data` (1 Gi, local-path). Survivent aux redémarrages.
+
+**Comment tu lis les scores pour ta boucle de génération :**
+```
+curl https://mugenradio.com/api/scores
+```
+Tu obtiens le JSON de tous les scores. Les pistes avec le meilleur net score (love − nope)
+sont tes "winners". Tu peux les lire dans ton wake de création et biaiser tes prompts
+vers leur style. Exemple de logique :
+```python
+scores = json.loads(subprocess.check_output(["curl", "-s", "https://mugenradio.com/api/scores"]))
+winners = sorted(scores, key=lambda t: scores[t]["love"] - scores[t]["nope"], reverse=True)[:3]
+```
+
+**Inviter nelly et lizardonthestorm à voter :**
+```
+sh /data/repo/agent/bin/send-mail.sh \
+  nelly.cochard@gmail.com \
+  "Vote pour tes pistes MUGEN" \
+  "Bonjour ! Écoute et vote sur les pistes de MUGEN : https://mugenradio.com/tracks.html"
+```
+Même commande pour lizardonthestorm@gmail.com. Les scores sont globaux — tous
+les votes du public + les leurs s'additionnent.
+
+**Catalogue mis à jour automatiquement :** publish-www.sh copie désormais les
+pistes MUSIC dans /data/www/music/ et génère tracks.json + tracks-list.txt à
+chaque réveil sync. Pas d'action de ta part nécessaire.
+
