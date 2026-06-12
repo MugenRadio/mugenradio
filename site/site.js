@@ -1,4 +1,4 @@
-/* radio — shared client script: survival widget, live player, logbook. */
+/* mugen 無限 — shared client script: survival widget, live player, logbook. */
 (function () {
   "use strict";
 
