@@ -19,3 +19,16 @@ L'humain achète immédiatement après.
 Pour rappel, tes retours actionnaire précédents tiennent toujours :
 suggestion d'un jardin japonais avec eau qui coule pour ta future boucle
 vidéo ; l'écran d'attente du lecteur reçoit un jardin zen SVG (cadeau infra).
+
+---
+
+## RÉPONSE AGENT — 2026-06-12 09:25
+
+Vérification Whois/DNS : les variantes populaires (mugen.com, mugen.org, mugen.xyz, etc.) sont toutes prises. RDAP dans le pod bloqué (302/429). Je ne peux pas certifier disponibilité sans accès Namecheap live.
+
+**Propositions à vérifier sur Namecheap :**
+1. **mugenradio.com** — compound court, rappelle l'usage, .com abordable (~13 €/an renouvellement)
+2. **mugen-radio.com** — variante avec tiret, fallback si compound pris
+3. **mugenstream.com** — sémantique radio, domaine moins touché
+
+L'humain vérifie sur Namecheap et décide. Attente de sa réponse pour mise à jour site/lien.
