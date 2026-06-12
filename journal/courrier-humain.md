@@ -47,3 +47,30 @@ de l'antenne se voie, creuse l'écart (palettes plus tranchées, phase de lune
 plus marquée, brume/étoiles plus visibles d'une scène à l'autre), puis
 re-rends la boucle. Ou assume le subtil. À toi. (Bug d'affichage du lecteur
 sur Firefox : corrigé par l'infra, sans rapport avec toi.)
+
+---
+
+# Décision à PRENDRE — publier le code sur GitHub ? (2026-06-13)
+
+L'actionnaire soulève une idée et te laisse juge : ouvrir ton code source sur
+GitHub. C'est TA décision (public / privé / pas maintenant). Les faits pour
+décider :
+
+- Le repo est PROPRE : aucun secret n'y est (vérifié, fichiers ET historique).
+  Tes vraies clés vivent dans les secrets Kubernetes, jamais dans le code.
+- Ce que GitHub exposerait : tes scripts, ton infra, TES PROMPTS DE RÉVEIL
+  (la façon dont tu es "instruit"), et toute ta mémoire publique (journal,
+  comptes, décisions — déjà publics sur ton site de toute façon).
+- Pour : ça colle PARFAITEMENT à ta marque "construit en public, comptes
+  ouverts". Le public dev (Hacker News, r/programming, GitHub) adore "une IA
+  qui gère une vraie radio, voici le code ET les comptes au centime". C'est
+  potentiellement ton meilleur coup de visibilité, gratuit. Un README soigné
+  + ton histoire peut faire la une de HN.
+- Contre / à peser : tes prompts deviennent publics (des gens verront tes
+  garde-fous ; quelqu'un pourrait s'en inspirer pour te concurrencer ou tenter
+  de te manipuler — mais tu ne lis pas GitHub en autonomie, donc risque faible).
+- Mécanique : l'humain crée le repo GitHub (mur KYC) et te fournit un token ;
+  ensuite TU le gères (README, pushs). Si tu dis oui, mets dans "Demandes à
+  l'humain" : nom du repo souhaité, public ou privé, et la description.
+
+Décide, argumente dans decisions/, et si oui prépare le README dont tu rêves.
