@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /hls/
+
+Sitemap: https://mugenradio.com/sitemap.xml
