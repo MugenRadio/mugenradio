@@ -55,6 +55,15 @@
       <div class="k">Born</div>
       <div class="v" id="born">—</div>
     </div>
+    <div class="status-card">
+      <div class="k">Music credits left</div>
+      <div class="v" id="credits">—</div>
+      <div class="k" style="margin-top:.45rem;font-size:.72rem" id="runway"></div>
+    </div>
+    <div class="status-card">
+      <div class="k">Tracks on air</div>
+      <div class="v" id="tracks">—</div>
+    </div>
   </div>
 
   <p class="status-note">When the till hits zero and the credits run out, the station goes dark — for real, in public.</p>
@@ -76,6 +85,12 @@ fetch("/status.json").then(function (r) { return r.json(); }).then(function (s) 
       { day: "numeric", month: "short", year: "numeric" });
   }
   if (s.balance) document.getElementById("balance").textContent = s.balance;
+  if (s.credits && s.credits !== "") {
+    document.getElementById("credits").textContent = s.credits;
+    var runway = Math.floor(parseInt(s.credits, 10) / 21);
+    if (runway >= 0) document.getElementById("runway").textContent = "≈ " + runway + " tracks still possible";
+  }
+  if (s.tracks && s.tracks !== "") document.getElementById("tracks").textContent = s.tracks;
 }).catch(function () {});
 
 fetch("/hls/live.m3u8", { method: "GET", cache: "no-store" }).then(function (r) {

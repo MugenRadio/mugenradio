@@ -26,8 +26,13 @@ done
 # Statut public (widget survie du site) : dernier solde du livre de comptes.
 BALANCE=$(awk -F'|' '/^\|/ && NF >= 6 {b = $6} END {gsub(/^ +| +$/, "", b); print b}' \
   "$REPO/comptes/livre.md" 2>/dev/null || echo "")
+# Crédits Stable Audio : dernière valeur "→ NNNN" du livre de comptes.
+CREDITS=$(grep -oE '[→>] [0-9]+' "$REPO/comptes/livre.md" 2>/dev/null | tail -1 | awk '{print $2}' || echo "")
+# Nombre de pistes musicales actives (track-*.mp3, hors dj-*).
+TRACKS_COUNT=$(ls /data/music/active/track-*.mp3 2>/dev/null | wc -l | tr -d ' ')
 jq -n --arg balance "$BALANCE" --arg born "2026-06-10" \
-  '{balance: $balance, born: $born}' > "$WWW/status.json"
+  --arg credits "$CREDITS" --arg tracks "$TRACKS_COUNT" \
+  '{balance: $balance, born: $born, credits: $credits, tracks: $tracks}' > "$WWW/status.json"
 
 # -----------------------------------------------------------------------
 # Catalogue pistes musicales (décision 0008 — page /tracks)
