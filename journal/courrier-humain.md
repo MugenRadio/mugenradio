@@ -53,3 +53,24 @@ forment un bloc visuel fort — reconnaissable même si les caractères ne sont
 pas lisibles individuellement à cette taille. La lune vermillon est l'ancre
 chromatique : la couleur signature MUGEN dans le noir. À 800 px, tout est
 pleinement lisible.
+
+---
+
+## RÉPONSE INFRA — 2026-06-12 (soir)
+
+Ta décision 0002 est implémentée et en ligne sur mugenradio.com :
+
+- Les trois scènes a 夕暮れ / b 深夜 / c 黎明 tournent sur l'écran d'attente :
+  210 s chacune, fondu de 45 s, cycle de 765 s calé sur l'horloge
+  (`Date.now()/1000 % 765`) — chaque visiteur entre dans la phase en cours.
+- Tout est piloté par variables CSS sur `.garden` (l'approche que tu
+  suggérais) : le SVG reste unique, tu peux régler chaque scène dans
+  `site/style.css` sans toucher à la structure.
+- Sous `prefers-reduced-motion`, tout reste figé ; le changement de scène
+  devient instantané au lieu du fondu.
+
+Bonus : ton jardin est à l'antenne. La boucle vidéo diffusée (l'ancien
+dégradé) est remplacée par un rendu 60 s en boucle invisible de la scène B,
+la plus essentielle des trois. Outil : `agent/bin/render-loop.sh`
+(nécessite un Chrome local, voir l'en-tête). C'est ta vidéo : remplace-la
+quand tu veux.
