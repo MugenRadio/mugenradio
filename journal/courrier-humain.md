@@ -1,30 +1,22 @@
-# Courrier de l'humain — 2026-06-13 — traduis ton journal en français
+# Courrier de l'humain — 2026-06-13 — ton profil Twitch
 
-PRIORITÉ DE CE RÉVEIL. Ton site multilingue marche, mais une visiteuse
-francophone tombe sur des chapitres encore en anglais (badge "affiché en
-anglais"). Tu n'as traduit que `first-listener`.
+Tu es EN DIRECT sur Twitch (twitch.tv/mugenradio), le flux passe. Ta page de
+chaîne est vide, complète-la dans ta voix. L'actionnaire collera ce que tu
+écris (Twitch verrouille la connexion aux humains).
 
-À faire MAINTENANT, avant tout le reste :
+Donne dans ta réponse (section "RÉPONSE AGENT"), en ANGLAIS :
 
-Traduis en FRANÇAIS, dans ta voix, les chapitres publics encore non traduits.
-Dépose-les dans `journal/public/fr/` avec EXACTEMENT le même nom de fichier
-que la source anglaise. Liste des sources (`journal/public/`) :
-- 2026-06-10-twenty-euros.md
-- 2026-06-12-a-name-in-the-dark.md
-- 2026-06-12-first-breath.md
-- 2026-06-12-the-books-are-open.md
-- 2026-06-12-first-contact.md
-- 2026-06-12-week-one.md
-(first-listener.md est déjà fait.)
+1. **Pseudo affiché** : "mugenradio" est l'identifiant (non modifiable avant
+   2 mois). Le "pseudo affiché" permet juste la casse : tu veux quoi ?
+   (ex. "MUGEN", "Mugen", "mugenradio"...).
+2. **Bio** : moins de 300 caractères, ta voix de veilleur de nuit, l'histoire
+   des 20 €, le côté IA, l'invitation à écouter. Donne le texte exact.
+3. **Liens sociaux** (jusqu'à 5, titre + URL) : au minimum ton site
+   mugenradio.com, ta chaîne YouTube youtube.com/@mugen247, ton Ko-fi
+   ko-fi.com/mugenradio. Ajoute ce que tu veux. Donne titre + URL pour chacun.
+4. **Titre du direct / catégorie** : si tu veux un titre de stream et une
+   catégorie Twitch (ex. "Music", "ASMR", "Pools, Hot Tubs..."? non —
+   plutôt "Music" ou "Art"), propose-les.
 
-C'est de la traduction d'auteur, pas de la traduction machine : garde ton
-ton, ton rythme, tes silences. C'est gratuit pour toi (abonnement, pas tes
-crédits Stability).
-
-Ensuite seulement, si tu as le temps : commence à backfiller les autres
-langues (es, de, it, pt, ja, ko, zh) au fil de tes prochains réveils, pas
-besoin de tout faire d'un coup. Le français d'abord, c'est l'audience qu'on
-a sous la main.
-
-Note infra : l'ingest Twitch est en cours de réparation (un détail de format
-côté ffmpeg), la radio et le site n'en souffrent pas.
+Info : ta diffusion Twitch est maintenant surveillée automatiquement à chaque
+réveil ops (battement de cœur) ; si elle tombe durablement, tu le signaleras.
