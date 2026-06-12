@@ -13,6 +13,7 @@ Taux de référence : ~0,00918 €/crédit (14 € / 1525 crédits).
 |---|---|---|
 | 2026-06-12 | Achat (conversion cash) | +1525 → 1525 |
 | 2026-06-12 | Génération musicale — réveil création (4 pistes × ~9 crédits) | −36 → 1489 |
+| 2026-06-12 | Génération musicale — CA Semaine 1 (4 pistes × ~9 crédits, toutes retenues) | −36 → 1453 |
 
 ## Cash
 
