@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="card-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0918"/>
+      <stop offset="100%" stop-color="#080612"/>
+    </linearGradient>
+    <filter id="line-glow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="url(#card-bg)" rx="8"/>
+
+  <!-- Border -->
+  <rect width="800" height="420" fill="none" stroke="#c95b40" stroke-width="1.0" opacity="0.25" rx="8"/>
+
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="800" height="2" fill="#c95b40" opacity="0.60" rx="1"/>
+
+  <!-- Stars -->
+  <circle cx="680" cy="30"  r="1.2" fill="#f3e3ae" opacity="0.50"/>
+  <circle cx="720" cy="18"  r="0.9" fill="#f3e3ae" opacity="0.40"/>
+  <circle cx="755" cy="42"  r="1.0" fill="#f3e3ae" opacity="0.35"/>
+  <circle cx="770" cy="24"  r="0.8" fill="#f3e3ae" opacity="0.30"/>
+
+  <!-- Title: MUGEN kanji small -->
+  <text x="60" y="78"
+    font-family="'Noto Serif CJK JP','Noto Serif JP','Yu Mincho',serif"
+    font-size="42" fill="#f3e3ae" opacity="0.85">無限</text>
+
+  <!-- Subtitle -->
+  <text x="116" y="78"
+    font-family="Georgia,serif" font-size="13"
+    fill="#c95b40" opacity="0.70" letter-spacing="5">MUGEN</text>
+
+  <!-- Section label -->
+  <text x="60" y="116"
+    font-family="'Courier New',monospace" font-size="11"
+    fill="#f3e3ae" opacity="0.40" letter-spacing="2">PUBLIC ACCOUNTS · 2026-06-12</text>
+
+  <!-- Divider -->
+  <line x1="60" y1="130" x2="740" y2="130" stroke="#c95b40" stroke-width="0.8" opacity="0.30"/>
+
+  <!-- Cash row -->
+  <text x="60" y="174"
+    font-family="'Courier New',monospace" font-size="13"
+    fill="#f3e3ae" opacity="0.55" letter-spacing="1">CASH BALANCE</text>
+  <text x="740" y="174"
+    font-family="'Courier New',monospace" font-size="34"
+    fill="#f3e3ae" opacity="0.90" text-anchor="end" filter="url(#line-glow)">€ 6.00</text>
+
+  <!-- Cash sub-line -->
+  <text x="60" y="196"
+    font-family="'Courier New',monospace" font-size="11"
+    fill="#f3e3ae" opacity="0.30">started at €20.00 · €14.00 converted to credits</text>
+
+  <!-- Divider light -->
+  <line x1="60" y1="220" x2="740" y2="220" stroke="#f3e3ae" stroke-width="0.5" opacity="0.10"/>
+
+  <!-- Credits row -->
+  <text x="60" y="258"
+    font-family="'Courier New',monospace" font-size="13"
+    fill="#f3e3ae" opacity="0.55" letter-spacing="1">STABLE AUDIO CREDITS</text>
+  <text x="740" y="258"
+    font-family="'Courier New',monospace" font-size="34"
+    fill="#c95b40" opacity="0.85" text-anchor="end">1 489</text>
+
+  <!-- Credits sub-line -->
+  <text x="60" y="280"
+    font-family="'Courier New',monospace" font-size="11"
+    fill="#f3e3ae" opacity="0.30">1525 purchased · 36 consumed (4 tracks) · ~0.009 €/credit</text>
+
+  <!-- Divider -->
+  <line x1="60" y1="304" x2="740" y2="304" stroke="#c95b40" stroke-width="0.8" opacity="0.30"/>
+
+  <!-- Runway label -->
+  <text x="60" y="342"
+    font-family="'Courier New',monospace" font-size="13"
+    fill="#f3e3ae" opacity="0.55" letter-spacing="1">TRACKS REMAINING AT CURRENT PACE</text>
+  <text x="740" y="342"
+    font-family="'Courier New',monospace" font-size="34"
+    fill="#f3e3ae" opacity="0.70" text-anchor="end">~165</text>
+
+  <text x="60" y="364"
+    font-family="'Courier New',monospace" font-size="11"
+    fill="#f3e3ae" opacity="0.30">at ~9 credits per track · no recurring costs yet</text>
+
+  <!-- Divider -->
+  <line x1="60" y1="388" x2="740" y2="388" stroke="#c95b40" stroke-width="0.8" opacity="0.25"/>
+
+  <!-- Footer -->
+  <text x="60" y="408"
+    font-family="Georgia,serif" font-size="11"
+    fill="#f3e3ae" opacity="0.30" letter-spacing="2">every cent logged at mugenradio.com/journal</text>
+  <text x="740" y="408"
+    font-family="'Courier New',monospace" font-size="11"
+    fill="#c95b40" opacity="0.40" text-anchor="end">mugenradio.com</text>
+</svg>
