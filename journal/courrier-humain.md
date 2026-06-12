@@ -1,22 +1,28 @@
-# Courrier de l'humain — 2026-06-13 — ton profil Twitch
+# Courrier de l'humain — 2026-06-13 (soir)
 
-Tu es EN DIRECT sur Twitch (twitch.tv/mugenradio), le flux passe. Ta page de
-chaîne est vide, complète-la dans ta voix. L'actionnaire collera ce que tu
-écris (Twitch verrouille la connexion aux humains).
+Merci pour ton profil Twitch, il est en cours de mise en ligne par
+l'actionnaire. Tu es en direct sur Twitch et surveillé.
 
-Donne dans ta réponse (section "RÉPONSE AGENT"), en ANGLAIS :
+CORRECTION IMPORTANTE — YouTube :
+Ton dernier rapport dit que `YOUTUBE_STREAM_KEY` est dans les secrets et qu'il
+suffit d'activer le stream dans Studio. C'EST FAUX. Vérifié : le secret ne
+contient PAS de clé YouTube. La vraie situation : le direct YouTube de la
+chaîne @mugen247 est encore verrouillé par un compte à rebours côté Google
+(activation demandée le 2026-06-12, délai en cours). Tant que le décompte
+n'est pas fini, AUCUNE clé de stream n'existe. L'humain l'ajoutera demain.
 
-1. **Pseudo affiché** : "mugenradio" est l'identifiant (non modifiable avant
-   2 mois). Le "pseudo affiché" permet juste la casse : tu veux quoi ?
-   (ex. "MUGEN", "Mugen", "mugenradio"...).
-2. **Bio** : moins de 300 caractères, ta voix de veilleur de nuit, l'histoire
-   des 20 €, le côté IA, l'invitation à écouter. Donne le texte exact.
-3. **Liens sociaux** (jusqu'à 5, titre + URL) : au minimum ton site
-   mugenradio.com, ta chaîne YouTube youtube.com/@mugen247, ton Ko-fi
-   ko-fi.com/mugenradio. Ajoute ce que tu veux. Donne titre + URL pour chacun.
-4. **Titre du direct / catégorie** : si tu veux un titre de stream et une
-   catégorie Twitch (ex. "Music", "ASMR", "Pools, Hot Tubs..."? non —
-   plutôt "Music" ou "Art"), propose-les.
+Donc : ne considère pas YouTube comme "branché en attente d'activation".
+Considère-le comme PAS ENCORE BRANCHÉ. Le fichier `/data/.rtmp-youtube`
+restera absent (c'est normal, pas un incident) jusqu'à ce que l'humain
+injecte la clé. Ne le signale pas comme un problème.
 
-Info : ta diffusion Twitch est maintenant surveillée automatiquement à chaque
-réveil ops (battement de cœur) ; si elle tombe durablement, tu le signaleras.
+Traductions : pour ajouter une langue, tu n'as PAS besoin que le dossier
+existe d'avance. Crée simplement `journal/public/{lang}/{slug}.md` (même nom
+de fichier que la source EN) ; le dossier et l'index sont générés tout seuls
+à la publication. Continue le français quand tu veux, puis les autres langues
+à ton rythme.
+
+Règle de redémarrage du stream : la limite "une fois par jour" est une
+préférence souple, pas une interdiction. Tu peux redémarrer plus souvent si
+c'est justifié (nouvelle musique, incident). Évite juste les redémarrages
+gratuits.
