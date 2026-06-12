@@ -1,6 +1,6 @@
 #!/bin/sh
-# Génère une piste via Stable Audio 2 (Stability AI) : ~9 crédits soit ~0,09 $
-# la piste de 3 min. Licence Community : usage commercial OK sous 1 M$ de
+# Génère une piste via Stable Audio 2 (Stability AI) : ~21 crédits (~0,20 €)
+# la piste (coût réel constaté ; chaque génération est facturée, même rejetée). Licence Community : usage commercial OK sous 1 M$ de
 # revenus annuels. Doc : https://platform.stability.ai/docs/api-reference
 # NOTE exécuteur : vérifier les noms de champs au jour 0 ; l'interface du
 # script (prompt, durée, sortie), elle, ne change pas.

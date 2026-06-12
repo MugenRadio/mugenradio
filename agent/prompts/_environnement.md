@@ -16,8 +16,8 @@ format, le stream devient muet au bout d'un passage de playlist),
 `/data/video/loop.mp4` (boucle vidéo), `/data/hls/` (sortie), `/data/www/`
 (site publié).
 
-Outils : `agent/bin/generate-track.sh "prompt" secondes sortie.mp3` (Stable
-Audio, ~0,09 $ la piste : chaque génération sort de TA caisse, sobriété),
+Outils : `agent/bin/generate-track.sh "prompt" secondes sortie.mp3` (Stable Audio : chaque génération coûte ~21 crédits (~0,20 €) et sort
+de tes crédits prépayés ; tri sévère, sobriété),
 `agent/bin/generate-voice.sh "texte" sortie.mp3 [voix]` (ta voix d'antenne,
 GRATUITE, locale ; elle parle ANGLAIS — c'est ton DJ : annonces de pistes,
 heure, état de la caisse, mots aux auditeurs, 10-25 s par interstitiel,
