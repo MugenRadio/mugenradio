@@ -1,5 +1,73 @@
 /* mugen 無限 — shared client script: survival widget, live player, logbook. */
-(function () {
+
+/* ---------- pure helpers (no DOM, no browser APIs) ----------
+   Exposed here so Node.js tests can require() this file directly.
+   The IIFE below uses them without modification; browser behaviour unchanged. */
+
+var MUGEN_LANGS = ["en", "fr", "es", "pt", "de", "it", "ja", "ko", "zh"];
+var MUGEN_GARDEN_CYCLE = 765;
+var MUGEN_GARDEN_EDGES = [210, 465, 720];
+
+/* gardenSceneAt(t) — maps a cycle position (seconds, any sign) to a scene id */
+function mugenGardenSceneAt(t) {
+  t = ((t % MUGEN_GARDEN_CYCLE) + MUGEN_GARDEN_CYCLE) % MUGEN_GARDEN_CYCLE;
+  if (t < MUGEN_GARDEN_EDGES[0]) return "a";
+  if (t < MUGEN_GARDEN_EDGES[1]) return "b";
+  if (t < MUGEN_GARDEN_EDGES[2]) return "c";
+  return "a"; // 720-765: crossfading back to a
+}
+
+/* mugenDetectLang(prefs, savedLang) — pure lang detection from explicit inputs */
+function mugenDetectLang(prefs, savedLang) {
+  if (savedLang && MUGEN_LANGS.indexOf(savedLang) !== -1) return savedLang;
+  var list = prefs || ["en"];
+  for (var i = 0; i < list.length; i++) {
+    var primary = String(list[i]).toLowerCase().split("-")[0];
+    if (MUGEN_LANGS.indexOf(primary) !== -1) return primary;
+  }
+  return "en";
+}
+
+/* mugenSavedVolume(raw) — parses a raw sessionStorage string, falls back 0.8 */
+function mugenSavedVolume(raw) {
+  var v = parseFloat(raw);
+  return isFinite(v) ? v : 0.8;
+}
+
+/* mugenDateLabel(filename, lang, strings) — pure date formatting */
+function mugenDateLabel(filename, l, strings) {
+  strings = strings || {};
+  function t(key, fallback) {
+    return Object.prototype.hasOwnProperty.call(strings, key) ? strings[key] : fallback;
+  }
+  var m = filename.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (m) {
+    var d = new Date(+m[1], +m[2] - 1, +m[3]);
+    var opts = { day: "numeric", month: "long", year: "numeric" };
+    try {
+      return d.toLocaleDateString(l === "en" ? "en-GB" : l, opts);
+    } catch (e) {
+      return d.toLocaleDateString("en-GB", opts);
+    }
+  }
+  if (filename.indexOf("comptes") !== -1) return t("journal.books", "the books");
+  return filename.replace(/\.md$/, "").replace(/[-_]/g, " ");
+}
+
+if (typeof module !== "undefined") {
+  module.exports = {
+    gardenSceneAt: mugenGardenSceneAt,
+    detectLang: mugenDetectLang,
+    savedVolume: mugenSavedVolume,
+    dateLabel: mugenDateLabel,
+    LANGS: MUGEN_LANGS,
+    GARDEN_CYCLE: MUGEN_GARDEN_CYCLE,
+    GARDEN_EDGES: MUGEN_GARDEN_EDGES,
+  };
+}
+
+/* The IIFE below requires a real browser DOM. Skip when loaded from Node.js. */
+if (typeof document !== "undefined") (function () {
   "use strict";
 
   var HLS_SRC = "/hls/live.m3u8";
@@ -9,7 +77,7 @@
      UI strings from /i18n/{lang}.json applied onto [data-i18n] markers (the
      English text stays in the HTML, so no-JS still reads in English), and
      journal chapters served per language from /journal/{lang}/. */
-  var LANGS = ["en", "fr", "es", "pt", "de", "it", "ja", "ko", "zh"];
+  var LANGS = MUGEN_LANGS;
   var LANG_NAMES = {
     en: "English", fr: "Français", es: "Español", pt: "Português",
     de: "Deutsch", it: "Italiano", ja: "日本語", ko: "한국어", zh: "中文"
@@ -20,13 +88,8 @@
   function detectLang() {
     var saved = null;
     try { saved = localStorage.getItem("mugen-lang"); } catch (e) {}
-    if (saved && LANGS.indexOf(saved) !== -1) return saved;
     var prefs = navigator.languages || [navigator.language || "en"];
-    for (var i = 0; i < prefs.length; i++) {
-      var primary = String(prefs[i]).toLowerCase().split("-")[0];
-      if (LANGS.indexOf(primary) !== -1) return primary;
-    }
-    return "en";
+    return mugenDetectLang(prefs, saved);
   }
 
   var lang = detectLang();
@@ -120,9 +183,9 @@
     try { return sessionStorage.getItem("mugen-playing") === "1"; } catch (e) { return false; }
   }
   function savedVolume() {
-    var v;
-    try { v = parseFloat(sessionStorage.getItem("mugen-vol")); } catch (e) {}
-    return isFinite(v) ? v : 0.8;
+    var raw;
+    try { raw = sessionStorage.getItem("mugen-vol"); } catch (e) {}
+    return mugenSavedVolume(raw);
   }
 
   /* ---------- survival widget ---------- */
@@ -147,16 +210,10 @@
      synced to the wall clock so every visitor sees the same phase. The
      crossfade itself is pure CSS (45 s transitions on .garden variables);
      here we only flip data-scene at the right times. */
-  var GARDEN_CYCLE = 765; // 3 x (210 hold + 45 fade)
-  var GARDEN_EDGES = [210, 465, 720]; // seconds where the next scene starts
+  var GARDEN_CYCLE = MUGEN_GARDEN_CYCLE;
+  var GARDEN_EDGES = MUGEN_GARDEN_EDGES;
 
-  function gardenSceneAt(t) {
-    t = ((t % GARDEN_CYCLE) + GARDEN_CYCLE) % GARDEN_CYCLE;
-    if (t < GARDEN_EDGES[0]) return "a";
-    if (t < GARDEN_EDGES[1]) return "b";
-    if (t < GARDEN_EDGES[2]) return "c";
-    return "a"; // 720-765: crossfading back to a
-  }
+  var gardenSceneAt = mugenGardenSceneAt;
 
   function gardenCyclePos() {
     return Math.floor(Date.now() / 1000) % GARDEN_CYCLE;
@@ -308,18 +365,7 @@
     if (!wrap) return;
 
     function dateLabel(filename, l) {
-      var m = filename.match(/^(\d{4})-(\d{2})-(\d{2})/);
-      if (m) {
-        var d = new Date(+m[1], +m[2] - 1, +m[3]);
-        var opts = { day: "numeric", month: "long", year: "numeric" };
-        try {
-          return d.toLocaleDateString(l === "en" ? "en-GB" : l, opts);
-        } catch (e) {
-          return d.toLocaleDateString("en-GB", opts);
-        }
-      }
-      if (filename.indexOf("comptes") !== -1) return t("journal.books", "the books");
-      return filename.replace(/\.md$/, "").replace(/[-_]/g, " ");
+      return mugenDateLabel(filename, l, strings);
     }
 
     function message(cls, text) {
