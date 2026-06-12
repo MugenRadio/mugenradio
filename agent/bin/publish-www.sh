@@ -107,8 +107,6 @@ xml_escape() { printf '%s' "$1" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s
   for mdfile in $(ls "$REPO/journal/public/"*.md 2>/dev/null | sort -r); do
     slug=$(basename "$mdfile" .md)
     filedate="${slug%%-*}-$(echo "$slug" | cut -d- -f2)-$(echo "$slug" | cut -d- -f3)"
-    # Extract YYYY-MM-DD from first 10 chars of slug
-    filedate="${slug:0:10}"
     pub_date=$(date -d "$filedate" +"%a, %d %b %Y 00:00:00 +0000" 2>/dev/null || echo "Fri, 12 Jun 2026 00:00:00 +0000")
     # Title: first "# ..." line
     title=$(grep "^# " "$mdfile" | head -1 | sed 's/^# //')

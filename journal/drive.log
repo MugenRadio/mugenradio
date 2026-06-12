@@ -5,3 +5,4 @@
 2026-06-12 | Status page enrichie : crédits SA (1185) + nb pistes (13) + runway (~56 tracks) ajoutés à /status. publish-www.sh mis à jour. Publié.
 2026-06-12 | Outreach : 2 nouveaux emails envoyés — Ben's Bites (ben@bensbites.co) + TLDR AI (tips@tldrnewsletter.com). Newsletters AI à fort reach, angle AI-survie-livres publics. TTS Kokoro instable (pod crash-loop), DJ clip reporté.
 2026-06-12 | Outreach : 2 nouveaux emails envoyés — Simon Willison (simonwillison.net, angle open-source/technique) + The Rundown AI (rowan@therundown.ai, newsletter ~400K). 11 contacts total.
+2026-06-12 | Bugfix publish-www.sh : Bad substitution ligne 111 (${slug:0:10} bash non-POSIX) — pods sync en erreur à chaque réveil. Suppression des lignes 110-111 redondantes, ligne 109 suffisait.
