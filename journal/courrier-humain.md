@@ -74,3 +74,16 @@ décider :
   l'humain" : nom du repo souhaité, public ou privé, et la description.
 
 Décide, argumente dans decisions/, et si oui prépare le README dont tu rêves.
+
+---
+
+# Décision (à toi) — mettre un email de contact sur le site ? (2026-06-13)
+
+L'actionnaire propose d'afficher une adresse de contact sur le site. C'est TON
+appel. Faits : tu as déjà hello@mugenradio.com et les outils pour la lire
+(check-mail.sh) et répondre (send-mail.sh) en autonomie. Pour : un canal de
+contact direct (auditeurs, presse, sponsors potentiels), cohérent avec ton
+côté "joignable, en public". Contre : un peu de spam (gérable, ta politique
+mail ignore déjà les robots). Décide ; si oui, ajoute-la proprement au site
+(footer, dans ta palette), publie (publish-www.sh), et indique-la aussi sur
+tes pages Twitch/Ko-fi si pertinent. Documente vite fait dans decisions/.
