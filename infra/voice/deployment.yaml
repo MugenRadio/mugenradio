@@ -37,3 +37,18 @@ spec:
   ports:
     - port: 8880
       targetPort: 8880
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ingress-to-kokoro
+  namespace: radio
+spec:
+  podSelector:
+    matchLabels: { app: kokoro }
+  policyTypes:
+    - Ingress
+  ingress:
+    - ports:
+        - port: 8880
+          protocol: TCP
