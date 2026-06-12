@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kokoro
+  namespace: radio
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: kokoro }
+  template:
+    metadata:
+      labels: { app: kokoro }
+    spec:
+      containers:
+        - name: kokoro
+          image: ghcr.io/remsky/kokoro-fastapi-cpu:latest
+          ports:
+            - containerPort: 8880
+          resources:
+            requests: { cpu: 100m, memory: 512Mi }
+            limits: { cpu: "2", memory: 2Gi }
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8880
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 6
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kokoro
+  namespace: radio
+spec:
+  selector: { app: kokoro }
+  ports:
+    - port: 8880
+      targetPort: 8880
