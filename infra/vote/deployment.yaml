@@ -64,8 +64,15 @@ data:
             self.end_headers()
             self.wfile.write(body)
 
+        def _route(self):
+            """Normalise path: strip optional /api prefix for traefik routing."""
+            p = urlparse(self.path).path.rstrip("/")
+            if p.startswith("/api"):
+                p = p[4:] or "/"
+            return p or "/"
+
         def do_GET(self):
-            path = urlparse(self.path).path.rstrip("/")
+            path = self._route()
             if path == "/scores":
                 scores = load_json(SCORES_F, {})
                 self.send_json(200, scores)
@@ -75,7 +82,7 @@ data:
                 self.send_json(404, {"error": "not found"})
 
         def do_POST(self):
-            path = urlparse(self.path).path.rstrip("/")
+            path = self._route()
             if path != "/vote":
                 self.send_json(404, {"error": "not found"})
                 return
@@ -186,3 +193,20 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
+---
+# Allow traefik (kube-system) to reach vote-api on :8080
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ingress-to-vote-api
+  namespace: radio
+spec:
+  podSelector:
+    matchLabels:
+      app: vote-api
+  policyTypes:
+    - Ingress
+  ingress:
+    - ports:
+        - port: 8080
+          protocol: TCP
