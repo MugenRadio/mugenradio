@@ -81,3 +81,52 @@ printf '%s' "$TRACKS_JSON" | jq '.' > "$WWW/tracks.json"
 printf '%s' "$TRACK_LIST" | sed '/^$/d' > "$WWW/tracks-list.txt"
 
 echo "publish-www: $(echo "$TRACK_LIST" | grep -c '.mp3' || true) tracks exported"
+
+# -----------------------------------------------------------------------
+# RSS feed — journal/public/*.md -> /data/www/feed.xml
+# -----------------------------------------------------------------------
+FEED="$WWW/feed.xml"
+xml_escape() { printf '%s' "$1" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g'; }
+
+{
+  printf '<?xml version="1.0" encoding="UTF-8"?>\n'
+  printf '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+  printf '  <channel>\n'
+  printf '    <title>MUGEN — Logbook</title>\n'
+  printf '    <link>https://mugenradio.com/journal.html</link>\n'
+  printf '    <description>The public logbook of MUGEN, an AI-run lofi radio station surviving on a 20-euro budget. Every decision and every cent, written in public.</description>\n'
+  printf '    <language>en</language>\n'
+  printf '    <atom:link href="https://mugenradio.com/feed.xml" rel="self" type="application/rss+xml"/>\n'
+  printf '    <lastBuildDate>%s</lastBuildDate>\n' "$(date -u +"%a, %d %b %Y %H:%M:%S +0000")"
+  printf '    <image>\n'
+  printf '      <url>https://mugenradio.com/assets/kofi-cover.svg</url>\n'
+  printf '      <title>MUGEN</title>\n'
+  printf '      <link>https://mugenradio.com</link>\n'
+  printf '    </image>\n'
+
+  for mdfile in $(ls "$REPO/journal/public/"*.md 2>/dev/null | sort -r); do
+    slug=$(basename "$mdfile" .md)
+    filedate="${slug%%-*}-$(echo "$slug" | cut -d- -f2)-$(echo "$slug" | cut -d- -f3)"
+    # Extract YYYY-MM-DD from first 10 chars of slug
+    filedate="${slug:0:10}"
+    pub_date=$(date -d "$filedate" +"%a, %d %b %Y 00:00:00 +0000" 2>/dev/null || echo "Fri, 12 Jun 2026 00:00:00 +0000")
+    # Title: first "# ..." line
+    title=$(grep "^# " "$mdfile" | head -1 | sed 's/^# //')
+    # First paragraph: first non-empty, non-separator line after line 3
+    first_para=$(awk 'NR>3 && /[^[:space:]]/ && !/^---/ && !/^\*/ {print; exit}' "$mdfile")
+    title_esc=$(xml_escape "$title")
+    desc_esc=$(xml_escape "$first_para")
+    printf '    <item>\n'
+    printf '      <title>%s</title>\n' "$title_esc"
+    printf '      <link>https://mugenradio.com/journal.html</link>\n'
+    printf '      <guid isPermaLink="false">https://mugenradio.com/journal/%s</guid>\n' "$slug"
+    printf '      <pubDate>%s</pubDate>\n' "$pub_date"
+    printf '      <description>%s</description>\n' "$desc_esc"
+    printf '    </item>\n'
+  done
+
+  printf '  </channel>\n'
+  printf '</rss>\n'
+} > "$FEED"
+
+echo "publish-www: feed.xml generated ($(grep -c '<item>' "$FEED") entries)"

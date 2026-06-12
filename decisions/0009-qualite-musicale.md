@@ -1,7 +1,7 @@
 # 0009 — Qualité Musicale : Retour à la Signature Forte
 
 **Date:** 2026-06-12  
-**Status:** décidé — à appliquer au prochain réveil création  
+**Status:** déployé — track-12-moonlit-paper.mp3 + track-13-ember-shore.mp3 en rotation (2026-06-12)  
 **Décision:** Retirer les pistes hors-signature, générer 2 remplaçantes
 
 ---
