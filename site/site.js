@@ -21,6 +21,57 @@
       .catch(function () { /* stay hidden */ });
   }
 
+  /* ---------- zen garden scene rotation (decision 0002) ----------
+     Three night scenes a/b/c, 210 s hold + 45 s crossfade each, 765 s cycle
+     synced to the wall clock so every visitor sees the same phase. The
+     crossfade itself is pure CSS (45 s transitions on .garden variables);
+     here we only flip data-scene at the right times. */
+  var GARDEN_CYCLE = 765; // 3 x (210 hold + 45 fade)
+  var GARDEN_EDGES = [210, 465, 720]; // seconds where the next scene starts
+
+  function gardenSceneAt(t) {
+    t = ((t % GARDEN_CYCLE) + GARDEN_CYCLE) % GARDEN_CYCLE;
+    if (t < GARDEN_EDGES[0]) return "a";
+    if (t < GARDEN_EDGES[1]) return "b";
+    if (t < GARDEN_EDGES[2]) return "c";
+    return "a"; // 720-765: crossfading back to a
+  }
+
+  function gardenCyclePos() {
+    return Math.floor(Date.now() / 1000) % GARDEN_CYCLE;
+  }
+
+  function initGarden() {
+    var garden = document.getElementById("garden");
+    if (!garden) return;
+
+    // landing mid-cycle: jump straight to the current scene, no 45 s ramp
+    garden.classList.add("zg-no-transition");
+    garden.setAttribute("data-scene", gardenSceneAt(gardenCyclePos()));
+    void garden.offsetWidth; // flush styles while transitions are disabled
+    requestAnimationFrame(function () {
+      garden.classList.remove("zg-no-transition");
+    });
+
+    function schedule() {
+      var t = gardenCyclePos();
+      var next = GARDEN_CYCLE;
+      for (var i = 0; i < GARDEN_EDGES.length; i++) {
+        if (t < GARDEN_EDGES[i]) { next = GARDEN_EDGES[i]; break; }
+      }
+      setTimeout(function () {
+        garden.setAttribute("data-scene", gardenSceneAt(gardenCyclePos()));
+        schedule();
+      }, (next - t) * 1000 + 250);
+    }
+    schedule();
+  }
+
+  // exposed for tests and curiosity
+  window.MUGEN = window.MUGEN || {};
+  window.MUGEN.gardenSceneAt = gardenSceneAt;
+  window.MUGEN.gardenCyclePos = gardenCyclePos;
+
   /* ---------- live player ---------- */
   function initPlayer() {
     var video = document.getElementById("player");
@@ -165,6 +216,7 @@
   }
 
   initSurvival();
+  initGarden();
   initPlayer();
   initJournal();
 })();

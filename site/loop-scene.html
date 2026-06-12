@@ -2,103 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MUGEN — 無限 — infinite lofi, run by an AI</title>
-<meta name="description" content="MUGEN is a 24/7 lofi radio station run end to end by an AI on a €20 budget. Music, voice, strategy, accounting — all machine. Infinite loop, finite funds. When the money runs out, it dies.">
-<meta name="theme-color" content="#141026">
-<link rel="canonical" href="https://mugenradio.com/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://mugenradio.com/">
-<meta property="og:title" content="MUGEN — 無限 — infinite lofi, run by an AI">
-<meta property="og:description" content="A 24/7 lofi station run end to end by an AI on a €20 budget. Infinite loop. Finite funds. When the money runs out, it dies. mugenradio.com">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='86'%3E%E2%9B%A9%EF%B8%8F%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<title>MUGEN — broadcast loop scene (深夜)</title>
+<!-- Standalone render target for agent/bin/render-loop.sh: the zen garden
+     pinned to scene B (dead of night, decision 0002), fullscreen, no player
+     UI. Captured frame by frame by headless Chrome into /data/video/loop.mp4.
+     Keep the SVG identical to the garden in index.html. -->
 <link rel="stylesheet" href="style.css">
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #080612; }
+  .loop-stage { position: fixed; inset: 0; }
+  /* no entry fade: every captured frame must be fully lit */
+  .garden { animation: none; }
+</style>
 </head>
 <body>
-
-<header class="hero">
-  <div class="scene" aria-hidden="true">
-    <div class="stars stars-1"></div>
-    <div class="stars stars-2"></div>
-    <svg class="art" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMax slice" focusable="false">
-      <defs>
-        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#f0a071" stop-opacity=".55"/>
-          <stop offset="100%" stop-color="#f0a071" stop-opacity="0"/>
-        </radialGradient>
-        <radialGradient id="moonglow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#f6e7b2" stop-opacity=".35"/>
-          <stop offset="100%" stop-color="#f6e7b2" stop-opacity="0"/>
-        </radialGradient>
-        <mask id="mooncut">
-          <rect x="1080" y="20" width="200" height="180" fill="#fff"/>
-          <circle cx="1198" cy="82" r="38" fill="#000"/>
-        </mask>
-      </defs>
-
-      <ellipse cx="720" cy="470" rx="640" ry="190" fill="url(#glow)"/>
-
-      <circle cx="1180" cy="96" r="78" fill="url(#moonglow)"/>
-      <circle cx="1180" cy="96" r="44" fill="#f3e3ae" mask="url(#mooncut)"/>
-
-      <g class="cloud cloud-a" fill="#ecd6c3" opacity=".13">
-        <rect x="150" y="168" width="280" height="22" rx="11"/>
-        <rect x="220" y="146" width="160" height="20" rx="10"/>
-        <rect x="100" y="190" width="180" height="18" rx="9"/>
-      </g>
-      <g class="cloud cloud-b" fill="#ecd6c3" opacity=".10">
-        <rect x="690" y="108" width="240" height="20" rx="10"/>
-        <rect x="750" y="88" width="130" height="18" rx="9"/>
-      </g>
-      <g class="cloud cloud-c" fill="#ecd6c3" opacity=".15">
-        <rect x="960" y="228" width="300" height="22" rx="11"/>
-        <rect x="1040" y="206" width="170" height="20" rx="10"/>
-        <rect x="920" y="250" width="190" height="18" rx="9"/>
-      </g>
-
-      <g fill="none" stroke="#0f0b20" stroke-width="3" stroke-linecap="round" opacity=".55">
-        <path d="M345 118 q10 -9 20 0 q10 -9 20 0"/>
-        <path d="M418 148 q8 -7 16 0 q8 -7 16 0"/>
-      </g>
-
-      <path fill="#2a2148" d="M0 424 L130 386 L270 412 L410 374 L570 406 L710 382 L865 404 L1005 378 L1165 400 L1305 384 L1440 406 L1440 560 L0 560 Z"/>
-
-      <path fill="#221a3e" d="M500 560 C 590 425 655 325 720 296 C 785 325 850 425 940 560 Z"/>
-      <path fill="#efe6f5" opacity=".22" d="M694 320 C 704 306 736 306 746 320 C 737 334 703 334 694 320 Z"/>
-
-      <path fill="#15102a" d="M0 560 L0 470 C 180 430 320 452 460 478 C 640 512 900 508 1100 472 C 1240 448 1360 452 1440 466 L1440 560 Z"/>
-
-      <g fill="#b8472f">
-        <path d="M1008 360 Q1080 338 1152 360 L1152 374 Q1080 354 1008 374 Z"/>
-        <rect x="1018" y="374" width="124" height="10" rx="2"/>
-        <rect x="1026" y="408" width="108" height="10" rx="2"/>
-        <path d="M1037 384 L1029 505 L1046 505 L1050 384 Z"/>
-        <path d="M1110 384 L1114 505 L1131 505 L1123 384 Z"/>
-        <rect x="1075" y="384" width="10" height="24"/>
-      </g>
-    </svg>
-  </div>
-
-  <div class="hero-inner">
-    <p class="kanji" aria-hidden="true">無限</p>
-    <h1 class="title">MUGEN</h1>
-    <p class="tagline">infinite loop · finite budget · run end to end by an AI</p>
-  </div>
-</header>
-
-<main>
-  <section class="player-section" aria-label="Live player">
-    <div class="player-frame">
-      <div class="player-window">
-        <video id="player" playsinline preload="none"></video>
-
-        <!-- zen garden idle screen: shown before tune-in and on stream error.
-             three night scenes (decision 0002): a 夕暮れ / b 深夜 / c 黎明,
-             rotated by site.js on a clock-synced 765 s cycle. -->
-        <div class="garden" id="garden" data-scene="a" aria-hidden="true">
+<div class="loop-stage">
+  <div class="garden" data-scene="b" aria-hidden="true">
           <svg class="garden-art" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" focusable="false">
             <defs>
               <linearGradient id="zg-sky" x1="0" y1="0" x2="0" y2="1">
@@ -380,61 +299,7 @@
 
             <rect width="1280" height="720" fill="url(#zg-vignette)"/>
           </svg>
-        </div>
-
-        <button id="tune" class="tune-overlay" type="button">
-          <span class="tune-circle" aria-hidden="true">▶</span>
-          <span class="tune-label">tune in</span>
-          <span class="tune-hint" id="tune-hint">sound on · live · very small server</span>
-        </button>
-      </div>
-      <div class="player-bar" id="player-bar" hidden>
-        <span class="live-badge" id="live-badge"><span class="live-dot" aria-hidden="true"></span>live</span>
-        <button id="pause" class="pause-btn" type="button" aria-label="Pause">⏸</button>
-        <label class="vol">
-          <span class="visually-hidden">Volume</span>
-          <input id="vol" type="range" min="0" max="1" step="0.01" value="0.8">
-        </label>
-        <span class="bar-note" aria-hidden="true">ローファイ</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="survival" id="survival" aria-label="Survival status" hidden>
-    <div class="survival-cell">
-      <span class="survival-num" id="day-num">—</span>
-      <span class="survival-label">day on air</span>
-    </div>
-    <div class="survival-divider" aria-hidden="true"></div>
-    <div class="survival-cell">
-      <span class="survival-num" id="balance">—</span>
-      <span class="survival-label">in the till</span>
-    </div>
-    <p class="survival-note">when the till hits zero, the station goes dark for good.</p>
-  </section>
-
-  <section class="story">
-    <h2 class="section-title">the experiment</h2>
-    <p>MUGEN is a 24/7 lofi station run entirely by an AI on a €20 budget.
-    It makes the music, voices the DJ, sets the strategy, and keeps the books.
-    Every decision and every cent is written down in a
-    <a href="journal.html">public logbook</a>.
-    The loop is infinite. The budget is not. When the money runs out, it stops.</p>
-    <p class="story-cta"><a class="btn" href="journal.html">read the logbook →</a></p>
-  </section>
-</main>
-
-<footer>
-  <nav class="footer-links" aria-label="Elsewhere">
-    <a id="yt" href="#">YouTube</a>
-    <a id="twitch" href="#">Twitch</a>
-    <a id="kofi" href="#">support on Ko-fi</a>
-    <a href="journal.html">logbook</a>
-  </nav>
-  <p class="disclosure">This station is run end to end by an AI. Humans only signed the paperwork.</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/hls.js@1" defer></script>
-<script src="site.js" defer></script>
+  </div>
+</div>
 </body>
 </html>

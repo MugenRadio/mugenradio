@@ -240,6 +240,12 @@ main {
   position: absolute;
   inset: 0;
   z-index: 1;
+  /* entry fade: arriving mid-cycle, the active scene eases in (decision 0002) */
+  animation: garden-enter 2s ease-out;
+}
+
+@keyframes garden-enter {
+  from { opacity: 0; }
 }
 
 .garden .garden-art {
@@ -416,6 +422,163 @@ main {
   88% { opacity: .75; }
   100% { transform: translate(40px, 770px) rotate(-390deg); opacity: 0; }
 }
+
+/* ---------- scene rotation (decision 0002): three moments of one night ----------
+   a — evening descent 夕暮れ (default) / b — dead of night 深夜 / c — pre-dawn 黎明.
+   Each scene held 210 s, 45 s ease-in-out crossfade, clock-synced 765 s cycle
+   driven by site.js via data-scene on .garden. Everything scene-dependent is a
+   CSS variable here, so the SVG structure never changes between scenes.
+   Under prefers-reduced-motion all transitions are off: the rotation degrades
+   to an instant scene change every 255 s, with all animation frozen. */
+
+.garden {
+  /* scene a — evening descent 夕暮れ */
+  --zg-sky-1: #110d22;
+  --zg-sky-2: #1c1538;
+  --zg-sky-3: #36264f;
+  --zg-sky-4: #63405f;
+  --zg-sky-5: #96586e;
+  --zg-sky-6: #cd7f67;
+  --zg-sky-7: #cd7f67;
+  --zg-horizon-c: #f0a071;
+  --zg-horizon-o: .3;
+  --zg-stars-ao: .75;
+  --zg-stars-bo: .65;
+  --zg-stars-co: 0;
+  --zg-milky: 0;
+  --zg-moon-y: 0px;
+  --zg-moon-fill: #f3e3ae;
+  --zg-moon-o: 1;
+  --zg-moonglow-o: .35;
+  --zg-mooncut-x: 1164px;
+  --zg-lantern-r: 95px;
+  --zg-lantern-o: .4;
+  --zg-flame: #f5c97e;
+  --zg-mist-mtn: .07;
+  --zg-mist-pond: 0;
+  --zg-petals-o: 1;
+  --zg-petal-rate: 1;
+  --zg-koi-ao: .55;
+  --zg-koi-bo: .4;
+  --zg-tail-dur: 2.1s;
+}
+
+.garden[data-scene="b"] {
+  /* dead of night 深夜: coldest sky, sharpest stars, lantern at its warmest */
+  --zg-sky-1: #080612;
+  --zg-sky-2: #0d0918;
+  --zg-sky-3: #141028;
+  --zg-sky-4: #1c1538;
+  --zg-sky-5: #1c1538;
+  --zg-sky-6: #1c1538;
+  --zg-sky-7: #1c1538;
+  --zg-horizon-o: 0;
+  --zg-stars-ao: .95;
+  --zg-stars-bo: .85;
+  --zg-stars-co: .9;
+  --zg-milky: .04;
+  --zg-moon-y: -14px;
+  --zg-moon-fill: #f8efc6;
+  --zg-moonglow-o: .45;
+  --zg-mooncut-x: 1192px; /* cut circle pushed away -> gibbous moon */
+  --zg-lantern-r: 120px;
+  --zg-lantern-o: .55;
+  --zg-flame: #f7d384;
+  --zg-mist-mtn: 0;
+  --zg-petal-rate: 1.111; /* 0.9x fall speed */
+  --zg-koi-ao: .65;
+  --zg-koi-bo: .5;
+}
+
+.garden[data-scene="c"] {
+  /* pre-dawn threshold 黎明: stars fading, moon low, mist on the pond */
+  --zg-sky-1: #08080f;
+  --zg-sky-2: #0d0c1f;
+  --zg-sky-3: #12153a;
+  --zg-sky-4: #1a2050;
+  --zg-sky-5: #1f2a5a;
+  --zg-sky-6: #1f2a5a;
+  --zg-sky-7: #1f2a5a;
+  --zg-horizon-c: #c8d8f0;
+  --zg-horizon-o: .06;
+  --zg-stars-ao: .4;
+  --zg-stars-bo: .3;
+  --zg-moon-y: 80px;
+  --zg-moon-o: .7;
+  --zg-moonglow-o: .2;
+  --zg-lantern-r: 80px;
+  --zg-lantern-o: .28;
+  --zg-flame: #f0c060;
+  --zg-mist-pond: .12;
+  --zg-petals-o: .75; /* x .8 in keyframes = .6 effective */
+  --zg-tail-dur: 1.6s; /* koi sensing the change: 1.3x tail speed */
+}
+
+/* wire the variables into the SVG */
+#zg-sky stop,
+#zg-horizon stop,
+#zg-moonglow stop,
+#zg-lanternglow stop {
+  transition: stop-color 45s ease-in-out, stop-opacity 45s ease-in-out;
+}
+
+#zg-sky stop:nth-of-type(1) { stop-color: var(--zg-sky-1); }
+#zg-sky stop:nth-of-type(2) { stop-color: var(--zg-sky-2); }
+#zg-sky stop:nth-of-type(3) { stop-color: var(--zg-sky-3); }
+#zg-sky stop:nth-of-type(4) { stop-color: var(--zg-sky-4); }
+#zg-sky stop:nth-of-type(5) { stop-color: var(--zg-sky-5); }
+#zg-sky stop:nth-of-type(6) { stop-color: var(--zg-sky-6); }
+#zg-sky stop:nth-of-type(7) { stop-color: var(--zg-sky-7); }
+
+#zg-horizon stop:first-of-type { stop-color: var(--zg-horizon-c); stop-opacity: var(--zg-horizon-o); }
+#zg-horizon stop:last-of-type { stop-color: var(--zg-horizon-c); }
+#zg-moonglow stop:first-of-type { stop-opacity: var(--zg-moonglow-o); }
+#zg-lanternglow stop:first-of-type { stop-opacity: var(--zg-lantern-o); }
+
+.zg-stars-a { fill-opacity: var(--zg-stars-ao); }
+.zg-stars-b { fill-opacity: var(--zg-stars-bo); }
+.zg-stars-c {
+  fill-opacity: var(--zg-stars-co);
+  animation: twinkle 6s ease-in-out 1.2s infinite alternate;
+}
+.zg-stars-a, .zg-stars-b, .zg-stars-c { transition: fill-opacity 45s ease-in-out; }
+
+.zg-milkyway {
+  opacity: var(--zg-milky);
+  filter: blur(4px);
+  transition: opacity 45s ease-in-out;
+}
+
+.zg-moon { transform: translateY(var(--zg-moon-y)); transition: transform 45s ease-in-out; }
+.zg-moon-body {
+  fill: var(--zg-moon-fill);
+  fill-opacity: var(--zg-moon-o);
+  transition: fill 45s ease-in-out, fill-opacity 45s ease-in-out;
+}
+#zg-mooncut circle { cx: var(--zg-mooncut-x); transition: cx 45s ease-in-out; }
+
+.zg-glow { r: var(--zg-lantern-r); transition: r 45s ease-in-out; }
+.zg-flame { fill: var(--zg-flame); transition: fill 45s ease-in-out; }
+
+.zg-mist-a { opacity: var(--zg-mist-mtn); transition: opacity 45s ease-in-out; }
+.zg-mist-pond { opacity: var(--zg-mist-pond); transition: opacity 45s ease-in-out; }
+.zg-pondmist-1 { animation: drift 64s ease-in-out infinite alternate; }
+.zg-pondmist-2 { animation: drift 80s ease-in-out 6s infinite alternate-reverse; }
+
+.zg-petals { opacity: var(--zg-petals-o); transition: opacity 45s ease-in-out; }
+.zg-petal-1 { animation-duration: calc(19s * var(--zg-petal-rate)); }
+.zg-petal-2 { animation-duration: calc(24s * var(--zg-petal-rate)); }
+.zg-petal-3 { animation-duration: calc(27s * var(--zg-petal-rate)); }
+.zg-petal-4 { animation-duration: calc(21s * var(--zg-petal-rate)); }
+.zg-petal-5 { animation-duration: calc(16s * var(--zg-petal-rate)); }
+
+.zg-koi-a { opacity: var(--zg-koi-ao); transition: opacity 45s ease-in-out; }
+.zg-koi-b { opacity: var(--zg-koi-bo); transition: opacity 45s ease-in-out; }
+.zg-tail { animation-duration: var(--zg-tail-dur); }
+
+/* site.js sets the initial scene with this class on, so a visitor landing
+   mid-cycle gets the current scene instantly instead of a 45 s ramp */
+.zg-no-transition, .zg-no-transition * { transition: none !important; }
 
 .tune-overlay {
   position: absolute;
