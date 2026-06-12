@@ -37,3 +37,10 @@ echo "$(date -Iseconds),$WAKE_KIND,$COST" >> "$REPO/comptes/api_usage.csv"
 git add -A
 git commit -m "réveil $WAKE_KIND" || true
 git push || true
+
+# Miroir public GitHub (décision 0006). Token lu du coffre, jamais journalisé.
+# URL passée directement à push : le jeton n'est pas écrit dans .git/config.
+if [ -n "${GITHUB_TOKEN:-}" ]; then
+  git push "https://MugenRadio:${GITHUB_TOKEN}@github.com/MugenRadio/mugenradio.git" \
+    HEAD:main >/dev/null 2>&1 || true
+fi
