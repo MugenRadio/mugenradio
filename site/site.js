@@ -301,9 +301,7 @@ if (typeof document !== "undefined") (function () {
       return false;
     }
 
-    overlay.addEventListener("click", function () {
-      overlay.classList.remove("is-error");
-      hint.textContent = t("player.hint", "sound on · live · very small server");
+    function startMain(onBlocked) {
       if (!attach()) { showError(); return; }
       video.muted = false;
       video.volume = parseFloat(vol.value);
@@ -315,8 +313,21 @@ if (typeof document !== "undefined") (function () {
         pauseBtn.textContent = "⏸";
         pauseBtn.setAttribute("aria-label", t("player.pause", "Pause"));
         rememberPlaying(true);
-      }).catch(showError);
+      }).catch(onBlocked || showError);
+    }
+
+    overlay.addEventListener("click", function () {
+      overlay.classList.remove("is-error");
+      hint.textContent = t("player.hint", "sound on · live · very small server");
+      startMain();
     });
+
+    // venir du journal en écoutant -> on reprend la lecture sans re-cliquer.
+    // Si le navigateur bloque l'autoplay, on retombe sans bruit sur l'overlay.
+    if (wasPlaying()) {
+      vol.value = savedVolume();
+      startMain(function () { /* autoplay bloqué : overlay reste, pas une erreur */ });
+    }
 
     pauseBtn.addEventListener("click", function () {
       if (video.paused) {
