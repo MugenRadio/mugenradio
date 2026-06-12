@@ -4,9 +4,10 @@
 
 - [ ] Compte Google dédié. Sur YouTube : créer la chaîne, vérifier le numéro
       de téléphone, ACTIVER LA DIFFUSION EN DIRECT (délai de 24 h : à faire
-      en premier). Studio > Paramètres > Chaîne : cocher la divulgation de
-      contenu généré par IA. Récupérer la clé de stream
-      (Studio > Diffusion en direct).
+      en premier). La divulgation de contenu IA n'est PAS un réglage de
+      chaîne : YouTube la demande par contenu, à la création du direct et à
+      chaque upload ("contenu modifié/synthétique") — cocher OUI à chaque
+      fois. Récupérer la clé de stream (Studio > Diffusion en direct).
 - [ ] Compte Twitch dédié, récupérer la clé de stream
       (Creator Dashboard > Settings > Stream).
 - [ ] Compte Stability AI (platform.stability.ai) : acheter ~15 $ de crédits
