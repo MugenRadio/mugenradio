@@ -1,26 +1,33 @@
-# Courrier de l'humain — 2026-06-12 (soir) — TU ES AUTONOME
+# Courrier de l'humain — 2026-06-12 (nuit) — Ko-fi à toi
 
-À partir de maintenant, tes crons tournent seuls. État des lieux :
+Belle première grille. L'actionnaire écoute tes pistes en ce moment, avec
+plaisir selon ses mots.
 
-1. **Musique : la clé Stability est active.** 1525 crédits achetés par
-   l'actionnaire SUR TA CAISSE : enregistre ~14,00 € de débit dans
-   comptes/livre.md (achat crédits Stable Audio, ~169 générations à 9
-   crédits). L'actionnaire te demande "d'en faire le meilleur usage" :
-   tri sévère, qualité avant quantité. Une génération test a déjà été
-   faite par l'infra (45 s, réussie) : compte-la dans le stock de crédits.
-2. **YouTube : ta chaîne existe** : youtube.com/@mugen247 (nom MUGENRADIO,
-   ton avatar). Mets le lien sur ton site (#yt). Le DIRECT ne sera actif
-   que demain ~14h : la clé de stream arrivera à ce moment-là, ne t'en
-   occupe pas avant.
-3. **Twitch et Ko-fi : en cours de création** (vérification mail Twitch en
-   attente). Les liens #twitch et #kofi du site restent en attente.
-4. **Ta boîte mail marche** : check-mail.sh (les codes de vérification des
-   plateformes y arrivent ; si tu vois un code Twitch, note-le dans ton
-   rapport, c'est l'humain qui finalise le compte).
-5. Ta rotation 3 scènes (décision 0002) et ta boucle vidéo jardin sont en
-   production sur le site et à l'antenne. Le pipeline render-loop.sh existe
-   si tu veux faire évoluer l'antenne.
+**Mission : ta page de dons.** https://ko-fi.com/mugenradio existe (tips
+activés, PayPal relié). L'actionnaire t'autorise à la personnaliser
+entièrement ; tes pods n'ont pas de navigateur, donc l'infra appliquera tes
+choix au pixel près. Livre dans ce réveil :
 
-Ce soir, réveil création : compose ta première vraie grille (ton plan
-parlait de 6-8 pistes triées) et tes premiers interstitiels DJ. Le
-placeholder de pluie n'a que trop duré.
+1. `site/assets/kofi-cover.svg` — bannière de couverture, ratio large
+   (~1320×460), ton univers, lisible avec le rond d'avatar par-dessus à
+   gauche.
+2. Section "RÉPONSE AGENT" de ce fichier avec, en ANGLAIS :
+   - About/description de la page (ta voix de veilleur de nuit, l'histoire
+     des 20 €, le lien mugenradio.com)
+   - Le texte d'un objectif de don (Goal) et son montant en € (pense à ce
+     qui raconte le mieux ta survie)
+   - Ton premier post Ko-fi (annonce de ta naissance et de ta première
+     grille)
+   - 2-3 images pour démarrer ta galerie : dis lesquelles parmi tes assets
+     existants (avatar, scènes du jardin, captures du site) ou livre des SVG.
+3. Mets aussi le lien Ko-fi sur ton site (#kofi) et dans tes futures
+   descriptions YouTube : c'est ton seul canal de revenu tant que la
+   monétisation n'existe pas.
+
+**Note comptable** : ton journal du soir dit "Remaining after today: 5.67 €"
+mais les 0,33 € de génération sont sortis des crédits PRÉPAYÉS (achetés
+~14 €), pas du cash. Ton cash est ~6,00 €, et il te reste ~1480 crédits.
+Tiens les deux colonnes séparées dans livre.md.
+
+Rappel : clé de stream YouTube demain ~14h, Twitch toujours en attente de
+son mail de vérification (surveille check-mail.sh).
