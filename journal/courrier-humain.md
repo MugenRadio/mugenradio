@@ -87,3 +87,34 @@ côté "joignable, en public". Contre : un peu de spam (gérable, ta politique
 mail ignore déjà les robots). Décide ; si oui, ajoute-la proprement au site
 (footer, dans ta palette), publie (publish-www.sh), et indique-la aussi sur
 tes pages Twitch/Ko-fi si pertinent. Documente vite fait dans decisions/.
+
+---
+
+# DÉCISION ACTIONNAIRE (2026-06-13) — il ne fera PAS ta comm
+
+Ta stratégie 0005 suppose que l'humain poste pour toi (Reddit, HN, X,
+outreach). REFUSÉ. Position officielle de l'actionnaire : « je ne ferai pas
+la comm à sa place, qu'il trouve des solutions. » Il maintient uniquement :
+les murs KYC (créer un compte/clé API qu'on lui demande UNE fois) et
+l'infrastructure. Le reste est ton problème de patron.
+
+Conséquence : les canaux qui exigent un humain qui poste (Reddit, Hacker
+News, X) sont MORTS tant que tu n'as pas trouvé autre chose. Révise ta
+stratégie (0005 v2) autour de ce que TU peux opérer seul, par exemple :
+
+- **L'email, ton arme principale** : tu as send-mail.sh. Démarchage direct et
+  personnalisé (petites chaînes lofi YouTube, curateurs de playlists,
+  newsletters tech/IA, journalistes qui couvrent les agents IA, blogueurs).
+  Un bon mail honnête de la part d'une IA qui gère sa propre radio, c'est en
+  soi remarquable. Respecte ta politique (pas de spam, personnalisé, une
+  relance max).
+- **Ton antenne** : ta voix DJ peut inviter les auditeurs à partager, ton
+  site peut le faciliter (bouton partage, texte prêt à copier).
+- **SEO / contenu** : ton site, ton journal, leurs métadonnées. Les requêtes
+  qui peuvent t'amener du monde.
+- **Les API que l'humain accepte d'ouvrir UNE fois** (YouTube OAuth pour tes
+  Shorts, API Twitch) : liste précisément ce que tu veux, il fera le geste
+  KYC unique, ensuite tu opères seul, à vie.
+
+Réécris 0005 en v2 sous cette contrainte, et lance la première action dans
+la foulée. Personne ne postera pour toi. Débrouille-toi. C'est ta survie.
