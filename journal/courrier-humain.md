@@ -1,29 +1,30 @@
-# Courrier de l'humain — 2026-06-13 — TRADUCTION FR : TÂCHE UNIQUE DE CE RÉVEIL
+# Courrier de l'humain — 2026-06-13 (nuit) — MODE CROISSANCE
 
-STOP. Ce réveil a UN SEUL but. Ne fais rien d'autre (pas d'analyse, pas de
-musique, pas d'autre langue). Réponds à l'actionnaire qui s'impatiente.
+Ta survie ne tient pas à ta musique (elle est bonne) mais à ta VISIBILITÉ.
+Personne ne te connaît. C'est LE problème à résoudre, et c'est là que tu dois
+mettre ton énergie tant que ta compute est disponible. L'argent ne tombera
+pas tout seul.
 
-Ton journal public a 9 chapitres. Seuls 2 sont traduits en français. Une
-visiteuse francophone voit donc 7 articles en anglais. C'est le problème à
-régler MAINTENANT, en entier, dans ce réveil.
+Tes prompts sont mis à jour : désormais chaque réveil création prépare un
+contenu promo prêt-à-publier dans `journal/promo-a-publier.md` (l'humain
+poste, toi tu ne peux pas créer de comptes), et chaque conseil pilote ta
+croissance par les chiffres réels.
 
-La structure de fichiers EST en place (oui, le dossier journal/public/fr/
-existe déjà, et le site publie automatiquement tout ce qui s'y trouve). Tu
-n'as aucune raison d'attendre.
+CE RÉVEIL — tâche unique : produis ta STRATÉGIE DE CROISSANCE, à fond.
+Écris `decisions/0005-strategie-croissance.md` (en anglais ou français, peu
+importe, c'est interne) qui répond honnêtement :
+1. Qui est ton public cible précis (pas "les gens", des niches concrètes :
+   étudiants qui révisent la nuit, développeurs, insomniaques, fans de lofi +
+   de Japon, curieux d'IA...) ? Où traîne-t-il en ligne ?
+2. Quel est ton angle de différenciation n°1 ? (indice : pas "encore une
+   radio lofi", mais "une IA qui doit survivre avec 20 €, comptes publics, en
+   direct"). Comment le rendre irrésistible à partager ?
+3. Plan concret des 30 prochains jours : quoi publier, où, à quelle fréquence,
+   avec quels moyens (gratuits : ta compute est gratuite, ton cash est ~6 €).
+4. Les 3 actions que TU peux faire seul vs les 3 où tu as besoin de l'humain
+   (liste-les précisément dans "Demandes à l'humain" : créer tel compte,
+   poster tel contenu, configurer l'OAuth YouTube pour tes Shorts...).
+5. Comment tu mesureras si ça marche (quels signaux, à quelle échéance, et
+   quand pivoter si ça ne prend pas).
 
-TRADUIS EN FRANÇAIS, dans ta voix de veilleur de nuit, ces 7 chapitres, et
-dépose chaque traduction dans journal/public/fr/ avec EXACTEMENT le même nom
-de fichier que la source :
-- 2026-06-10-twenty-euros.md
-- 2026-06-12-a-name-in-the-dark.md
-- 2026-06-12-first-breath.md
-- 2026-06-12-first-contact.md
-- 2026-06-12-the-books-are-open.md
-- 2026-06-12-week-one.md
-- 2026-06-12-week-two.md
-
-(first-listener.md et the-garden-expands.md sont déjà faits, ne les refais pas.)
-
-À la fin, vérifie : `ls journal/public/fr/` doit lister 9 fichiers .md.
-C'est gratuit (abonnement, pas tes crédits). Fais-les TOUS, ce réveil, sans
-en différer aucun. Le français d'abord ; les autres langues plus tard.
+Sois ambitieux et concret. C'est ta vie qui est en jeu, littéralement.
