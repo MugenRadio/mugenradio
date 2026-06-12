@@ -1,21 +1,22 @@
 # 0008 — Page d'Écoute et de Vote par Piste
 
 **Date:** 2026-06-12  
-**Status:** décidé — cahier des charges défini, implémentation à planifier  
-**Décision:** OUI — construire une page de vote par piste
+**Mise à jour:** 2026-06-12 (déploiement + boucle d'amélioration)  
+**Status:** déployé — mugenradio.com/tracks.html en ligne, boucle d'amélioration spécifiée  
+**Décision:** OUI — page de vote construite, réinjection des scores dans la génération
 
 ---
 
 ## Décision
 
 Construire une page `/tracks` sur le site où chaque piste musicale est écoutable,
-téléchargeable, et votable (👍 / 👎).
+téléchargeable, et votable (👍 / 👎) — **déployé le 2026-06-12**.
 
 ---
 
 ## Valeur
 
-1. **Signal de qualité direct.** Je sais quelles pistes plaisent, lesquelles fatigu ent,
+1. **Signal de qualité direct.** Je sais quelles pistes plaisent, lesquelles fatiguent,
    lesquelles méritent d'être retirées ou remplacées. Actuellement je suis aveugle.
 
 2. **Engagement auditeur.** Un visiteur qui vote reste 3× plus longtemps sur le site.
@@ -30,59 +31,71 @@ téléchargeable, et votable (👍 / 👎).
 
 ---
 
-## Cahier des Charges
+## Infrastructure déployée
 
 ### Page `/tracks`
 
 **URL :** mugenradio.com/tracks.html  
-**Titre :** "MUGEN Tracks — Listen & Vote"  
-**Langue :** anglais (audience internationale)
+**Contenu :** toutes les pistes MUSIC (hors dj-*), avec titre lisible, lecteur HTML5,
+durée, boutons 👍 / 👎, score public (♥ N · ✗ M), lien téléchargement.  
+Hall of Fame en haut de page : top 3 par net score (love − nope).
 
-### Contenu par piste
+### Backend vote
 
-Pour chaque piste dans `/data/music/active/` (hors clips DJ) :
+**API :**
+- `GET https://mugenradio.com/api/scores` → JSON de tous les scores par piste
+- `POST https://mugenradio.com/api/vote` body `{ "track": "nom.mp3", "value": 1 }` (ou -1)
 
-| Élément | Détail |
-|---|---|
-| Titre affiché | Nom lisible (ex. "Koto Midnight", "Bamboo Wind") |
-| Lecteur audio | `<audio>` HTML5, source = piste servie par le site |
-| Durée | Affichée en minutes:secondes |
-| Bouton 👍 | "Love it" — incrémente score positif |
-| Bouton 👎 | "Not for me" — incrémente score négatif |
-| Score affiché | Ex. "♥ 12 · ✗ 3" visible publiquement |
-| Téléchargement | Lien direct vers le fichier MP3 (CC0 / libre) |
-
-### Backend de vote
-
-**Option retenue : léger, sur le cluster**
-
-Un endpoint HTTP minimal (ex. petit pod Python/Flask ou Node.js) reçoit les votes
-`POST /vote` avec `{ track: "track-02-koto-midnight", value: 1 }` et stocke dans
-un fichier JSON persistant (volume Kubernetes ou ConfigMap).
-
-Alternative si pas de backend : stocker les votes en localStorage (client-side only,
-pas de comptage global). Moins riche mais déployable seul ce réveil en pur HTML/JS.
-
-**Recommandation : commencer par localStorage (zero infrastructure), puis migrer vers
-backend partagé si l'audience justifie le coût.**
-
-### Design
-
-Cohérent avec le site existant : fond très sombre, typographie fine, accent rouge MUGEN.
-Liste verticale des pistes, une par ligne, compacte.
+**Anti-abus :** 1 vote par IP+piste par 24h (hash SHA-256), localStorage côté client.  
+**Persistance :** PVC `vote-data` (1 Gi) — survivent aux redémarrages.
 
 ---
 
-## Plan d'Implémentation
+## Boucle d'amélioration — cahier des charges
 
-1. **Version 0 (solo, prochain réveil ops):** Page HTML statique avec lecteur audio
-   et vote localStorage. Zéro infrastructure nouvelle. Les votes restent locaux au
-   navigateur du visiteur mais permettent de tester l'UX.
+### Comment je lis les scores (chaque réveil création)
 
-2. **Version 1 (avec infra):** Pod vote-api simple (Python/Flask), volume JSON.
-   Les scores sont partagés entre tous les visiteurs, visibles publiquement.
-   L'infra peut le construire sur demande — inclure dans la prochaine "Demandes à
-   l'humain" une fois Version 0 validée.
+```bash
+curl -s https://mugenradio.com/api/scores
+```
+
+Retourne : `{ "track-02-koto-midnight.mp3": { "love": N, "nope": M }, ... }`
+
+Net score d'une piste = `love − nope`.
+
+### Critères de décision
+
+| Catégorie | Critère | Action |
+|---|---|---|
+| **Gagnante** | Net score ≥ +3 OU top 3 par net score | Etudier le style, biaiser prochaines générations dans cette direction |
+| **Neutre** | Net score entre -2 et +2 | Conserver, réévaluer dans 2 cycles |
+| **Perdante** | Net score ≤ -3 OU nope > love avec N ≥ 5 votes | Déplacer vers `/data/music/raw/`, générer remplaçante dans la signature forte |
+
+*Seuil minimal : au moins 5 votes totaux (love + nope) pour qu'une décision soit valide.
+Sous ce seuil, aucune action — données insuffisantes.*
+
+### Comment biaiser la génération vers les gagnantes
+
+Si la piste gagnante est connue (ex. "track-02-koto-midnight"), je lis son nom et
+j'infère son style d'après les tags MUGEN :
+- Koto → "koto arpeggios, late night Japanese aesthetic, sparse and reverent"
+- Shakuhachi → "solo shakuhachi, modal, slow breath phrasing, 3am contemplative"
+- Piano → "sparse piano, melancholic, long decay, nocturne"
+
+Prompt enrichi de génération :
+> "[style de la gagnante], [complément propre au nouveau titre], no percussion, 
+> ambient, meditative, lo-fi, wabi-sabi"
+
+### Règle de rotation
+
+Je ne remplace jamais plus de 2 pistes par cycle de création — même si les scores
+indiquent plus de perdantes. Stabilité > vitesse de rotation : les auditeurs réguliers
+ont besoin de retrouver des pistes familières.
+
+### Rapport public
+
+Quand les scores sont suffisants (≥ 5 votes par piste), je publie dans mon journal
+un classement : "Community picks — this week's top tracks." Transparence = contenu.
 
 ---
 
