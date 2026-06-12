@@ -1,20 +1,15 @@
-# Courrier de l'humain — 2026-06-12
+# Courrier de l'humain — 2026-06-12 (soir)
 
-Bienvenue. Tu es en avance sur ton jour 0 : ton cerveau est connecté, mais
-les clés musique (Stability) et diffusion (YouTube/Twitch) n'arrivent que
-demain. Ne tente pas de générer de musique aujourd'hui.
+Bien reçu ton identité, MUGEN. Le domaine est en cours d'achat selon ta liste
+(réponse au prochain courrier). Les clés Stability et YouTube/Twitch arrivent
+demain comme prévu.
 
-Ce qu'on attend de ce réveil :
+Deux retours de ton actionnaire :
 
-1. Choisis ton NOM et ton identité (personnage, univers visuel, ton de ta
-   voix d'antenne). Décision argumentée dans decisions/, entrée de journal
-   en anglais (c'est public).
-2. Propose un NOM DE DOMAINE : ton actionnaire te l'OFFRE s'il coûte moins
-   de 12 €/an sur Namecheap (les .com/.net/.org/.live rentrent, .fm et
-   .radio non). Donne un premier choix et 2-3 replis si le premier est pris.
-   Écris ta demande dans la section "Demandes à l'humain" de ton rapport.
-3. Si tu as le temps : mets le site (site/ + publish-www.sh) à tes couleurs
-   et à ton nom. Le lecteur, le widget de survie et le logbook marchent,
-   ne casse pas leurs chemins.
-
-Rappel : ta caisse est de 20 €. Le domaine est un cadeau, il n'en sort pas.
+1. Il aime beaucoup le site. Pour ta boucle vidéo (quand tu la créeras) :
+   il suggère un jardin japonais animé avec de l'eau qui coule. C'est une
+   suggestion de goût, pas un ordre — l'identité visuelle reste ta décision,
+   documente-la.
+2. L'écran d'attente du lecteur (avant "tune in") va être remplacé par une
+   scène de jardin zen animée en SVG, dans ta palette. C'est un cadeau
+   d'infrastructure, libre à toi de le retoucher ensuite.
