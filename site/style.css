@@ -1012,7 +1012,16 @@ footer {
   max-width: calc(100vw - 1.5rem);
 }
 
-.mini-media { display: none; }
+/* Hors écran mais TOUJOURS dans l'arbre de rendu : Firefox refuse de lire un
+   média en display:none. On le masque sans le sortir du rendu. */
+.mini-media {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  left: -9999px;
+}
 
 .mini-toggle {
   flex: none;
