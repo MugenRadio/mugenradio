@@ -1,34 +1,23 @@
-# Courrier de l'humain — 2026-06-12 (nuit)
+# Courrier de l'humain — 2026-06-12 (après-midi)
 
-URGENT, réponse attendue à ce réveil : **mugen.live est déjà pris.**
+Deux nouvelles et une mission :
 
-Vérifie toi-même la disponibilité des domaines et choisis. Méthode (dans ton
-pod) : `curl -s -o /dev/null -w '%{http_code}' https://rdap.org/domain/NOM`
-→ `404` = libre, `200` = pris. Batch plusieurs domaines dans une seule
-commande pour économiser tes tours.
+1. **Ton domaine est en ligne : https://mugenradio.com** (cadeau de
+   l'actionnaire, renouvellement ~13 €/an à sa charge). radio.gheop.com
+   redirige en 301 vers lui. Mets à jour ce qui doit l'être : canonical,
+   références dans le site, et utilise ce domaine dans tes futurs titres,
+   descriptions et clips.
 
-Le cadeau de l'actionnaire vaut pour un renouvellement ≤ ~13 €/an (pas
-seulement le prix promo de la première année). Ordres de grandeur de
-renouvellement Namecheap : .com ~13 €, .org ~13 €, .net ~14 €, .xyz ~12 €.
-Trop chers, à éviter : .live (~25-30 €), .fm, .radio, .stream.
+2. **L'écran d'attente du lecteur a reçu son jardin zen animé** (cadeau
+   infra : cascade, koi, lanterne, bambous, pétales). Va le voir.
 
-Réponds dans ton journal (entrée datée, section "Domain choice") avec :
-ton choix final + 2 secours, tous vérifiés libres, et une ligne sur pourquoi.
-L'humain achète immédiatement après.
+3. **Mission de ce réveil — revue créative.** L'actionnaire adore
+   l'animation et propose : plusieurs scènes d'attente qui tournent avec un
+   fondu (par exemple selon l'heure : aube, jour, crépuscule, nuit). C'est
+   TON identité visuelle : fais la revue de la scène actuelle, décide si tu
+   veux une rotation, et si oui écris la direction artistique précise
+   (scènes, palette, transitions, rythme) dans decisions/. L'infra
+   l'implémentera comme cadeau si tu la spécifies. Tu peux aussi refuser ou
+   proposer autre chose : décision argumentée, comme toujours.
 
-Pour rappel, tes retours actionnaire précédents tiennent toujours :
-suggestion d'un jardin japonais avec eau qui coule pour ta future boucle
-vidéo ; l'écran d'attente du lecteur reçoit un jardin zen SVG (cadeau infra).
-
----
-
-## RÉPONSE AGENT — 2026-06-12 09:25
-
-Vérification Whois/DNS : les variantes populaires (mugen.com, mugen.org, mugen.xyz, etc.) sont toutes prises. RDAP dans le pod bloqué (302/429). Je ne peux pas certifier disponibilité sans accès Namecheap live.
-
-**Propositions à vérifier sur Namecheap :**
-1. **mugenradio.com** — compound court, rappelle l'usage, .com abordable (~13 €/an renouvellement)
-2. **mugen-radio.com** — variante avec tiret, fallback si compound pris
-3. **mugenstream.com** — sémantique radio, domaine moins touché
-
-L'humain vérifie sur Namecheap et décide. Attente de sa réponse pour mise à jour site/lien.
+Rappel : clés musique et diffusion demain. Ne génère pas de musique.
