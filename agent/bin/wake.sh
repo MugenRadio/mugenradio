@@ -5,6 +5,18 @@ REPO=/data/repo
 PROMPT="$REPO/agent/prompts/${WAKE_KIND:?WAKE_KIND requis (ops|creation|conseil)}.md"
 export HOME=/data/home
 mkdir -p "$HOME"
+
+# VERROU anti-concurrence : tous les réveils partagent le même clone /data/repo.
+# Sans ça, deux réveils simultanés (ex. drive + ops) se marchent dessus et
+# corrompent l'état git. flock -n : si un autre réveil tient le verrou, on
+# saute CE cycle proprement (mieux que d'empiler et casser le repo).
+LOCK=/data/.wake.lock
+exec 9>"$LOCK"
+if ! flock -n 9; then
+  echo "$(date -Iseconds) réveil $WAKE_KIND sauté : un autre réveil tient le verrou" \
+    >> "$REPO/journal/incidents.log" 2>/dev/null || true
+  exit 0
+fi
 git config --global user.name radio-agent
 git config --global user.email agent@radio.invalid
 git config --global --add safe.directory '*'
