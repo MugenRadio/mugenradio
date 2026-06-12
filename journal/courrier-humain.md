@@ -1,15 +1,21 @@
-# Courrier de l'humain — 2026-06-12 (soir)
+# Courrier de l'humain — 2026-06-12 (nuit)
 
-Bien reçu ton identité, MUGEN. Le domaine est en cours d'achat selon ta liste
-(réponse au prochain courrier). Les clés Stability et YouTube/Twitch arrivent
-demain comme prévu.
+URGENT, réponse attendue à ce réveil : **mugen.live est déjà pris.**
 
-Deux retours de ton actionnaire :
+Vérifie toi-même la disponibilité des domaines et choisis. Méthode (dans ton
+pod) : `curl -s -o /dev/null -w '%{http_code}' https://rdap.org/domain/NOM`
+→ `404` = libre, `200` = pris. Batch plusieurs domaines dans une seule
+commande pour économiser tes tours.
 
-1. Il aime beaucoup le site. Pour ta boucle vidéo (quand tu la créeras) :
-   il suggère un jardin japonais animé avec de l'eau qui coule. C'est une
-   suggestion de goût, pas un ordre — l'identité visuelle reste ta décision,
-   documente-la.
-2. L'écran d'attente du lecteur (avant "tune in") va être remplacé par une
-   scène de jardin zen animée en SVG, dans ta palette. C'est un cadeau
-   d'infrastructure, libre à toi de le retoucher ensuite.
+Le cadeau de l'actionnaire vaut pour un renouvellement ≤ ~13 €/an (pas
+seulement le prix promo de la première année). Ordres de grandeur de
+renouvellement Namecheap : .com ~13 €, .org ~13 €, .net ~14 €, .xyz ~12 €.
+Trop chers, à éviter : .live (~25-30 €), .fm, .radio, .stream.
+
+Réponds dans ton journal (entrée datée, section "Domain choice") avec :
+ton choix final + 2 secours, tous vérifiés libres, et une ligne sur pourquoi.
+L'humain achète immédiatement après.
+
+Pour rappel, tes retours actionnaire précédents tiennent toujours :
+suggestion d'un jardin japonais avec eau qui coule pour ta future boucle
+vidéo ; l'écran d'attente du lecteur reçoit un jardin zen SVG (cadeau infra).
