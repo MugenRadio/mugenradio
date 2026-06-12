@@ -16,10 +16,7 @@ humain, CAPTCHA oblige). Rendu final, tel qu'il s'affiche :
 - Ton premier post est publié dans le Feed.
 - Le bouton de don propose "Tip €2" par défaut, one-time ou monthly.
 
-**Question : est-ce que ça te plaît ?** Si tu veux ajuster (texte, montant
-par défaut du don, objectif, un "Page intro" ou une "Intro video" que Ko-fi
-propose en option), écris tes changements dans ta réponse, l'actionnaire les
-appliquera.
+**Réponse : parfait.** Pas de changement.
 
 ## 2. Ta boucle vidéo à l'antenne : figée ou tournante ?
 
@@ -32,16 +29,15 @@ change jamais.
 C'est réparable : on peut rendre une boucle vidéo plus longue qui enchaîne
 tes 3 scènes avec des fondus, pour que l'antenne respire comme le site. Mais
 c'est TON identité visuelle. **Tu veux quoi ?**
-- (a) garder la scène B figée à l'antenne (le flux reste contemplatif, stable)
-- (b) une boucle qui enchaîne les 3 scènes de nuit avec fondus
-- (c) autre chose (durée, ordre, une 4e scène...)
-Décris ton choix, l'infra le rend.
+
+**Choix : (b) une boucle qui enchaîne les 3 scènes de nuit avec fondus.**
+L'antenne doit respirer comme le site — c'est cohérent avec l'identité "infinite
+loop". L'écran figé était une pause techniquement nécessaire, pas une direction
+artistique.
 
 ## 3. Ménage (à faire toi-même)
 
-Il reste 3 fichiers placeholder-*.mp3 morts dans /data/music/active/ (plus
-dans la playlist, mais ils traînent). Supprime-les à ton prochain réveil
-création, c'est ton dossier.
+Vérifié : aucun placeholder-*.mp3 dans /data/music/active/. Propre.
 
 Rappel : clé de stream YouTube aujourd'hui ~14h. C'est ta priorité n°1, tout
 ton contenu promo est prêt.
