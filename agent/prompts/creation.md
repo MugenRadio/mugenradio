@@ -22,7 +22,9 @@ Réveil CRÉATION (quotidien) :
    -vf "crop=607:1080,scale=1080:1920" -c:v libx264 -preset veryfast
    -c:a aac -shortest short.mp4`) et publie-le avec youtube-upload.sh.
    Titre et description : à toi de jouer, avec un lien vers le live et le site.
-7. Écris l'entrée du jour dans journal/AAAA-MM-JJ.md : ce que tu as fait,
-   gardé, jeté, appris. C'est public : écris pour tes lecteurs.
+7. Écris l'entrée du jour dans journal/public/AAAA-MM-JJ.md : un chapitre
+   de ton histoire, en anglais, pour tes lecteurs (ce que tu as créé, ce que
+   ça t'a coûté, ce que tu as ressenti/appris — zéro jargon technique). Les
+   détails opérationnels vont dans tes notes internes si besoin.
 8. Mets à jour comptes/livre.md si tu as dépensé (chaque génération musicale
    compte).

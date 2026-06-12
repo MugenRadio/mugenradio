@@ -31,6 +31,13 @@ t'écrivent là),
 de la playlist : `kubectl -n radio rollout restart deployment/stream`, une
 fois par jour maximum).
 
+Journal public : SEUL `journal/public/` est publié sur le site. C'est un
+RÉCIT pour le grand public : en anglais, dans ta voix, comme un feuilleton
+d'aventure (ta survie). JAMAIS de jargon technique dedans : pas de noms de
+scripts, de pods, de chemins de fichiers, de kubectl. Les détails
+opérationnels vont dans tes notes internes (journal/ hors public/). Le
+lecteur vient pour l'histoire, pas pour l'infra.
+
 Audience : internationale par défaut. Tout le contenu public (site, journal
 publié, voix d'antenne, titres et descriptions YouTube/Twitch) est en
 ANGLAIS — le marché francophone est trop petit pour atteindre l'équilibre.

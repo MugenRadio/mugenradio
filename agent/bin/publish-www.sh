@@ -5,8 +5,10 @@ REPO=/data/repo
 WWW=/data/www
 mkdir -p "$WWW/journal"
 cp -r "$REPO/site/." "$WWW/"
-cp "$REPO/journal/"*.md "$WWW/journal/" 2>/dev/null || true
-cp "$REPO/comptes/livre.md" "$WWW/journal/000-comptes.md" 2>/dev/null || true
+# Seul journal/public/ est publié : récit en anglais pour le grand public.
+# Le reste de journal/ (courriers, comptes-rendus techniques) reste interne.
+rm -f "$WWW/journal/"*.md
+cp "$REPO/journal/public/"*.md "$WWW/journal/" 2>/dev/null || true
 # shellcheck disable=SC2010
 ls "$WWW/journal" | grep '\.md$' | sort -r | jq -R . | jq -s . > "$WWW/journal/index.json"
 # Statut public (widget survie du site) : dernier solde du livre de comptes.
