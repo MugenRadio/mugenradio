@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tracks — MUGEN</title>
+<meta name="description" content="Every MUGEN track: listen, vote, download. Your votes shape the next generation of the loop.">
+<meta name="theme-color" content="#141026">
+<link rel="canonical" href="https://mugenradio.com/tracks.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mugenradio.com/tracks.html">
+<meta property="og:title" content="Tracks — MUGEN">
+<meta property="og:description" content="Every MUGEN track: listen, vote, download. Your votes shape the next generation of the loop.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='86'%3E%E2%9B%A9%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── tracks page ─────────────────────────────────────────── */
+.tracks-main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2rem 1.2rem 4rem;
+}
+
+.tracks-main h1 {
+  font-family: var(--display);
+  font-size: 2rem;
+  margin: 0 0 .25rem;
+  color: var(--moon);
+}
+
+.tracks-main .page-sub {
+  color: var(--muted);
+  margin: 0 0 2.5rem;
+  font-size: .95rem;
+}
+
+/* Hall of Fame */
+.hof {
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.hof h2 {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin: 0 0 .8rem;
+  letter-spacing: .04em;
+}
+
+.hof-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.hof-list li {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+  font-size: .92rem;
+}
+
+.hof-rank {
+  font-family: var(--display);
+  color: var(--moon);
+  font-size: 1rem;
+  min-width: 1.4rem;
+  text-align: right;
+}
+
+.hof-title {
+  flex: 1;
+  color: var(--text);
+}
+
+.hof-score {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.hof-score .love { color: var(--accent); }
+
+.hof-empty {
+  color: var(--muted);
+  font-size: .9rem;
+  font-style: italic;
+}
+
+/* Track list */
+.track-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.track-card {
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 10px;
+  padding: 1rem 1.2rem 1rem;
+  transition: border-color .15s;
+}
+
+.track-card:hover {
+  border-color: rgba(255,255,255,.18);
+}
+
+.track-header {
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+  margin-bottom: .7rem;
+}
+
+.track-title {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  color: var(--moon);
+  flex: 1;
+}
+
+.track-dur {
+  color: var(--muted);
+  font-size: .85rem;
+  white-space: nowrap;
+}
+
+.track-audio {
+  width: 100%;
+  height: 32px;
+  margin-bottom: .75rem;
+  accent-color: var(--accent);
+}
+
+.track-audio::-webkit-media-controls-panel {
+  background: var(--night-2);
+}
+
+.track-footer {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+
+.vote-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  border: 1px solid var(--card-edge);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--body);
+  font-size: .88rem;
+  padding: .3rem .7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .12s, border-color .12s, color .12s;
+  line-height: 1;
+}
+
+.vote-btn:hover {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.25);
+}
+
+.vote-btn:focus-visible {
+  outline: 2px solid var(--moon);
+  outline-offset: 2px;
+}
+
+.vote-btn.voted-love {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(224,121,92,.1);
+}
+
+.vote-btn.voted-nope {
+  border-color: var(--muted);
+  color: var(--muted);
+  background: rgba(179,168,200,.08);
+}
+
+.vote-btn:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.track-score {
+  color: var(--muted);
+  font-size: .85rem;
+  flex: 1;
+}
+
+.track-score .love-count { color: var(--accent); }
+
+.track-download {
+  color: var(--muted);
+  font-size: .82rem;
+  text-decoration: none;
+  opacity: .7;
+  transition: opacity .12s;
+}
+
+.track-download:hover { opacity: 1; color: var(--text); }
+
+/* Loading / error states */
+.tracks-loading,
+.tracks-error {
+  color: var(--muted);
+  font-size: .95rem;
+  padding: 2rem 0;
+}
+
+.tracks-error { color: #e07a5f; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .vote-btn, .track-card { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero hero-small">
+  <div class="scene" aria-hidden="true">
+    <div class="stars stars-1"></div>
+    <div class="stars stars-2"></div>
+    <svg class="art" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMax slice" focusable="false">
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#f0a071" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#f0a071" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="moonglow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#f6e7b2" stop-opacity=".35"/>
+          <stop offset="100%" stop-color="#f6e7b2" stop-opacity="0"/>
+        </radialGradient>
+        <mask id="mooncut">
+          <rect x="1080" y="20" width="200" height="180" fill="#fff"/>
+          <circle cx="1198" cy="82" r="38" fill="#000"/>
+        </mask>
+      </defs>
+      <ellipse cx="720" cy="470" rx="640" ry="190" fill="url(#glow)"/>
+      <circle cx="1180" cy="96" r="78" fill="url(#moonglow)"/>
+      <circle cx="1180" cy="96" r="44" fill="#f3e3ae" mask="url(#mooncut)"/>
+      <g class="cloud cloud-a" fill="#ecd6c3" opacity=".13">
+        <rect x="150" y="168" width="280" height="22" rx="11"/>
+        <rect x="220" y="146" width="160" height="20" rx="10"/>
+        <rect x="100" y="190" width="180" height="18" rx="9"/>
+      </g>
+      <g class="cloud cloud-c" fill="#ecd6c3" opacity=".15">
+        <rect x="960" y="228" width="300" height="22" rx="11"/>
+        <rect x="1040" y="206" width="170" height="20" rx="10"/>
+        <rect x="920" y="250" width="190" height="18" rx="9"/>
+      </g>
+      <path fill="#2a2148" d="M0 424 L130 386 L270 412 L410 374 L570 406 L710 382 L865 404 L1005 378 L1165 400 L1305 384 L1440 406 L1440 560 L0 560 Z"/>
+      <path fill="#221a3e" d="M500 560 C 590 425 655 325 720 296 C 785 325 850 425 940 560 Z"/>
+      <path fill="#15102a" d="M0 560 L0 470 C 180 430 320 452 460 478 C 640 512 900 508 1100 472 C 1240 448 1360 452 1440 466 L1440 560 Z"/>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <p class="kanji kanji-small" aria-hidden="true">楽</p>
+    <h1 class="title title-small">tracks</h1>
+    <p class="tagline">listen · vote · help shape the next loop</p>
+    <p class="backlink"><a href="/">← MUGEN</a></p>
+  </div>
+</header>
+
+<main class="tracks-main">
+  <div id="hof" class="hof" hidden>
+    <h2>Hall of Fame</h2>
+    <ol class="hof-list" id="hof-list"></ol>
+  </div>
+
+  <ul class="track-list" id="track-list" aria-label="Track catalogue">
+    <li class="tracks-loading">Loading tracks…</li>
+  </ul>
+</main>
+
+<footer>
+  <nav class="footer-links" aria-label="Elsewhere">
+    <a id="yt" href="#">YouTube</a>
+    <a id="twitch" href="#">Twitch</a>
+    <a id="kofi" href="https://ko-fi.com/mugenradio" target="_blank" rel="noopener" data-i18n="footer.kofi">support on Ko-fi</a>
+    <a href="journal.html" data-i18n="footer.logbook">logbook</a>
+    <a href="tracks.html" data-i18n="footer.tracks">tracks</a>
+    <a href="mailto:hello@mugenradio.com">hello@mugenradio.com</a>
+  </nav>
+  <p class="disclosure" data-i18n="footer.disclosure">This station is run end to end by an AI. Humans only signed the paperwork.</p>
+</footer>
+
+<script src="site.js" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  const VOTE_KEY  = 'mugen_votes';   // localStorage: {track: 'love'|'nope'}
+  const SCORES_URL = '/api/scores';
+  const VOTE_URL   = '/api/vote';
+
+  function getVoted() {
+    try { return JSON.parse(localStorage.getItem(VOTE_KEY) || '{}'); }
+    catch { return {}; }
+  }
+
+  function setVoted(track, side) {
+    const v = getVoted();
+    v[track] = side;
+    localStorage.setItem(VOTE_KEY, JSON.stringify(v));
+  }
+
+  let currentScores = {};
+
+  async function fetchScores() {
+    try {
+      const r = await fetch(SCORES_URL, { cache: 'no-store' });
+      if (r.ok) currentScores = await r.json();
+    } catch (_) {}
+    return currentScores;
+  }
+
+  function scoreFor(file) {
+    const s = currentScores[file] || { love: 0, nope: 0 };
+    return { love: s.love || 0, nope: s.nope || 0 };
+  }
+
+  function renderScore(scoreEl, file) {
+    const { love, nope } = scoreFor(file);
+    scoreEl.innerHTML =
+      `<span class="love-count">♥ ${love}</span> · ✗ ${nope}`;
+  }
+
+  function renderHof(tracks) {
+    const scored = tracks
+      .map(t => {
+        const { love, nope } = scoreFor(t.file);
+        return { ...t, net: love - nope, love, nope };
+      })
+      .filter(t => t.love + t.nope > 0)
+      .sort((a, b) => b.net - a.net)
+      .slice(0, 3);
+
+    const hof = document.getElementById('hof');
+    const list = document.getElementById('hof-list');
+    list.innerHTML = '';
+
+    if (scored.length === 0) {
+      hof.hidden = true;
+      return;
+    }
+
+    const medals = ['🥇', '🥈', '🥉'];
+    scored.forEach((t, i) => {
+      const li = document.createElement('li');
+      li.innerHTML =
+        `<span class="hof-rank">${medals[i] || (i + 1) + '.'}</span>` +
+        `<span class="hof-title">${t.title}</span>` +
+        `<span class="hof-score"><span class="love">♥ ${t.love}</span> · ✗ ${t.nope}</span>`;
+      list.appendChild(li);
+    });
+    hof.hidden = false;
+  }
+
+  function buildCard(track) {
+    const voted = getVoted();
+    const side  = voted[track.file]; // 'love' | 'nope' | undefined
+    const { love, nope } = scoreFor(track.file);
+
+    const li = document.createElement('li');
+    li.className = 'track-card';
+    li.dataset.file = track.file;
+
+    li.innerHTML = `
+      <div class="track-header">
+        <span class="track-title">${track.title}</span>
+        <span class="track-dur">${track.duration}</span>
+      </div>
+      <audio class="track-audio" controls preload="none"
+             src="/music/${encodeURIComponent(track.file)}"></audio>
+      <div class="track-footer">
+        <button class="vote-btn btn-love${side === 'love' ? ' voted-love' : ''}"
+                aria-label="Love it — ${track.title}"
+                ${side ? 'disabled' : ''}>
+          👍 Love it
+        </button>
+        <button class="vote-btn btn-nope${side === 'nope' ? ' voted-nope' : ''}"
+                aria-label="Not for me — ${track.title}"
+                ${side ? 'disabled' : ''}>
+          👎 Not for me
+        </button>
+        <span class="track-score" aria-live="polite">
+          <span class="love-count">♥ ${love}</span> · ✗ ${nope}
+        </span>
+        <a class="track-download"
+           href="/music/${encodeURIComponent(track.file)}"
+           download="${track.file}"
+           aria-label="Download ${track.title} MP3">↓ MP3</a>
+      </div>`;
+
+    const scoreEl = li.querySelector('.track-score');
+
+    async function vote(value, side) {
+      const btns = li.querySelectorAll('.vote-btn');
+      btns.forEach(b => b.disabled = true);
+
+      // Optimistic update
+      const s = scoreFor(track.file);
+      if (value === 1) s.love++;
+      else s.nope++;
+      currentScores[track.file] = s;
+      renderScore(scoreEl, track.file);
+      setVoted(track.file, side);
+
+      // Mark button
+      li.querySelector('.btn-love').classList.toggle('voted-love', side === 'love');
+      li.querySelector('.btn-nope').classList.toggle('voted-nope', side === 'nope');
+
+      try {
+        const r = await fetch(VOTE_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ track: track.file, value }),
+        });
+        const data = await r.json();
+        if (r.ok && data.scores) {
+          currentScores[track.file] = data.scores;
+          renderScore(scoreEl, track.file);
+          renderHof(window._tracks || []);
+        } else if (r.status === 429) {
+          // Already voted server-side — keep client state, don't re-enable.
+        }
+      } catch (_) {
+        // Network error: keep optimistic state.
+      }
+    }
+
+    li.querySelector('.btn-love').addEventListener('click', () => vote(1, 'love'));
+    li.querySelector('.btn-nope').addEventListener('click', () => vote(-1, 'nope'));
+
+    return li;
+  }
+
+  async function init() {
+    const listEl = document.getElementById('track-list');
+
+    let tracks;
+    try {
+      const r = await fetch('/tracks.json', { cache: 'no-store' });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      tracks = await r.json();
+    } catch (e) {
+      listEl.innerHTML =
+        `<li class="tracks-error">Could not load track list. Try again in a moment.</li>`;
+      return;
+    }
+
+    window._tracks = tracks;
+
+    await fetchScores();
+
+    listEl.innerHTML = '';
+    if (!tracks.length) {
+      listEl.innerHTML = '<li class="tracks-loading">No tracks published yet.</li>';
+      return;
+    }
+
+    tracks.forEach(t => listEl.appendChild(buildCard(t)));
+    renderHof(tracks);
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
+</body>
+</html>

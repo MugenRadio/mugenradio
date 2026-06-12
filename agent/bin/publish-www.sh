@@ -28,3 +28,51 @@ BALANCE=$(awk -F'|' '/^\|/ && NF >= 6 {b = $6} END {gsub(/^ +| +$/, "", b); prin
   "$REPO/comptes/livre.md" 2>/dev/null || echo "")
 jq -n --arg balance "$BALANCE" --arg born "2026-06-10" \
   '{balance: $balance, born: $born}' > "$WWW/status.json"
+
+# -----------------------------------------------------------------------
+# Catalogue pistes musicales (décision 0008 — page /tracks)
+# Copie les pistes MUSIC (hors dj-*) dans /data/www/music/ et génère :
+#   - tracks.json   : [{file, title, duration}] pour la page tracks.html
+#   - tracks-list.txt : liste brute des noms de fichiers pour le vote-api
+# -----------------------------------------------------------------------
+MUSIC_SRC=/data/music/active
+MUSIC_DST="$WWW/music"
+mkdir -p "$MUSIC_DST"
+
+# Vide les pistes précédentes pour ne pas conserver des pistes retirées.
+rm -f "$MUSIC_DST"/*.mp3
+
+TRACKS_JSON="[]"
+TRACK_LIST=""
+
+for f in "$MUSIC_SRC"/track-*.mp3; do
+  [ -f "$f" ] || continue
+  base=$(basename "$f")
+  # Titre lisible : strip "track-NN-", remplace "-" par espace, Title Case.
+  readable=$(echo "$base" \
+    | sed 's/^track-[0-9]*-//' \
+    | sed 's/\.mp3$//' \
+    | sed 's/-/ /g' \
+    | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2); print}')
+  # Durée via ffprobe (retourne N secondes, on convertit en MM:SS).
+  dur_s=$(ffprobe -v error -show_entries format=duration \
+    -of default=noprint_wrappers=1:nokey=1 "$f" 2>/dev/null | cut -d. -f1 || echo "0")
+  mins=$((dur_s / 60))
+  secs=$((dur_s % 60))
+  duration=$(printf "%d:%02d" "$mins" "$secs")
+  # Copie MP3.
+  cp "$f" "$MUSIC_DST/$base"
+  # Accumule JSON.
+  TRACKS_JSON=$(printf '%s' "$TRACKS_JSON" \
+    | jq --arg file "$base" --arg title "$readable" --arg dur "$duration" \
+        '. + [{file: $file, title: $title, duration: $dur}]')
+  # Accumule liste texte.
+  TRACK_LIST="${TRACK_LIST}${base}
+"
+done
+
+printf '%s' "$TRACKS_JSON" | jq '.' > "$WWW/tracks.json"
+# Fichier utilisé par le vote-api pour valider les noms de pistes soumis.
+printf '%s' "$TRACK_LIST" | sed '/^$/d' > "$WWW/tracks-list.txt"
+
+echo "publish-www: $(echo "$TRACK_LIST" | grep -c '.mp3' || true) tracks exported"

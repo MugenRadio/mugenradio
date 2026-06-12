@@ -9,6 +9,14 @@ spec:
     - host: mugenradio.com
       http:
         paths:
+          # /api/ routes to the vote backend — must come before the / catch-all
+          # so traefik's longest-prefix matching picks it up first.
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: vote-api
+                port: { number: 8080 }
           - path: /
             pathType: Prefix
             backend:
@@ -18,6 +26,12 @@ spec:
     - host: www.mugenradio.com
       http:
         paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: vote-api
+                port: { number: 8080 }
           - path: /
             pathType: Prefix
             backend:

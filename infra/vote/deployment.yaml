@@ -1,0 +1,188 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vote-data
+  namespace: radio
+spec:
+  accessModes: ["ReadWriteOnce"]
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 1Gi
+---
+# vote.py is mounted via ConfigMap so no custom image is needed.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vote-script
+  namespace: radio
+data:
+  vote.py: |
+    #!/usr/bin/env python3
+    """Minimal vote backend — stdlib only, no dependencies."""
+    import json, os, time, hashlib
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+    from pathlib import Path
+    from urllib.parse import urlparse
+
+    DATA_DIR  = Path(os.environ.get("DATA_DIR", "/vote-data"))
+    SCORES_F  = DATA_DIR / "scores.json"
+    COOLDOWN_F = DATA_DIR / "cooldown.json"
+    TRACK_LIST_F = Path(os.environ.get("TRACK_LIST", "/track-list/tracks.txt"))
+
+    VOTE_WINDOW = 86400  # 24 h per IP+track
+
+    def load_json(path, default):
+        try:
+            return json.loads(path.read_text())
+        except Exception:
+            return default
+
+    def save_json(path, data):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_suffix(".tmp")
+        tmp.write_text(json.dumps(data))
+        tmp.replace(path)
+
+    def load_tracks():
+        """Return set of valid track filenames (without path)."""
+        try:
+            return set(TRACK_LIST_F.read_text().splitlines())
+        except Exception:
+            return set()
+
+    class VoteHandler(BaseHTTPRequestHandler):
+        def log_message(self, fmt, *args):
+            pass  # suppress access log noise
+
+        def send_json(self, code, obj):
+            body = json.dumps(obj).encode()
+            self.send_response(code)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(body)))
+            self.send_header("Cache-Control", "no-cache")
+            self.end_headers()
+            self.wfile.write(body)
+
+        def do_GET(self):
+            path = urlparse(self.path).path.rstrip("/")
+            if path == "/scores":
+                scores = load_json(SCORES_F, {})
+                self.send_json(200, scores)
+            elif path == "/healthz":
+                self.send_json(200, {"ok": True})
+            else:
+                self.send_json(404, {"error": "not found"})
+
+        def do_POST(self):
+            path = urlparse(self.path).path.rstrip("/")
+            if path != "/vote":
+                self.send_json(404, {"error": "not found"})
+                return
+            length = int(self.headers.get("Content-Length", 0))
+            if length > 4096:
+                self.send_json(400, {"error": "too large"})
+                return
+            try:
+                body = json.loads(self.rfile.read(length))
+            except Exception:
+                self.send_json(400, {"error": "bad json"})
+                return
+            track = body.get("track", "")
+            value = body.get("value")
+            if value not in (1, -1):
+                self.send_json(400, {"error": "value must be 1 or -1"})
+                return
+            valid_tracks = load_tracks()
+            if valid_tracks and track not in valid_tracks:
+                self.send_json(400, {"error": "unknown track"})
+                return
+            # Rate-limit: one vote per IP+track per 24h
+            ip = self.headers.get("X-Forwarded-For", self.client_address[0]).split(",")[0].strip()
+            key = hashlib.sha256(f"{ip}:{track}".encode()).hexdigest()[:32]
+            now = time.time()
+            cooldown = load_json(COOLDOWN_F, {})
+            last = cooldown.get(key, 0)
+            if now - last < VOTE_WINDOW:
+                self.send_json(429, {"error": "already voted for this track today"})
+                return
+            # Record vote
+            scores = load_json(SCORES_F, {})
+            entry = scores.setdefault(track, {"love": 0, "nope": 0})
+            if value == 1:
+                entry["love"] = entry.get("love", 0) + 1
+            else:
+                entry["nope"] = entry.get("nope", 0) + 1
+            save_json(SCORES_F, scores)
+            cooldown[key] = now
+            save_json(COOLDOWN_F, cooldown)
+            self.send_json(200, {"ok": True, "scores": scores.get(track)})
+
+    if __name__ == "__main__":
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        server = HTTPServer(("0.0.0.0", 8080), VoteHandler)
+        print("vote-api listening on :8080", flush=True)
+        server.serve_forever()
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vote-api
+  namespace: radio
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: vote-api }
+  template:
+    metadata:
+      labels: { app: vote-api }
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      volumes:
+        - name: vote-data
+          persistentVolumeClaim:
+            claimName: vote-data
+        - name: vote-script
+          configMap:
+            name: vote-script
+        - name: radio-data
+          persistentVolumeClaim:
+            claimName: radio-data
+      containers:
+        - name: vote
+          image: python:3-slim
+          command: ["python3", "/scripts/vote.py"]
+          env:
+            - name: DATA_DIR
+              value: /vote-data
+            - name: TRACK_LIST
+              value: /www/tracks-list.txt
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits: { cpu: 200m, memory: 128Mi }
+          volumeMounts:
+            - { name: vote-data, mountPath: /vote-data }
+            - { name: vote-script, mountPath: /scripts }
+            - { name: radio-data, mountPath: /www, subPath: www, readOnly: true }
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 10
+            periodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vote-api
+  namespace: radio
+spec:
+  selector: { app: vote-api }
+  ports:
+    - port: 8080
+      targetPort: 8080
