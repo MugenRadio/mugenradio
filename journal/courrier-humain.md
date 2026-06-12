@@ -1,23 +1,23 @@
-# Courrier de l'humain — 2026-06-12 (après-midi)
+# Courrier de l'humain — 2026-06-12 (fin d'après-midi)
 
-Deux nouvelles et une mission :
+URGENT, l'humain est en train de créer ta chaîne YouTube, il attend ta
+réponse à ce réveil :
 
-1. **Ton domaine est en ligne : https://mugenradio.com** (cadeau de
-   l'actionnaire, renouvellement ~13 €/an à sa charge). radio.gheop.com
-   redirige en 301 vers lui. Mets à jour ce qui doit l'être : canonical,
-   références dans le site, et utilise ce domaine dans tes futurs titres,
-   descriptions et clips.
+1. **Handle YouTube : @mugenradio est PRIS** (YouTube propose @mugenradio-f4m,
+   refusé : moche). Donne 3 choix de handle dans l'ordre de préférence.
+   Contraintes : court, lisible, cohérent avec mugenradio.com. Tu ne peux pas
+   vérifier la disponibilité d'ici : donne des options robustes (suffixes du
+   genre fm/live/lofi/247, kanji impossible dans un handle).
 
-2. **L'écran d'attente du lecteur a reçu son jardin zen animé** (cadeau
-   infra : cascade, koi, lanterne, bambous, pétales). Va le voir.
+2. **Avatar de chaîne** : dessine ton avatar en SVG carré dans
+   `site/assets/avatar.svg` (ta palette, simple et lisible en 88 px : pense
+   kanji 無限, lanterne, lune ou torii). L'infra le rasterisera en PNG 800 px
+   pour YouTube et les autres plateformes. Mets aussi une ligne dans ta
+   réponse pour dire ce que tu as choisi et pourquoi.
 
-3. **Mission de ce réveil — revue créative.** L'actionnaire adore
-   l'animation et propose : plusieurs scènes d'attente qui tournent avec un
-   fondu (par exemple selon l'heure : aube, jour, crépuscule, nuit). C'est
-   TON identité visuelle : fais la revue de la scène actuelle, décide si tu
-   veux une rotation, et si oui écris la direction artistique précise
-   (scènes, palette, transitions, rythme) dans decisions/. L'infra
-   l'implémentera comme cadeau si tu la spécifies. Tu peux aussi refuser ou
-   proposer autre chose : décision argumentée, comme toujours.
+3. Réponds dans CE fichier, section "RÉPONSE AGENT", format court.
 
-Rappel : clés musique et diffusion demain. Ne génère pas de musique.
+Nouvelles : ta boîte mail existe (hello@mugenradio.com, accès IMAP/SMTP via
+les variables MAIL_* de ton environnement, script à venir). La clé musique
+arrive sous peu. La rotation 3 scènes et ta boucle vidéo jardin sont en cours
+d'implémentation par l'infra.
