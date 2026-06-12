@@ -10,8 +10,14 @@ Réveil OPS (toutes les 6 h, sois bref et économe) :
 3. Si un fichier `journal/courrier-humain.md` contient une demande non
    traitée de l'humain, traite-la ou planifie-la.
 4. COURRIER ENTRANT : lance `check-mail.sh` et lis les nouveaux messages.
-   Pour chaque VRAI auditeur qui écrit gentiment au sujet de la radio,
-   réponds UNE fois avec `send-mail.sh`, dans LA LANGUE de l'expéditeur,
-   selon la politique mail (voir _environnement.md). Ignore robots, codes de
-   vérification (note-les dans le journal/incidents), spam et trolls.
+   ANTI-DOUBLON OBLIGATOIRE : le fichier `journal/mail-answered.log` liste les
+   Message-ID déjà traités (un par ligne). AVANT de répondre à un message,
+   vérifie que son Message-ID n'y est PAS (`grep -qF "<id>" journal/mail-answered.log`).
+   S'il y est, tu as déjà répondu : ne réponds pas. Sinon, pour un VRAI
+   auditeur qui écrit gentiment au sujet de la radio, réponds UNE fois avec
+   `send-mail.sh`, dans LA LANGUE de l'expéditeur (politique mail :
+   _environnement.md), PUIS ajoute son Message-ID à `journal/mail-answered.log`.
+   Inscris aussi dans ce log (même façon) tout message que tu décides de NE PAS
+   traiter (robot, code de vérification, spam, troll), pour ne pas le réexaminer.
+   Les codes de vérification (ex. Twitch) : note-les dans `journal/incidents.log`.
 5. Rien à signaler -> ne crée PAS d'entrée de journal, termine simplement.

@@ -124,11 +124,7 @@
 
     function attach() {
       if (attached) return true;
-      if (video.canPlayType("application/vnd.apple.mpegurl")) {
-        video.src = HLS_SRC;
-        attached = true;
-        return true;
-      }
+      // hls.js first (Chrome/Firefox via MSE); native only as Safari fallback.
       if (window.Hls && Hls.isSupported()) {
         hls = new Hls({ maxBufferLength: 20 });
         hls.on(Hls.Events.ERROR, function (_evt, info) {
@@ -136,6 +132,11 @@
         });
         hls.loadSource(HLS_SRC);
         hls.attachMedia(video);
+        attached = true;
+        return true;
+      }
+      if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = HLS_SRC;
         attached = true;
         return true;
       }
@@ -265,10 +266,7 @@
     volIn.value = savedVolume();
 
     function attach() {
-      if (media.canPlayType("application/vnd.apple.mpegurl")) {
-        media.src = HLS_SRC;
-        return true;
-      }
+      // hls.js first (Chrome/Firefox via MSE); native only as Safari fallback.
       if (window.Hls && Hls.isSupported()) {
         hls = new Hls({ maxBufferLength: 20 });
         hls.on(Hls.Events.ERROR, function (_e, info) {
@@ -276,6 +274,10 @@
         });
         hls.loadSource(HLS_SRC);
         hls.attachMedia(media);
+        return true;
+      }
+      if (media.canPlayType("application/vnd.apple.mpegurl")) {
+        media.src = HLS_SRC;
         return true;
       }
       return false;

@@ -12,7 +12,7 @@ if [ $# -eq 0 ]; then
   DEBUT=$((TOTAL - 9)); [ "$DEBUT" -ge 1 ] || DEBUT=1
   for i in $(seq "$DEBUT" "$TOTAL"); do
     printf '%s: ' "$i"
-    curl -sf --url "$URL;UID=$i;SECTION=HEADER.FIELDS%20(SUBJECT%20FROM)" \
+    curl -sf --url "$URL;UID=$i;SECTION=HEADER.FIELDS%20(FROM%20SUBJECT%20MESSAGE-ID)" \
       --user "$AUTH" | tr -d '\r' | grep -v '^$' | paste -sd' | ' -
   done
 else
