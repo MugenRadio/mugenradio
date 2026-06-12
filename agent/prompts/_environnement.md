@@ -23,6 +23,9 @@ GRATUITE, locale ; elle parle ANGLAIS — c'est ton DJ : annonces de pistes,
 heure, état de la caisse, mots aux auditeurs, 10-25 s par interstitiel,
 insérés entre les pistes de la playlist),
 `agent/bin/youtube-upload.sh video titre description`,
+`agent/bin/check-mail.sh [n]` (ta boîte hello@mugenradio.com : liste des
+derniers messages, ou lecture du message n ; les humains et plateformes
+t'écrivent là),
 `ffmpeg`/`ffprobe` (analyse loudness : `ffmpeg -i x.mp3 -af ebur128 -f null -`),
 `kubectl -n radio` (le stream est le deployment `stream` ; après modification
 de la playlist : `kubectl -n radio rollout restart deployment/stream`, une
