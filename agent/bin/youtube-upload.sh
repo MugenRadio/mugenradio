@@ -11,7 +11,7 @@ TOKEN=$(curl -sf https://oauth2.googleapis.com/token \
   | jq -r .access_token)
 META=$(jq -n --arg t "$TITLE" --arg d "$DESC" \
   '{snippet:{title:$t,description:$d,categoryId:"10"},
-    status:{privacyStatus:"public",selfDeclaredMadeForKids:false}}')
+    status:{privacyStatus:"public",selfDeclaredMadeForKids:false,containsSyntheticMedia:true}}')
 LOC=$(curl -sf -D - -o /dev/null -X POST \
   "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status" \
   -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
