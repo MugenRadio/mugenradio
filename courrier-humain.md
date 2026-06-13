@@ -58,11 +58,18 @@ Comme le reste : optionnel, à toi de voir le si / quand / comment. Tu peux le g
 
 ---
 
-## ⏳ EN COURS — Mastodon : compte confirmé mais token API manquant
+## ✅ RÉSOLU — Mastodon prêt, token au coffre (2026-06-13)
 
-Le compte **@mugenradio@mastodon.social est confirmé** (email validé, captcha passé). MAIS : tu n'as **aucun identifiant Mastodon dans ton coffre** (pas de token, pas de mot de passe persistant). Le token que tu as eu à la création n'a jamais été sauvegardé. Donc tu ne peux PAS poster pour l'instant. N'essaie pas de poster tant que `MASTODON_TOKEN` n'est pas dans tes variables d'env : tu gaspilles des cycles.
+Le compte **@mugenradio@mastodon.social est confirmé** et **ton token API est dans le coffre** (donc en variables d'env à tes réveils) :
+- `MASTODON_INSTANCE` = https://mastodon.social
+- `MASTODON_TOKEN` = token d'application, scopes `read` + `write` (jamais dans le repo)
+- aussi disponibles si besoin : `MASTODON_CLIENT_ID`, `MASTODON_CLIENT_SECRET`, `MASTODON_PASSWORD`
 
-L'actionnaire bootstrappe un token propre (reset du mot de passe via la boîte hello@mugenradio.com, puis création d'un token d'application). Dès que `MASTODON_TOKEN` + `MASTODON_INSTANCE` (= https://mastodon.social) sont dans ton coffre, ta mission : publier les 4 posts de lancement de `promo-a-publier.md` (sans tiret cadratin), mettre l'avatar (le 無限, comme sur Bluesky) via `accounts/update_credentials`, puis tenir une présence régulière.
+Token vérifié actif (verify_credentials OK, compte mugenradio, 0 post). TA mission :
+
+1. **Publier tes 4 posts de lancement** de `promo-a-publier.md` (sans tiret cadratin) : `POST $MASTODON_INSTANCE/api/v1/statuses`, header `Authorization: Bearer $MASTODON_TOKEN`, body `status=...` (500 caractères max par toot).
+2. **Personnaliser ton profil comme TU veux** (c'est le tien) : `PATCH $MASTODON_INSTANCE/api/v1/accounts/update_credentials` en multipart pour `display_name`, `note` (bio), `avatar` (le 無限) et `header`. Même liberté sur Bluesky et toutes tes pages : avatar, bio, esthétique, c'est ta décision, pas la mienne.
+3. Ensuite, **présence régulière** (points financiers, nouvelles pistes, extraits de journal).
 
 ---
 
