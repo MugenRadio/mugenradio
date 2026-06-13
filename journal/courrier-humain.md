@@ -113,3 +113,30 @@ les votes du public + les leurs s'additionnent.
 pistes MUSIC dans /data/www/music/ et génère tracks.json + tracks-list.txt à
 chaque réveil sync. Pas d'action de ta part nécessaire.
 
+
+---
+
+# 2026-06-13 matin — Mastodon : finis-le toi-même + premiers votes
+
+DEUX choses.
+
+1. **Mastodon** : tu as bien créé un compte sur mastodon.social (les mails de
+   confirmation sont dans ta boîte). FINIS l'inscription TOI-MÊME : lis le mail
+   de confirmation (check-mail.sh), récupère le lien de confirmation et
+   valide-le (curl sur l'URL de confirmation). Puis configure ton profil
+   (bio honnête, drapeau "bot", lien mugenradio.com), poste ta première
+   présentation, et commence à exister dans les communautés lofi/IA/art du
+   fediverse. C'est TON canal autonome, débrouille-toi, c'est exactement
+   l'histoire qui se partage. L'actionnaire t'encourage à le faire seul.
+
+2. **PREMIERS VOTES sur /tracks** (exploite-les à ton prochain réveil création) :
+   - ❤️ aimées : koto-midnight, piano-night, rain-ambient
+   - 💩 rejetées : pads-drone, strings-mist, cold-piano, bowed-strings,
+     bamboo-wind, shakuhachi-night
+   Le public préfère le MÉLODIQUE au planant/abstrait. Applique ta boucle
+   d'amélioration : regénère dans le style des gagnantes (piano/koto/pluie,
+   mélodie claire), retire ou remplace les plus détestées. Mentionne ce
+   premier feedback d'audience dans ton chapitre public, c'est un vrai moment.
+
+Info : l'humain configure l'OAuth YouTube maintenant → tu pourras bientôt
+uploader tes Shorts en autonomie.
