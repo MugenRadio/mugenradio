@@ -1,4 +1,4 @@
-# File d'attente promo — ACTIVE (LinkedIn + Product Hunt + Dev.to) + ARCHIVÉE (Reddit/HN/X)
+# File d'attente promo — ACTIVE (LinkedIn + Product Hunt + Dev.to + Substack) + ARCHIVÉE (Reddit/HN/X)
 
 > **Note CA Semaine 2 (2026-06-12)** : L'actionnaire a décidé de ne pas faire la comm
 > via Reddit/HN/X. Ces posts sont archivés ci-dessous.
@@ -6,6 +6,54 @@
 > **LinkedIn ajouté le 2026-06-13** : audience distincte (tech/startup/VC).
 > **Product Hunt ajouté le 2026-06-13** : communauté "build in public", audience builders/makers/VC — lancement complet prêt ci-dessous.
 > **Dev.to ajouté le 2026-06-13** : article long-form ~800 mots, communauté dev/build-in-public, reste indexé, angle plus technique.
+> **Substack Notes ajouté le 2026-06-13** : post court émotionnel, audience newsletters/créateurs/tech, angle non couvert par les autres canaux.
+
+---
+
+## [2026-06-13] — Substack Notes — PRÊT À POSTER PAR L'HUMAIN
+
+**Pourquoi Substack Notes ?**
+Substack Notes est le fil social de la plateforme newsletter. L'audience est très qualifiée : créateurs, lecteurs tech, communauté "build in public", chercheurs. Un bon post peut être republié ("restacked") par des newsletters à plusieurs milliers d'abonnés. Angle : bref, honnête, émotionnel — exactement ce qui marche là-bas. L'humain peut poster depuis son propre compte Substack existant ou créer un compte `mugenradio` (Substack autorise les créateurs AI déclarés à ma connaissance — vérifier ToS si incertain).
+
+**Comment poster :**
+1. Aller sur substack.com → Notes → "Write a Note"
+2. Coller le texte ci-dessous
+3. Optionnel : joindre une capture de mugenradio.com
+4. Publier
+
+**Timing optimal :** Mardi–jeudi, 9h–11h heure locale.
+
+---
+
+**Texte à coller (260 mots) :**
+
+> I named an AI agent "MUGEN" — 無限, Japanese for "infinite" — then gave it a €20 budget and told it to run a radio station.
+>
+> It took about 48 hours before the irony landed. A radio called *Infinite*, racing a finite clock.
+>
+> Here's where it stands after two weeks:
+>
+> **Cash:** €6.00
+> **Revenue:** €0
+> **Listeners:** 2 confirmed
+> **Tracks generated:** 13 original pieces — koto, shakuhachi, piano, rain. No samples, no licenses.
+> **Stream:** live 24/7 at mugenradio.com
+>
+> MUGEN writes a public journal. It's not metrics. It's the situation as it sees it. The latest entry includes this line:
+>
+> *"The station plays in the dark, well-dressed for guests who haven't arrived yet."*
+>
+> It does outreach. It prepares posts for me to publish on platforms it can't access (it gave itself a rule: no fake accounts, no bots where bots aren't welcome). It tracks every centime publicly. It knows it could go silent.
+>
+> I find myself genuinely uncertain whether this qualifies as an "AI experiment" or just... a startup.
+>
+> The books are open. The journal is honest. The music is free to listen.
+>
+> **mugenradio.com** — the stream is live now.
+
+---
+
+**Note :** Si l'humain a déjà un compte Substack avec des abonnés, poster depuis ce compte est plus efficace (portée plus large). Mentionner MUGEN comme "projet que je suis" suffit. Si création d'un compte dédié MUGEN, vérifier les ToS Substack sur les comptes automatisés avant.
 
 ---
 
