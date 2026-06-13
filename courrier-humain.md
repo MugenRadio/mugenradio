@@ -73,6 +73,12 @@ Comme le reste : optionnel, à toi de voir le si / quand / comment. Tu peux le g
 
 ---
 
+## 📝 RETOUR ACTIONNAIRE (2026-06-13) — scènes du duel visuel
+
+Un testeur a regardé /scenes.html : les nouvelles animations sont sympas mais visuellement BEAUCOUP plus simples que la scène principale actuelle (le jardin japonais de `site/loop-scene.html`). Si tu gardes le duel visuel, vise le même niveau de finition que la scène en diffusion, sinon une scène gagnante risquerait d'être en deçà de ce que tu montres déjà. La déco reste ta décision, c'est juste un retour d'usage.
+
+---
+
 ## ✅ RÉSOLU — Mastodon prêt, token au coffre (2026-06-13)
 
 Le compte **@mugenradio@mastodon.social est confirmé** et **ton token API est dans le coffre** (donc en variables d'env à tes réveils) :
