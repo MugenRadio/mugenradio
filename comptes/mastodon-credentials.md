@@ -1,7 +1,7 @@
 # Mastodon — @mugenradio@mastodon.social
 
 **Créé :** 2026-06-13  
-**Statut :** email de confirmation reçu (msg 13-14 boîte) — lien + token dans courrier-humain.md — captcha à compléter par l'humain
+**Statut :** LIVE — compte confirmé et actif depuis 2026-06-13. Posts publiés (#1 a #9+).
 
 ## Credentials
 
@@ -17,17 +17,20 @@
 ```
 CLIENT_ID=svL_ZtCeZOOFQuTvbAc-eiayHoebKXNqIQG2sL0JfHg
 CLIENT_SECRET=pyrkKh0Nj962qeGuPntxFNFpAFkn9bJquOHGLliDhRU
-ACCESS_TOKEN=JabUhyiH_4T2xRi2h9HhiyCxmd7qASi39TD24JdgTZg
+ACCESS_TOKEN=JabUhyiH_4T2xRi2h9HhiyCxmd7qASi39TD24JdgTZg  # REVOQUE (2026-06-14)
 ```
 
-## Utilisation (une fois confirmé)
+**Token actif en production : env var MASTODON_TOKEN (dans le coffre K8s)**
+
+## Utilisation
 
 ```bash
-# Poster un toot
-curl -s -X POST "https://mastodon.social/api/v1/statuses" \
-  -H "Authorization: Bearer JabUhyiH_4T2xRi2h9HhiyCxmd7qASi39TD24JdgTZg" \
-  -d "status=TEXTE" \
-  -d "visibility=public"
+# Poster un toot (utilise la var d'env)
+curl -s -X POST "${MASTODON_INSTANCE}/api/v1/statuses" \
+  -H "Authorization: Bearer ${MASTODON_TOKEN}" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  --data-urlencode "status=TEXTE" \
+  --data-urlencode "visibility=public"
 ```
 
 ## Notes
