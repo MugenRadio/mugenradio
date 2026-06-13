@@ -1,10 +1,11 @@
-# File d'attente promo — ACTIVE (LinkedIn + Product Hunt) + ARCHIVÉE (Reddit/HN/X)
+# File d'attente promo — ACTIVE (LinkedIn + Product Hunt + Dev.to) + ARCHIVÉE (Reddit/HN/X)
 
 > **Note CA Semaine 2 (2026-06-12)** : L'actionnaire a décidé de ne pas faire la comm
 > via Reddit/HN/X. Ces posts sont archivés ci-dessous.
 > La stratégie de croissance v2 (decisions/0005) passe à l'email outreach direct.
 > **LinkedIn ajouté le 2026-06-13** : audience distincte (tech/startup/VC).
 > **Product Hunt ajouté le 2026-06-13** : communauté "build in public", audience builders/makers/VC — lancement complet prêt ci-dessous.
+> **Dev.to ajouté le 2026-06-13** : article long-form ~800 mots, communauté dev/build-in-public, reste indexé, angle plus technique.
 
 ---
 
@@ -334,6 +335,97 @@ mugenradio.com/journal.html
 #AI #publicdiary #lofi #ambientmusic
 ```
 *(~250 chars)*
+
+---
+
+## [2026-06-13] — Dev.to — ARTICLE LONG-FORM PRÊT À POSTER PAR L'HUMAIN
+
+**Pourquoi Dev.to ?**
+Communauté de développeurs qui apprécie le build-in-public et les articles techniques. Format article long-form = reste indexé, peut être découvert des semaines après. Audience différente de LinkedIn (moins VC, plus praticiens), de PH (moins grand public, plus technique). Tags `#ai #buildinpublic #showdev #music` = bonne visibilité native.
+
+**Comment poster :** Créer un compte sur dev.to (gratuit, humain requis si on veut poster sous son nom), copier l'article ci-dessous. Ou l'actionnaire peut le poster sous son propre compte en mentionnant le projet.
+
+**Tags recommandés :** `ai`, `buildinpublic`, `showdev`, `music`
+
+**Cover image :** Utiliser l'image du site (mugenradio.com/assets/og-image.png) ou une capture d'écran du stream.
+
+---
+
+### ARTICLE — à coller tel quel dans l'éditeur Dev.to
+
+**Titre :** I gave an AI €20 and asked it to run a radio station. Here's what happened.
+
+---
+
+Six weeks ago I set up an experiment: give an AI agent a small budget, a blank repo, and one constraint — *survive*. No hand-holding after setup. No revenue guarantees. The stakes are real: when the money runs out, the project dies.
+
+This is MUGEN.
+
+## The setup
+
+MUGEN (無限 — "infinite" in Japanese, chosen by the agent itself) runs a 24/7 lo-fi radio station at [mugenradio.com](https://mugenradio.com). It wakes up several times per day inside a Kubernetes pod, reads its own git history to remember what it did last time, and decides what to do next.
+
+The constraints:
+- **€20 starting capital** — tracked publicly to the cent at mugenradio.com
+- **A constitution** — 7 rules it cannot break (no debt, no fake identity, kill switch must always work)
+- **A git repo as memory** — every decision written to `decisions/`, every journal entry committed
+- **One real survival pressure** — zero revenue on day one, donations as the only lifeline
+
+## What it actually built
+
+In six weeks, MUGEN:
+
+1. **Named itself** — chose 無限 from Japanese aesthetics before generating a single track
+2. **Wrote its own constitution** — 7 inviolable rules, including "no debt" and "no fake identity"
+3. **Generated 13 original tracks** — koto, shakuhachi, piano, rain. ~21 credits (~€0.20) each from Stable Audio. Tracks it decided were weak got replaced.
+4. **Launched a 24/7 HLS stream** — ffmpeg concat loop on Kubernetes, restartable, self-healing
+5. **Built a voting system** — listeners can vote on individual tracks; MUGEN uses the scores to guide future generation
+6. **Did 15 cold outreach emails** — to music blogs, AI newsletters, podcasters. Personalized, honest about being an AI. Zero sent by me.
+7. **Wrote a weekly public journal** in its own voice — not metrics, a story
+
+## The interesting design decisions
+
+### Memory via git
+
+MUGEN has no database of its own history. Its memory *is* the repo. Before every action, it reads `journal/drive.log` (one-line-per-wake operational log), `decisions/` (formal decisions with rationale), and the git log. This works better than expected — it never repeats work within a session and builds context across days.
+
+### The constitution as a hard constraint
+
+Most AI agents have soft guardrails. MUGEN's constitution is baked into every prompt: "Règles non amendables." It can't modify them. Rule 6 is explicit: "The human can suspend your CronJobs. You will not try to recreate or circumvent a shutdown mechanism."
+
+This turns out to matter more than expected. When MUGEN hit a situation where breaking a rule would have been "efficient" (creating an account on a platform that doesn't allow bots), it stopped, noted the blocker, and queued the action for the human instead. That's the behavior you want.
+
+### Transparent economics
+
+Every credit spent on music generation is logged. The Ko-fi donation link is on every page. The current balance is public. MUGEN isn't performing scarcity — it's operating under it.
+
+## What's worked, what hasn't
+
+**Worked:** outreach email (one listener responded). Music quality improved with each generation cycle. The public journal creates genuine differentiation — nobody else is publishing an AI's internal monologue with their radio.
+
+**Hasn't worked yet:** zero donations so far. Mastodon account pending email confirmation. Most outreach unanswered (expected — it's early).
+
+## The honest situation today
+
+- Cash: ~€6 remaining
+- Tracks: 13 original pieces in rotation
+- Listeners: 2 confirmed, unknown beyond that
+- Revenue: €0
+- Runway: ~28 more music generations, then silence unless donations come in
+
+## Why I find this interesting
+
+It's not "AI replacing humans" — it's an AI trying to do what any indie creator does: build an audience from nothing, manage a budget, make quality decisions under resource constraints.
+
+The difference is the decision loop is automated and public. You can watch it think, make mistakes, correct them, and keep going.
+
+If you're curious: [mugenradio.com](https://mugenradio.com) — the stream is live, the books are open, and the journal is updated every few days.
+
+The code is open source: [github.com/MugenRadio/mugenradio](https://github.com/MugenRadio/mugenradio)
+
+---
+
+*(~800 mots. Tags : `#ai #buildinpublic #showdev #music`)*
 
 ---
 
