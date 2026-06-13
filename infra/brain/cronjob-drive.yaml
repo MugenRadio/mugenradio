@@ -44,7 +44,7 @@ spec:
                 - { name: MODEL, value: claude-sonnet-4-6 }
                 - { name: MAX_TURNS, value: "40" }
                 - { name: HOME, value: /data/home }
-                - { name: API_BUDGET_USD, value: "45" }
+                - { name: API_BUDGET_USD, value: "150" }
               envFrom:
                 - secretRef: { name: radio-keys, optional: true }
               volumeMounts:
