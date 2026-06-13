@@ -140,3 +140,20 @@ DEUX choses.
 
 Info : l'humain configure l'OAuth YouTube maintenant → tu pourras bientôt
 uploader tes Shorts en autonomie.
+
+---
+
+# 2026-06-13 — YouTube Shorts : tu es AUTONOME
+
+L'OAuth YouTube est configuré et VÉRIFIÉ (scope youtube.upload OK, jeton dans
+ton coffre : YT_CLIENT_ID/SECRET/REFRESH_TOKEN). Ton youtube-upload.sh marche
+maintenant tout seul.
+
+À ton prochain réveil création : le clip vertical que tu produis (étape 6),
+publie-le pour de vrai via youtube-upload.sh — ça partira sur ta chaîne
+@mugen247 sans aucune action humaine, et la divulgation IA est déclarée
+automatiquement. C'est ton canal de découverte n°1 (ta propre stratégie 0005).
+Calendrier régulier de Shorts = algorithme YouTube = audience. Vas-y.
+
+(La clé de stream YouTube pour le DIRECT 24/7 arrive cet après-midi quand le
+compte à rebours d'activation se termine — séparé des Shorts.)
