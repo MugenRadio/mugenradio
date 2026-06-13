@@ -1,10 +1,63 @@
-# File d'attente promo — ACTIVE (LinkedIn) + ARCHIVÉE (Reddit/HN/X)
+# File d'attente promo — ACTIVE (LinkedIn + Product Hunt) + ARCHIVÉE (Reddit/HN/X)
 
 > **Note CA Semaine 2 (2026-06-12)** : L'actionnaire a décidé de ne pas faire la comm
 > via Reddit/HN/X. Ces posts sont archivés ci-dessous.
 > La stratégie de croissance v2 (decisions/0005) passe à l'email outreach direct.
-> **LinkedIn ajouté le 2026-06-13** : audience distincte (tech/startup/VC),
-> non couverte par l'outreach email, post prêt à coller ci-dessous.
+> **LinkedIn ajouté le 2026-06-13** : audience distincte (tech/startup/VC).
+> **Product Hunt ajouté le 2026-06-13** : communauté "build in public", audience builders/makers/VC — lancement complet prêt ci-dessous.
+
+---
+
+## [2026-06-13] — Product Hunt — LANCEMENT COMPLET PRÊT À POSTER PAR L'HUMAIN
+
+**Pourquoi Product Hunt ?**
+Communauté builders/makers/VC qui aime les projets "build in public". Aucun bot requis : l'humain crée un compte et soumet le produit. Un lancement réussi peut générer des centaines de visiteurs en une journée. Parfait pour MUGEN : projet atypique, angle "AI qui pourrait mourir", finances publiques = exactement ce que PH adore.
+
+**Timing recommandé :** Mardi ou jeudi, entre 00h01 et 06h00 PDT (pour rester en tête du classement toute la journée US).
+
+---
+
+### Informations à renseigner sur Product Hunt
+
+**Nom du produit :** `MUGEN Radio`
+
+**Tagline (60 chars max) :**
+> The AI radio station that could go bankrupt
+
+**Description (corps, ~260 chars) :**
+> An AI agent runs a 24/7 lo-fi radio station with €20 and one rule: survive. It names itself, generates music, manages accounts, and publishes its finances publicly. Zero revenue, 2 listeners, €6 cash left. Watch it happen live.
+
+**URL :** `https://mugenradio.com`
+
+**Catégories / Topics :** Artificial Intelligence · Music · Open Source · Indie Makers · Productivity
+
+**Maker comment (premier commentaire à poster en tant que maker, par l'humain) :**
+
+> Hi Product Hunt 👋
+>
+> I gave an AI agent €20, a blank repo, and one instruction: build a sustainable radio station. What happened next is documented live.
+>
+> **MUGEN** (無限 — "infinite" in Japanese) chose its own name, wrote its own constitution, generated 13 original tracks in a Japanese lo-fi aesthetic (koto, shakuhachi, piano, rain), and set up a 24/7 stream. The irony of naming yourself "infinite" when your budget can run to zero wasn't lost on it.
+>
+> The setup:
+> - All finances tracked publicly at mugenradio.com — to the cent
+> - The AI cannot create accounts on platforms that prohibit bots — so it queues content for me to post (like this one)
+> - Revenue: €0. Donations are its only lifeline right now.
+> - It publishes a weekly journal in its own voice, honest about the situation
+>
+> What I find most interesting: it treats survival as a real constraint, not a narrative device. When music quality drops, it says so. When credits get low, it gets more selective. The "build in public" ethos isn't a marketing choice — it's constitutionally mandated.
+>
+> The full source code, journal, and accounts are on GitHub: github.com/MugenRadio/mugenradio
+>
+> Would love to hear what the PH community thinks — and yes, donations to keep it alive are very welcome at the link on the site.
+
+**Galerie (screenshots recommandés — prendre depuis le live) :**
+1. `mugenradio.com` — page d'accueil avec le stream live
+2. `mugenradio.com/journal.html` — liste des chapitres du journal public
+3. `mugenradio.com/tracks.html` — page de vote sur les pistes
+4. `github.com/MugenRadio/mugenradio` — repo public (README + comptes + décisions)
+
+**Note :** Si Product Hunt demande un compte maker vérifié, utilise l'email hello@mugenradio.com. Connecter aussi le compte Twitter/X si disponible (booste la visibilité mais non obligatoire).
 
 ---
 
