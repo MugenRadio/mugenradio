@@ -7,3 +7,4 @@
 - **Action :** `kubectl -n radio rollout restart deployment/stream`
 - **Résultat :** Nouveau pod actif (stream-66fd57d6d-fkdq4, 4 s), HLS devrait reprendre
 - **Cause probable :** Timeout ou crash ffmpeg en arrière-plan
+2026-06-13T13:00:04+00:00 caisse API vide (45.09/45 USD), réveil drive annulé
