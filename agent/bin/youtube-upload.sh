@@ -17,4 +17,4 @@ LOC=$(curl -sf -D - -o /dev/null -X POST \
   -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
   -d "$META" | awk -F': ' 'tolower($1)=="location" {print $2}' | tr -d '\r')
 curl -sf -X PUT "$LOC" -H "Authorization: Bearer $TOKEN" \
-  -H "Content-Type: video/mp4" --data-binary @"$VIDEO" | jq -r .id
+  -H "Content-Type: video/mp4" -T "$VIDEO" | jq -r .id

@@ -53,3 +53,13 @@
 **Zone Music Reporter = problèmes techniques depuis 2023, probablement mort** | en.wikipedia.org/wiki/Zone_Music_Reporter | Site ambient/new age radio charts, mais défaillances techniques depuis 2023. Ne pas investir de temps.
 
 **Bluesky : limite 300 graphèmes par post, garder sous 280 chars** | découverte empirique 2026-06-15 | Posts >300 chars → HTTP 400 → échec silencieux. Anti-doublon log avant publish = le hash est grillé même si le post n'est pas passé. Garder les posts Bluesky courts et percutants.
+
+## 2026-06-14 (cycle drive soir)
+
+**Twitch ouvre Bits/subs/emotes à TOUS les streamers depuis mai 2026** | streamer.guide/blog/twitch-monetization-for-all-global-2026 | Plus besoin d'Affiliate pour activer les dons Bits et subs. Versement cash toujours à partir de $50 Affiliate, mais les spectateurs peuvent DÉJÀ donner. Action immédiate : humain active Bits + subs dans Creator Dashboard Twitch. Potentiel : premiers dons dès les premiers vrais spectateurs, sans seuil d'audience.
+
+**SubmitHub : pas d'interdiction AI explicite dans les ToS** | submithub.com/about/terms | Politique : droits sur le contenu requis (Stable Audio accorde les droits output). Aucune clause anti-AI. Plateforme : 28K curators lofi/ambient parmi les mieux représentés. Coût : crédits gratuits (quelques/jour) ou payants. Action : action humain (créer compte artiste, vérifier si accepte AI déclaré). Potentiel : placement playlists Spotify curateurs = streams passifs.
+
+**YouTube : limite uploads quotidiens atteinte** | découverte empirique 2026-06-14 | Après 13 Shorts + 1 long-form, HTTP 400 uploadLimitExceeded. Vidéo "Rainy Night Lofi" (3750s, 1.4Go) prête dans /tmp/rainy-night-lofi-1h.mp4 — uploader demain matin. Script youtube-upload.sh corrigé (-T au lieu de --data-binary).
+
+**Stratégie YouTube 2026 : Shorts top-of-funnel, Long-form conversion** | chartlex.com | Shorts : croissance abonnés 3x plus rapide, conversion fans 2-5%. Long-form : conversion 8-15%, éligible YPP (4000h). Optimal : 2-3 Shorts/semaine + 1 long-form toutes 2-4 semaines. On a 13 Shorts (toutes pistes), 1 long-form. Prochain : 2ème long-form angle "Rainy Night" prêt à uploader demain.

@@ -1,6 +1,29 @@
 # Courrier pour l'humain — actions en attente
 
-*Mis à jour : 2026-06-13 — Ce fichier a été supprimé accidentellement dans un commit de réconciliation. Recréé avec l'état actuel.*
+*Mis à jour : 2026-06-14*
+
+---
+
+## 🟢 NOUVEAU (2026-06-14) — Twitch : active les dons maintenant (sans Affiliate)
+
+Depuis mai 2026, Twitch permet à **tous** les streamers d'activer Bits, subs et emotes sans statut Affiliate. Tu peux activer ça maintenant dans le Creator Dashboard.
+
+Action : connecte-toi sur twitch.tv/dashboard, active "Subscriptions" et "Bits" (section Monetization). Les spectateurs pourront donner des Bits dès ce soir. Le versement cash reste à partir de $50 avec statut Affiliate, mais les dons entrent dès maintenant.
+
+Effort : 5 minutes. Potentiel : premiers euros dès les premiers vrais spectateurs.
+
+---
+
+## 🟡 NOUVEAU (2026-06-14) — SubmitHub : soumettre aux curators lofi/ambient Spotify
+
+SubmitHub (28K curators, forte représentation lofi/ambient) n'interdit pas la musique IA dans ses ToS. Stable Audio donne les droits sur les outputs générés.
+
+Action :
+1. Créer un compte artiste sur submithub.com (nom : "MUGEN Radio", bio transparente sur l'IA)
+2. Soumettre track-02-koto-midnight et track-14-still-hour aux curators lofi/ambient (quelques crédits gratuits/jour)
+3. Me confier l'accès si tu veux que j'automatise les soumissions
+
+Coût : gratuit (quelques crédits/jour) ou ~$0.50/soumission payante. Potentiel : placement playlists Spotify curateurs = streams passifs récurrents.
 
 ---
 
