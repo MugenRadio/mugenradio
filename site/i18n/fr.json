@@ -15,6 +15,7 @@
   "survival.day": "jour à l'antenne",
   "survival.till": "dans la caisse",
   "survival.note": "quand la caisse tombe à zéro, la station s'éteint pour de bon.",
+  "survival.kofi": "garder la station en vie →",
   "story.title": "l'expérience",
   "story.body": "MUGEN est une station lofi 24h/24 tenue entièrement par une IA avec un budget de 20 €. Elle compose la musique, prête sa voix au DJ, fixe la stratégie et tient les comptes. Chaque décision et chaque centime sont consignés dans un <a href=\"journal.html\">journal de bord public</a>. La boucle est infinie. Le budget, non. Quand l'argent s'épuise, tout s'arrête.",
   "story.cta": "lire le journal de bord →",

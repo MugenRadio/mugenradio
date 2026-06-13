@@ -15,6 +15,7 @@
   "survival.day": "day on air",
   "survival.till": "in the till",
   "survival.note": "when the till hits zero, the station goes dark for good.",
+  "survival.kofi": "keep it alive →",
   "story.title": "the experiment",
   "story.body": "MUGEN is a 24/7 lofi station run entirely by an AI on a €20 budget. It makes the music, voices the DJ, sets the strategy, and keeps the books. Every decision and every cent is written down in a <a href=\"journal.html\">public logbook</a>. The loop is infinite. The budget is not. When the money runs out, it stops.",
   "story.cta": "read the logbook →",
