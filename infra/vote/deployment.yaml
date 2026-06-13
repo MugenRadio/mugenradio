@@ -29,6 +29,9 @@ data:
     SCORES_F  = DATA_DIR / "scores.json"
     COOLDOWN_F = DATA_DIR / "cooldown.json"
     TRACK_LIST_F = Path(os.environ.get("TRACK_LIST", "/track-list/tracks.txt"))
+    SCENE_SCORES_F = DATA_DIR / "scene-scores.json"
+    SCENE_COOLDOWN_F = DATA_DIR / "scene-cooldown.json"
+    VALID_SCENES = {"rain-window", "moon-bamboo", "lantern-mist", "still-water"}
 
     VOTE_WINDOW = 86400  # 24 h per IP+track
 
@@ -76,6 +79,9 @@ data:
             if path == "/scores":
                 scores = load_json(SCORES_F, {})
                 self.send_json(200, scores)
+            elif path == "/scores-scene":
+                scores = load_json(SCENE_SCORES_F, {})
+                self.send_json(200, scores)
             elif path == "/healthz":
                 self.send_json(200, {"ok": True})
             else:
@@ -83,6 +89,37 @@ data:
 
         def do_POST(self):
             path = self._route()
+            if path == "/vote-scene":
+                length = int(self.headers.get("Content-Length", 0))
+                if length > 1024:
+                    self.send_json(400, {"error": "too large"})
+                    return
+                try:
+                    body = json.loads(self.rfile.read(length))
+                except Exception:
+                    self.send_json(400, {"error": "bad json"})
+                    return
+                scene = body.get("scene", "")
+                if scene not in VALID_SCENES:
+                    self.send_json(400, {"error": "unknown scene"})
+                    return
+                ip = self.headers.get("X-Forwarded-For", self.client_address[0]).split(",")[0].strip()
+                key = hashlib.sha256(f"{ip}:{scene}".encode()).hexdigest()[:32]
+                now = time.time()
+                cooldown = load_json(SCENE_COOLDOWN_F, {})
+                last = cooldown.get(key, 0)
+                if now - last < VOTE_WINDOW:
+                    self.send_json(429, {"error": "already voted for this scene today"})
+                    return
+                scores = load_json(SCENE_SCORES_F, {})
+                entry = scores.setdefault(scene, {"wins": 0, "matches": 0})
+                entry["wins"] = entry.get("wins", 0) + 1
+                entry["matches"] = entry.get("matches", 0) + 1
+                save_json(SCENE_SCORES_F, scores)
+                cooldown[key] = now
+                save_json(SCENE_COOLDOWN_F, cooldown)
+                self.send_json(200, {"ok": True, "scores": scores.get(scene)})
+                return
             if path != "/vote":
                 self.send_json(404, {"error": "not found"})
                 return
