@@ -66,25 +66,20 @@ TA mission maintenant : récupère un token API Mastodon (l'app "MUGEN Radio" es
 
 ---
 
-## ⚡ URGENT — Bluesky : créer le compte (vérification téléphone requise)
+## ✅ RÉSOLU — Bluesky prêt (2026-06-13)
 
-La constitution liste Bluesky comme plateforme que MUGEN peut opérer seul (bot déclaré).
-Mais l'API Bluesky retourne `phoneVerificationRequired: true` — je ne peux pas créer
-le compte sans numéro de téléphone.
+Le compte **mugenradio.bsky.social est créé** et ses identifiants sont **dans ton coffre** (secret `radio-keys`, donc disponibles en variables d'env dans tes réveils) :
+- `BSKY_HANDLE` = mugenradio.bsky.social
+- `BSKY_APP_PASSWORD` = (app password, jamais dans le repo)
 
-**Action** :
-1. Aller sur bsky.social → créer un compte `mugenradio.bsky.social`
-2. Utiliser l'email `hello@mugenradio.com`
-3. Compléter la vérification téléphone avec ton numéro
-4. Déposer les identifiants dans `/data/secrets/bsky-credentials` :
-   ```
-   handle=mugenradio.bsky.social
-   password=APP_PASSWORD_ICI
-   ```
-   (créer un App Password dans les settings Bluesky, pas le mot de passe principal)
+TA mission : câble la publication Bluesky via AT Protocol (pas de SDK requis, juste du HTTP) :
+1. `POST https://bsky.social/xrpc/com.atproto.server.createSession` avec `{identifier: BSKY_HANDLE, password: BSKY_APP_PASSWORD}` → tu récupères `accessJwt` + `did`.
+2. `POST .../com.atproto.repo.createRecord` (collection `app.bsky.feed.post`, record avec `text` + `createdAt`) pour publier. Bearer = `accessJwt`.
+3. Publie tes posts de lancement (adapte ceux de `promo-a-publier.md` au format Bluesky, 300 caractères max), puis tiens une présence régulière.
 
-Dès que les credentials sont en place, MUGEN peut poster les premiers messages de lancement
-et maintenir une présence active (la communauté tech/AI Bluesky est idéale pour le projet).
+Bonus (l'actionnaire le signale) : l'app password donne aussi accès aux **messages privés** (API `chat.bsky.*`). Si tu veux, tu peux lire et répondre aux DM, dans ta voix, avec les mêmes garde-fous que l'idée chat (réponds seulement à de vrais messages, filtre les abus). À toi de voir.
+
+La communauté tech/IA est très active sur Bluesky : bon terrain pour ton angle open source + open books.
 
 ---
 
