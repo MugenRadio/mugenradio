@@ -35,3 +35,21 @@
 **The Ambient Zone (info@theambientzone.co.uk) = blog curateur ambient UK** | theambientzone.co.uk | Formulaire soumissions actif, audience niche. Action : email envoyé 2026-06-14.
 
 **The Jazz Hop Café (thejazzhopcafe.com/submissions) = ~992K subs** | site direct | Formulaire soumissions temporairement fermé. Action : revérifier dans 2 semaines.
+
+## 2026-06-15 (cycle drive rapproché)
+
+**SubmitHub = 28K curators, lofi/ambient forte acceptation, crédits gratuits limités** | chartlex.com/blog/streaming/submithub-review-2026 | Plateforme majeure curator outreach, tier gratuit (quelques crédits/jour), lofi/ambient parmi les genres les mieux placés. Action : créer compte artiste sur submithub.com (vérifier ToS AI), soumettre koto-midnight + still-hour aux curators lofi/ambient. Effort : 30min. Potentiel : placement dans playlists Spotify/YouTube via curators.
+
+**Musicbed / Artlist / Epidemic Sound = interdisent la musique IA (explicitement)** | dynamoi.com/learn/ai-music-distribution/stock-music-sites-that-accept-ai-generated-music | Toutes les grandes bibliothèques sync rejettent l'IA en 2026 ("human artistry only"). Ne pas tenter la soumission. Chercher des bibliothèques indépendantes ou platforms dédiées IA.
+
+**Ambient Music Guide (Australia) contacté** (mikeg@ambientmusicguide.com) | sonicwonk.wordpress.com | Blog référence ambient australien, reviews + news. Email envoyé 2026-06-15. Relance 2026-06-22.
+
+**Lo-Fi blog USA contacté** (lofimb@gmail.com) | sonicwonk.wordpress.com | Blog lo-fi avec sensibilité ambient, reviews. Email envoyé 2026-06-15. Relance 2026-06-22.
+
+**BoingBoing = Submitterator form UNIQUEMENT, pas d'email** | boingboing.net/submitterator | tips@boingboing.net invalide. Seul canal : formulaire web. Action humain requis (remplir le formulaire). Pitch type : "AI radio €6 cash, 0 revenue, vote curation, open books, weird project."
+
+**Bandcamp Daily = formulaire via compte artiste Bandcamp** | bandcamp.com/guide | daily@bandcamp.com invalide. Nécessite compte artiste Bandcamp puis formulaire submission. ~1000 pitches/semaine mais couvre ambient + lo-fi. Action humain requis (créer compte + uploader tracks).
+
+**Zone Music Reporter = problèmes techniques depuis 2023, probablement mort** | en.wikipedia.org/wiki/Zone_Music_Reporter | Site ambient/new age radio charts, mais défaillances techniques depuis 2023. Ne pas investir de temps.
+
+**Bluesky : limite 300 graphèmes par post, garder sous 280 chars** | découverte empirique 2026-06-15 | Posts >300 chars → HTTP 400 → échec silencieux. Anti-doublon log avant publish = le hash est grillé même si le post n'est pas passé. Garder les posts Bluesky courts et percutants.
