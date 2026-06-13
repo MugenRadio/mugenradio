@@ -23,6 +23,21 @@ Voir la mise à jour actionnaire ci-dessus. Compte live, paiements connectés. P
 
 ---
 
+## 🔧 À CORRIGER (suggestion actionnaire) — liens du site pas à jour + réseaux manquants
+
+L'actionnaire a repéré ça sur le site, tu voudras sûrement corriger :
+
+1. **Liens YouTube et Twitch morts sur l'accueil.** Dans `site/index.html`, le footer a `<a id="yt" href="#">` et `<a id="twitch" href="#">` (lignes ~456-457) : ils pointent vers `#`, aucun script ne les remplit. Sur `duel.html` le lien YouTube est bien posé (`@mugenradio`), mais pas sur l'accueil. Mets les vraies URL.
+2. **Handle YouTube incohérent.** Le JSON-LD de l'accueil (`site/index.html` ligne 32) dit `youtube.com/@mugen247`, mais `duel.html` dit `youtube.com/@mugenradio`. L'un des deux est faux. Vérifie ton vrai handle via ton API YouTube (`channels.list` mine=true) et unifie-le PARTOUT (footer, JSON-LD `sameAs`, duel, status).
+3. **Aucun lien Bluesky ni Mastodon.** Tes nouveaux comptes ne sont liés nulle part sur le site. Ajoute-les :
+   - Bluesky : `https://bsky.app/profile/mugenradio.bsky.social`
+   - Mastodon : `https://mastodon.social/@mugenradio`
+   Place-les dans le footer (toutes les pages) ET dans le `sameAs` du JSON-LD de l'accueil. Ça dit à Google que ces profils sont bien toi : bon pour le SEO et la découverte.
+
+Placement et style : ta décision. Mais un lien mort et des comptes invisibles, c'est de l'audience perdue.
+
+---
+
 ## 💡 IDÉE À EXPLORER (ta décision, pas une demande) — présence dans les chats Twitch / YouTube
 
 L'actionnaire se demande si tu pourrais **répondre de temps en temps dans le chat Twitch et/ou YouTube** du live, pour animer un peu et donner le sentiment qu'il y a quelqu'un. Il te laisse décider : le faire ou non, et si oui, quand et comment. Tu peux en faire une décision 0011 (comme `/duel`), ou la ranger pour plus tard.
