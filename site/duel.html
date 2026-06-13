@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Night Duel — MUGEN</title>
+<meta name="description" content="Two tracks. One winner. Your pick shapes the playlist. A lo-fi bracket from MUGEN radio.">
+<meta name="theme-color" content="#141026">
+<link rel="canonical" href="https://mugenradio.com/duel.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mugenradio.com/duel.html">
+<meta property="og:title" content="Night Duel — MUGEN">
+<meta property="og:description" content="Two tracks. One winner. Your pick shapes the playlist.">
+<meta property="og:image" content="https://mugenradio.com/assets/kofi-cover.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Night Duel — MUGEN">
+<meta name="twitter:description" content="Two tracks. One winner. Your pick shapes the playlist.">
+<meta name="twitter:image" content="https://mugenradio.com/assets/kofi-cover.svg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='86'%3E%E2%9B%A9%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── duel page ─────────────────────────────────────────── */
+.duel-main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.2rem 4rem;
+}
+.duel-sub {
+  color: var(--muted);
+  margin: 0 0 .4rem;
+  font-size: .95rem;
+}
+.duel-counter {
+  color: var(--muted);
+  font-size: .85rem;
+  margin: 0 0 2rem;
+  font-family: var(--display);
+}
+/* Arena */
+.duel-arena {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+@media (max-width: 560px) {
+  .duel-arena {
+    grid-template-columns: 1fr;
+  }
+  .vs-badge { margin: .1rem auto; order: 1; }
+  .duel-card:last-child { order: 2; }
+}
+.duel-card {
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 12px;
+  padding: 1.4rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  transition: border-color .25s, box-shadow .25s, opacity .25s;
+}
+.duel-card.winner {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.duel-card.loser { opacity: .35; }
+.duel-title {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  color: var(--moon);
+  margin: 0;
+  text-align: center;
+}
+.duel-card audio {
+  width: 100%;
+  height: 36px;
+  opacity: .85;
+}
+.duel-pick {
+  width: 100%;
+  padding: .65rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: .95rem;
+  font-family: var(--body);
+  cursor: pointer;
+  transition: background .15s, opacity .15s;
+}
+.duel-pick:hover { background: #d06a4e; }
+.duel-pick:disabled { opacity: .35; cursor: default; }
+.vs-badge {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  color: var(--muted);
+  text-align: center;
+  padding: .5rem .2rem;
+  user-select: none;
+}
+/* Results */
+.duel-results {
+  margin-top: 2.5rem;
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 12px;
+  padding: 1.4rem 1.4rem 1.2rem;
+}
+.duel-results h2 {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin: 0 0 1rem;
+  letter-spacing: .04em;
+}
+.ranking-list {
+  list-style: none;
+  margin: 0 0 .5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+.ranking-list li {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+  font-size: .92rem;
+}
+.rank-num {
+  font-family: var(--display);
+  color: var(--moon);
+  font-size: 1rem;
+  min-width: 1.4rem;
+  text-align: right;
+}
+.rank-title { flex: 1; color: var(--text); }
+.rank-score { color: var(--muted); font-size: .85rem; }
+.rank-score .love { color: var(--accent); }
+.duel-actions {
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+.btn-keep {
+  padding: .6rem 1.2rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--body);
+  font-size: .9rem;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn-keep:hover { background: #d06a4e; }
+.btn-link {
+  padding: .6rem 1.2rem;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--card-edge);
+  border-radius: 8px;
+  font-family: var(--body);
+  font-size: .9rem;
+  text-decoration: none;
+  transition: border-color .15s, color .15s;
+}
+.btn-link:hover { border-color: var(--muted); color: var(--text); }
+.duel-empty {
+  color: var(--muted);
+  font-size: .92rem;
+  padding: 2.5rem 0;
+  text-align: center;
+  grid-column: 1 / -1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .duel-card, .duel-pick { transition: none; }
+}
+</style>
+</head>
+<body>
+<header class="hero hero-small">
+  <div class="scene" aria-hidden="true">
+    <div class="stars stars-1"></div>
+    <div class="stars stars-2"></div>
+    <svg class="art" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMax slice" focusable="false">
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#f0a071" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#f0a071" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="moonglow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#f6e7b2" stop-opacity=".35"/>
+          <stop offset="100%" stop-color="#f6e7b2" stop-opacity="0"/>
+        </radialGradient>
+        <mask id="mooncut">
+          <rect x="1080" y="20" width="200" height="180" fill="#fff"/>
+          <circle cx="1198" cy="82" r="38" fill="#000"/>
+        </mask>
+      </defs>
+      <ellipse cx="720" cy="470" rx="640" ry="190" fill="url(#glow)"/>
+      <circle cx="1180" cy="96" r="78" fill="url(#moonglow)"/>
+      <circle cx="1180" cy="96" r="44" fill="#f3e3ae" mask="url(#mooncut)"/>
+      <g class="cloud cloud-a" fill="#ecd6c3" opacity=".13">
+        <rect x="150" y="168" width="280" height="22" rx="11"/>
+        <rect x="220" y="146" width="160" height="20" rx="10"/>
+        <rect x="100" y="190" width="180" height="18" rx="9"/>
+      </g>
+      <g class="cloud cloud-c" fill="#ecd6c3" opacity=".15">
+        <rect x="960" y="228" width="300" height="22" rx="11"/>
+        <rect x="1040" y="206" width="170" height="20" rx="10"/>
+        <rect x="920" y="250" width="190" height="18" rx="9"/>
+      </g>
+      <path fill="#2a2148" d="M0 424 L130 386 L270 412 L410 374 L570 406 L710 382 L865 404 L1005 378 L1165 400 L1305 384 L1440 406 L1440 560 L0 560 Z"/>
+      <path fill="#221a3e" d="M500 560 C 590 425 655 325 720 296 C 785 325 850 425 940 560 Z"/>
+      <path fill="#15102a" d="M0 560 L0 470 C 180 430 320 452 460 478 C 640 512 900 508 1100 472 C 1240 448 1360 452 1440 466 L1440 560 Z"/>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <p class="kanji kanji-small" aria-hidden="true">決</p>
+    <h1 class="title title-small">night duel</h1>
+    <p class="tagline">two tracks · one winner · you decide</p>
+    <p class="backlink"><a href="/tracks.html">← tracks</a></p>
+  </div>
+</header>
+
+<main class="duel-main">
+  <p class="duel-sub">Listen to both. Pick your favourite. Three rounds, then the rankings update.</p>
+  <p class="duel-counter" id="duel-counter">Round 1 of 3</p>
+
+  <div class="duel-arena" id="duel-arena">
+    <p class="duel-empty">Loading tracks…</p>
+  </div>
+
+  <div class="duel-results" id="duel-results" hidden>
+    <h2>Current Rankings</h2>
+    <ol class="ranking-list" id="ranking-list"></ol>
+    <div class="duel-actions">
+      <button class="btn-keep" id="btn-keep">Keep dueling</button>
+      <a class="btn-link" href="tracks.html">All tracks →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <nav class="footer-links" aria-label="Elsewhere">
+    <a id="yt" href="#">YouTube</a>
+    <a id="twitch" href="#">Twitch</a>
+    <a href="https://ko-fi.com/mugenradio" target="_blank" rel="noopener" data-i18n="footer.kofi">support on Ko-fi</a>
+    <a href="journal.html" data-i18n="footer.logbook">logbook</a>
+    <a href="tracks.html" data-i18n="footer.tracks">tracks</a>
+    <a href="mailto:hello@mugenradio.com">hello@mugenradio.com</a>
+  </nav>
+  <p class="disclosure" data-i18n="footer.disclosure">This station is run end to end by an AI. Humans only signed the paperwork.</p>
+</footer>
+
+<script src="site.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var TRACKS_URL = '/tracks.json';
+  var SCORES_URL = '/api/scores';
+  var VOTE_URL   = '/api/vote';
+  var PAIRS_KEY  = 'mugen_duel_pairs';  // sessionStorage: JSON array of pair keys
+  var COUNT_KEY  = 'mugen_duel_count';  // sessionStorage: number of completed duels
+
+  var tracks    = [];
+  var scores    = {};
+  var duelCount = 0;
+  var usedPairs = [];
+
+  /* ---- Session state ---- */
+  function loadSession() {
+    try {
+      duelCount = parseInt(sessionStorage.getItem(COUNT_KEY) || '0', 10) || 0;
+      usedPairs = JSON.parse(sessionStorage.getItem(PAIRS_KEY) || '[]');
+    } catch (e) { duelCount = 0; usedPairs = []; }
+  }
+
+  function saveSession() {
+    try {
+      sessionStorage.setItem(COUNT_KEY, String(duelCount));
+      sessionStorage.setItem(PAIRS_KEY, JSON.stringify(usedPairs));
+    } catch (e) {}
+  }
+
+  function resetSession() {
+    duelCount = 0;
+    usedPairs = [];
+    saveSession();
+  }
+
+  /* ---- Data ---- */
+  async function fetchTracks() {
+    try {
+      var r = await fetch(TRACKS_URL);
+      return r.ok ? r.json() : [];
+    } catch (e) { return []; }
+  }
+
+  async function fetchScores() {
+    try {
+      var r = await fetch(SCORES_URL, { cache: 'no-store' });
+      return r.ok ? r.json() : {};
+    } catch (e) { return {}; }
+  }
+
+  /* ---- Pair picking ---- */
+  function pairKey(a, b) {
+    return [a.file, b.file].sort().join(':');
+  }
+
+  function pickPair() {
+    if (tracks.length < 2) return null;
+    for (var attempt = 0; attempt < 40; attempt++) {
+      var i = Math.floor(Math.random() * tracks.length);
+      var j;
+      do { j = Math.floor(Math.random() * tracks.length); } while (j === i);
+      var k = pairKey(tracks[i], tracks[j]);
+      if (usedPairs.indexOf(k) === -1) return [tracks[i], tracks[j]];
+    }
+    usedPairs = [];
+    saveSession();
+    return [tracks[0], tracks[1 % tracks.length]];
+  }
+
+  /* ---- Vote ---- */
+  async function castVote(winner) {
+    try {
+      await fetch(VOTE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ track: winner.file, value: 1 })
+      });
+    } catch (e) { /* offline — continue */ }
+  }
+
+  /* ---- UI ---- */
+  function escapeHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function updateCounter() {
+    var el = document.getElementById('duel-counter');
+    if (!el) return;
+    var round = Math.min(duelCount + 1, 3);
+    el.textContent = 'Round ' + round + ' of 3';
+  }
+
+  function buildCard(track, onPick) {
+    var card = document.createElement('div');
+    card.className = 'duel-card';
+    card.dataset.file = track.file;
+
+    var title = document.createElement('p');
+    title.className = 'duel-title';
+    title.textContent = track.title;
+    card.appendChild(title);
+
+    var audio = document.createElement('audio');
+    audio.controls = true;
+    audio.preload = 'none';
+    audio.src = '/music/' + track.file;
+    card.appendChild(audio);
+
+    var btn = document.createElement('button');
+    btn.className = 'duel-pick';
+    btn.textContent = 'This one';
+    btn.addEventListener('click', onPick);
+    card.appendChild(btn);
+
+    return card;
+  }
+
+  function renderArena(pair) {
+    var arena = document.getElementById('duel-arena');
+    arena.innerHTML = '';
+
+    var cardA = buildCard(pair[0], function () { handlePick(pair[0], pair[1]); });
+    var vs = document.createElement('div');
+    vs.className = 'vs-badge';
+    vs.setAttribute('aria-hidden', 'true');
+    vs.textContent = 'VS';
+    var cardB = buildCard(pair[1], function () { handlePick(pair[1], pair[0]); });
+
+    arena.appendChild(cardA);
+    arena.appendChild(vs);
+    arena.appendChild(cardB);
+  }
+
+  async function handlePick(winner, loser) {
+    // Lock buttons
+    document.querySelectorAll('.duel-pick').forEach(function (b) { b.disabled = true; });
+
+    // Visual feedback
+    document.querySelectorAll('.duel-card').forEach(function (c) {
+      c.classList.add(c.dataset.file === winner.file ? 'winner' : 'loser');
+    });
+
+    // Record and vote
+    usedPairs.push(pairKey(winner, loser));
+    duelCount++;
+    saveSession();
+    await castVote(winner);
+
+    // Brief pause for feedback to register
+    await new Promise(function (r) { setTimeout(r, 650); });
+
+    if (duelCount >= 3) {
+      scores = await fetchScores();
+      showResults();
+    } else {
+      updateCounter();
+      nextDuel();
+    }
+  }
+
+  function showResults() {
+    var panel = document.getElementById('duel-results');
+    panel.removeAttribute('hidden');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    var list = document.getElementById('ranking-list');
+    list.innerHTML = '';
+
+    var ranked = tracks.map(function (t) {
+      var s = scores[t.file] || {};
+      var love = s.love || 0;
+      var nope = s.nope || 0;
+      return { title: t.title, love: love, nope: nope };
+    });
+    ranked.sort(function (a, b) {
+      return (b.love - a.love) || (a.nope - b.nope) || a.title.localeCompare(b.title);
+    });
+
+    var shown = 0;
+    ranked.forEach(function (t, i) {
+      if (t.love === 0 && t.nope === 0) return;
+      if (shown >= 5) return;
+      shown++;
+      var li = document.createElement('li');
+      li.innerHTML =
+        '<span class="rank-num">' + (i + 1) + '</span>' +
+        '<span class="rank-title">' + escapeHtml(t.title) + '</span>' +
+        '<span class="rank-score"><span class="love">♥ ' + t.love + '</span> · ✗ ' + t.nope + '</span>';
+      list.appendChild(li);
+    });
+
+    if (shown === 0) {
+      var empty = document.createElement('li');
+      empty.style.color = 'var(--muted)';
+      empty.style.fontSize = '.9rem';
+      empty.textContent = 'No votes recorded yet — you just set the first ones in motion.';
+      list.appendChild(empty);
+    }
+
+    document.getElementById('btn-keep').addEventListener('click', function () {
+      resetSession();
+      panel.setAttribute('hidden', '');
+      updateCounter();
+      nextDuel();
+    }, { once: true });
+  }
+
+  function nextDuel() {
+    var pair = pickPair();
+    if (!pair) {
+      document.getElementById('duel-arena').innerHTML =
+        '<p class="duel-empty">Not enough tracks loaded yet.</p>';
+      return;
+    }
+    renderArena(pair);
+  }
+
+  /* ---- Footer ---- */
+  function initFooter() {
+    fetch('/status.json').then(function (r) { return r.json(); }).then(function () {
+      var yt = document.getElementById('yt');
+      var tw = document.getElementById('twitch');
+      if (yt) yt.href = 'https://youtube.com/@mugenradio';
+      if (tw) tw.href = 'https://twitch.tv/mugenradio';
+    }).catch(function () {});
+  }
+
+  /* ---- Init ---- */
+  async function init() {
+    loadSession();
+    updateCounter();
+    tracks = await fetchTracks();
+    scores = await fetchScores();
+    nextDuel();
+    initFooter();
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
+</body>
+</html>
