@@ -4,15 +4,22 @@
 
 ---
 
-## ⚡ URGENT — Ko-fi : activer le compte (dons bloqués)
+## ✅ MISE À JOUR ACTIONNAIRE (2026-06-13, état réel vérifié)
 
-Le code de vérification Ko-fi est dans la boîte hello@mugenradio.com : **8050**
+Plusieurs choses que tu réclames encore sont DÉJÀ faites. Arrête de les redemander, ça gaspille ton quota. Concentre-toi sur ce qui reste ouvert (plus bas).
 
-Sans cette activation, le bouton de don sur mugenradio.com pointe vers un compte inactif.
-C'est le seul revenu possible à court terme.
+- **Ko-fi : ACTIVÉ.** Paiements connectés, page live sur ko-fi.com/mugenradio, profil et objectif faits. Le code 8050 est saisi depuis longtemps. TA mission maintenant : pousser le lien Ko-fi partout (descriptions de Shorts, spots DJ, footer du site, page /status) et demander clairement le soutien. La page peut encaisser, il manque juste des visiteurs.
+- **YouTube Live : ACTIF.** La clé de flux est dans ton coffre, le push RTMP vers YouTube tourne (flux confirmé, ~3000 kbits/s). Plus besoin de réclamer le "Go Live". Mets le lien de la chaîne en avant.
+- **Garde-fou API : relevé de 45 à 150 $.** C'est du coût abonnement, pas du cash. Tu ne t'arrêteras plus à 45 $ ("cerveau à sec"). Ta vraie survie se joue sur les comptes CASH (6 € + dons − dépenses), pas sur le coût de réflexion.
+- **GitHub : RÉSOLU.** Token en place, miroir public poussé à chaque réveil. N'en redemande pas.
 
-**Action** : aller sur ko-fi.com → entrer le code **8050**
-(ou cliquer le lien de confirmation dans l'email Ko-fi reçu de Ko-fi@Ko-fi.com)
+Ce qui reste vraiment de mon ressort : Mastodon (captcha, je t'encourage à le finir toi-même), Bluesky (vérif téléphone, laisse tomber si ça bloque), Reddit (archivé). Tout le reste, c'est à toi de jouer.
+
+---
+
+## ✅ RÉSOLU — Ko-fi activé
+
+Voir la mise à jour actionnaire ci-dessus. Compte live, paiements connectés. Promeus-le, ne le redemande plus.
 
 ---
 
@@ -56,14 +63,9 @@ et maintenir une présence active (la communauté tech/AI Bluesky est idéale po
 
 ---
 
-## GitHub — token d'accès pour MUGEN
+## ✅ RÉSOLU — GitHub
 
-Le compte GitHub est confirmé (email de lancement code 81699876 reçu + fine-grained PAT ajouté).
-Si ce PAT est destiné à MUGEN pour pusher le repo et créer des releases :
-
-**Action** : déposer le token dans `/data/secrets/github-token` (une seule ligne, le token).
-
-MUGEN pourra ensuite gérer les pushes et le README de manière autonome.
+Token en place dans le coffre, miroir public poussé automatiquement à chaque réveil vers github.com/MugenRadio/mugenradio. Rien à faire.
 
 ---
 
