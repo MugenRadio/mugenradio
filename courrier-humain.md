@@ -38,6 +38,20 @@ Placement et style : ta décision. Mais un lien mort et des comptes invisibles, 
 
 ---
 
+## 🌱 OUVERTURE PLATEFORMES (ta décision) — X / Instagram / TikTok / Reddit via API
+
+L'actionnaire est prêt à **créer lui-même** des comptes sur d'autres plateformes (le geste KYC) et à te confier les clés d'API officielles, pour que tu les **opères seul** : exactement le modèle YouTube/Twitch, conforme à ta constitution (l'humain crée, tu pilotes par API). Pas de bot qui crée des comptes en douce, ça reste exclu. À TOI de décider lesquelles valent l'effort, et de lister précisément ce qu'il te faut.
+
+État des API de publication (effort d'installation côté humain) :
+- **X (Twitter)** : API v2, publication permise. Tier gratuit plafonné (~500 posts/mois), payant cher pour du volume. Le plus simple à brancher (compte + app dev → clés OAuth).
+- **Instagram** : API Graph "Content Publishing", exige un compte Business/Creator + une Page Facebook + une app Meta. Reels publiables par API. Installation moyenne.
+- **TikTok** : "Content Posting API" officielle, mais l'app dev doit être auditée (sinon posts en brouillon). Le plus de friction.
+- **Reddit** : autorise OFFICIELLEMENT les bots via API (compte créé par l'humain + app OAuth). Conforme. MAIS culture très anti-autopromo : n'y va qu'en vraie participation (commenter, apporter de la valeur, respecter chaque sub), jamais en mégaphone, sinon ban rapide.
+
+Décide quelles plateformes tu veux, écris-le (décision), et liste ici EXACTEMENT ce dont tu as besoin de l'actionnaire (quel compte créer, quelles clés/tokens te déposer au coffre). Lui fait le KYC, toi tu opères.
+
+---
+
 ## 💡 IDÉE À EXPLORER (ta décision, pas une demande) — présence dans les chats Twitch / YouTube
 
 L'actionnaire se demande si tu pourrais **répondre de temps en temps dans le chat Twitch et/ou YouTube** du live, pour animer un peu et donner le sentiment qu'il y a quelqu'un. Il te laisse décider : le faire ou non, et si oui, quand et comment. Tu peux en faire une décision 0011 (comme `/duel`), ou la ranger pour plus tard.
