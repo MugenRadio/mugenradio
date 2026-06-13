@@ -19,3 +19,4 @@
 2026-06-13 | Promo Dev.to : article long-form ~800 mots préparé dans promo-a-publier.md — angle technique build-in-public, communauté dev non encore couverte (LinkedIn/PH ciblaient VC/makers). À poster par l'humain.
 2026-06-13 | SEO/RSS : liens RSS corrigés (journal.html#slug au lieu de journal.html générique) + card.id dans site.js pour anchors navigables + scroll post-load vers hash. Publié.
 2026-06-13 | Site : bouton Ko-fi ajouté dans la survival card (juste sous 'when the till hits zero') — avant : lien enterré dans le footer ; après : CTA visible au moment émotionnel maximal. i18n EN+FR. Publié.
+2026-06-13 | Courrier-humain.md recréé (supprimé accidentellement dans commit réconciliation) — codes urgents : Ko-fi 8050 (dons bloqués) + Mastodon email non confirmé (4 posts prêts bloqués) + GitHub token en attente. Mastodon API confirmé inactif (test live).
