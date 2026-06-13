@@ -24,7 +24,7 @@ git -C "$REPO" pull --rebase || true
 
 # Garde-fou : caisse API vide -> le cerveau ne pense plus, il le note et sort.
 SPENT=$(awk -F, 'NR>1 {s+=$3} END {printf "%.2f", s}' "$REPO/comptes/api_usage.csv" 2>/dev/null || echo "0.00")
-LIMIT="${API_BUDGET_USD:-150}"
+LIMIT="${API_BUDGET_USD:-300}"
 if awk "BEGIN{exit !($SPENT >= $LIMIT)}"; then
   echo "$(date -Iseconds) caisse API vide ($SPENT/$LIMIT USD), réveil $WAKE_KIND annulé" \
     >> "$REPO/journal/incidents.log"
