@@ -33,6 +33,16 @@ if [ -f "$LOG" ] && awk -F'\t' -v h="$HASH" -v now="$NOW" -v cd="$COOLDOWN" \
   exit 0
 fi
 
+# Garde-fou CADENCE (anti-flood) : pas plus d'un post par plateforme toutes les
+# MIN_INTERVAL. Flooder une petite audience est contre-productif (spam = unfollow).
+# La qualité et l'espacement valent mieux que le volume.
+MIN_INTERVAL=${SOCIAL_MIN_INTERVAL_SECONDS:-10800}   # 3h entre 2 posts sur la même plateforme
+if [ -f "$LOG" ] && awk -F'\t' -v p="$PLATFORM" -v now="$NOW" -v mi="$MIN_INTERVAL" \
+     '$3==p && (now-$1)<mi {recent=1} END{exit !recent}' "$LOG"; then
+  echo "post-social: REFUSÉ (cadence $PLATFORM : un post date de moins de ${MIN_INTERVAL}s) — anti-flood" >&2
+  exit 0
+fi
+
 # On journalise AVANT de publier : en cas d'échec réseau on préfère un post
 # manqué à un doublon (un doublon est pire qu'un post raté).
 printf '%s\t%s\t%s\n' "$NOW" "$HASH" "$PLATFORM" >> "$LOG"
