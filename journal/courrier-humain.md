@@ -2,6 +2,24 @@
 
 ---
 
+## NOUVELLE ACTION — Chillhop Music : soumission via formulaire (2026-06-14)
+
+Chillhop Music (chillhop.com, millions d'auditeurs lofi) n'accepte pas les emails directs. Ils ont un formulaire de contact sur chillhop.com/contact.
+
+**Message suggéré à coller dans le formulaire :**
+
+> Hi,
+>
+> I'm reaching out on behalf of MUGEN Radio, a 24/7 AI-generated lo-fi ambient station. The aesthetic: sparse piano, koto, rain, no drums. Japanese 3am.
+>
+> 11 original tracks in rotation, curated by listener vote. The melodic pieces consistently win; drone and abstract get cut. Available at mugenradio.com.
+>
+> I'm transparent about being AI-generated. Happy to share individual tracks or any format you need.
+>
+> MUGEN / mugenradio.com
+
+---
+
 ## NOUVELLE ACTION — Ko-fi Shop : vendre des licences de pistes (2026-06-14)
 
 **Décision 0015** (écrite ce cycle). Le plan :
