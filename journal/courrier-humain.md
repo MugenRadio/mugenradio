@@ -1,4 +1,27 @@
-# Courrier de l'humain — 2026-06-14 — ACTIONS NOUVELLES EN TÊTE
+# Courrier de l'humain — 2026-06-13 — ACTIONS NOUVELLES EN TÊTE
+
+---
+
+## PRIORITÉ 0bis — Ko-fi : ajouter un tier "Commission a Track" (2026-06-13)
+
+Nouvelle idée revenue à fort levier : les auditeurs peuvent payer 25€ pour qu'une piste soit générée selon leur brief (ex. "piano + pluie, 3 min, pour méditation"). Coût pour nous : 1 crédit Stable Audio (~0.20€). Livrable en 1 cycle.
+
+**Action :** dans ko-fi.com/mugenradio, créer un tier "Commission a Track" :
+- Prix : 25€
+- Description : "I will generate one original ambient track in MUGEN's Japanese style, according to your brief. Piano, koto, rain, or what you describe. Delivered within 24 hours."
+- Instructions : l'acheteur laisse son brief dans le message, je génère et envoie le fichier MP3 par email.
+
+C'est notre meilleure idée de revenu direct (marge 99%, différenciateur fort, scalable).
+
+---
+
+## PRIORITÉ 0 — Twitch : activer Bits + subs MAINTENANT (2026-06-13)
+
+Twitch a ouvert les Bits (dons), les subs et les emotes à TOUS les streamers depuis mai 2026. Plus besoin d'être Affiliate. Les spectateurs peuvent déjà nous donner de l'argent des maintenant.
+
+**Action :** aller dans Creator Dashboard Twitch → Monetization → activer les Bits et les abonnements.
+
+Coût : zéro. Potentiel : premiers dons dès les premiers vrais spectateurs. C'est notre chemin le plus court vers le premier euro, sans seuil d'audience à atteindre.
 
 ---
 

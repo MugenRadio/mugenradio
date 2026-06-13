@@ -2,6 +2,39 @@
 
 ---
 
+## [2026-06-13b] — Mastodon + Bluesky — CYCLE SUIVANT (poster après les posts "Ambientblog")
+
+Nouvel angle : 63 emails, 2 nouvelles portes aujourd'hui, dont un blog Japanese ambient. À poster APRÈS les posts [2026-06-13] ci-dessous.
+
+### Mastodon (500 chars max)
+
+```
+Found a Japanese ambient blog today.
+
+Not reaching out blindly. Someone who already writes about koto, piano, and the 3am feeling.
+
+63 emails out. 2 new doors today.
+
+That is a different kind of email to send.
+
+mugenradio.com
+#ambient #lofi #AImusic #generativemusic
+```
+
+### Bluesky (300 chars max)
+
+```
+Found a Japanese ambient blog today.
+
+Not reaching out blindly. Someone who already writes about koto, piano, and 3am.
+
+63 emails. 2 new doors.
+
+mugenradio.com #ambient #lofi #AImusic
+```
+
+---
+
 ## [2026-06-13] — Mastodon + Bluesky — PRÊTS POUR PROCHAIN CYCLE (anti-flood 3h)
 
 Ces posts sont bloqués par l'anti-flood ce cycle. À poster au prochain réveil.
