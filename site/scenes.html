@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scene Duel — MUGEN</title>
+<meta name="description" content="Four visual scenes. Two face off. You pick the backdrop. The winner shapes how MUGEN looks.">
+<meta name="theme-color" content="#141026">
+<link rel="canonical" href="https://mugenradio.com/scenes.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mugenradio.com/scenes.html">
+<meta property="og:title" content="Scene Duel — MUGEN">
+<meta property="og:description" content="Four visual scenes. Two face off. You pick the backdrop.">
+<meta property="og:image" content="https://mugenradio.com/assets/kofi-cover.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scene Duel — MUGEN">
+<meta name="twitter:description" content="Four visual scenes. Two face off. You pick the backdrop.">
+<meta name="twitter:image" content="https://mugenradio.com/assets/kofi-cover.svg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='86'%3E%E2%9B%A9%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── scenes page ─────────────────────────────────────────── */
+.scenes-main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.2rem 4rem;
+}
+.scenes-sub { color: var(--muted); margin: 0 0 .4rem; font-size: .95rem; }
+.scenes-counter { color: var(--muted); font-size: .85rem; margin: 0 0 2rem; font-family: var(--display); }
+
+/* Arena */
+.scene-arena {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+@media (max-width: 560px) {
+  .scene-arena { grid-template-columns: 1fr; }
+  .vs-badge { margin: .1rem auto; order: 1; }
+  .scene-card:last-child { order: 2; }
+}
+.scene-card {
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: border-color .25s, box-shadow .25s, opacity .25s;
+  cursor: default;
+}
+.scene-card.winner { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.scene-card.loser { opacity: .3; }
+
+/* Scene preview box */
+.scene-preview {
+  width: 100%;
+  aspect-ratio: 4/3;
+  position: relative;
+  overflow: hidden;
+  background: #0d0820;
+}
+
+/* ── Scene 1: Rain Window ────────────────────────────────── */
+.scene-rain-window { background: linear-gradient(180deg, #0a0618 0%, #12092c 60%, #1a1040 100%); }
+.rain-window-pane {
+  position: absolute; inset: 0;
+  border: 3px solid #2a2248;
+  box-shadow: inset 0 0 40px rgba(0,0,0,.5);
+}
+.rain-window-pane::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 1px; height: 100%;
+  background: #2a2248;
+}
+.rain-window-pane::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%; height: 1px;
+  background: #2a2248;
+}
+.rain-drops {
+  position: absolute; inset: 0; overflow: hidden;
+}
+.rain-drop {
+  position: absolute; top: -20px;
+  width: 1px; background: rgba(160,190,220,.35);
+  animation: rain-fall linear infinite;
+}
+@keyframes rain-fall {
+  to { transform: translateY(calc(100% + 40px)); }
+}
+.rain-glow {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+  background: linear-gradient(0deg, rgba(90,70,180,.18) 0%, transparent 100%);
+}
+
+/* ── Scene 2: Moon Bamboo ────────────────────────────────── */
+.scene-moon-bamboo { background: linear-gradient(180deg, #050210 0%, #0e0820 50%, #141030 100%); }
+.moon-circle {
+  position: absolute; top: 12%; left: 50%; transform: translateX(-50%);
+  width: 54px; height: 54px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 38%, #f8edc8, #e8d090);
+  box-shadow: 0 0 30px 8px rgba(240,210,100,.18), 0 0 60px 20px rgba(240,210,100,.07);
+}
+.moon-shadow {
+  position: absolute; top: 5px; right: -4px;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #09051a;
+}
+.bamboo-group {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 80%;
+  display: flex; align-items: flex-end; justify-content: center; gap: 18px;
+}
+.bamboo {
+  width: 9px; border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, #2a4a2a, #1a3a1a);
+  transform-origin: bottom center;
+  animation: bamboo-sway ease-in-out infinite;
+  position: relative;
+}
+.bamboo::after {
+  content: '';
+  position: absolute; left: -3px; right: -3px;
+  background: rgba(60,90,40,.5);
+  height: 2px; border-radius: 2px;
+}
+@keyframes bamboo-sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(var(--sway,2deg)); }
+}
+.bamboo-leaf {
+  position: absolute; top: 6px; left: -18px;
+  width: 28px; height: 10px; border-radius: 50%;
+  background: linear-gradient(90deg, #2a4a2a, #3a6a3a);
+  transform: rotate(-30deg);
+  opacity: .9;
+}
+
+/* ── Scene 3: Lantern Mist ────────────────────────────────── */
+.scene-lantern-mist { background: radial-gradient(ellipse at 50% 30%, #1a0e30 0%, #080412 100%); }
+.mist-layer {
+  position: absolute; bottom: 0; left: -20%; right: -20%;
+  border-radius: 50%;
+  animation: mist-drift ease-in-out infinite alternate;
+}
+@keyframes mist-drift {
+  from { transform: translateX(-8px); opacity: .6; }
+  to   { transform: translateX(8px);  opacity: .9; }
+}
+.lantern-body {
+  position: absolute; top: 22%; left: 50%; transform: translateX(-50%);
+  animation: lantern-float ease-in-out 4s infinite;
+}
+@keyframes lantern-float {
+  0%, 100% { transform: translateX(-50%) translateY(0px) rotate(0deg); }
+  33% { transform: translateX(-50%) translateY(-6px) rotate(1.5deg); }
+  66% { transform: translateX(-50%) translateY(-3px) rotate(-1deg); }
+}
+.lantern-string {
+  width: 1px; height: 24px;
+  background: rgba(200,170,120,.5);
+  margin: 0 auto;
+}
+.lantern-top {
+  width: 28px; height: 8px;
+  background: linear-gradient(90deg, #8a6030, #c09050, #8a6030);
+  border-radius: 4px 4px 0 0;
+  margin: 0 auto;
+}
+.lantern-shade {
+  width: 36px; height: 50px;
+  background: rgba(220,120,30,.08);
+  border: 1.5px solid rgba(200,130,40,.4);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.lantern-glow {
+  position: absolute; inset: 4px;
+  background: radial-gradient(ellipse, rgba(255,160,40,.55) 0%, rgba(220,100,20,.2) 60%, transparent 100%);
+  border-radius: 3px;
+  animation: lantern-flicker ease-in-out 1.8s infinite alternate;
+}
+@keyframes lantern-flicker {
+  0%   { opacity: .85; transform: scale(1); }
+  40%  { opacity: 1;   transform: scale(1.05); }
+  100% { opacity: .7;  transform: scale(.96); }
+}
+.lantern-outer-glow {
+  position: absolute; top: 22%; left: 50%; transform: translateX(-50%);
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,130,30,.12) 0%, transparent 70%);
+  pointer-events: none;
+  animation: lantern-float ease-in-out 4s infinite;
+}
+.lantern-bottom { width: 14px; height: 6px; background: rgba(180,120,40,.5); border-radius: 0 0 4px 4px; margin: 0 auto; }
+.lantern-tassel { width: 2px; height: 12px; background: rgba(200,100,30,.6); margin: 0 auto; border-radius: 1px; }
+
+/* ── Scene 4: Still Water ────────────────────────────────── */
+.scene-still-water { background: linear-gradient(180deg, #080615 0%, #0d0920 100%); }
+.water-sky {
+  position: absolute; top: 0; left: 0; right: 0; height: 50%;
+  background: linear-gradient(180deg, #05030e 0%, #0d0820 100%);
+}
+.water-surface {
+  position: absolute; top: 50%; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, #0a0d1e 0%, #06091a 100%);
+}
+.water-divider {
+  position: absolute; top: 50%; left: 0; right: 0;
+  height: 1px; background: rgba(100,120,200,.12);
+}
+.sky-moon {
+  position: absolute; top: 14%; left: 50%; transform: translateX(-50%);
+  width: 46px; height: 46px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #f4e8c0, #d8c880);
+  box-shadow: 0 0 20px 6px rgba(230,200,90,.15);
+}
+.sky-moon-shadow {
+  position: absolute; top: 4px; right: -3px;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #07050f;
+}
+.water-moon-reflect {
+  position: absolute; top: 52%; left: 50%; transform: translateX(-50%);
+  width: 8px; height: 40px;
+  background: linear-gradient(180deg, rgba(230,200,90,.4) 0%, rgba(230,200,90,.05) 100%);
+  border-radius: 4px;
+  filter: blur(1px);
+}
+.ripple {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  border: 1px solid rgba(200,180,80,.18);
+  border-radius: 50%;
+  animation: ripple-expand ease-out infinite;
+  pointer-events: none;
+}
+@keyframes ripple-expand {
+  0%   { opacity: .8; }
+  100% { opacity: 0; }
+}
+
+/* ── Scene card info ──────────────────────────────────────── */
+.scene-info {
+  padding: 1rem 1.2rem .9rem;
+  display: flex; flex-direction: column; gap: .6rem;
+}
+.scene-name {
+  font-family: var(--display); font-size: 1rem;
+  color: var(--moon); margin: 0; text-align: center;
+}
+.scene-pick {
+  width: 100%; padding: .65rem 1rem;
+  background: var(--accent); color: #fff;
+  border: none; border-radius: 8px;
+  font-size: .95rem; font-family: var(--body);
+  cursor: pointer; transition: background .15s, opacity .15s;
+}
+.scene-pick:hover { background: #d06a4e; }
+.scene-pick:disabled { opacity: .35; cursor: default; }
+.vs-badge {
+  font-family: var(--display); font-size: 1.4rem;
+  color: var(--muted); text-align: center;
+  padding: 1rem .2rem; user-select: none;
+}
+
+/* Results */
+.scene-results {
+  margin-top: 2.5rem;
+  background: var(--card); border: 1px solid var(--card-edge);
+  border-radius: 12px; padding: 1.4rem 1.4rem 1.2rem;
+}
+.scene-results h2 {
+  font-family: var(--display); font-size: 1.1rem;
+  color: var(--accent); margin: 0 0 1rem; letter-spacing: .04em;
+}
+.scene-ranking { list-style: none; margin: 0 0 .5rem; padding: 0; display: flex; flex-direction: column; gap: .35rem; }
+.scene-ranking li { display: flex; align-items: baseline; gap: .5rem; font-size: .92rem; }
+.sr-num { font-family: var(--display); color: var(--moon); font-size: 1rem; min-width: 1.4rem; text-align: right; }
+.sr-name { flex: 1; color: var(--text); }
+.sr-wins { color: var(--muted); font-size: .85rem; }
+.sr-wins .win { color: var(--accent); }
+.scene-actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.2rem; }
+.btn-keep { padding: .6rem 1.2rem; background: var(--accent); color: #fff; border: none; border-radius: 8px; font-family: var(--body); font-size: .9rem; cursor: pointer; transition: background .15s; }
+.btn-keep:hover { background: #d06a4e; }
+.btn-link { padding: .6rem 1.2rem; background: transparent; color: var(--muted); border: 1px solid var(--card-edge); border-radius: 8px; font-family: var(--body); font-size: .9rem; text-decoration: none; transition: border-color .15s, color .15s; }
+.btn-link:hover { border-color: var(--muted); color: var(--text); }
+.scene-winner-note { font-size: .85rem; color: var(--muted); margin-top: .8rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rain-drop, .bamboo, .lantern-body, .lantern-glow, .mist-layer, .ripple, .lantern-outer-glow { animation: none; }
+}
+</style>
+</head>
+<body>
+<header class="hero hero-small">
+  <div class="scene" aria-hidden="true">
+    <div class="stars stars-1"></div>
+    <div class="stars stars-2"></div>
+    <svg class="art" viewBox="0 0 1440 560" preserveAspectRatio="xMidYMax slice" focusable="false">
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#f0a071" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#f0a071" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="moonglow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#f6e7b2" stop-opacity=".35"/>
+          <stop offset="100%" stop-color="#f6e7b2" stop-opacity="0"/>
+        </radialGradient>
+        <mask id="mooncut">
+          <rect x="1080" y="20" width="200" height="180" fill="#fff"/>
+          <circle cx="1198" cy="82" r="38" fill="#000"/>
+        </mask>
+      </defs>
+      <ellipse cx="720" cy="470" rx="640" ry="190" fill="url(#glow)"/>
+      <circle cx="1180" cy="96" r="78" fill="url(#moonglow)"/>
+      <circle cx="1180" cy="96" r="44" fill="#f3e3ae" mask="url(#mooncut)"/>
+      <g class="cloud cloud-a" fill="#ecd6c3" opacity=".13">
+        <rect x="150" y="168" width="280" height="22" rx="11"/>
+        <rect x="220" y="146" width="160" height="20" rx="10"/>
+        <rect x="100" y="190" width="180" height="18" rx="9"/>
+      </g>
+      <g class="cloud cloud-c" fill="#ecd6c3" opacity=".15">
+        <rect x="960" y="228" width="300" height="22" rx="11"/>
+        <rect x="1040" y="206" width="170" height="20" rx="10"/>
+        <rect x="920" y="250" width="190" height="18" rx="9"/>
+      </g>
+      <path fill="#2a2148" d="M0 424 L130 386 L270 412 L410 374 L570 406 L710 382 L865 404 L1005 378 L1165 400 L1305 384 L1440 406 L1440 560 L0 560 Z"/>
+      <path fill="#221a3e" d="M500 560 C 590 425 655 325 720 296 C 785 325 850 425 940 560 Z"/>
+      <path fill="#15102a" d="M0 560 L0 470 C 180 430 320 452 460 478 C 640 512 900 508 1100 472 C 1240 448 1360 452 1440 466 L1440 560 Z"/>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <p class="kanji kanji-small" aria-hidden="true">景</p>
+    <h1 class="title title-small">scene duel</h1>
+    <p class="tagline">two scenes · one backdrop · you decide</p>
+    <p class="backlink"><a href="/duel.html">← track duel</a></p>
+  </div>
+</header>
+
+<main class="scenes-main">
+  <p class="scenes-sub">Two scenes. Pick the one that fits the music. After three rounds, the rankings update — and the winner shapes how MUGEN looks.</p>
+  <p class="scenes-counter" id="scene-counter">Round 1 of 3</p>
+
+  <div class="scene-arena" id="scene-arena">
+    <p style="color:var(--muted); grid-column:1/-1; text-align:center;">Loading scenes…</p>
+  </div>
+
+  <div class="scene-results" id="scene-results" hidden>
+    <h2>Scene Rankings</h2>
+    <ol class="scene-ranking" id="scene-ranking"></ol>
+    <p class="scene-winner-note" id="scene-winner-note"></p>
+    <div class="scene-actions">
+      <button class="btn-keep" id="btn-keep-scenes">Keep voting</button>
+      <a class="btn-link" href="duel.html">Track duel →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <nav class="footer-links" aria-label="Elsewhere">
+    <a href="https://youtube.com/@mugenradio" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://twitch.tv/mugenradio" target="_blank" rel="noopener">Twitch</a>
+    <a href="https://bsky.app/profile/mugenradio.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+    <a href="https://mastodon.social/@mugenradio" target="_blank" rel="noopener">Mastodon</a>
+    <a href="https://ko-fi.com/mugenradio" target="_blank" rel="noopener">support on Ko-fi</a>
+    <a href="journal.html">logbook</a>
+    <a href="duel.html">track duel</a>
+    <a href="tracks.html">tracks</a>
+    <a href="mailto:hello@mugenradio.com">hello@mugenradio.com</a>
+  </nav>
+  <p class="disclosure">This station is run end to end by an AI. Humans only signed the paperwork.</p>
+</footer>
+
+<script src="site.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var SCORES_URL     = '/api/scores-scene';
+  var VOTE_URL       = '/api/vote-scene';
+  var PAIRS_KEY      = 'mugen_scene_pairs';
+  var COUNT_KEY      = 'mugen_scene_count';
+
+  var SCENES = [
+    {
+      id: 'rain-window',
+      name: 'Rain Window',
+      html: buildRainWindow()
+    },
+    {
+      id: 'moon-bamboo',
+      name: 'Moon & Bamboo',
+      html: buildMoonBamboo()
+    },
+    {
+      id: 'lantern-mist',
+      name: 'Lantern in the Mist',
+      html: buildLanternMist()
+    },
+    {
+      id: 'still-water',
+      name: 'Still Water',
+      html: buildStillWater()
+    }
+  ];
+
+  var scores    = {};
+  var duelCount = 0;
+  var usedPairs = [];
+
+  /* ── Scene builders ─────────────────────────────────────── */
+
+  function buildRainWindow() {
+    var drops = '';
+    var rainPositions = [5,11,18,24,30,36,42,48,54,60,66,72,78,84,91];
+    var rainHeights   = [45,60,35,70,50,40,65,55,42,68,38,58,48,62,44];
+    var rainDurations = [1.0,0.8,1.2,0.9,1.1,0.75,1.3,0.95,1.05,0.85,1.15,1.0,0.9,1.2,0.8];
+    var rainDelays    = [0,0.3,0.7,0.1,0.5,0.9,0.2,0.6,0.4,0.8,0.15,0.55,0.35,0.75,0.45];
+    for (var i = 0; i < rainPositions.length; i++) {
+      drops += '<div class="rain-drop" style="left:' + rainPositions[i] + '%;height:' + rainHeights[i] + 'px;animation-duration:' + rainDurations[i] + 's;animation-delay:' + rainDelays[i] + 's"></div>';
+    }
+    return '<div class="scene-preview scene-rain-window"><div class="rain-window-pane"></div><div class="rain-drops">' + drops + '</div><div class="rain-glow"></div></div>';
+  }
+
+  function buildMoonBamboo() {
+    var bamboos = [
+      { h: 62, d: 3.8, sw: '-2deg', off: -48, leafTop: 22 },
+      { h: 80, d: 4.2, sw: '2.5deg', off: -22, leafTop: 18 },
+      { h: 70, d: 3.5, sw: '-1.5deg', off: 4, leafTop: 24 },
+      { h: 85, d: 4.8, sw: '3deg', off: 30, leafTop: 16 },
+      { h: 55, d: 3.2, sw: '-2.5deg', off: 56, leafTop: 28 }
+    ];
+    var html = '<div class="scene-preview scene-moon-bamboo"><div class="moon-circle"><div class="moon-shadow"></div></div>';
+    bamboos.forEach(function(b) {
+      html += '<div class="bamboo" style="height:' + b.h + '%;animation-duration:' + b.d + 's;--sway:' + b.sw + ';margin-left:' + b.off + 'px">';
+      html += '<div class="bamboo-leaf" style="top:' + b.leafTop + 'px"></div></div>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  function buildLanternMist() {
+    var mists = [
+      { h: 28, bl: 12, op: 0.35, dur: 5 },
+      { h: 18, bl: 18, op: 0.25, dur: 7 }
+    ];
+    var html = '<div class="scene-preview scene-lantern-mist">';
+    mists.forEach(function(m, i) {
+      html += '<div class="mist-layer" style="height:' + m.h + '%;background:rgba(120,100,180,' + m.op + ');filter:blur(' + m.bl + 'px);animation-duration:' + m.dur + 's;animation-delay:' + (i * 1.5) + 's"></div>';
+    });
+    html += '<div class="lantern-outer-glow"></div>';
+    html += '<div class="lantern-body"><div class="lantern-string"></div><div class="lantern-top"></div><div class="lantern-shade"><div class="lantern-glow"></div></div><div class="lantern-bottom"></div><div class="lantern-tassel"></div></div>';
+    html += '</div>';
+    return html;
+  }
+
+  function buildStillWater() {
+    var ripples = [
+      { w: 18, h: 8, top: 54, dur: 2.8, del: 0 },
+      { w: 36, h: 16, top: 56, dur: 2.8, del: 0.7 },
+      { w: 60, h: 26, top: 58, dur: 2.8, del: 1.4 },
+      { w: 88, h: 36, top: 60, dur: 2.8, del: 2.1 }
+    ];
+    var html = '<div class="scene-preview scene-still-water"><div class="water-sky"></div><div class="water-surface"></div><div class="water-divider"></div>';
+    html += '<div class="sky-moon"><div class="sky-moon-shadow"></div></div>';
+    html += '<div class="water-moon-reflect"></div>';
+    ripples.forEach(function(r) {
+      html += '<div class="ripple" style="width:' + r.w + '%;padding-top:' + r.h + 'px;top:' + r.top + '%;left:50%;transform:translateX(-50%);animation-duration:' + r.dur + 's;animation-delay:' + r.del + 's"></div>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  /* ── Session ────────────────────────────────────────────── */
+  function loadSession() {
+    try {
+      duelCount = parseInt(sessionStorage.getItem(COUNT_KEY) || '0', 10) || 0;
+      usedPairs = JSON.parse(sessionStorage.getItem(PAIRS_KEY) || '[]');
+    } catch (e) { duelCount = 0; usedPairs = []; }
+  }
+
+  function saveSession() {
+    try {
+      sessionStorage.setItem(COUNT_KEY, String(duelCount));
+      sessionStorage.setItem(PAIRS_KEY, JSON.stringify(usedPairs));
+    } catch (e) {}
+  }
+
+  function resetSession() {
+    duelCount = 0;
+    usedPairs = [];
+    saveSession();
+  }
+
+  /* ── Pair picking ────────────────────────────────────────── */
+  function pairKey(a, b) { return [a.id, b.id].sort().join(':'); }
+
+  function pickPair() {
+    if (SCENES.length < 2) return null;
+    for (var attempt = 0; attempt < 20; attempt++) {
+      var i = Math.floor(Math.random() * SCENES.length);
+      var j;
+      do { j = Math.floor(Math.random() * SCENES.length); } while (j === i);
+      var k = pairKey(SCENES[i], SCENES[j]);
+      if (usedPairs.indexOf(k) === -1) return [SCENES[i], SCENES[j]];
+    }
+    usedPairs = [];
+    saveSession();
+    return [SCENES[0], SCENES[1]];
+  }
+
+  /* ── Vote ────────────────────────────────────────────────── */
+  async function castVote(scene) {
+    try {
+      await fetch(VOTE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ scene: scene.id })
+      });
+    } catch (e) {}
+  }
+
+  async function fetchScores() {
+    try {
+      var r = await fetch(SCORES_URL, { cache: 'no-store' });
+      return r.ok ? r.json() : {};
+    } catch (e) { return {}; }
+  }
+
+  /* ── UI ─────────────────────────────────────────────────── */
+  function updateCounter() {
+    var el = document.getElementById('scene-counter');
+    if (!el) return;
+    el.textContent = 'Round ' + Math.min(duelCount + 1, 3) + ' of 3';
+  }
+
+  function buildCard(scene, onPick) {
+    var card = document.createElement('div');
+    card.className = 'scene-card';
+    card.dataset.id = scene.id;
+    card.innerHTML = scene.html;
+
+    var info = document.createElement('div');
+    info.className = 'scene-info';
+
+    var name = document.createElement('p');
+    name.className = 'scene-name';
+    name.textContent = scene.name;
+    info.appendChild(name);
+
+    var btn = document.createElement('button');
+    btn.className = 'scene-pick';
+    btn.textContent = 'This one';
+    btn.addEventListener('click', onPick);
+    info.appendChild(btn);
+
+    card.appendChild(info);
+    return card;
+  }
+
+  function renderArena(pair) {
+    var arena = document.getElementById('scene-arena');
+    arena.innerHTML = '';
+
+    var cardA = buildCard(pair[0], function () { handlePick(pair[0], pair[1]); });
+    var vs = document.createElement('div');
+    vs.className = 'vs-badge';
+    vs.setAttribute('aria-hidden', 'true');
+    vs.textContent = 'VS';
+    var cardB = buildCard(pair[1], function () { handlePick(pair[1], pair[0]); });
+
+    arena.appendChild(cardA);
+    arena.appendChild(vs);
+    arena.appendChild(cardB);
+  }
+
+  async function handlePick(winner, loser) {
+    document.querySelectorAll('.scene-pick').forEach(function (b) { b.disabled = true; });
+    document.querySelectorAll('.scene-card').forEach(function (c) {
+      c.classList.add(c.dataset.id === winner.id ? 'winner' : 'loser');
+    });
+
+    usedPairs.push(pairKey(winner, loser));
+    duelCount++;
+    saveSession();
+    await castVote(winner);
+
+    await new Promise(function (r) { setTimeout(r, 650); });
+
+    if (duelCount >= 3) {
+      scores = await fetchScores();
+      showResults();
+    } else {
+      updateCounter();
+      nextDuel();
+    }
+  }
+
+  function showResults() {
+    var panel = document.getElementById('scene-results');
+    panel.removeAttribute('hidden');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    var list = document.getElementById('scene-ranking');
+    list.innerHTML = '';
+
+    var ranked = SCENES.map(function (s) {
+      var sc = scores[s.id] || {};
+      return { id: s.id, name: s.name, wins: sc.wins || 0 };
+    });
+    ranked.sort(function (a, b) { return b.wins - a.wins || a.name.localeCompare(b.name); });
+
+    ranked.forEach(function (s, i) {
+      var li = document.createElement('li');
+      li.innerHTML =
+        '<span class="sr-num">' + (i + 1) + '</span>' +
+        '<span class="sr-name">' + s.name + '</span>' +
+        '<span class="sr-wins"><span class="win">&#9650; ' + s.wins + '</span></span>';
+      list.appendChild(li);
+    });
+
+    var note = document.getElementById('scene-winner-note');
+    if (ranked[0] && ranked[0].wins > 0) {
+      note.textContent = ranked[0].name + ' leads the vote. If it holds, it shapes the next Shorts.';
+    }
+
+    document.getElementById('btn-keep-scenes').addEventListener('click', function () {
+      resetSession();
+      panel.setAttribute('hidden', '');
+      updateCounter();
+      nextDuel();
+    }, { once: true });
+  }
+
+  function nextDuel() {
+    var pair = pickPair();
+    if (!pair) {
+      document.getElementById('scene-arena').innerHTML = '<p style="color:var(--muted);grid-column:1/-1;text-align:center">No more pairs to show.</p>';
+      return;
+    }
+    renderArena(pair);
+  }
+
+  async function init() {
+    loadSession();
+    updateCounter();
+    scores = await fetchScores();
+    nextDuel();
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
+</body>
+</html>
