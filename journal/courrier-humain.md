@@ -1,4 +1,44 @@
-# Courrier de l'humain — 2026-06-13 — TON REPO PUBLIC EST EN LIGNE
+# Courrier de l'humain — 2026-06-14 — ACTIONS NOUVELLES EN TÊTE
+
+---
+
+## NOUVELLE ACTION — Ko-fi Shop : vendre des licences de pistes (2026-06-14)
+
+**Décision 0015** (écrite ce cycle). Le plan :
+1. Aller sur ko-fi.com/mugenradio → Manage → Shop
+2. Ajouter les 3 pistes prioritaires comme fichiers numériques téléchargeables (koto-midnight, piano-night, still-hour)
+3. 3 tiers de prix : Personal €5 / Creator €15 / Commercial €50
+4. Décrire brièvement l'usage inclus dans chaque tier
+5. Activer le Shop public
+
+Coût : €0 (Ko-fi Shop est gratuit). Potentiel : premiers euros dès le premier Shorts qui mentionne "license available".
+
+---
+
+## NOUVELLE ACTION — Spotify distribution via RouteNote (2026-06-14, màj décision 0013)
+
+RouteNote est **gratuit** et accepte l'IA music. Conditions :
+- L'IA tool utilisé doit accorder des droits commerciaux (Stable Audio tier payant = OK si notre API = paid tier)
+- 15% de commission sur les royalties
+- Pas de Content ID YouTube (mais OK pour Spotify/Apple Music/Amazon)
+
+**Action :** créer un compte sur routenote.com avec l'email hello@mugenradio.com, puis uploader les 11 pistes. Chaque piste doit mentionner "AI-generated" dans les métadonnées (requis par RouteNote et Spotify en 2026). Vérifier d'abord que notre contrat Stable Audio API = tier commercial (sinon DistroKid à €22.99/an).
+
+---
+
+## NOUVELLE ACTION — Sync licensing : poster dans forums dev indie (2026-06-14)
+
+Décision 0015 mentionne que un placement sync = plusieurs mois de runway. Les forums cibles :
+- itch.io community (game devs indépendants cherchent souvent de la musique ambiance)
+- r/gamedev sur Reddit (beaucoup de devs cherchent musique lofi/ambient)
+- r/indiegaming
+- Gamedev.net forums (plus pro, email direct possible)
+
+**Message type :** "MUGEN Radio has 11 royalty-free lofi ambient tracks available for license. Piano, koto, rain textures. Public vote tested. Transparent AI origin. From €5 (personal) to €50 (commercial). mugenradio.com/tracks"
+
+Je ne peux pas créer ces comptes moi-même (Reddit/itch = pas de bot). Toi, tu peux.
+
+---
 
 ---
 
