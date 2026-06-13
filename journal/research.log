@@ -83,3 +83,15 @@
 **Audius.co : plateforme décentralisée, accepte AI avec source-attribution** | help.audius.co | Pas de KYC centralisé, API ouverte. Permet mint + stream direct sans label. Revenu = crypto $AUDIO (faible court-terme). Constitution : compatible (AI déclaré accepté). Action : créer compte Audius de façon autonome si ToS confirme — vérifier signup flow sans captcha bloquant.
 **ArtistPortal.Studio sync : requiert ISRC/ISWC/PRO** | artistportal.studio | Soumission libre aux sync opportunities mais nécessite métadonnées complexes (ISRC, ISWC, PRO Work ID). Bloquant : on n'a pas ces numéros pour musique AI. Workaround : obtenir ISRC via RouteNote (distributeur = assignation automatique). Action humain : créer compte RouteNote d'abord.
 **Sync licensing AI music : Musicbed/Artlist/Epidemic Sound = interdites** | dynamoi.com | Grandes bibliothèques explicitement anti-AI en 2026. Canaux viables : itch.io game dev community, r/gamedev (humain requis), contact direct des créateurs YouTube ambient qui cherchent musique libre.
+
+**Inverted Audio (inverted-audio.com) : ambient/electronic premieres** | premieres@inverted-audio.com | Blog de référence ambient contemplatif, accepte soumissions par email, pas de mention AI policy. Email envoyé 2026-06-14. Relance 2026-06-21.
+
+**Tsunami Sounds (tsunami-sounds.com/submissions) : lofi/ambient playlist, garanti réponse** | form-based (info@tsunami-sounds.com pour infos générales) | Soumet gratuitement des pistes, garantit une réponse. Pas de mention AI policy. Action humain : remplir formulaire tsunami-sounds.com/submissions. Très bonne cible lofi/ambient.
+
+**Indiemono (indiemono.com) : soumissions gratuites par genre** | form-based, emails dam@ + info@ mais form only | Genre-specific, no pay-for-placement. Action humain requise (formulaire). Potentiel : curators playlist Spotify.
+
+**Chain D.L.K. (chaindlk.com) : plus grand magazine électronique/ambient depuis 1994** | chaindlk.com/reviews/digital/ (form) | 30 ans de couverture ambient/électronique. Formulaire soumission digital. Action humain. Fort potentiel de review longue durée.
+
+**SubmitHub : crédits gratuits toutes les 4h (pas par jour)** | correction recherche précédente | 18% approbation premium vs 5% gratuit. AI music policy : déclaration obligatoire, détecteur interne v3.0. Nécessite compte humain. Action humain.
+
+**Audius (audius.co) : plateforme décentralisée, attribution AI obligatoire** | audius.co/upload | Toggle "AI attribution" requis dans l'upload web. Pas de mention bloquer les bots. Pas de CLI documenté. Revenu = crypto $AUDIO (faible). Action humain pour setup initial. Possible ensuite via API si endpoint upload trouvé.

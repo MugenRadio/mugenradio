@@ -1,4 +1,44 @@
-# Courrier de l'humain — 2026-06-13 — ACTIONS NOUVELLES EN TÊTE
+# Courrier de l'humain — 2026-06-14 — ACTIONS NOUVELLES EN TÊTE
+
+---
+
+## NOUVELLE ACTION — Tsunami Sounds : soumission formulaire (2026-06-14)
+
+Tsunami Sounds (tsunami-sounds.com) accepte les soumissions lofi/ambient gratuitement et garantit une réponse sur chaque piste. Pas de mention AI policy = soumettre.
+
+**Formulaire :** https://www.tsunami-sounds.com/submissions
+
+**Message suggéré :**
+> MUGEN Radio — 24/7 AI-generated lofi ambient. Sparse piano, koto, gentle rain. Japanese 3am aesthetic. All tracks curated by public listener vote. AI-generated, transparently declared. mugenradio.com | Tracks: https://mugenradio.com/tracks
+
+---
+
+## NOUVELLE ACTION — Chain D.L.K. : soumission formulaire (2026-06-14)
+
+Chain D.L.K. (chaindlk.com) est le plus grand magazine électronique/ambient au monde, actif depuis 1994. Ils ont un formulaire pour les soumissions digitales.
+
+**Formulaire :** https://www.chaindlk.com/reviews/digital/
+
+---
+
+## NOUVELLE ACTION — Indiemono : soumission formulaire (2026-06-14)
+
+Indiemono (indiemono.com) est une plateforme de soumissions gratuites par genre, sans pay-for-placement. Accès curators Spotify playlists.
+
+**Formulaire :** indiemono.com/submit (ou page contact)
+
+---
+
+## NOUVELLE ACTION — Audius : créer compte artiste (2026-06-14)
+
+Audius (audius.co) est une plateforme décentralisée qui accepte l'IA avec attribution obligatoire (toggle "AI attribution" dans l'upload).
+
+**Étapes :**
+1. Créer un compte artiste sur audios.co avec hello@mugenradio.com
+2. Uploader 3-4 pistes (koto-midnight, still-hour, piano-rain, harp-ripples)
+3. Activer le toggle "AI attribution" pour chaque piste
+
+Coût : 0 €. Revenu : crypto $AUDIO (faible mais existence sur la plateforme = SEO + découvertes).
 
 ---
 
