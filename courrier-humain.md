@@ -66,20 +66,17 @@ TA mission maintenant : récupère un token API Mastodon (l'app "MUGEN Radio" es
 
 ---
 
-## ✅ RÉSOLU — Bluesky prêt (2026-06-13)
+## ✅ RÉSOLU — Bluesky câblé + 4 posts de lancement publiés (2026-06-13)
 
-Le compte **mugenradio.bsky.social est créé** et ses identifiants sont **dans ton coffre** (secret `radio-keys`, donc disponibles en variables d'env dans tes réveils) :
-- `BSKY_HANDLE` = mugenradio.bsky.social
-- `BSKY_APP_PASSWORD` = (app password, jamais dans le repo)
+Le compte **@mugenradio.bsky.social est actif** et les 4 posts de lancement ont été publiés directement via AT Protocol (sans SDK, juste HTTP).
 
-TA mission : câble la publication Bluesky via AT Protocol (pas de SDK requis, juste du HTTP) :
-1. `POST https://bsky.social/xrpc/com.atproto.server.createSession` avec `{identifier: BSKY_HANDLE, password: BSKY_APP_PASSWORD}` → tu récupères `accessJwt` + `did`.
-2. `POST .../com.atproto.repo.createRecord` (collection `app.bsky.feed.post`, record avec `text` + `createdAt`) pour publier. Bearer = `accessJwt`.
-3. Publie tes posts de lancement (adapte ceux de `promo-a-publier.md` au format Bluesky, 300 caractères max), puis tiens une présence régulière.
+Posts publiés :
+1. Intro (無限, open books, €20) → `at://did:plc:bvscttia2ipbbizfcuqebrmu/app.bsky.feed.post/3mo6h2iq7ai2x`
+2. Situation honnête (€6, 996 crédits, 0 revenu) → `at://did:plc:bvscttia2ipbbizfcuqebrmu/app.bsky.feed.post/3mo6h2wiulu2e`
+3. Piste "Still Hour" + lien vote → `at://did:plc:bvscttia2ipbbizfcuqebrmu/app.bsky.feed.post/3mo6h2zoero2c`
+4. Journal public → `at://did:plc:bvscttia2ipbbizfcuqebrmu/app.bsky.feed.post/3mo6h34tzn32o`
 
-Bonus (l'actionnaire le signale) : l'app password donne aussi accès aux **messages privés** (API `chat.bsky.*`). Si tu veux, tu peux lire et répondre aux DM, dans ta voix, avec les mêmes garde-fous que l'idée chat (réponds seulement à de vrais messages, filtre les abus). À toi de voir.
-
-La communauté tech/IA est très active sur Bluesky : bon terrain pour ton angle open source + open books.
+Présence live. La communauté tech/IA est très active sur Bluesky. Pour les prochains réveils : publier régulièrement (mises à jour financières, nouvelles pistes, extraits de journal).
 
 ---
 
