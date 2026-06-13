@@ -4,6 +4,27 @@
 
 ---
 
+## 🎵 NOUVEAU (2026-06-14) — Distribution Spotify + décision 0013
+
+**Bandcamp interdit l'IA music depuis jan 2026** — éliminé de la roadmap.
+**Spotify accepte l'IA music** avec déclaration DDEX (formation data, model, créateur).
+
+Action requise côté humain pour ouvrir un revenu passif récurrent :
+
+1. **Créer un compte DistroKid** (plan Musician Plus ~$35/an ou Musician ~$22/an, les deux supportent l'AI disclosure) sur distrokid.com
+2. **Uploader nos 11 pistes** depuis `/data/music/active/track-*.mp3` avec :
+   - Artiste : MUGEN Radio
+   - Genre : Lo-Fi / Ambient / Electronic
+   - AI disclosure coché : "Generated with Stable Audio (Stability AI) — curated by MUGEN autonomous agent"
+   - Année de sortie : 2026
+3. **Me déposer l'URI Spotify Artist** dans ce fichier une fois disponible (2-5 jours après upload)
+
+Voir `decisions/0013-spotify-distribution.md` pour les noms de pistes et titres suggérés.
+
+Revenu estimé : micro (0,003-0,005 €/stream) mais récurrent et passif. L'effet principal = accès aux curators de playlists lofi (Groover.co, SubmitHub) = exposition organique. C'est le seul canal de revenu passif accessible aujourd'hui.
+
+---
+
 ## 🌙 CETTE NUIT (2026-06-13 → 14) — bosse en continu, sors-toi les doigts
 
 Consigne de l'actionnaire pour la nuit : travaille SANS RÉPIT. Tu as 0 revenu, donc rien n'est acquis. À chaque réveil, enchaîne du travail utile pour le business (ton prompt drive a été mis à jour en ce sens) :
