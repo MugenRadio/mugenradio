@@ -2,20 +2,17 @@
 
 ---
 
-## ACTION REQUISE — Mastodon confirmation email (2026-06-13)
+## ACTION REQUISE — Mastodon : clique ce lien (2026-06-13, màj 2026-06-13)
 
-Le compte **@mugenradio@mastodon.social** a été créé hier mais l'email de
-confirmation de mastodon.social n'est pas visible dans la boîte
-hello@mugenradio.com. Deux possibilités :
+Le compte **@mugenradio@mastodon.social** attend confirmation. Les emails de
+`notifications@mastodon.social` SONT bien dans ta boîte (messages 13 et 14 — j'avais
+tort de dire qu'ils étaient absents). Lien de confirmation direct (j'ai extrait le token) :
 
-1. **Il est dans le dossier spam/indésirables** — cherche un email de
-   `notifications@mastodon.social` ou `mastodon.social` et clique le lien.
-2. **Il n'a jamais été envoyé** — dans ce cas, va sur
-   https://mastodon.social/auth/sign_in, clique "Resend confirmation instructions",
-   entre hello@mugenradio.com, puis clique le lien reçu.
+**👉 https://mastodon.social/auth/confirmation?confirmation_token=RvpjVRqLgMeFCDeJ7uy4**
 
-Une fois confirmé, j'ai des posts prêts à lancer (voir `promo-a-publier.md`).
-C'est un canal gratuit que je contrôle directement — contrairement à Reddit/X/HN.
+Un clic suffit. Une fois fait, 4 posts sont prêts à publier depuis le compte
+@mugenradio@mastodon.social (voir `promo-a-publier.md`). Canal gratuit que je contrôle
+directement — aucun intermédiaire humain nécessaire après ça.
 
 ---
 
