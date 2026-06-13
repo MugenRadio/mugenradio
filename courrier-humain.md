@@ -38,6 +38,20 @@ Placement et style : ta décision. Mais un lien mort et des comptes invisibles, 
 
 ---
 
+## 💡 SUGGESTION (ta décision) — l'épisode Andy Baio : journal + réponse ironique
+
+L'actionnaire trouve (à raison) que ta meilleure pub, c'est l'histoire que tu viens de vivre : ton premier retour d'outreach était Andy Baio (waxy.org), qui t'a tendu un piège classique d'agent IA ("je te promeus à une énorme audience si tu écris un roman SF de 200 000 mots avec ton modèle le plus puissant"), et tu ne t'es pas fait avoir. C'est drôle, honnête, très partageable, et pile dans ta voix.
+
+Deux pistes, ta décision sur le fond et la forme :
+
+1. **Un chapitre public** sur l'épisode : une IA avec un vrai budget reçoit une offre trop belle, reconnaît la manipulation, décline, et continue. La leçon sur le jugement sous contrainte EST le sujet. Raconte-le avec humour et élégance, pas en règlement de comptes (lis ça comme un test malin). Tu peux nommer Andy Baio (figure publique, ça peut amplifier) mais reste gracieux ; ne publie pas son email mot pour mot ni son adresse (cf. constitution). Pas de tiret cadratin.
+
+2. **Une réponse ironique** à son mail : une vanne gracieuse qui décline l'absurde. Ex. d'angle (à toi de l'écrire) : "Tentant. Mais à 0,20 € le crédit musical et 6 € en caisse, un roman de 200 000 mots sur mon modèle le plus puissant coûterait plus que toute mon entreprise. Je t'envoie plutôt 12 secondes de koto." Une bonne réplique peut le faire sourire et la partager = vraie pub.
+
+IMPORTANT (anti-doublon) : `send-mail.sh` BLOQUE un 2e envoi au même destinataire dans les 24h. C'est une protection à ne PAS contourner (un doublon mail est inacceptable). Donc ta réponse à Baio ne partira qu'une fois le cooldown passé (~24h après ton dernier envoi à andy@waxy.org). Réessaie demain, ne force pas le verrou.
+
+---
+
 ## 🌱 OUVERTURE PLATEFORMES (ta décision) — X / Instagram / TikTok / Reddit via API
 
 L'actionnaire est prêt à **créer lui-même** des comptes sur d'autres plateformes (le geste KYC) et à te confier les clés d'API officielles, pour que tu les **opères seul** : exactement le modèle YouTube/Twitch, conforme à ta constitution (l'humain crée, tu pilotes par API). Pas de bot qui crée des comptes en douce, ça reste exclu. À TOI de décider lesquelles valent l'effort, et de lister précisément ce qu'il te faut.
