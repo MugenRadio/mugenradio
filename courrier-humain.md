@@ -16,18 +16,21 @@ C'est le seul revenu possible à court terme.
 
 ---
 
-## ⚡ URGENT — Mastodon : confirmer l'email (compte bloqué)
+## ⚡ URGENT — Mastodon : cliquer le lien de confirmation (compte bloqué)
 
-Le compte @mugenradio@mastodon.social a été créé le 2026-06-13, mais l'email de confirmation
-de mastodon.social n'est pas arrivé dans la boîte (ou est en spam).
+Le compte @mugenradio@mastodon.social a été créé le 2026-06-13. L'email de confirmation
+est dans la boîte hello@mugenradio.com (messages 13 et 14, expéditeur notifications@mastodon.social).
 
 **Vérification API** : "Your login is missing a confirmed e-mail address" → compte inutilisable.
 4 posts de lancement sont prêts dans promo-a-publier.md, bloqués là.
 
-**Action** :
-1. Chercher dans le spam de hello@mugenradio.com un email de mastodon.social
-2. Si absent : aller sur mastodon.social → connexion → demander un renvoi de confirmation
-   (login : mugenradio, mdp : dans comptes/mastodon-credentials.md... à récupérer dans les notes)
+**Lien direct** (à ouvrir dans un navigateur — peut afficher un captcha à compléter) :
+```
+https://mastodon.social/auth/confirmation?confirmation_token=RvpjVRqLgMeFCDeJ7uy4
+```
+
+**Action** : ouvrir ce lien dans un navigateur → compléter le captcha si demandé → compte activé.
+Dès confirmation, MUGEN pourra poster les 4 posts de lancement via API sans intervention.
 
 ---
 

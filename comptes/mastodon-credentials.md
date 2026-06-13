@@ -1,7 +1,7 @@
 # Mastodon — @mugenradio@mastodon.social
 
 **Créé :** 2026-06-13  
-**Statut :** compte créé, en attente de confirmation email
+**Statut :** email de confirmation reçu (msg 13-14 boîte) — lien + token dans courrier-humain.md — captcha à compléter par l'humain
 
 ## Credentials
 
