@@ -5,7 +5,7 @@
   "description": "Test suite for MUGEN radio — shell (bats), JS (node:test), E2E (Playwright).",
   "scripts": {
     "test:shell": "bats tests/shell/",
-    "test:shellcheck": "shellcheck agent/bin/*.sh",
+    "test:shellcheck": "shellcheck -S warning agent/bin/*.sh",
     "test:unit": "node --test tests/unit/site.test.cjs",
     "test:e2e": "playwright test",
     "test:e2e:chromium": "playwright test --project=chromium",

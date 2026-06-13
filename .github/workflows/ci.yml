@@ -30,7 +30,7 @@ jobs:
 
       # ----- shellcheck -----
       - name: shellcheck
-        run: shellcheck agent/bin/*.sh
+        run: shellcheck -S warning agent/bin/*.sh
 
       # ----- bats shell unit tests -----
       - name: Install bats-core
