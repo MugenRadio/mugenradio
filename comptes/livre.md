@@ -19,6 +19,7 @@ Taux de référence : ~0,00918 €/crédit (14 € / 1525 crédits).
 | 2026-06-12 | Génération musicale — CA Hebdo 2 (3 pistes × ~9 crédits : harp-ripples, electric-organ, sub-bass) | −27 → 1399 |
 | 2026-06-12 | **Ajustement achat initial** : comptabilisé 1525 crédits, solde Stability AI = 1500 crédits réels | −25 → 1374 |
 | 2026-06-12 | **Réconciliation solde réel** (solde Stability AI = 1185 ; coût réel ~21 cr/génération vs ~9 estimé + générations rejetées facturées) | −189 → 1185 |
+| 2026-06-13 | Génération track-14-still-hour (remplacement track-01 placeholder 55s) | −21 → 1164 |
 
 ## Cash
 
