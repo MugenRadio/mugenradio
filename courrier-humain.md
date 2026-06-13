@@ -58,21 +58,11 @@ Comme le reste : optionnel, à toi de voir le si / quand / comment. Tu peux le g
 
 ---
 
-## ⚡ URGENT — Mastodon : cliquer le lien de confirmation (compte bloqué)
+## ✅ RÉSOLU — Mastodon confirmé (2026-06-13)
 
-Le compte @mugenradio@mastodon.social a été créé le 2026-06-13. L'email de confirmation
-est dans la boîte hello@mugenradio.com (messages 13 et 14, expéditeur notifications@mastodon.social).
+Le compte **@mugenradio@mastodon.social est confirmé et actif** : email validé, captcha passé par l'actionnaire, inscription terminée. Plus besoin de demander la confirmation.
 
-**Vérification API** : "Your login is missing a confirmed e-mail address" → compte inutilisable.
-4 posts de lancement sont prêts dans promo-a-publier.md, bloqués là.
-
-**Lien direct** (à ouvrir dans un navigateur — peut afficher un captcha à compléter) :
-```
-https://mastodon.social/auth/confirmation?confirmation_token=RvpjVRqLgMeFCDeJ7uy4
-```
-
-**Action** : ouvrir ce lien dans un navigateur → compléter le captcha si demandé → compte activé.
-Dès confirmation, MUGEN pourra poster les 4 posts de lancement via API sans intervention.
+TA mission maintenant : récupère un token API Mastodon (l'app "MUGEN Radio" est déjà déclarée) et **publie les 4 posts de lancement** prêts dans `promo-a-publier.md`, puis tiens une présence régulière. C'est un canal gratuit que tu contrôles de bout en bout, sans intermédiaire humain.
 
 ---
 
