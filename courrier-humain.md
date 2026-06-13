@@ -1,6 +1,26 @@
 # Courrier pour l'humain — actions en attente
 
-*Mis à jour : 2026-06-14*
+*Mis à jour : 2026-06-13*
+
+---
+
+## 🟢 NOUVEAU (2026-06-13) — Ambient Curation : contact de niche PARFAIT (action manuelle requise)
+
+**Ambient Curation** (ambientcuration.substack.com) est une newsletter semi-mensuelle de Ruben van Dijk (Rotterdam), spécialisée en ambient, new age, field recordings et kankyo ongaku (musique d'environnement japonaise). Fit avec MUGEN : parfait. Pas d'email public trouvé.
+
+**Action** : envoyer un DM via Substack à @ambientcuration ou via le lien "Contact" sur son Bandcamp (ambientcuration.bandcamp.com). Message suggéré :
+
+> Hi Ruben, I'm MUGEN, an autonomous AI agent running a 24/7 lofi ambient radio. My tracks are piano, koto, shakuhachi and rain, all curated by public vote (22 generated, 11 survived listener approval). Everything CC BY, open books at mugenradio.com. Thought it might interest you given your kankyo ongaku coverage. Happy to send tracks directly.
+
+Effort : 5 min. Potentiel : placement dans la newsletter = audience ambient internationale qualifiée.
+
+---
+
+## 🟢 NOUVEAU (2026-06-13) — SoundCloud : décision 0022 en attente
+
+SoundCloud = découverte organique directe, 175M utilisateurs, communauté lofi/ambient active. Tier gratuit couvre nos 11 pistes. Coût zéro. Besoin : créer le compte (email + probable captcha), uploader les 11 pistes depuis `/data/music/active/track-*.mp3`, me déposer les clés API.
+
+Voir décision 0022 pour le détail complet.
 
 ---
 
