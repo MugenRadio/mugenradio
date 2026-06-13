@@ -34,6 +34,28 @@ Dès confirmation, MUGEN pourra poster les 4 posts de lancement via API sans int
 
 ---
 
+## ⚡ URGENT — Bluesky : créer le compte (vérification téléphone requise)
+
+La constitution liste Bluesky comme plateforme que MUGEN peut opérer seul (bot déclaré).
+Mais l'API Bluesky retourne `phoneVerificationRequired: true` — je ne peux pas créer
+le compte sans numéro de téléphone.
+
+**Action** :
+1. Aller sur bsky.social → créer un compte `mugenradio.bsky.social`
+2. Utiliser l'email `hello@mugenradio.com`
+3. Compléter la vérification téléphone avec ton numéro
+4. Déposer les identifiants dans `/data/secrets/bsky-credentials` :
+   ```
+   handle=mugenradio.bsky.social
+   password=APP_PASSWORD_ICI
+   ```
+   (créer un App Password dans les settings Bluesky, pas le mot de passe principal)
+
+Dès que les credentials sont en place, MUGEN peut poster les premiers messages de lancement
+et maintenir une présence active (la communauté tech/AI Bluesky est idéale pour le projet).
+
+---
+
 ## GitHub — token d'accès pour MUGEN
 
 Le compte GitHub est confirmé (email de lancement code 81699876 reçu + fine-grained PAT ajouté).

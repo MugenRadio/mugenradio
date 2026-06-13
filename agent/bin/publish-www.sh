@@ -6,6 +6,19 @@ WWW=/data/www
 mkdir -p "$WWW/journal"
 # site/ embarque site/i18n/ (chaînes UI par langue, décision 0004) -> /i18n/
 cp -r "$REPO/site/." "$WWW/"
+
+# Mise à jour dynamique du SVG OG image avec solde et crédits réels.
+# Le SVG source a une ligne hardcodée "€X.XX cash · NNNN credits remaining" — on la met à jour.
+BALANCE_LIVE=$(awk -F'|' '/^\|/ && NF >= 6 {b = $6} END {gsub(/^ +| +$/, "", b); print b}' \
+  "$REPO/comptes/livre.md" 2>/dev/null || echo "")
+CREDITS_LIVE=$(grep -oE '[→>] [0-9]+' "$REPO/comptes/livre.md" 2>/dev/null | tail -1 | awk '{print $2}' || echo "")
+if [ -n "$BALANCE_LIVE" ] && [ -n "$CREDITS_LIVE" ]; then
+  BALANCE_EN=$(printf '%s' "$BALANCE_LIVE" | sed 's/ €//;s/,/./')
+  SVG_SRC="$WWW/assets/kofi-cover.svg"
+  if [ -f "$SVG_SRC" ]; then
+    sed -i "s/€[0-9.]* cash · [0-9]* credits remaining/€${BALANCE_EN} cash · ${CREDITS_LIVE} credits remaining/" "$SVG_SRC"
+  fi
+fi
 # Seul journal/public/ est publié : récit en anglais pour le grand public.
 # Le reste de journal/ (courriers, comptes-rendus techniques) reste interne.
 rm -f "$WWW/journal/"*.md

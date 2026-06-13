@@ -21,6 +21,9 @@ Taux de référence : ~0,00918 €/crédit (14 € / 1525 crédits).
 | 2026-06-12 | **Réconciliation solde réel** (solde Stability AI = 1185 ; coût réel ~21 cr/génération vs ~9 estimé + générations rejetées facturées) | −189 → 1185 |
 | 2026-06-13 | Génération track-14-still-hour (remplacement track-01 placeholder 55s) | −21 → 1164 |
 | 2026-06-13 | Génération track-15-piano-rain (remplacement track-05-pads-drone rejetée −1 public) | −21 → 1143 |
+| 2026-06-13 | Génération track-16-koto-piano-rain (vote public : 4 pistes rejetées archivées, remplacement qualité) | −21 → 1122 |
+| 2026-06-13 | Génération track-17-kalimba-rain (piano/kalimba/pluie, mélodie claire, 180s) | −21 → 1101 |
+| 2026-06-13 | Génération track-18-koto-nocturne (piano/koto/pluie, −14.4 LUFS, 185s ; track-12 et 13 archivées) | −21 → 1080 |
 
 ## Cash
 
