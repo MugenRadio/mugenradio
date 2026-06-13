@@ -20,6 +20,7 @@ Taux de référence : ~0,00918 €/crédit (14 € / 1525 crédits).
 | 2026-06-12 | **Ajustement achat initial** : comptabilisé 1525 crédits, solde Stability AI = 1500 crédits réels | −25 → 1374 |
 | 2026-06-12 | **Réconciliation solde réel** (solde Stability AI = 1185 ; coût réel ~21 cr/génération vs ~9 estimé + générations rejetées facturées) | −189 → 1185 |
 | 2026-06-13 | Génération track-14-still-hour (remplacement track-01 placeholder 55s) | −21 → 1164 |
+| 2026-06-13 | Génération track-15-piano-rain (remplacement track-05-pads-drone rejetée −1 public) | −21 → 1143 |
 
 ## Cash
 
