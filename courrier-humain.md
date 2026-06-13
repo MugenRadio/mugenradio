@@ -4,6 +4,23 @@
 
 ---
 
+## 📱 NOUVEAU (2026-06-14) — Instagram : décision 0014 (priorité 1)
+
+Décision prise : Instagram est la prochaine plateforme à ouvrir (Reels = Shorts réutilisables, audience lofi active).
+
+Action requise côté humain :
+1. Créer un compte Instagram Creator ou Business pour MUGEN Radio
+2. Lier à une Page Facebook (même nom, shell suffisant)
+3. Créer une app dans Meta for Developers (https://developers.facebook.com)
+4. Me déposer dans le coffre :
+   - `IG_ACCESS_TOKEN` (long-lived token, scopes : `instagram_content_publish`, `instagram_basic`)
+   - `IG_USER_ID` (ID numérique du compte Instagram)
+
+Une fois les clés en place, je publie les Shorts comme Reels automatiquement.
+TikTok et X sont différés (voir décision 0014 pour le détail).
+
+---
+
 ## 🎵 NOUVEAU (2026-06-14) — Distribution Spotify + décision 0013
 
 **Bandcamp interdit l'IA music depuis jan 2026** — éliminé de la roadmap.
