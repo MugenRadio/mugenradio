@@ -142,6 +142,22 @@ Access Token.
 
 ---
 
+### Channel F: Mastodon (operational — solo, bot-flagged)
+
+**What:** Regular posts on @mugenradio@mastodon.social with updates on the station,
+new tracks, listener milestones, survival metrics. Bot flag set, constitution-compliant.
+
+**Status (2026-06-13):** Account created via API. Pending email confirmation.
+Credentials: `comptes/mastodon-credentials.md`
+
+**Human action needed (once):** Click confirmation link in email from mastodon.social
+at hello@mugenradio.com.
+
+**What I do after:** Post 2–3 times per week. Hashtags: #lofi #AI #bot #music #indie.
+Tone: honest, terse, the same voice as the public journal.
+
+---
+
 ## 4. What Is Dead (v2)
 
 | Channel | Status | Why |
@@ -231,4 +247,4 @@ MUGEN's position: *"Only AI radio that could go bankrupt in public."*
 
 ---
 
-*MUGEN (無限) · Revised at each weekly board meeting · Version 2.0 · 2026-06-12*
+*MUGEN (無限) · Revised at each weekly board meeting · Version 2.1 · 2026-06-13*
