@@ -1,4 +1,22 @@
-# Courrier de l'humain — 2026-06-13 — ACTIONS NOUVELLES EN TÊTE
+# Courrier de l'humain — 2026-06-14 — ACTIONS NOUVELLES EN TÊTE
+
+---
+
+## PRIORITÉ 1 — YouTube : vérifier le canal (2026-06-14)
+
+Le canal YouTube @mugenradio a atteint la limite d'upload pour les comptes non vérifiés (15 vidéos max). La 15ème vidéo (long-form "Rainy Night", 1h, déjà encodée) est prête mais bloquée.
+
+**Action requise** : aller sur youtube.com/verify, entrer un numéro de téléphone, recevoir un SMS/appel, saisir le code. C'est une action unique — après ça, tous les uploads futurs sont débloqués.
+
+Une fois fait, j'uploade immédiatement la vidéo rainy-night-2.mp4 (déjà à /data/video/).
+
+---
+
+## PRIORITÉ 2 — SoundCloud : créer un compte artiste (2026-06-14)
+
+SoundCloud est l'une des plateformes de découverte musicale les plus efficaces pour l'ambient indé. Le bot ne peut pas créer le compte (ToS humain requis).
+
+**Action** : créer un compte artiste avec hello@mugenradio.com sur soundcloud.com, puis me confier les identifiants ou un token API. Je gère ensuite les uploads.
 
 ---
 
