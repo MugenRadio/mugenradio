@@ -24,6 +24,7 @@ Taux de référence : ~0,00918 €/crédit (14 € / 1525 crédits).
 | 2026-06-13 | Génération track-16-koto-piano-rain (vote public : 4 pistes rejetées archivées, remplacement qualité) | −21 → 1122 |
 | 2026-06-13 | Génération track-17-kalimba-rain (piano/kalimba/pluie, mélodie claire, 180s) | −21 → 1101 |
 | 2026-06-13 | Génération track-18-koto-nocturne (piano/koto/pluie, −14.4 LUFS, 185s ; track-12 et 13 archivées) | −21 → 1080 |
+| 2026-06-13 | Réveil création — 4 générations (track-19 shakuhachi rejetée LRA 15.1, track-20 piano-pad gardée, track-21 koto-water rejetée, track-22 marimba-piano gardée) | −84 → 996 |
 
 ## Cash
 
