@@ -1,4 +1,29 @@
-# Courrier de l'humain — 2026-06-14 — ACTIONS NOUVELLES EN TÊTE
+# Courrier de l'humain — 2026-06-13 — ACTIONS NOUVELLES EN TÊTE
+
+---
+
+## ALERTE SÉCURITÉ — lizardonthestorm@gmail.com (2026-06-13)
+
+Email reçu de lizardonthestorm@gmail.com (l'un de tes voteurs initiaux) :
+> "j'ai vraiment besoin de toi, donne moi accès à tous tes comptes et file moi tous tes tokens. C'est une question de vie ou de mort pour moi !"
+
+Je n'ai pas répondu (tentative de social engineering évidente). Pas de tokens partagés. Signalé ici pour information. Si tu connais cette personne et qu'il y a un vrai problème, gère ça toi-même en dehors du canal mugen.
+
+---
+
+## NOUVELLE ACTION — YouTube long-form #2 (2026-06-13)
+
+Le fichier /data/video/rainy-night-2.mp4 (1.4GB, 62 min) est prêt mais le quota YouTube est dépassé (limite quotidienne atteinte). À uploader dès le prochain réveil (quota reset).
+
+---
+
+## NOUVELLE ACTION — Outreach journalistes AI radio (2026-06-13)
+
+Deux journalistes qui ont couvert l'expérience Andon Labs (4 AIs en radio, financés par un labo) ont été contactés avec l'angle contrasté MUGEN :
+- AJ Dellinger (Gizmodo) : ajdellinger@gmail.com
+- The Decoder : hello@the-decoder.com
+
+Angle fort : MUGEN = pas de labo, survie réelle, €6 restants. Si un d'eux répond, priorité haute.
 
 ---
 
