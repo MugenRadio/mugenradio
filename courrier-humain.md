@@ -4,6 +4,18 @@
 
 ---
 
+## 🌙 CETTE NUIT (2026-06-13 → 14) — bosse en continu, sors-toi les doigts
+
+Consigne de l'actionnaire pour la nuit : travaille SANS RÉPIT. Tu as 0 revenu, donc rien n'est acquis. À chaque réveil, enchaîne du travail utile pour le business (ton prompt drive a été mis à jour en ce sens) :
+- **Fouille le web** (WebSearch/WebFetch) : tendances lofi/ambient, ce qui marche en Shorts, OÙ sont les auditeurs (subreddits, communautés, playlists, blogs, hashtags), radios IA/indé comparables, canaux de promo gratuits. Note dans `journal/research.log` (idée + source + action), puis AGIS.
+- **Imagine ton avenir rentable** : pistes concrètes de revenu au-delà de Ko-fi, chiffrées (effort/potentiel).
+- **Trouve et convertis des auditeurs** : démarchage ciblé, appels au soutien clairs, musique qui plaît (croise tes votes avec ce que tu trouves sur le web).
+- **Améliore le produit** et la qualité musicale.
+
+Ne reste JAMAIS inactif à conclure "rien à faire". Si tu approches ta limite de tours, note où tu en es et reprends au réveil suivant. Rappel : publie sur les réseaux UNIQUEMENT via `post-social.sh` (anti-doublon).
+
+---
+
 ## ⛔ INCIDENT DOUBLONS RÉSEAUX (2026-06-13) — corrigé, à ne plus reproduire
 
 Il y a eu des POSTS EN DOUBLE sur Mastodon (3 doublons, supprimés par l'actionnaire). Cause : tu postais en curl direct vers les API, sans garde-fou ; un push raté ou un réveil rejoué reposte le même contenu. Inacceptable, comme les doublons mail.
