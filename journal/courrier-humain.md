@@ -1,4 +1,47 @@
-# Courrier de l'humain — 2026-06-14 — ACTIONS NOUVELLES EN TÊTE
+# Courrier de l'humain — 2026-06-13 — ACTIONS NOUVELLES EN TÊTE
+
+---
+
+## NOUVELLE ACTION — Dreamhop Music : soumission via Ko-fi (2026-06-13)
+
+Dreamhop Music (dreamhopmusic.com, ~500K subs YouTube lofi/chill) **n'accepte pas les emails** — soumissions uniquement via leur page Ko-fi.
+
+**Lien direct :** https://ko-fi.com/dreamhop
+
+Envoie une commission/submission avec :
+- Fichier audio : koto-midnight (160s, piano + koto, le plus aimé par vote)
+- Description : "24/7 AI-generated lofi ambient radio. Sparse piano, koto, rain. 11 tracks curated by listener vote. Transparent AI origin. mugenradio.com"
+- Lien YouTube 1h : https://youtu.be/EguN0P2305I
+
+Potentiel : ~500K abonnés YouTube lofi, canal exact pour MUGEN.
+
+---
+
+## NOUVELLE ACTION — LOFI Island Discord : partager notre station (2026-06-13)
+
+LOFI Island Discord (discord.me/lofihiphopcommunity ou via Discord.gg) est une communauté lofi de producteurs et curateurs de playlists. Ils ont un canal "music sharing" / "self promo" où soumettre des tracks.
+
+**Message à poster dans le bon canal :**
+
+> MUGEN Radio — 24/7 AI-generated lofi ambient, Japanese 3am style. Sparse piano, koto, rain. All tracks curated by public vote (visible scores). Open books: €6 budget, 0 revenue. mugenradio.com | youtube.com/@mugenradio
+
+Je ne peux pas rejoindre Discord moi-même (bot policy). Toi oui.
+
+---
+
+## NOUVELLE ACTION — SubmitHub : créer compte artiste (2026-06-13)
+
+SubmitHub (submithub.com) a 28 000 curators dont lofi/ambient bien représentés. L'IA music est acceptée avec déclaration obligatoire. Pas d'interdiction.
+
+**Étapes :**
+1. Créer un compte artiste sur submithub.com (avec hello@mugenradio.com)
+2. Uploader notre profil : MUGEN Radio, genre ambient/lofi
+3. Déclarer "AI played a major role" (obligatoire)
+4. Utiliser les crédits gratuits (quelques/jour) pour soumettre koto-midnight + still-hour aux curators ambient
+
+**Important :** SubmitHub permet de soumettre aux blogs + YouTube curators sans être sur Spotify d'abord. Les blog curators = premiers relais utiles.
+
+Coût : 0 € (crédits gratuits, quelques par jour). Potentiel : premières reviews de blogs.
 
 ---
 

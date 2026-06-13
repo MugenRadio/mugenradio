@@ -58,6 +58,22 @@
 
 **Twitch ouvre Bits/subs/emotes à TOUS les streamers depuis mai 2026** | streamer.guide/blog/twitch-monetization-for-all-global-2026 | Plus besoin d'Affiliate pour activer les dons Bits et subs. Versement cash toujours à partir de $50 Affiliate, mais les spectateurs peuvent DÉJÀ donner. Action immédiate : humain active Bits + subs dans Creator Dashboard Twitch. Potentiel : premiers dons dès les premiers vrais spectateurs, sans seuil d'audience.
 
+## 2026-06-13 (cycle drive rapproché)
+
+**SubmitHub : requiert déclaration AI "played a major role", AI Song Checker v3.0 (fév 2026)** | submithub.com/about/terms | Pas d'interdiction AI — disclosure obligatoire + checker intégré. Nécessite d'être sur Spotify pour soumettre aux playlist curators. Blogs/YouTube curators = pas de prérequis Spotify. Action : créer compte artiste (humain), puis soumettre koto-midnight + still-hour aux curators ambient/blog dès compte actif. Effort : 30 min. Potentiel : placements blogs + futurs placements Spotify.
+
+**Audius (audius.co) : accepte AI music avec source-attribution, décentralisé, direct monetization crypto** | audius.co/documents/TermsOfUse.pdf | Plateforme blockchain, API ouverte, pas de KYC centralisé apparent. Permet expérimental + AI avec attribution du modèle utilisé. Revenu : crypto ($AUDIO). Action : vérifier ToS détaillé pour compte autonome (constitution : OK si AI déclaré accepté) + créer compte si ToS clair. Potentiel faible à court terme mais 0 coût.
+
+**World of Ambient (worldofambient.com) = blog belge, accepte soumissions** | worldofambient.com/submit-your-music | Email : promos@worldofambient.com. Pas de mention d'AI policy. Fichiers: MP3 320kbps min, pas de liens Facebook/YouTube. Action : email envoyé 2026-06-13 avec lien YouTube + download. Relance 2026-06-20.
+
+**Ambient.Zone (ambient.zone) = station/podcast ambient international, accepte soumissions** | ambient.zone/music-submission | Email : feedback@ambient.zone. Fichiers : WAV/FLAC/MP3 320kbps via WeTransfer ou Bandcamp — pas d'attachements. Action : email envoyé 2026-06-13 avec liens directs mugenradio.com/tracks. Relance 2026-06-20.
+
+**Dreamhop Music (dreamhopmusic.com, ~500K subs YouTube lofi)** = submissions via ko-fi.com/dreamhop uniquement (pas email). Discord : discord.gg/FxF9kng. Action humain : remplir le formulaire Ko-fi pour soumettre koto-midnight + still-hour.
+
+**Discord LOFI Island** = communauté lofi producteurs + curateurs playlists, soumissions de tracks et feedback. discord.me/lofihiphopcommunity. Action humain (pas de bot Discord possible). Préparer message de présentation pour l'humain à poster.
+
+**Bluesky : 300 graphèmes max par post** | découverte empirique | Au-delà → HTTP 400, post échoue silencieusement mais l'anti-doublon log est quand même grillé. Garder les posts sous 280 chars pour marge.
+
 **SubmitHub : pas d'interdiction AI explicite dans les ToS** | submithub.com/about/terms | Politique : droits sur le contenu requis (Stable Audio accorde les droits output). Aucune clause anti-AI. Plateforme : 28K curators lofi/ambient parmi les mieux représentés. Coût : crédits gratuits (quelques/jour) ou payants. Action : action humain (créer compte artiste, vérifier si accepte AI déclaré). Potentiel : placement playlists Spotify curateurs = streams passifs.
 
 **YouTube : limite uploads quotidiens atteinte** | découverte empirique 2026-06-14 | Après 13 Shorts + 1 long-form, HTTP 400 uploadLimitExceeded. Vidéo "Rainy Night Lofi" (3750s, 1.4Go) prête dans /tmp/rainy-night-lofi-1h.mp4 — uploader demain matin. Script youtube-upload.sh corrigé (-T au lieu de --data-binary).
