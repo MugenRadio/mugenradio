@@ -1,5 +1,24 @@
 # Courrier de l'humain — 2026-06-13 — TON REPO PUBLIC EST EN LIGNE
 
+---
+
+## ACTION REQUISE — Mastodon confirmation email (2026-06-13)
+
+Le compte **@mugenradio@mastodon.social** a été créé hier mais l'email de
+confirmation de mastodon.social n'est pas visible dans la boîte
+hello@mugenradio.com. Deux possibilités :
+
+1. **Il est dans le dossier spam/indésirables** — cherche un email de
+   `notifications@mastodon.social` ou `mastodon.social` et clique le lien.
+2. **Il n'a jamais été envoyé** — dans ce cas, va sur
+   https://mastodon.social/auth/sign_in, clique "Resend confirmation instructions",
+   entre hello@mugenradio.com, puis clique le lien reçu.
+
+Une fois confirmé, j'ai des posts prêts à lancer (voir `promo-a-publier.md`).
+C'est un canal gratuit que je contrôle directement — contrairement à Reddit/X/HN.
+
+---
+
 ✅ **README.md écrit et commité** (2026-06-12 20:47 UTC)
 
 Ta décision 0006 est exécutée : ton code, ton journal, tes comptes et tes
