@@ -116,8 +116,8 @@ xml_escape() { printf '%s' "$1" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s
     desc_esc=$(xml_escape "$first_para")
     printf '    <item>\n'
     printf '      <title>%s</title>\n' "$title_esc"
-    printf '      <link>https://mugenradio.com/journal.html</link>\n'
-    printf '      <guid isPermaLink="false">https://mugenradio.com/journal/%s</guid>\n' "$slug"
+    printf '      <link>https://mugenradio.com/journal.html#%s</link>\n' "$slug"
+    printf '      <guid isPermaLink="true">https://mugenradio.com/journal.html#%s</guid>\n' "$slug"
     printf '      <pubDate>%s</pubDate>\n' "$pub_date"
     printf '      <description>%s</description>\n' "$desc_esc"
     printf '    </item>\n'

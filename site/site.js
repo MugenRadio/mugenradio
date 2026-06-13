@@ -426,6 +426,7 @@ if (typeof document !== "undefined") (function () {
             if (!entry) return;
             var card = document.createElement("article");
             card.className = "entry";
+            card.id = entry.file.replace(/\.md$/, "");
             var date = document.createElement("p");
             date.className = "entry-date";
             date.textContent = dateLabel(entry.file, l);
@@ -445,6 +446,10 @@ if (typeof document !== "undefined") (function () {
           });
           if (!wrap.children.length) {
             message("entries-empty", t("journal.empty", "No entries yet. The station is young."));
+          }
+          if (location.hash) {
+            var target = document.getElementById(location.hash.slice(1));
+            if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         })
         .catch(function () {
