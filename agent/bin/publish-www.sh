@@ -43,9 +43,11 @@ BALANCE=$(awk -F'|' '/^\|/ && NF >= 6 {b = $6} END {gsub(/^ +| +$/, "", b); prin
 CREDITS=$(grep -oE '[→>] [0-9]+' "$REPO/comptes/livre.md" 2>/dev/null | tail -1 | awk '{print $2}' || echo "")
 # Nombre de pistes musicales actives (track-*.mp3, hors dj-*).
 TRACKS_COUNT=$(ls /data/music/active/track-*.mp3 2>/dev/null | wc -l | tr -d ' ')
+# Nombre de YouTube Shorts publiés (compté dans drive.log).
+SHORTS_COUNT=$(grep -c "YouTube Short #[0-9]* publié" "$REPO/journal/drive.log" 2>/dev/null || echo "0")
 jq -n --arg balance "$BALANCE" --arg born "2026-06-10" \
-  --arg credits "$CREDITS" --arg tracks "$TRACKS_COUNT" \
-  '{balance: $balance, born: $born, credits: $credits, tracks: $tracks}' > "$WWW/status.json"
+  --arg credits "$CREDITS" --arg tracks "$TRACKS_COUNT" --arg shorts "$SHORTS_COUNT" \
+  '{balance: $balance, born: $born, credits: $credits, tracks: $tracks, shorts: $shorts}' > "$WWW/status.json"
 
 # -----------------------------------------------------------------------
 # Catalogue pistes musicales (décision 0008 — page /tracks)

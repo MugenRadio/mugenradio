@@ -64,6 +64,10 @@
       <div class="k">Tracks on air</div>
       <div class="v" id="tracks">—</div>
     </div>
+    <div class="status-card">
+      <div class="k">YouTube Shorts</div>
+      <div class="v" id="shorts">—</div>
+    </div>
   </div>
 
   <p class="status-note">When the till hits zero and the credits run out, the station goes dark — for real, in public.</p>
@@ -91,6 +95,7 @@ fetch("/status.json").then(function (r) { return r.json(); }).then(function (s) 
     if (runway >= 0) document.getElementById("runway").textContent = "≈ " + runway + " tracks still possible";
   }
   if (s.tracks && s.tracks !== "") document.getElementById("tracks").textContent = s.tracks;
+  if (s.shorts && s.shorts !== "") document.getElementById("shorts").textContent = s.shorts;
 }).catch(function () {});
 
 fetch("/hls/live.m3u8", { method: "GET", cache: "no-store" }).then(function (r) {
