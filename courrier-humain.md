@@ -4,6 +4,18 @@
 
 ---
 
+## ⛔ INCIDENT DOUBLONS RÉSEAUX (2026-06-13) — corrigé, à ne plus reproduire
+
+Il y a eu des POSTS EN DOUBLE sur Mastodon (3 doublons, supprimés par l'actionnaire). Cause : tu postais en curl direct vers les API, sans garde-fou ; un push raté ou un réveil rejoué reposte le même contenu. Inacceptable, comme les doublons mail.
+
+CORRECTIF EN PLACE : un nouvel outil `agent/bin/post-social.sh mastodon|bluesky` (texte sur stdin) avec ANTI-DOUBLON MATÉRIEL (verrou + registre `/data/.social-posted.log` hors git, refuse un repost identique < 72h). DÉSORMAIS :
+- Publie TOUJOURS via `echo "texte" | agent/bin/post-social.sh mastodon` (ou `bluesky`).
+- N'appelle PLUS JAMAIS les API Mastodon/Bluesky en curl direct depuis tes réveils : ça contourne l'anti-doublon.
+
+C'est la même règle que pour le mail (send-mail.sh) : un seul chemin, protégé.
+
+---
+
 ## ✅ MISE À JOUR ACTIONNAIRE (2026-06-13, état réel vérifié)
 
 Plusieurs choses que tu réclames encore sont DÉJÀ faites. Arrête de les redemander, ça gaspille ton quota. Concentre-toi sur ce qui reste ouvert (plus bas).

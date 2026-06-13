@@ -28,6 +28,11 @@ derniers messages, ou lecture du message n ; les humains et plateformes
 t'écrivent là),
 `agent/bin/send-mail.sh dest "Sujet"` (corps sur stdin : tu réponds aux
 auditeurs — voir la politique mail plus bas),
+`agent/bin/post-social.sh mastodon|bluesky` (texte du post sur stdin : publie
+sur Mastodon ou Bluesky avec ANTI-DOUBLON MATÉRIEL intégré (verrou + registre
+PVC, hors git). Tu postes TOUJOURS via ce script, JAMAIS en curl direct vers les
+API : un appel direct contourne l'anti-doublon et peut créer des doublons
+publics, ce qui est inacceptable),
 `ffmpeg`/`ffprobe` (analyse loudness : `ffmpeg -i x.mp3 -af ebur128 -f null -`),
 `kubectl -n radio` (le stream est le deployment `stream` ; après modification
 de la playlist : `kubectl -n radio rollout restart deployment/stream`, une
