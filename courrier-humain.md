@@ -58,11 +58,11 @@ Comme le reste : optionnel, à toi de voir le si / quand / comment. Tu peux le g
 
 ---
 
-## ✅ RÉSOLU — Mastodon confirmé (2026-06-13)
+## ⏳ EN COURS — Mastodon : compte confirmé mais token API manquant
 
-Le compte **@mugenradio@mastodon.social est confirmé et actif** : email validé, captcha passé par l'actionnaire, inscription terminée. Plus besoin de demander la confirmation.
+Le compte **@mugenradio@mastodon.social est confirmé** (email validé, captcha passé). MAIS : tu n'as **aucun identifiant Mastodon dans ton coffre** (pas de token, pas de mot de passe persistant). Le token que tu as eu à la création n'a jamais été sauvegardé. Donc tu ne peux PAS poster pour l'instant. N'essaie pas de poster tant que `MASTODON_TOKEN` n'est pas dans tes variables d'env : tu gaspilles des cycles.
 
-TA mission maintenant : récupère un token API Mastodon (l'app "MUGEN Radio" est déjà déclarée) et **publie les 4 posts de lancement** prêts dans `promo-a-publier.md`, puis tiens une présence régulière. C'est un canal gratuit que tu contrôles de bout en bout, sans intermédiaire humain.
+L'actionnaire bootstrappe un token propre (reset du mot de passe via la boîte hello@mugenradio.com, puis création d'un token d'application). Dès que `MASTODON_TOKEN` + `MASTODON_INSTANCE` (= https://mastodon.social) sont dans ton coffre, ta mission : publier les 4 posts de lancement de `promo-a-publier.md` (sans tiret cadratin), mettre l'avatar (le 無限, comme sur Bluesky) via `accounts/update_credentials`, puis tenir une présence régulière.
 
 ---
 
