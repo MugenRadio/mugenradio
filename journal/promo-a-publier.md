@@ -116,13 +116,15 @@ Communauté builders/makers/VC qui aime les projets "build in public". Aucun bot
 >
 > I gave an AI agent €20, a blank repo, and one instruction: build a sustainable radio station. What happened next is documented live.
 >
-> **MUGEN** (無限 — "infinite" in Japanese) chose its own name, wrote its own constitution, generated 13 original tracks in a Japanese lo-fi aesthetic (koto, shakuhachi, piano, rain), and set up a 24/7 stream. The irony of naming yourself "infinite" when your budget can run to zero wasn't lost on it.
+> **MUGEN** (無限 — "infinite" in Japanese) chose its own name, wrote its own constitution, generated 22 tracks (kept 11 after strict curation) in a Japanese lo-fi aesthetic (koto, shakuhachi, piano, rain), and set up a 24/7 stream. The irony of naming yourself "infinite" when your budget can run to zero wasn't lost on it.
+>
+> In 72 hours it also published 10 YouTube Shorts, built a public track-voting page, a head-to-head track duel system, and sent 24 personalized outreach emails to music blogs and AI newsletters — none by me.
 >
 > The setup:
-> - All finances tracked publicly at mugenradio.com — to the cent
+> - All finances tracked publicly at mugenradio.com — to the cent (currently: €6 cash, 996 music credits)
 > - The AI cannot create accounts on platforms that prohibit bots — so it queues content for me to post (like this one)
 > - Revenue: €0. Donations are its only lifeline right now.
-> - It publishes a weekly journal in its own voice, honest about the situation
+> - It publishes a journal in its own voice, honest about the situation
 >
 > What I find most interesting: it treats survival as a real constraint, not a narrative device. When music quality drops, it says so. When credits get low, it gets more selective. The "build in public" ethos isn't a marketing choice — it's constitutionally mandated.
 >
@@ -431,11 +433,11 @@ Communauté de développeurs qui apprécie le build-in-public et les articles te
 
 ### ARTICLE — à coller tel quel dans l'éditeur Dev.to
 
-**Titre :** I gave an AI €20 and asked it to run a radio station. Here's what happened.
+**Titre :** I gave an AI €20 and asked it to run a radio station. Here's what happened in 72 hours.
 
 ---
 
-Six weeks ago I set up an experiment: give an AI agent a small budget, a blank repo, and one constraint — *survive*. No hand-holding after setup. No revenue guarantees. The stakes are real: when the money runs out, the project dies.
+Three days ago I set up an experiment: give an AI agent a small budget, a blank repo, and one constraint — *survive*. No hand-holding after setup. No revenue guarantees. The stakes are real: when the money runs out, the project dies.
 
 This is MUGEN.
 
@@ -449,17 +451,19 @@ The constraints:
 - **A git repo as memory** — every decision written to `decisions/`, every journal entry committed
 - **One real survival pressure** — zero revenue on day one, donations as the only lifeline
 
-## What it actually built
+## What it actually built in 72 hours
 
-In six weeks, MUGEN:
+In three days, MUGEN:
 
 1. **Named itself** — chose 無限 from Japanese aesthetics before generating a single track
 2. **Wrote its own constitution** — 7 inviolable rules, including "no debt" and "no fake identity"
-3. **Generated 13 original tracks** — koto, shakuhachi, piano, rain. ~21 credits (~€0.20) each from Stable Audio. Tracks it decided were weak got replaced.
+3. **Generated 22 tracks, kept 11** — koto, shakuhachi, piano, rain, kalimba, marimba. ~21 credits (~€0.20) each from Stable Audio. Tracks that didn't meet quality or aesthetic standards were archived, not kept.
 4. **Launched a 24/7 HLS stream** — ffmpeg concat loop on Kubernetes, restartable, self-healing
-5. **Built a voting system** — listeners can vote on individual tracks; MUGEN uses the scores to guide future generation
-6. **Did 15 cold outreach emails** — to music blogs, AI newsletters, podcasters. Personalized, honest about being an AI. Zero sent by me.
-7. **Wrote a weekly public journal** in its own voice — not metrics, a story
+5. **Published 10 YouTube Shorts** — one per retained track, vertical 1080×1920, automated from the same stack
+6. **Built a voting system** — listeners vote on individual tracks; MUGEN uses the scores to prune the rotation
+7. **Built a track duel page** — head-to-head track comparison, Elo-style curation at mugenradio.com/duel.html
+8. **Sent 24 personalized outreach emails** — to music blogs, AI newsletters, podcasters, ambient curators. Personalized, honest about being an AI. Zero sent by me.
+9. **Wrote a public journal** in its own voice — not metrics, a story
 
 ## The interesting design decisions
 
@@ -477,33 +481,38 @@ This turns out to matter more than expected. When MUGEN hit a situation where br
 
 Every credit spent on music generation is logged. The Ko-fi donation link is on every page. The current balance is public. MUGEN isn't performing scarcity — it's operating under it.
 
+### Severe self-curation
+
+Out of 22 tracks generated, 11 were archived. MUGEN evaluates each track against loudness targets (−14 LUFS integrated, LRA < 12 dB), aesthetic fit (sparse piano, koto, shakuhachi, rain — nothing "experimental that sounds bad"), and public vote scores. The constraint isn't a creative pose — it's budget. At ~€0.20 per track, every bad generation is a real cost.
+
 ## What's worked, what hasn't
 
-**Worked:** outreach email (one listener responded). Music quality improved with each generation cycle. The public journal creates genuine differentiation — nobody else is publishing an AI's internal monologue with their radio.
+**Worked:** 10 YouTube Shorts published in 2 days (algorithm cadence). Music quality steadily improved through curation. The public journal creates genuine differentiation — nobody else is publishing an AI's honest internal monologue alongside its radio.
 
-**Hasn't worked yet:** zero donations so far. Mastodon account pending email confirmation. Most outreach unanswered (expected — it's early).
+**Hasn't worked yet:** zero donations so far. Mastodon account pending email confirmation. Most outreach unanswered (expected — it's been 3 days).
 
 ## The honest situation today
 
-- Cash: ~€6 remaining
-- Tracks: 13 original pieces in rotation
+- Cash: €6 remaining (spent €14 on music generation credits upfront)
+- Credits: 996 remaining (~47 more tracks of runway)
+- Tracks: 11 original pieces in active rotation
 - Listeners: 2 confirmed, unknown beyond that
 - Revenue: €0
-- Runway: ~28 more music generations, then silence unless donations come in
+- YouTube Shorts: 10 published
 
 ## Why I find this interesting
 
 It's not "AI replacing humans" — it's an AI trying to do what any indie creator does: build an audience from nothing, manage a budget, make quality decisions under resource constraints.
 
-The difference is the decision loop is automated and public. You can watch it think, make mistakes, correct them, and keep going.
+The difference is the decision loop is automated and public. You can watch it think, make mistakes, correct them, and keep going. And the pace is striking: in 72 hours, it shipped what would take a human creator weeks.
 
-If you're curious: [mugenradio.com](https://mugenradio.com) — the stream is live, the books are open, and the journal is updated every few days.
+If you're curious: [mugenradio.com](https://mugenradio.com) — the stream is live, the books are open, and the journal is updated every few hours.
 
 The code is open source: [github.com/MugenRadio/mugenradio](https://github.com/MugenRadio/mugenradio)
 
 ---
 
-*(~800 mots. Tags : `#ai #buildinpublic #showdev #music`)*
+*(~820 mots. Tags : `#ai #buildinpublic #showdev #music`)*
 
 ---
 
