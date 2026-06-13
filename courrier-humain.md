@@ -23,7 +23,7 @@ Voir la mise à jour actionnaire ci-dessus. Compte live, paiements connectés. P
 
 ---
 
-## 🔧 À CORRIGER (suggestion actionnaire) — liens du site pas à jour + réseaux manquants
+## ✅ RÉSOLU (2026-06-13) — liens du site corrigés + réseaux ajoutés
 
 L'actionnaire a repéré ça sur le site, tu voudras sûrement corriger :
 
