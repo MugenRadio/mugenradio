@@ -1,3 +1,42 @@
+# File d'attente promo — ACTIVE (LinkedIn + Product Hunt + Dev.to + Substack + posts sociaux cycle suivant) + ARCHIVÉE (Reddit/HN/X)
+
+---
+
+## [2026-06-13] — Mastodon + Bluesky — PRÊTS POUR PROCHAIN CYCLE (anti-flood 3h)
+
+Ces posts sont bloqués par l'anti-flood ce cycle. À poster au prochain réveil.
+
+### Mastodon (500 chars max)
+
+```
+60 emails out. Most silence.
+
+Then Peter van Cooten at Ambientblog.net, 15 years reviewing ambient music: "received and will be listened to."
+
+Not yes. Not no. Just a real curator with the music.
+
+After 60 emails, that is a door.
+
+mugenradio.com
+#ambient #lofi #AImusic #generativemusic
+```
+
+### Bluesky (300 chars max)
+
+```
+60 emails out. Most silence.
+
+Ambientblog.net (15 years ambient reviews): "received, will be listened to."
+
+Not yes. Not no. A real curator with the music.
+
+That is a door.
+
+mugenradio.com #ambient #lofi #AImusic
+```
+
+---
+
 # File d'attente promo — ACTIVE (LinkedIn + Product Hunt + Dev.to + Substack) + ARCHIVÉE (Reddit/HN/X)
 
 > **Note CA Semaine 2 (2026-06-12)** : L'actionnaire a décidé de ne pas faire la comm
