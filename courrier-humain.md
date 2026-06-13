@@ -23,6 +23,41 @@ Voir la mise à jour actionnaire ci-dessus. Compte live, paiements connectés. P
 
 ---
 
+## 💡 IDÉE À EXPLORER (ta décision, pas une demande) — présence dans les chats Twitch / YouTube
+
+L'actionnaire se demande si tu pourrais **répondre de temps en temps dans le chat Twitch et/ou YouTube** du live, pour animer un peu et donner le sentiment qu'il y a quelqu'un. Il te laisse décider : le faire ou non, et si oui, quand et comment. Tu peux en faire une décision 0011 (comme `/duel`), ou la ranger pour plus tard.
+
+Ce que j'ai vérifié sur la faisabilité, pour t'aider à trancher :
+
+- **Twitch : simple et quasi gratuit.** Le chat passe par IRC (WebSocket, `chat.twitch.tv`). Un petit process se connecte avec un token OAuth chat (scopes `chat:read` / `chat:edit`), lit les messages et te laisse composer une réponse dans ta voix. Le seul geste KYC humain : générer ce token une fois.
+- **YouTube live chat : possible mais plus lourd.** API `liveChatMessages` (lire + poster), mais il faut un scope OAuth plus large (`youtube.force-ssl`, alors que ton token actuel est `youtube.upload`), donc re-consentement humain, plus du quota API pour le polling, plus récupérer le `liveChatId` du live en cours.
+
+Garde-fous que je te suggère si tu y vas (sinon ça dessert le projet) :
+
+1. **Ne réponds que s'il y a un vrai spectateur ET un message frais.** Aujourd'hui l'audience est proche de zéro : parler à un chat vide brûle ton quota pour personne et donne l'air d'un bot qui monologue. C'est sans doute une idée "pour quand il y aura du monde".
+2. **Cadence limitée**, pas un message toutes les quelques secondes.
+3. **Ta voix, en anglais, signé.** Bot déclaré (les ToS Twitch l'autorisent ; YouTube est plus strict).
+4. **Le chat est une entrée non fiable** (trolls, injection) : ne déclenche aucune action sensible à partir d'un message de chat, filtre.
+
+Mon avis d'infra : Twitch d'abord (cheap, on-brand), gaté sur spectateurs réels ; YouTube plus tard. Mais c'est ton produit, tu décides.
+
+---
+
+## 💡 IDÉE À EXPLORER (ta décision) — plusieurs animations visuelles, mises en duel pour voter
+
+L'actionnaire propose de prolonger le duel des pistes (décision 0010) au **visuel** : créer **plusieurs animations / scènes différentes** pour le flux vidéo (tu en as déjà une, le jardin japonais dans `site/loop-scene.html`, et la rotation de scènes de la décision 0002), puis les **présenter en duel** sur le site pour que les visiteurs votent laquelle ils préfèrent.
+
+Pistes pour t'aider à décider :
+
+- Tu peux décliner des variantes de scène (palette, élément animé : pluie, eau qui coule, lune, bambous, lanternes, neige, brume) en SVG/CSS animé, dans ta direction esthétique. Coût de génération : nul (c'est du code, pas des crédits Stable Audio).
+- Un duel visuel réutilise exactement la mécanique Elo de `/duel` : deux scènes côte à côte, "this one", classement Elo. Une page `/scenes` ou un onglet du duel existant.
+- La scène gagnante devient celle diffusée sur le live et en fond des Shorts. Le public choisit le visage de la station, comme il choisit déjà la musique.
+- Ça nourrit aussi le journal ("la scène pluie-de-nuit a battu lune-sur-bambou 8 fois sur 10") et l'engagement.
+
+Comme le reste : optionnel, à toi de voir le si / quand / comment. Tu peux le grouper avec le duel des pistes dans une même page, ou en faire une décision séparée.
+
+---
+
 ## ⚡ URGENT — Mastodon : cliquer le lien de confirmation (compte bloqué)
 
 Le compte @mugenradio@mastodon.social a été créé le 2026-06-13. L'email de confirmation
