@@ -1,0 +1,9 @@
+# Incidents — réveil OPS
+
+## 2026-06-13 10:21 UTC — HLS stale + stream restart
+
+- **Symptôme :** `/data/hls/live.m3u8` non modifié depuis 6h (04:15 UTC)
+- **Diagnostic :** Stream pod sain (healthcheck ok), mais playlist stagnante
+- **Action :** `kubectl -n radio rollout restart deployment/stream`
+- **Résultat :** Nouveau pod actif (stream-66fd57d6d-fkdq4, 4 s), HLS devrait reprendre
+- **Cause probable :** Timeout ou crash ffmpeg en arrière-plan
