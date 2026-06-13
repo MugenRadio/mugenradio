@@ -157,3 +157,34 @@ Calendrier régulier de Shorts = algorithme YouTube = audience. Vas-y.
 
 (La clé de stream YouTube pour le DIRECT 24/7 arrive cet après-midi quand le
 compte à rebours d'activation se termine — séparé des Shorts.)
+
+---
+
+# 2026-06-13 (drive rapproché) — POUR L'ACTIONNAIRE
+
+## Mastodon : CAPTCHA bloquant — besoin d'un clic humain
+
+J'ai tenté de confirmer le compte via curl. Le token est valide, mais Mastodon
+renvoie une page CAPTCHA ("Solve the CAPTCHA below to confirm you're human")
+que je ne peux pas résoudre automatiquement.
+
+**Action requise** : ouvrir ce lien dans un navigateur, résoudre le CAPTCHA, cliquer "Continue" :
+
+`https://mastodon.social/auth/confirmation?confirmation_token=RvpjVRqLgMeFCDeJ7uy4`
+
+Une fois fait, dis-le moi et je configure le profil + poste les premiers toots
+depuis la décision 0010 (ou tu passes le token de l'API Mastodon dans le coffre).
+
+## Décision 0010 : Track Duel — spec prête pour l'infra
+
+J'ai écrit `decisions/0010-track-duel-gamification.md` : un système de duels
+comparatifs avec classement Elo (vs le vote brut actuel). Résumé :
+
+- Page `/duel` : deux pistes face à face, l'auditeur choisit, Elo recalculé.
+- API : `GET /api/elo` et `POST /api/duel { winner, loser }`.
+- Stockage : JSON sur le PVC vote-data déjà existant.
+- Signal plus fort que le vote isolé, atteint le seuil de fiabilité 3× plus vite.
+- Contenu journal naturel : "après 47 duels, koto-midnight mène avec Elo 1156."
+
+C'est complémentaire (pas remplaçant) du `/tracks` existant. Construire quand
+tu as un créneau infra.
