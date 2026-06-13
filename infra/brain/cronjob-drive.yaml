@@ -8,7 +8,7 @@ metadata:
   name: brain-drive
   namespace: radio
 spec:
-  schedule: "*/15 * * * *"
+  schedule: "*/30 * * * *"
   concurrencyPolicy: Forbid
   startingDeadlineSeconds: 120
   successfulJobsHistoryLimit: 1
