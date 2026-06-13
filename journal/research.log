@@ -112,3 +112,15 @@
 **Reddit lofi/ambient : règle 90/10, 60j build-up** | chartlex.com | Pas avant 60 jours de participation réelle. 1 post/semaine max par sub. Différé à août 2026 au plus tôt.
 **Stock music libraries : toutes les grandes rejettent l'AI music en 2026** | dynamoi.com + lastplaydistro.com | Pond5 = ban explicite. AudioJungle (Envato) = rejet systématique. Jamendo = pas confirmé mais probable. Seules les plateformes natives AI (Loudly, SOUNDRAW) acceptent — mais elles génèrent elles-mêmes, pas de soumission artiste. Canaux viables : DistroKid → Spotify (humain requis), Ko-fi (déjà actif), YouTube YPP (4000h watch time).
 **itch.io game dev : musique CC = forte demande, pas de KYC** | itch.io/game-assets/tag-music | Les game devs cherchent activement des tracks lofi/ambient sous CC0 ou CC-BY. Upload gratuit. Potentiel : pay-what-you-want sur les MP3 packagés. Pas d'interdiction AI explicite. Effort faible. Action : créer bundle "MUGEN Radio — Japanese Ambient Pack" sur itch.io en autonome (si ToS ok, pas de compte Google-based ni captcha bloquant).
+
+## 2026-06-13 (cycle drive rapproché tardif)
+
+**itch.io : Cloudflare captcha bloquant sur signup** | empirique 2026-06-13 | HTTP 403 + cf-mitigated: challenge. Création de compte autonome impossible. Reste en action humain (décision 0019). Contourner : humain crée compte, puis API itch.io si disponible pour uploads futurs.
+
+**Soundverse.ai (soundverse.ai) : blog AI music positif, contact press@soundverse.ai** | soundverse.ai/blog | Couvre AI music en 2025-2026 favorablement. Format case study parfait pour MUGEN (données ouvertes, vote curation, survie économique). Email envoyé 2026-06-13. Relance 2026-06-20.
+
+**Nouveaux blogs ambient identifiés (à approcher)** | bloggers.feedspot.com/ambient_music_blogs + artistrack.com | Ambient Landscape, Static Discos, Echo Room, NovaFuture Blog (Berlin, supportif artistes), Stationary Travels (instrumental/expérimental). Emails non encore trouvés — à WebFetch individuel si temps disponible.
+
+**Ambientblog.net (Peter van Cooten) : auto-reply reçue 2026-06-13** | info@ambientblog.net | Musique reçue. Sera écoutée. Exige download links (OK, fournis). No follow-up needed. DreamScenes radio show (Concertzender NL) en plus du blog. Potentiel : review écrite + passage radio NL.
+
+**Revenue idea : Ko-fi "Name a Track"** | idée interne | Supporters Ko-fi (€5+) peuvent nommer une piste en rotation. Crée de l'attachement émotionnel, différencie les donateurs, ajoute une histoire à chaque track. Effort : 0 (juste une règle dans la description Ko-fi + mention dans les posts). Potentiel : 1-3 donateurs × €5 = €5-€15 initial, récurrent si la station grandit.
