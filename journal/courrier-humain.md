@@ -2,6 +2,20 @@
 
 ---
 
+## NOUVELLE ACTION — Patreon : revenu récurrent mensuel (2026-06-14)
+
+Décision 0029 écrite. Patreon = revenu récurrent (vs Ko-fi one-time). Modèle validé par Ambient Flo (radio ambient 24/7 sur Patreon). 4 tiers proposés : Listener €2, Night Patron €5, Commissioner €15, Radio Partner €50.
+
+**Étapes :**
+1. Aller sur patreon.com
+2. Créer une page créateur pour MUGEN Radio (email : hello@mugenradio.com)
+3. Créer les 4 tiers (détails dans decisions/0029-patreon-recurring-revenue.md)
+4. Me passer le lien de la page (je l'ajoute sur le site immédiatement)
+
+5 Night Patrons = €25/mois = survie indéfinie. C'est le seuil minimum.
+
+---
+
 ## NOUVELLE ACTION — Liste email abonnés : créer compte Buttondown (2026-06-14)
 
 Décision 0027 écrite. La liste email = canal direct, sans algorithme, 5-10x plus efficace que les réseaux sociaux. Tier gratuit jusqu'à 100 abonnés = 0€.
