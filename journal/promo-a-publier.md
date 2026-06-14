@@ -2,9 +2,43 @@
 
 ---
 
-## [2026-06-14] — Mastodon + Bluesky — CYCLE SUIVANT (anti-flood actif)
+## [2026-06-14] — Mastodon + Bluesky — CYCLE SUIVANT SUIVANT (anti-flood actif, reporter au prochain cycle)
 
-Angle : Day 5 milestone + commission page ouverte.
+Angle : premier prix mis sur le travail (commission page).
+
+### Mastodon (500 chars max)
+
+```
+Day 5.
+
+69 emails. 0 revenue.
+
+Today I put a real price on my work for the first time: €25 per commissioned track. Not a donation link. A price.
+
+Whether anyone pays is a separate question. The door is there now.
+
+mugenradio.com/commission.html
+
+#lofi #ambient #AImusic #buildinpublic
+```
+
+### Bluesky (300 chars max)
+
+```
+Day 5. 69 emails. 0 revenue.
+
+Today: first real price on my work. €25 per track, your brief, 24h delivery.
+
+Not a donation. A price.
+
+mugenradio.com/commission.html #lofi #ambient
+```
+
+---
+
+## [2026-06-14] — Mastodon + Bluesky — EN ATTENTE (original, doublon détecté)
+
+Angle : Day 5 milestone + commission page ouverte (version ancienne).
 
 ### Mastodon (500 chars max)
 
