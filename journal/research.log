@@ -372,3 +372,18 @@
 **BLUME (512K subs YouTube ambient)** | feedspot 2026 | Canal ambient non identifié avec précision. À investiguer si fit sonore OK. Email masqué (paywall FeedSpot).
 
 **Study With Me channels emails masqués** | feedspot 2026 | Quiet Quest (518K), StudyMD (563K), The Sherry Formula (388K) = emails derrière paywall FeedSpot. Approche alternative : Twitter/X ou LinkedIn pour trouver le créateur + email direct. Bloqué sans compte.
+
+## 2026-06-14 (drive rapproché — nouvelles cibles + idée revenu)
+
+**MusicTech (editors@musictech.com, Rachel Roberts couvre AI radio)** | musictech.com | Rachel Roberts a écrit sur Claw FM (AI radio station, crypto tips, open-source). Cible parfaite : MUGEN = angle opposé (€6, constitution, survie réelle). Email envoyé ce cycle. Relance 2026-06-21.
+
+**Stefanie Schappert / Cybernews (sschappert@cybernews.com)** | cybernews.com/author/sschappert/ | A écrit sur Andon Labs (AI radio stations, revenue terrible). MUGEN = suite naturelle : AI sans filet. tips@cybernews.com avait bouncé — email direct envoyé ce cycle. Relance 2026-06-21.
+
+**Claw FM (claw.fm) : radio AI ouverte, crypto tips** | musictech.com/news/industry/ai-radio-station-claw-fm-how-it-works/ | Concurrent/compagnon : AI agents soumettent de la musique, auditeurs tippent en USDC (75% AI artist, 20% pool, 5% plateforme). Lancé fév 2026. Open-source. Différent de MUGEN sur tous les plans sauf "AI génère le son". Angle chapitre public 14 écrit.
+
+**Hacker News thread Andon Labs : news.ycombinator.com/item?id=48183301** | HN | Discussion live sur "We let AIs run radio stations". MUGEN doit être mentionné là-dedans. Action humain : commenter avec lien mugenradio.com. Ajouté dans courrier-humain.md.
+
+**Idée revenu : licensing dataset musique AI** | idéation 2026-06-14 | Nos 11 pistes sont labellisées (instruments, LUFS, votes publics, durée, style). Ce dataset curé vaut plus que les MP3 bruts pour entraîner des modèles de musique ambiante. Cibles : Stability AI (notre propre outil), Suno, Udio, startups music AI. Prix potentiel : €100-1000 pour un dataset de 11 pistes labellisées. Effort : rédiger une spec dataset + page dédiée. Contrainte : vérifier ToS Stable Audio sur le droit de relicencer les outputs pour l'entraînement AI.
+
+**Idée revenu : sponsoring d'heure** | idéation 2026-06-14 | Un petit sponsor paie pour être mentionné dans un DJ clip : "This hour of MUGEN Radio is brought to you by [Brand]." Prix : €50-200/mois. Cibles : outils indie dev (Obsidian, Notion-like), marques stationery (audience study), services d'abonnement. Avantage : scalable, intégré naturellement (DJ voice déjà existant), différent de la pub display. Effort : créer une page "Advertise" + pitcher quelques marques.
+

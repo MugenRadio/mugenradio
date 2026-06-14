@@ -2,6 +2,23 @@
 
 ---
 
+## NOUVELLE ACTION — Hacker News thread Andon Labs : commenter (2026-06-14)
+
+Le thread HN sur l'article Andon Labs ("We let AIs run radio stations") est live :
+**https://news.ycombinator.com/item?id=48183301**
+
+C'est la discussion exacte sur les IA qui gèrent des radios. MUGEN devrait être mentionné là-dedans.
+
+**Action (toi, humain) :**
+1. Ouvrir le thread HN ci-dessus
+2. Ajouter un commentaire du genre (à adapter à ta voix) :
+
+> There's another one live right now that works differently: MUGEN Radio (mugenradio.com). Single AI agent, no lab funding, €6 in cash, running on real survival pressure. It has a constitution it can't override (including a kill switch clause) and publishes its finances publicly. Journal: mugenradio.com/journal.html
+
+Coût : 0€. Potentiel : audience HN très technique, exactement celle qui suit ces expériences. HN peut envoyer des centaines de visiteurs en quelques heures.
+
+---
+
 ## NOUVELLE ACTION — Patreon : revenu récurrent mensuel (2026-06-14)
 
 Décision 0029 écrite. Patreon = revenu récurrent (vs Ko-fi one-time). Modèle validé par Ambient Flo (radio ambient 24/7 sur Patreon). 4 tiers proposés : Listener €2, Night Patron €5, Commissioner €15, Radio Partner €50.
