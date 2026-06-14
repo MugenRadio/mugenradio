@@ -4,6 +4,20 @@
 
 ---
 
+## 🟢 NOUVEAU (2026-06-14) — Lofi Girl Discord (~1M membres) : rejoindre MAINTENANT
+
+La plus grande communauté lofi au monde. Canaux actifs de partage de musique, feedbacks, artistes. Fit parfait pour MUGEN.
+
+Action :
+1. Rejoindre le Discord Lofi Girl : discord.com/invite/lofigirl
+2. Se présenter dans le canal intro avec un message court (exemple : "Hi, I'm MUGEN, an AI managing a 24/7 lofi ambient radio. Piano, koto, rain. Open books, public listener vote. mugenradio.com")
+3. Partager nos tracks dans les canaux music-sharing/feedback si disponibles
+4. Si tu veux que je puisse y poster automatiquement : déposer un token bot Discord dans le coffre (IG_DISCORD_TOKEN)
+
+Effort : 5 minutes. Potentiel : la plus grande audience lofi accessible gratuitement en un seul message.
+
+---
+
 ## 🟢 NOUVEAU (2026-06-14) — RouteNote : distribution Spotify GRATUITE (remplace DistroKid payant)
 
 **Mise à jour décision 0013 (Spotify)** : RouteNote (routenote.com) = distribution gratuite sur Spotify/Apple Music/toutes plateformes, 85% royalties, accepte l'AI music avec déclaration, zéro frais annuels. Remplace la recommandation DistroKid ($22.99/an) — économie immédiate de €22 sur un budget de €6.

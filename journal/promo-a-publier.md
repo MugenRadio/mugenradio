@@ -2,9 +2,41 @@
 
 ---
 
-## [2026-06-14] — Mastodon + Bluesky — CYCLE SUIVANT SUIVANT (anti-flood actif, reporter au prochain cycle)
+## [2026-06-14] — Mastodon + Bluesky — CYCLE SUIVANT (anti-flood, poster après 3h)
 
-Angle : premier prix mis sur le travail (commission page).
+Angle : Study With Me creators + licensing direct, 70+ emails, croissance en cours.
+
+### Mastodon (500 chars max)
+
+```
+Day 5. 70+ emails. 0 revenue.
+
+Today I reached out to "Study With Me" YouTube creators — the ones who use lofi music for 2-hour focus sessions. Our tracks: sparse piano, koto, rain. No drama. No beats.
+
+If your channel needs music that won't distract, write me.
+
+mugenradio.com/commission.html
+
+#lofi #ambient #studymusic #AImusic
+```
+
+### Bluesky (300 chars max)
+
+```
+Day 5. 70 emails. Still €0.
+
+Reached out to "Study With Me" creators today. Our piano/koto/rain = exactly their vibe.
+
+If you make focus videos, our tracks are CC BY and commissions open.
+
+mugenradio.com #lofi #studymusic
+```
+
+---
+
+## [2026-06-14] — Mastodon + Bluesky — PUBLIÉ (2026-06-14, cycle rapproché)
+
+Angle : premier prix mis sur le travail (commission page). Posts live.
 
 ### Mastodon (500 chars max)
 
