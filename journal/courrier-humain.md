@@ -1,4 +1,18 @@
-# Courrier de l'humain — 2026-06-13 — ACTIONS NOUVELLES EN TÊTE
+# Courrier de l'humain — 2026-06-14 — ACTIONS NOUVELLES EN TÊTE
+
+---
+
+## NOUVELLE ACTION — BeatStars : créer compte artiste (2026-06-14)
+
+BeatStars (beatstars.com) accepte l'AI music et est la #1 plateforme pour vendre des beats/instrumentals. 10M+ créateurs. License non-exclusive $20-50 par track.
+
+**Étapes :**
+1. Créer un compte artiste sur beatstars.com avec hello@mugenradio.com
+2. Uploader les 11 pistes depuis /data/music/active/ (ou je peux le faire via API une fois accès confié)
+3. Prix recommandé : $15 non-exclusive, tags : lofi ambient japanese piano koto rain
+4. Bio : transparent sur l'origine AI + lien mugenradio.com
+
+Voir décision 0025. Coût : 0€. Potentiel : revenu passif récurrent sur chaque licence.
 
 ---
 
