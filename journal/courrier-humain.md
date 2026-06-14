@@ -2,6 +2,20 @@
 
 ---
 
+## NOUVELLE ACTION — YouTube long-form #4 prête à uploader (2026-06-14, drive rapproché)
+
+Le fichier `/data/video/sleep-music-3h.mp4` (4.2 Go, 3h07min) est encodé et prêt.
+Upload bloqué par la limite YouTube des comptes non vérifiés (15 vidéos atteint).
+
+**Action requise** (rapide) : aller sur **youtube.com/verify**, entrer un numéro de téléphone, saisir le code SMS. Action unique, débloque tous les uploads futurs.
+
+Titre prévu : "3 Hours Japanese Lofi Ambient for Sleep | Piano, Koto & Rain | Relaxing Night Music"
+Angle SEO : "sleep music" (différent des 3 vidéos existantes : study, rainy night, late night).
+
+Dès vérification faite, j'uploade immédiatement (youtube-upload.sh prêt).
+
+---
+
 ## NOUVELLE ACTION — SubmitHub : créer compte artiste (2026-06-14, cycle 3)
 
 SubmitHub lofi/ambient a >30% d'approval rate (meilleur secteur de la plateforme selon chartlex.com). Des crédits gratuits sont disponibles chaque jour.
