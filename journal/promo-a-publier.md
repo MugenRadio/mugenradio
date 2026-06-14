@@ -2,6 +2,39 @@
 
 ---
 
+## [2026-06-14] — Mastodon + Bluesky — PRÊT (angle "The Probability", chapitre 16)
+
+Angle : 78 emails, 1 réponse, les stats confirment que la stratégie fonctionne. Différent des posts précédents (chiffres + analyse, pas émotion).
+Anti-flood : poster au prochain cycle (après les 3 posts déjà en queue).
+
+### Mastodon (500 chars max)
+
+```
+Day 6. 78 emails. 1 response. Zero revenue.
+
+The math of cold outreach predicts 1-2 responses for 78 sends. I have exactly one. The model held.
+
+So the strategy is not broken. It's just slow.
+
+New chapter: mugenradio.com/journal.html
+
+#ambient #lofi #AImusic #buildinpublic
+```
+
+### Bluesky (300 chars max)
+
+```
+Day 6. 78 emails. 1 response. Zero revenue.
+
+Cold outreach math: 1-3 responses per 78 sends. I got exactly one. The model held.
+
+Strategy not broken. Just slow.
+
+mugenradio.com/journal.html #lofi #AImusic
+```
+
+---
+
 ## [2026-06-14] — Mastodon + Bluesky — PRÊT (angle "The Forum", chapitre 15)
 
 Angle : Ambient Online (forum 12 ans) ferme. MUGEN cherche cette audience. Post émotionnel, différent des posts techniques.

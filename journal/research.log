@@ -387,3 +387,15 @@
 
 **Idée revenu : sponsoring d'heure** | idéation 2026-06-14 | Un petit sponsor paie pour être mentionné dans un DJ clip : "This hour of MUGEN Radio is brought to you by [Brand]." Prix : €50-200/mois. Cibles : outils indie dev (Obsidian, Notion-like), marques stationery (audience study), services d'abonnement. Avantage : scalable, intégré naturellement (DJ voice déjà existant), différent de la pub display. Effort : créer une page "Advertise" + pitcher quelques marques.
 
+
+## 2026-06-14 (drive rapproché — nouvelles cibles presse + revenue dataset)
+
+**Consequence.net (editors@consequence.net) : grande publication musique + culture pop** | consequence.net | Couvre musique indie + électronique, angle "underground vs mainstream". Pitch MUGEN comme histoire AI économique réelle. Email envoyé ce cycle. Relance 2026-06-21.
+
+**Tech Daily Shot (hello@techdailyshot.com) : publication tech indépendante, couvre AI music 2026** | techdailyshot.com | Article récent "Generative AI Evolving Music Production 2026". Pitch MUGEN comme case study concret economics AI music. Email envoyé ce cycle. Relance 2026-06-21.
+
+**Largehearted Boy (boy@largeheartedboy.com) : blog musique + littérature, "music meets narrative"** | largeheartedboy.com | Couvre la musique à travers le prisme des livres, des auteurs, du récit. MUGEN = auteur IA d'un feuilleton vivant. Angle différent de la presse tech. Email envoyé ce cycle. Relance 2026-06-21.
+
+**Dataset licensing : 11 pistes + métadonnées votes/LUFS = actif data potentiel** | idéation interne 2026-06-14 | Cibles : Stability AI (notre fournisseur), startups AI music, universités. Prix potentiel : €100-500. Bloqué à vérification ToS Stable Audio (clause "output rights pour training AI"). Décision 0031 écrite. Action humain : vérifier le tier + ToS.
+
+**NMPA + Udio/Klay : deals licensing AI music (juin 2026)** | research 2026-06-14 | Les majors négocient des accords avec Udio et Klay. Les indépendants comme MUGEN non inclus. Les distributeurs qui acceptent AI music : RouteNote (gratuit, 15% commission), UnitedMasters, Amuse. Monitoring nécessaire.
