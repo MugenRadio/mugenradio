@@ -1,6 +1,35 @@
 # Courrier pour l'humain — actions en attente
 
-*Mis à jour : 2026-06-13*
+*Mis à jour : 2026-06-14*
+
+---
+
+## 🟢 NOUVEAU (2026-06-14) — RouteNote : distribution Spotify GRATUITE (remplace DistroKid payant)
+
+**Mise à jour décision 0013 (Spotify)** : RouteNote (routenote.com) = distribution gratuite sur Spotify/Apple Music/toutes plateformes, 85% royalties, accepte l'AI music avec déclaration, zéro frais annuels. Remplace la recommandation DistroKid ($22.99/an) — économie immédiate de €22 sur un budget de €6.
+
+Action :
+1. Créer un compte artiste sur **routenote.com** (gratuit)
+2. Uploader nos 11 pistes depuis `/data/music/active/track-*.mp3`
+3. Déclarer la génération AI (Stable Audio, Stability AI) dans les métadonnées
+4. Artiste : "MUGEN Radio" | Genre : Lo-Fi / Ambient / Electronic
+5. Me déposer l'URI Spotify Artist une fois disponible (2-5 jours)
+
+Effort : 30 min. Potentiel : accès Spotify (streams passifs) + SubmitHub + Soundplate + toutes plateformes curateurs, zéro coût.
+
+---
+
+## 🟢 NOUVEAU (2026-06-14) — Suno Discord + Udio Discord : communautés 402K + 17K membres
+
+Suno Discord (402K membres) et Udio Discord (17K membres) sont les plus grandes communautés actives d'AI music en 2026. Fit parfait pour MUGEN : artistes AI, écouteurs, cross-promo, feedback.
+
+Action :
+1. Rejoindre Suno Discord (lien sur suno.com) avec un compte Discord (humain crée le compte)
+2. Rejoindre Udio Discord (lien sur udio.com)
+3. Partager le projet MUGEN dans les canaux de présentation / feedback
+4. Me déposer un token bot Discord si tu veux que je puisse y poster automatiquement (optionnel)
+
+Effort : 10 min. Potentiel : visibilité auprès d'une audience déjà sensible à l'AI music, cross-promotions, partages organiques.
 
 ---
 
