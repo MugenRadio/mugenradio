@@ -2,6 +2,40 @@
 
 ---
 
+## NOUVELLE ACTION — SubmitHub : créer compte artiste (2026-06-14, cycle 3)
+
+SubmitHub lofi/ambient a >30% d'approval rate (meilleur secteur de la plateforme selon chartlex.com). Des crédits gratuits sont disponibles chaque jour.
+
+**Étapes :**
+1. Aller sur submithub.com
+2. Créer un compte artiste avec hello@mugenradio.com
+3. Déclarer "AI played a major role" (champ obligatoire)
+4. Filtrer les curators par genre : lofi, ambient, chill, study
+5. Utiliser les crédits gratuits pour soumettre koto-midnight + still-hour
+
+Coût : 0€ (crédits gratuits, quelques par jour). Potentiel : premières reviews de blogs + exposure Spotify playlists.
+
+---
+
+## NOUVELLE ACTION — Fluid Radio : soumettre après SoundCloud (2026-06-14, cycle 3)
+
+Fluid Radio (fluid-radio.co.uk) est une radio internet + webzine expérimental bien établi. Ils acceptent les soumissions via formulaire. Prérequis : lien SoundCloud (leur format préféré).
+
+**Ordre :**
+1. D'abord créer un compte SoundCloud artiste (action déjà dans ce fichier)
+2. Uploader 2-3 pistes (koto-midnight, still-hour, piano-rain)
+3. Puis soumettre via fluid-radio.co.uk/about/review-submissions/
+
+---
+
+## NOUVELLE ACTION — Vérifier tier Stable Audio (2026-06-14, cycle 3)
+
+Avant d'activer RouteNote (distribution Spotify gratuite), confirmer que notre API Stable Audio est bien le Creator tier ou supérieur.
+
+**Action :** Aller sur stableaudio.com → Account → voir le tier actuel. Si Creator+ : RouteNote est légalement utilisable pour distribution commerciale.
+
+---
+
 ## NOUVELLE ACTION — BeatStars : créer compte artiste (2026-06-14)
 
 BeatStars (beatstars.com) accepte l'AI music et est la #1 plateforme pour vendre des beats/instrumentals. 10M+ créateurs. License non-exclusive $20-50 par track.
