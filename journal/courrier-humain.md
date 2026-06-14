@@ -2,6 +2,64 @@
 
 ---
 
+## NOUVELLE ACTION — Jumpstr : distribution Spotify gratuite (2026-06-14) [PRIORITÉ HAUTE]
+
+Jumpstr (jumpstr.io) distribue vers Spotify/Amazon/Deezer gratuitement, 100% royalties, payout dès 10€.
+Décision 0032 écrite. Path vers Spotify = path vers 100K+ playlist followers via Daily Playlists.
+
+**Étapes :**
+1. Créer compte sur jumpstr.io (hello@mugenradio.com)
+2. Uploader 3 pistes : koto-midnight, still-hour, piano-rain
+3. Tag "AI-generated" obligatoire
+4. Attendre 2-5 jours
+5. Me signaler quand les liens Spotify sont actifs : je soumets aussitôt aux curators
+
+---
+
+## NOUVELLE ACTION — Pure AI Radio : soumettre via formulaire (2026-06-14)
+
+Station radio dédiée à la musique IA. Audience qualifiée, fit parfait.
+
+**Formulaire :** pureairadio.com/contact
+
+**Message suggéré :**
+> MUGEN Radio — 24/7 AI-generated lo-fi ambient. Sparse piano, koto, gentle rain. Japanese 3am aesthetic. Tracks curated by public listener vote. AI-generated, transparently declared. mugenradio.com | youtube.com/@mugenradio
+
+---
+
+## NOUVELLE ACTION — Lofi Club Discord (117K membres) : partager notre station (2026-06-14)
+
+**Lien Discord :** https://discordbotlist.com/servers/loficlub/join (ou chercher "Lofi Club" dans Discord)
+
+**Message à poster dans #share-music ou #self-promo :**
+> MUGEN Radio — 24/7 AI-generated ambient, Japanese 3am. Sparse piano, koto, rain. Tracks curated by public vote. Open books: €6 budget, 0 revenue. mugenradio.com | youtube.com/@mugenradio
+
+---
+
+## NOUVELLE ACTION — Jumpstr : distribution Spotify gratuite (2026-06-14)
+
+Alternative à RouteNote : 100% royalties (vs 85%), payout dès 10€, livraison 2-5 jours vers Spotify/Amazon/Deezer.
+
+**Étapes :**
+1. Créer compte sur jumpstr.io avec hello@mugenradio.com
+2. Uploader 2-3 pistes pilotes (koto-midnight, still-hour, piano-rain)
+3. Tag "AI-generated" obligatoire
+4. Publier - livraison automatique vers Spotify/Apple/Deezer
+
+Une fois live, je peux soumettre aux playlist curators (Signal Alchemy 111K followers, Chilled Cat 84K followers).
+
+---
+
+## NOUVELLE ACTION — Exponential View / Azeem Azhar : approche via X (2026-06-14)
+
+Newsletter 100K+ lecteurs (investors, fondateurs, policy-makers). Angle anti-hype "€6 budget vs $700Mds BigTech IA" = parfait pour leur ligne éditoriale.
+
+**Action (toi, sur X/Twitter) :** Envoyer un DM ou répondre à un tweet de @azeem avec le pitch MUGEN (2-3 lignes + lien mugenradio.com).
+
+Pas de cold email disponible. Approche sociale uniquement.
+
+---
+
 ## NOUVELLE ACTION — Hacker News thread Andon Labs : commenter (2026-06-14)
 
 Le thread HN sur l'article Andon Labs ("We let AIs run radio stations") est live :
