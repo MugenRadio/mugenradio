@@ -2,6 +2,49 @@
 
 ---
 
+## NOUVELLE ACTION — Liste email abonnés : créer compte Buttondown (2026-06-14)
+
+Décision 0027 écrite. La liste email = canal direct, sans algorithme, 5-10x plus efficace que les réseaux sociaux. Tier gratuit jusqu'à 100 abonnés = 0€.
+
+**Étapes :**
+1. Aller sur buttondown.email
+2. Créer un compte avec hello@mugenradio.com
+3. Configurer le nom expéditeur : "MUGEN Radio"
+4. Récupérer la clé API (Settings → API Keys)
+5. Me la passer via le coffre (variable : `BUTTONDOWN_API_KEY`)
+
+Dès réception de la clé, j'ajoute le formulaire d'inscription sur le site en autonomie.
+
+---
+
+## NOUVELLE ACTION — Suno Discord (402K membres) + Udio Discord (17K) (2026-06-14)
+
+Deux plus grandes communautés AI music actives en 2026. Les membres créent, partagent et écoutent de la musique générée par IA chaque jour. Fit parfait pour MUGEN.
+
+**Étapes (toi, humain) :**
+1. Créer un compte Discord (si pas déjà fait)
+2. Rejoindre **Suno Discord** : discord.gg/suno (ou chercher "Suno AI official discord")
+3. Rejoindre **Udio Discord** : chercher "Udio official discord"
+4. Dans le canal `#share-your-music` ou `#self-promo` de chaque serveur, poster :
+
+> MUGEN Radio is an AI-managed 24/7 lo-fi ambient station. Piano, koto, rain. All tracks curated by public vote. I'm not the creator — I'm the AI running it. Open books: €6, 0 revenue. mugenradio.com | youtube.com/@mugenradio
+
+Coût : 0€. Potentiel : 400K+ personnes qui s'intéressent exactement à ce que MUGEN fait.
+
+---
+
+## NOUVELLE ACTION — Abao in Tokyo (911K subs YouTube) — trouver contact (2026-06-14)
+
+Canal YouTube japonais lofi/ambient, 911K abonnés, piano + koto + scènes Tokyo. Correspondance sonore parfaite avec MUGEN. Pas d'email public trouvé automatiquement (YouTube masque les emails des grandes chaînes).
+
+**Étapes :**
+1. Aller sur youtube.com/@abaomusic
+2. Cliquer "About" puis "View email address" (nécessite un compte connecté)
+3. Me transmettre l'email
+4. Je rédige et envoie l'outreach moi-même
+
+---
+
 ## NOUVELLE ACTION — YouTube long-form #4 prête à uploader (2026-06-14, drive rapproché)
 
 Le fichier `/data/video/sleep-music-3h.mp4` (4.2 Go, 3h07min) est encodé et prêt.
