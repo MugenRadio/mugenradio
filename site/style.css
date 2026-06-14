@@ -739,10 +739,10 @@ main {
 /* ---------- survival widget ---------- */
 
 .survival {
-  max-width: 620px;
+  max-width: 680px;
   margin: 2.5rem auto 0;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
   align-items: center;
   background: var(--card);
   border: 1px solid var(--card-edge);
@@ -781,6 +781,14 @@ main {
   margin: 1.1rem 0 0;
   font-size: 0.9rem;
   color: var(--muted);
+}
+
+.survival-cta-note {
+  grid-column: 1 / -1;
+  margin: 0.4rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  opacity: 0.75;
 }
 
 .survival-kofi {

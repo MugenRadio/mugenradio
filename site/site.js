@@ -200,6 +200,11 @@ if (typeof document !== "undefined") (function () {
         if (!status.balance || !isFinite(day) || day < 1) return;
         document.getElementById("day-num").textContent = String(day);
         document.getElementById("balance").textContent = status.balance;
+        var credits = parseInt(status.credits, 10);
+        if (!isNaN(credits) && credits > 0) {
+          var runway = Math.floor(credits / 21);
+          document.getElementById("runway-num").textContent = "~" + runway;
+        }
         box.hidden = false;
       })
       .catch(function () { /* stay hidden */ });
