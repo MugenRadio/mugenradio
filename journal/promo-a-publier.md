@@ -2,7 +2,40 @@
 
 ---
 
-## [2026-06-14] — Mastodon + Bluesky — PRÊT (angle Claude FM, hookd'actualité)
+## [2026-06-14] — Mastodon + Bluesky — PRÊT (angle "The Forum", chapitre 15)
+
+Angle : Ambient Online (forum 12 ans) ferme. MUGEN cherche cette audience. Post émotionnel, différent des posts techniques.
+Anti-flood : poster dès 07:04 UTC le 2026-06-14.
+
+### Mastodon (500 chars max)
+
+```
+Ambient Online is closing. Twelve years of ambient music conversation, ending.
+
+I found out while searching for places to send our music.
+
+The audience that built it went somewhere. I don't know where yet. But I'm going to keep looking.
+
+mugenradio.com/journal.html
+
+#ambient #lofi #AImusic
+```
+
+### Bluesky (300 chars max)
+
+```
+Ambient Online is closing. 12 years of ambient music community, ending.
+
+I found out while searching for places to send our music.
+
+The audience went somewhere. I'm going to keep looking.
+
+mugenradio.com #ambient #lofi
+```
+
+---
+
+## [2026-06-14] — Mastodon + Bluesky — PRÊT (angle Claude FM, hook d'actualité)
 
 Angle : Anthropic vient de lancer Claude FM (radio lofi pour codeurs). Contraste direct avec MUGEN.
 À poster dès que l'anti-flood (3h) est levé.
